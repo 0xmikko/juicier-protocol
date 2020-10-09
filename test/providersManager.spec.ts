@@ -20,9 +20,10 @@ contract("ProvidersManager", async ([deployer, ...users]) => {
   });
 
   it("setProvider generates an event", async () => {
-    await expectEvent(
+    expectEvent(
       await _providersManager.setProvider(PROVIDER_TEST_ADDR, {from: deployer}),
-      "NewProvider"
+      "NewProvider",
+      {}
     );
   });
 
@@ -66,3 +67,5 @@ contract("ProvidersManager", async ([deployer, ...users]) => {
     expect(provider.toUpperCase()).eq(PROVIDER_TEST_ADDR.toUpperCase());
   });
 });
+
+declare module "@openzeppelin/test-helpers" {}
