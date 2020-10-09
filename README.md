@@ -1,2 +1,2 @@
 # Juicifi Protocol
-## Juicifi. Decentralized Lending Broker
+Juicifi. Decentralized Lending Broker
