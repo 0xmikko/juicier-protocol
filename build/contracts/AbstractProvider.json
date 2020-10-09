@@ -33,18 +33,29 @@
           "type": "uint256"
         }
       ],
-      "stateMutability": "nonpayable",
+      "stateMutability": "payable",
       "type": "function"
     },
     {
-      "inputs": [],
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
       "name": "withdraw",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"deposit(address,uint256)\":{\"details\":\"Deposit asset to selected lending provider\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol\":\"AbstractProvider\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol\":{\"keccak256\":\"0x59ffe074eea80be7212e25a85613f45d80abfc324c2ffdc453115ff77d03e354\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://474b1831b338f1c8a05a29c9e52eae931dcf352e5434a0ac68a9f05d8d9fb9c2\",\"dweb:/ipfs/QmU1y5gbYRpBEXAGzPkRsF9BSfUekEJJZseZKSFaufNvgo\"]},\"/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol\":{\"keccak256\":\"0x647717de09a554772807b38b20c4d17a08715820a8bdd2126cdf87e6cd2ad993\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://97f530d2cc768d07e03595da73cc956e4e0c64a650d76bf567a9368991f62134\",\"dweb:/ipfs/QmbWXH4RiBTC7deJ5y3x6j1cDemMCw9Cb7S78H6d7dWihx\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"deposit(address,uint256)\":{\"details\":\"Deposit asset to selected lending provider\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol\":\"AbstractProvider\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol\":{\"keccak256\":\"0x1650cfad9010c852bab5b7d018e356e8cf00a6303079afa2de5de1bef381ad78\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://4280c2344739c9e24e268739796646a4925139b370a2eea49b8c0a649063444c\",\"dweb:/ipfs/QmWNrxfJdzWZD3PzXqctvkzSumFdNV6rChWHGnSfDBg6te\"]},\"/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol\":{\"keccak256\":\"0x647717de09a554772807b38b20c4d17a08715820a8bdd2126cdf87e6cd2ad993\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://97f530d2cc768d07e03595da73cc956e4e0c64a650d76bf567a9368991f62134\",\"dweb:/ipfs/QmbWXH4RiBTC7deJ5y3x6j1cDemMCw9Cb7S78H6d7dWihx\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -56,15 +67,15 @@
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol",
     "exportedSymbols": {
       "AbstractProvider": [
-        269
+        386
       ]
     },
-    "id": 270,
+    "id": 387,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 253,
+        "id": 370,
         "literals": [
           "solidity",
           "^",
@@ -77,10 +88,10 @@
       {
         "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol",
         "file": "../interfaces/ILendingProvider.sol",
-        "id": 254,
+        "id": 371,
         "nodeType": "ImportDirective",
-        "scope": 270,
-        "sourceUnit": 217,
+        "scope": 387,
+        "sourceUnit": 272,
         "src": "63:44:7",
         "symbolAliases": [],
         "unitAlias": ""
@@ -92,43 +103,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 255,
+              "id": 372,
               "name": "ILendingProvider",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 216,
+              "referencedDeclaration": 271,
               "src": "147:16:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                "typeIdentifier": "t_contract$_ILendingProvider_$271",
                 "typeString": "contract ILendingProvider"
               }
             },
-            "id": 256,
+            "id": 373,
             "nodeType": "InheritanceSpecifier",
             "src": "147:16:7"
           }
         ],
         "contractDependencies": [
-          216
+          271
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 269,
+        "id": 386,
         "linearizedBaseContracts": [
-          269,
-          216
+          386,
+          271
         ],
         "name": "AbstractProvider",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 258,
+            "id": 375,
             "mutability": "mutable",
             "name": "_name",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 269,
+            "scope": 386,
             "src": "170:21:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -137,7 +148,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 257,
+              "id": 374,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "170:6:7",
@@ -151,25 +162,25 @@
           },
           {
             "body": {
-              "id": 267,
+              "id": 384,
               "nodeType": "Block",
               "src": "237:29:7",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 265,
+                    "id": 382,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 263,
+                      "id": 380,
                       "name": "_name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 258,
+                      "referencedDeclaration": 375,
                       "src": "247:5:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -180,11 +191,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 264,
+                      "id": 381,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 260,
+                      "referencedDeclaration": 377,
                       "src": "255:4:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -197,14 +208,14 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 266,
+                  "id": 383,
                   "nodeType": "ExpressionStatement",
                   "src": "247:12:7"
                 }
               ]
             },
             "documentation": null,
-            "id": 268,
+            "id": 385,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -212,17 +223,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 261,
+              "id": 378,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 260,
+                  "id": 377,
                   "mutability": "mutable",
                   "name": "name",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 268,
+                  "scope": 385,
                   "src": "210:18:7",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -231,7 +242,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 259,
+                    "id": 376,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "210:6:7",
@@ -247,19 +258,19 @@
               "src": "209:20:7"
             },
             "returnParameters": {
-              "id": 262,
+              "id": 379,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "237:0:7"
             },
-            "scope": 269,
+            "scope": 386,
             "src": "198:68:7",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 270,
+        "scope": 387,
         "src": "109:159:7"
       }
     ],
@@ -269,15 +280,15 @@
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol",
     "exportedSymbols": {
       "AbstractProvider": [
-        269
+        386
       ]
     },
-    "id": 270,
+    "id": 387,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 253,
+        "id": 370,
         "literals": [
           "solidity",
           "^",
@@ -290,10 +301,10 @@
       {
         "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol",
         "file": "../interfaces/ILendingProvider.sol",
-        "id": 254,
+        "id": 371,
         "nodeType": "ImportDirective",
-        "scope": 270,
-        "sourceUnit": 217,
+        "scope": 387,
+        "sourceUnit": 272,
         "src": "63:44:7",
         "symbolAliases": [],
         "unitAlias": ""
@@ -305,43 +316,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 255,
+              "id": 372,
               "name": "ILendingProvider",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 216,
+              "referencedDeclaration": 271,
               "src": "147:16:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                "typeIdentifier": "t_contract$_ILendingProvider_$271",
                 "typeString": "contract ILendingProvider"
               }
             },
-            "id": 256,
+            "id": 373,
             "nodeType": "InheritanceSpecifier",
             "src": "147:16:7"
           }
         ],
         "contractDependencies": [
-          216
+          271
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 269,
+        "id": 386,
         "linearizedBaseContracts": [
-          269,
-          216
+          386,
+          271
         ],
         "name": "AbstractProvider",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 258,
+            "id": 375,
             "mutability": "mutable",
             "name": "_name",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 269,
+            "scope": 386,
             "src": "170:21:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -350,7 +361,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 257,
+              "id": 374,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "170:6:7",
@@ -364,25 +375,25 @@
           },
           {
             "body": {
-              "id": 267,
+              "id": 384,
               "nodeType": "Block",
               "src": "237:29:7",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 265,
+                    "id": 382,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 263,
+                      "id": 380,
                       "name": "_name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 258,
+                      "referencedDeclaration": 375,
                       "src": "247:5:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -393,11 +404,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 264,
+                      "id": 381,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 260,
+                      "referencedDeclaration": 377,
                       "src": "255:4:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -410,14 +421,14 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 266,
+                  "id": 383,
                   "nodeType": "ExpressionStatement",
                   "src": "247:12:7"
                 }
               ]
             },
             "documentation": null,
-            "id": 268,
+            "id": 385,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -425,17 +436,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 261,
+              "id": 378,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 260,
+                  "id": 377,
                   "mutability": "mutable",
                   "name": "name",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 268,
+                  "scope": 385,
                   "src": "210:18:7",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -444,7 +455,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 259,
+                    "id": 376,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "210:6:7",
@@ -460,19 +471,19 @@
               "src": "209:20:7"
             },
             "returnParameters": {
-              "id": 262,
+              "id": 379,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "237:0:7"
             },
-            "scope": 269,
+            "scope": 386,
             "src": "198:68:7",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 270,
+        "scope": 387,
         "src": "109:159:7"
       }
     ],
@@ -484,7 +495,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-07T21:06:40.137Z",
+  "updatedAt": "2020-10-09T11:22:24.584Z",
   "devdoc": {
     "methods": {
       "deposit(address,uint256)": {

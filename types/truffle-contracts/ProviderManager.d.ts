@@ -4,74 +4,61 @@
 import BN from "bn.js";
 import { EventData, PastEventOptions } from "web3-eth-contract";
 
-export interface PoolContract extends Truffle.Contract<PoolInstance> {
-  "new"(
-    _providersManager: string,
-    meta?: Truffle.TransactionDetails
-  ): Promise<PoolInstance>;
+export interface ProviderManagerContract
+  extends Truffle.Contract<ProviderManagerInstance> {
+  "new"(meta?: Truffle.TransactionDetails): Promise<ProviderManagerInstance>;
 }
 
 type AllEvents = never;
 
-export interface PoolInstance extends Truffle.ContractInstance {
-  owner(txDetails?: Truffle.TransactionDetails): Promise<string>;
-
-  deposit: {
-    (
-      _provider: string,
-      _reserve: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+export interface ProviderManagerInstance extends Truffle.ContractInstance {
+  setProvider: {
+    (provideContract: string, txDetails?: Truffle.TransactionDetails): Promise<
+      Truffle.TransactionResponse<AllEvents>
+    >;
     call(
-      _provider: string,
-      _reserve: string,
-      _amount: number | BN | string,
+      provideContract: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
-      _provider: string,
-      _reserve: string,
-      _amount: number | BN | string,
+      provideContract: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      _provider: string,
-      _reserve: string,
-      _amount: number | BN | string,
+      provideContract: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
 
-  methods: {
-    owner(txDetails?: Truffle.TransactionDetails): Promise<string>;
+  getProviderOrFail(
+    providerAddress: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<string>;
 
-    deposit: {
+  methods: {
+    setProvider: {
       (
-        _provider: string,
-        _reserve: string,
-        _amount: number | BN | string,
+        provideContract: string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        _provider: string,
-        _reserve: string,
-        _amount: number | BN | string,
+        provideContract: string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
-        _provider: string,
-        _reserve: string,
-        _amount: number | BN | string,
+        provideContract: string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        _provider: string,
-        _reserve: string,
-        _amount: number | BN | string,
+        provideContract: string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
+
+    getProviderOrFail(
+      providerAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

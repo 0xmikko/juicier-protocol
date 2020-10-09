@@ -8,7 +8,7 @@ import "./ProvidersManager.sol";
 
 contract Pool {
     address public owner = msg.sender;
-    ProviderManager internal providerManager;
+    ProvidersManager internal providerManager;
 
 
     /**
@@ -30,7 +30,7 @@ contract Pool {
     }
 
     constructor(address _providersManager) public {
-        providerManager = ProviderManager(_providersManager);
+        providerManager = ProvidersManager(_providersManager);
     }
 
     function deposit(

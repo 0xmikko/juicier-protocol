@@ -22,45 +22,57 @@
           "type": "uint256"
         }
       ],
-      "stateMutability": "nonpayable",
+      "stateMutability": "payable",
       "type": "function"
     },
     {
-      "inputs": [],
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
       "name": "withdraw",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the Lending Provider\",\"methods\":{\"deposit(address,uint256)\":{\"details\":\"Deposit asset to selected lending provider\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol\":\"ILendingProvider\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol\":{\"keccak256\":\"0x59ffe074eea80be7212e25a85613f45d80abfc324c2ffdc453115ff77d03e354\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://474b1831b338f1c8a05a29c9e52eae931dcf352e5434a0ac68a9f05d8d9fb9c2\",\"dweb:/ipfs/QmU1y5gbYRpBEXAGzPkRsF9BSfUekEJJZseZKSFaufNvgo\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the Lending Provider\",\"methods\":{\"deposit(address,uint256)\":{\"details\":\"Deposit asset to selected lending provider\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol\":\"ILendingProvider\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol\":{\"keccak256\":\"0x1650cfad9010c852bab5b7d018e356e8cf00a6303079afa2de5de1bef381ad78\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://4280c2344739c9e24e268739796646a4925139b370a2eea49b8c0a649063444c\",\"dweb:/ipfs/QmWNrxfJdzWZD3PzXqctvkzSumFdNV6rChWHGnSfDBg6te\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.6.10;\n\n/**\n * @dev Interface of the Lending Provider\n */\ninterface ILendingProvider {\n    /**\n     * @dev Deposit asset to selected lending provider\n     */\n\n    function deposit(address _reserve, uint256 _amount)\n        external\n        returns (uint256);\n\n    function withdraw() external;\n}\n",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\n/**\n * @dev Interface of the Lending Provider\n */\ninterface ILendingProvider {\n    /**\n     * @dev Deposit asset to selected lending provider\n     */\n\n    function deposit(address _reserve, uint256 _amount)\n        payable external\n        returns (uint256);\n\n    function withdraw(address _reserve, uint256 _amount) external;\n}\n",
   "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol",
   "ast": {
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol",
     "exportedSymbols": {
       "ILendingProvider": [
-        216
+        271
       ]
     },
-    "id": 217,
+    "id": 272,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 201,
+        "id": 252,
         "literals": [
           "solidity",
+          "^",
           "0.6",
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:23:5"
+        "src": "37:24:5"
       },
       {
         "abstract": false,
@@ -68,15 +80,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 202,
+          "id": 253,
           "nodeType": "StructuredDocumentation",
-          "src": "62:49:5",
+          "src": "63:49:5",
           "text": " @dev Interface of the Lending Provider"
         },
         "fullyImplemented": false,
-        "id": 216,
+        "id": 271,
         "linearizedBaseContracts": [
-          216
+          271
         ],
         "name": "ILendingProvider",
         "nodeType": "ContractDefinition",
@@ -84,13 +96,13 @@
           {
             "body": null,
             "documentation": {
-              "id": 203,
+              "id": 254,
               "nodeType": "StructuredDocumentation",
-              "src": "145:66:5",
+              "src": "146:66:5",
               "text": " @dev Deposit asset to selected lending provider"
             },
             "functionSelector": "47e7ef24",
-            "id": 212,
+            "id": 263,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -98,18 +110,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 208,
+              "id": 259,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 205,
+                  "id": 256,
                   "mutability": "mutable",
                   "name": "_reserve",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 212,
-                  "src": "234:16:5",
+                  "scope": 263,
+                  "src": "235:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -117,10 +129,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 204,
+                    "id": 255,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "234:7:5",
+                    "src": "235:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -132,13 +144,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 207,
+                  "id": 258,
                   "mutability": "mutable",
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 212,
-                  "src": "252:15:5",
+                  "scope": 263,
+                  "src": "253:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -146,10 +158,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 206,
+                    "id": 257,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "252:7:5",
+                    "src": "253:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -159,21 +171,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "233:35:5"
+              "src": "234:35:5"
             },
             "returnParameters": {
-              "id": 211,
+              "id": 262,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 210,
+                  "id": 261,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 212,
-                  "src": "303:7:5",
+                  "scope": 263,
+                  "src": "312:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -181,10 +193,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 209,
+                    "id": 260,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "303:7:5",
+                    "src": "312:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -194,19 +206,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "302:9:5"
+              "src": "311:9:5"
             },
-            "scope": 216,
-            "src": "217:95:5",
-            "stateMutability": "nonpayable",
+            "scope": 271,
+            "src": "218:103:5",
+            "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": null,
             "documentation": null,
-            "functionSelector": "3ccfd60b",
-            "id": 215,
+            "functionSelector": "f3fef3a3",
+            "id": 270,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -214,50 +226,109 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 213,
+              "id": 268,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "335:2:5"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 265,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 270,
+                  "src": "345:16:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 264,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "345:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 267,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 270,
+                  "src": "363:15:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 266,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "363:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "344:35:5"
             },
             "returnParameters": {
-              "id": 214,
+              "id": 269,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "346:0:5"
+              "src": "388:0:5"
             },
-            "scope": 216,
-            "src": "318:29:5",
+            "scope": 271,
+            "src": "327:62:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 217,
-        "src": "112:237:5"
+        "scope": 272,
+        "src": "113:278:5"
       }
     ],
-    "src": "37:313:5"
+    "src": "37:355:5"
   },
   "legacyAST": {
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol",
     "exportedSymbols": {
       "ILendingProvider": [
-        216
+        271
       ]
     },
-    "id": 217,
+    "id": 272,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 201,
+        "id": 252,
         "literals": [
           "solidity",
+          "^",
           "0.6",
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:23:5"
+        "src": "37:24:5"
       },
       {
         "abstract": false,
@@ -265,15 +336,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 202,
+          "id": 253,
           "nodeType": "StructuredDocumentation",
-          "src": "62:49:5",
+          "src": "63:49:5",
           "text": " @dev Interface of the Lending Provider"
         },
         "fullyImplemented": false,
-        "id": 216,
+        "id": 271,
         "linearizedBaseContracts": [
-          216
+          271
         ],
         "name": "ILendingProvider",
         "nodeType": "ContractDefinition",
@@ -281,13 +352,13 @@
           {
             "body": null,
             "documentation": {
-              "id": 203,
+              "id": 254,
               "nodeType": "StructuredDocumentation",
-              "src": "145:66:5",
+              "src": "146:66:5",
               "text": " @dev Deposit asset to selected lending provider"
             },
             "functionSelector": "47e7ef24",
-            "id": 212,
+            "id": 263,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -295,18 +366,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 208,
+              "id": 259,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 205,
+                  "id": 256,
                   "mutability": "mutable",
                   "name": "_reserve",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 212,
-                  "src": "234:16:5",
+                  "scope": 263,
+                  "src": "235:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -314,10 +385,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 204,
+                    "id": 255,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "234:7:5",
+                    "src": "235:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -329,13 +400,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 207,
+                  "id": 258,
                   "mutability": "mutable",
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 212,
-                  "src": "252:15:5",
+                  "scope": 263,
+                  "src": "253:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -343,10 +414,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 206,
+                    "id": 257,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "252:7:5",
+                    "src": "253:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -356,21 +427,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "233:35:5"
+              "src": "234:35:5"
             },
             "returnParameters": {
-              "id": 211,
+              "id": 262,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 210,
+                  "id": 261,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 212,
-                  "src": "303:7:5",
+                  "scope": 263,
+                  "src": "312:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -378,10 +449,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 209,
+                    "id": 260,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "303:7:5",
+                    "src": "312:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -391,19 +462,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "302:9:5"
+              "src": "311:9:5"
             },
-            "scope": 216,
-            "src": "217:95:5",
-            "stateMutability": "nonpayable",
+            "scope": 271,
+            "src": "218:103:5",
+            "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": null,
             "documentation": null,
-            "functionSelector": "3ccfd60b",
-            "id": 215,
+            "functionSelector": "f3fef3a3",
+            "id": 270,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -411,29 +482,87 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 213,
+              "id": 268,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "335:2:5"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 265,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 270,
+                  "src": "345:16:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 264,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "345:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 267,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 270,
+                  "src": "363:15:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 266,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "363:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "344:35:5"
             },
             "returnParameters": {
-              "id": 214,
+              "id": 269,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "346:0:5"
+              "src": "388:0:5"
             },
-            "scope": 216,
-            "src": "318:29:5",
+            "scope": 271,
+            "src": "327:62:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 217,
-        "src": "112:237:5"
+        "scope": 272,
+        "src": "113:278:5"
       }
     ],
-    "src": "37:313:5"
+    "src": "37:355:5"
   },
   "compiler": {
     "name": "solc",
@@ -441,7 +570,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-07T21:06:40.137Z",
+  "updatedAt": "2020-10-09T11:22:24.582Z",
   "devdoc": {
     "details": "Interface of the Lending Provider",
     "methods": {

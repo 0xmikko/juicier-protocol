@@ -1,20 +1,20 @@
 // SPDX-License-Identifier: agpl-3.0
-pragma solidity 0.6.10;
+pragma solidity ^0.6.10;
 import "./AbstractProvider.sol";
 // Import interface for ERC20 standard
 import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
-import "./aave-protocol/contracts/lendingpool/LendingPool.sol";
-import "./aave-protocol/contracts/lendingpool/LendingPoolCore.sol";
+import "./aave-protocol/ILendingPool.sol";
+import "./aave-protocol/ILendingPoolCore.sol";
 
 contract AaveProvider is AbstractProvider("Aave") {
-    LendingPool private lendingPool;
-    LendingPoolCore private lendingPoolCore;
+    address private lendingPoolAddress;
+    address private lendingPoolCoreAddress;
 
     constructor(address _lendingPoolAddress, address _lendingPoolCoreAddress)
         public
     {
-        lendingPool = LendingPool(_lendingPoolAddress);
-        lendingPoolCore = LendingPool(_lendingPoolCoreAddress);
+        lendingPoolAddress = _lendingPoolAddress;
+        lendingPoolCoreAddress = _lendingPoolCoreAddress;
     }
 
     function deposit(address _reserve, uint256 _amount)
@@ -31,13 +31,21 @@ contract AaveProvider is AbstractProvider("Aave") {
         uint16 referral = 0;
 
         // Approve LendingPool contract to move your DAI
-        IERC20(daiAddress).approve(lendingPoolCore.address, amount);
+        IERC20(daiAddress).approve(lendingPoolCoreAddress, _amount);
 
         // Deposit 1000 DAI
-        lendingPool.deposit(_reserve, _amount, referral);
+        getLendingPool().deposit(_reserve, _amount, referral);
     }
 
     function withdraw(address _reserve, uint256 _amount) external override {}
 
-    function getReserveData)
+    function getLendingPool() internal returns (ILendingPool) {
+        return ILendingPool(lendingPoolAddress);
+    }
+
+    function getLendingPoolCore() internal returns (ILendingPoolCore) {
+        return ILendingPoolCore(lendingPoolCoreAddress);
+    }
+
+    // function getReserveData)
 }

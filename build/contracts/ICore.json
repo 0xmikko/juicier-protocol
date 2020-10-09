@@ -25,35 +25,35 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"lendingProvider\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ICore.sol\":\"ICore\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ICore.sol\":{\"keccak256\":\"0x4d569c3d652d08e0fb7d9da1a5bc0cb93bbd5e1f75e3ee7c7519e1394e6d05ae\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://4841dd0cf21f8105a24ac7c900a8a5507464d44be0f7b6bd193bba88a9e7924d\",\"dweb:/ipfs/QmWcr5vzZ4uYk4NCxk3uxk4qMqjeroDcWqVgwL1Hpjk6co\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"lendingProvider\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ICore.sol\":\"ICore\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ICore.sol\":{\"keccak256\":\"0x0b40d2e7115a3fa16099902509f1fbdb0dab1c232fa9bf8fc530e48f531829ac\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://1cc9c113c0df8b0e6fd5ddae49bea1a81898a804d5ddd0a92968cf14e3276f61\",\"dweb:/ipfs/QmWZfMmezdkydpbrw5a1vkcna4fmAeLpnfjZSLVvSn9EUN\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity >=0.6.10;\n\ninterface ICore {\n     function deposit(address lendingProvider, address asset, uint256 amount) external;\n}",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\ninterface ICore {\n     function deposit(address lendingProvider, address asset, uint256 amount) external;\n}",
   "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ICore.sol",
   "ast": {
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ICore.sol",
     "exportedSymbols": {
       "ICore": [
-        199
+        250
       ]
     },
-    "id": 200,
+    "id": 251,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 189,
+        "id": 240,
         "literals": [
           "solidity",
-          ">=",
+          "^",
           "0.6",
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:25:4"
+        "src": "37:24:4"
       },
       {
         "abstract": false,
@@ -62,9 +62,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 199,
+        "id": 250,
         "linearizedBaseContracts": [
-          199
+          250
         ],
         "name": "ICore",
         "nodeType": "ContractDefinition",
@@ -73,7 +73,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "8340f549",
-            "id": 198,
+            "id": 249,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -81,18 +81,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 196,
+              "id": 247,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 191,
+                  "id": 242,
                   "mutability": "mutable",
                   "name": "lendingProvider",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 198,
-                  "src": "104:23:4",
+                  "scope": 249,
+                  "src": "103:23:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -100,10 +100,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 190,
+                    "id": 241,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "104:7:4",
+                    "src": "103:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -115,13 +115,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 193,
+                  "id": 244,
                   "mutability": "mutable",
                   "name": "asset",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 198,
-                  "src": "129:13:4",
+                  "scope": 249,
+                  "src": "128:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -129,10 +129,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 192,
+                    "id": 243,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "129:7:4",
+                    "src": "128:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -144,13 +144,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 195,
+                  "id": 246,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 198,
-                  "src": "144:14:4",
+                  "scope": 249,
+                  "src": "143:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -158,10 +158,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 194,
+                    "id": 245,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "144:7:4",
+                    "src": "143:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -171,48 +171,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "103:56:4"
+              "src": "102:56:4"
             },
             "returnParameters": {
-              "id": 197,
+              "id": 248,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "168:0:4"
+              "src": "167:0:4"
             },
-            "scope": 199,
-            "src": "87:82:4",
+            "scope": 250,
+            "src": "86:82:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 200,
-        "src": "64:107:4"
+        "scope": 251,
+        "src": "63:107:4"
       }
     ],
-    "src": "37:134:4"
+    "src": "37:133:4"
   },
   "legacyAST": {
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ICore.sol",
     "exportedSymbols": {
       "ICore": [
-        199
+        250
       ]
     },
-    "id": 200,
+    "id": 251,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 189,
+        "id": 240,
         "literals": [
           "solidity",
-          ">=",
+          "^",
           "0.6",
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:25:4"
+        "src": "37:24:4"
       },
       {
         "abstract": false,
@@ -221,9 +221,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 199,
+        "id": 250,
         "linearizedBaseContracts": [
-          199
+          250
         ],
         "name": "ICore",
         "nodeType": "ContractDefinition",
@@ -232,7 +232,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "8340f549",
-            "id": 198,
+            "id": 249,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -240,18 +240,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 196,
+              "id": 247,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 191,
+                  "id": 242,
                   "mutability": "mutable",
                   "name": "lendingProvider",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 198,
-                  "src": "104:23:4",
+                  "scope": 249,
+                  "src": "103:23:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -259,10 +259,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 190,
+                    "id": 241,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "104:7:4",
+                    "src": "103:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -274,13 +274,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 193,
+                  "id": 244,
                   "mutability": "mutable",
                   "name": "asset",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 198,
-                  "src": "129:13:4",
+                  "scope": 249,
+                  "src": "128:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -288,10 +288,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 192,
+                    "id": 243,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "129:7:4",
+                    "src": "128:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -303,13 +303,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 195,
+                  "id": 246,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 198,
-                  "src": "144:14:4",
+                  "scope": 249,
+                  "src": "143:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -317,10 +317,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 194,
+                    "id": 245,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "144:7:4",
+                    "src": "143:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -330,26 +330,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "103:56:4"
+              "src": "102:56:4"
             },
             "returnParameters": {
-              "id": 197,
+              "id": 248,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "168:0:4"
+              "src": "167:0:4"
             },
-            "scope": 199,
-            "src": "87:82:4",
+            "scope": 250,
+            "src": "86:82:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 200,
-        "src": "64:107:4"
+        "scope": 251,
+        "src": "63:107:4"
       }
     ],
-    "src": "37:134:4"
+    "src": "37:133:4"
   },
   "compiler": {
     "name": "solc",
@@ -357,7 +357,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-07T21:06:40.136Z",
+  "updatedAt": "2020-10-09T11:22:24.582Z",
   "devdoc": {
     "methods": {}
   },

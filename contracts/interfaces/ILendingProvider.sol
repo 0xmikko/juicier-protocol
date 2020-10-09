@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: agpl-3.0
-pragma solidity 0.6.10;
+pragma solidity ^0.6.10;
 
 /**
  * @dev Interface of the Lending Provider

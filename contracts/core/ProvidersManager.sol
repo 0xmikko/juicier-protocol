@@ -10,7 +10,7 @@ import "../interfaces/ILendingProvider.sol";
  * @author Mikhail Lazarev, github.com/MikaelLazarev
  */
 
-contract ProviderManager is Ownable {
+contract ProvidersManager is Ownable {
     mapping(address => address) providers;
     address[] providersList;
 
