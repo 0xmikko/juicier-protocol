@@ -1,4 +1,5 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: agpl-3.0
+pragma solidity 0.6.10;
 
 contract AddressStorage {
     mapping(bytes32 => address) private addresses;

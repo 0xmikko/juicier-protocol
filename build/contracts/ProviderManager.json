@@ -1,0 +1,898 @@
+{
+  "contractName": "ProviderManager",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "provideContract",
+          "type": "address"
+        }
+      ],
+      "name": "setProvider",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "providerAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getProviderOrFail",
+      "outputs": [
+        {
+          "internalType": "contract ILendingProvider",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"providerAddress\",\"type\":\"address\"}],\"name\":\"getProviderOrFail\",\"outputs\":[{\"internalType\":\"contract ILendingProvider\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"provideContract\",\"type\":\"address\"}],\"name\":\"setProvider\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/core/ProvidersManager.sol\":\"ProviderManager\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/core/ProvidersManager.sol\":{\"keccak256\":\"0xc0076065427c98cfa4497a50cb6304168e438ca857cdde812a309471d97d8fc9\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://639d5551f97e9ee8ab5fd4399b62d9aa3b1eccc5e322b1102d8bc4556def0e68\",\"dweb:/ipfs/QmPjpzGqhpTv6G1iistX3MVnad4VbT1tsXJBXUGSCjb9Je\"]},\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol\":{\"keccak256\":\"0x59ffe074eea80be7212e25a85613f45d80abfc324c2ffdc453115ff77d03e354\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://474b1831b338f1c8a05a29c9e52eae931dcf352e5434a0ac68a9f05d8d9fb9c2\",\"dweb:/ipfs/QmU1y5gbYRpBEXAGzPkRsF9BSfUekEJJZseZKSFaufNvgo\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610221806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063c49c7d8a1461003b578063cfd8d6c0146100bf575b600080fd5b61007d6004803603602081101561005157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610103565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610101600480360360208110156100d557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061016b565b005b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b806000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fea26469706673582212209288fb3815a8b78fde667c2d5b8c07e65d78c1b4a0fdc136714a37c69d0a08ba64736f6c634300060a0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c8063c49c7d8a1461003b578063cfd8d6c0146100bf575b600080fd5b61007d6004803603602081101561005157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610103565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610101600480360360208110156100d557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061016b565b005b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b806000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fea26469706673582212209288fb3815a8b78fde667c2d5b8c07e65d78c1b4a0fdc136714a37c69d0a08ba64736f6c634300060a0033",
+  "immutableReferences": {},
+  "sourceMap": "109:441:2:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "109:441:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;331:217;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;193:132;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;331:217;404:16;515:9;:26;525:15;515:26;;;;;;;;;;;;;;;;;;;;;;;;;508:33;;331:217;;;:::o;193:132::-;302:15;256:9;:26;266:15;256:26;;;;;;;;;;;;;;;;:62;;;;;;;;;;;;;;;;;;193:132;:::o",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\nimport \"../interfaces/ILendingProvider.sol\";\n\ncontract ProviderManager {\n    mapping(address => ILendingProvider) providers;\n\n    function setProvider(address provideContract) public {\n        providers[provideContract] = ILendingProvider(provideContract);\n    }\n\n    function getProviderOrFail(address providerAddress) public view returns (ILendingProvider){\n        // require(providers[providerAddress] != 0x0, \"Provider not found\");\n        return providers[providerAddress];\n    }\n}\n",
+  "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/core/ProvidersManager.sol",
+  "ast": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/core/ProvidersManager.sol",
+    "exportedSymbols": {
+      "ProviderManager": [
+        154
+      ]
+    },
+    "id": 155,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 122,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:2"
+      },
+      {
+        "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol",
+        "file": "../interfaces/ILendingProvider.sol",
+        "id": 123,
+        "nodeType": "ImportDirective",
+        "scope": 155,
+        "sourceUnit": 217,
+        "src": "63:44:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 154,
+        "linearizedBaseContracts": [
+          154
+        ],
+        "name": "ProviderManager",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 127,
+            "mutability": "mutable",
+            "name": "providers",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 154,
+            "src": "140:46:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_ILendingProvider_$216_$",
+              "typeString": "mapping(address => contract ILendingProvider)"
+            },
+            "typeName": {
+              "id": 126,
+              "keyType": {
+                "id": 124,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "148:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "140:36:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_ILendingProvider_$216_$",
+                "typeString": "mapping(address => contract ILendingProvider)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 125,
+                "name": "ILendingProvider",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 216,
+                "src": "159:16:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                  "typeString": "contract ILendingProvider"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 140,
+              "nodeType": "Block",
+              "src": "246:79:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 138,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 132,
+                        "name": "providers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 127,
+                        "src": "256:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_ILendingProvider_$216_$",
+                          "typeString": "mapping(address => contract ILendingProvider)"
+                        }
+                      },
+                      "id": 134,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 133,
+                        "name": "provideContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 129,
+                        "src": "266:15:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "256:26:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                        "typeString": "contract ILendingProvider"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 136,
+                          "name": "provideContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 129,
+                          "src": "302:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 135,
+                        "name": "ILendingProvider",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 216,
+                        "src": "285:16:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_ILendingProvider_$216_$",
+                          "typeString": "type(contract ILendingProvider)"
+                        }
+                      },
+                      "id": 137,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "285:33:2",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                        "typeString": "contract ILendingProvider"
+                      }
+                    },
+                    "src": "256:62:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                      "typeString": "contract ILendingProvider"
+                    }
+                  },
+                  "id": 139,
+                  "nodeType": "ExpressionStatement",
+                  "src": "256:62:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "cfd8d6c0",
+            "id": 141,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setProvider",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 130,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 129,
+                  "mutability": "mutable",
+                  "name": "provideContract",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 141,
+                  "src": "214:23:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 128,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "214:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "213:25:2"
+            },
+            "returnParameters": {
+              "id": 131,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "246:0:2"
+            },
+            "scope": 154,
+            "src": "193:132:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 152,
+              "nodeType": "Block",
+              "src": "421:127:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 148,
+                      "name": "providers",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 127,
+                      "src": "515:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_contract$_ILendingProvider_$216_$",
+                        "typeString": "mapping(address => contract ILendingProvider)"
+                      }
+                    },
+                    "id": 150,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 149,
+                      "name": "providerAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 143,
+                      "src": "525:15:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "515:26:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                      "typeString": "contract ILendingProvider"
+                    }
+                  },
+                  "functionReturnParameters": 147,
+                  "id": 151,
+                  "nodeType": "Return",
+                  "src": "508:33:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "c49c7d8a",
+            "id": 153,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getProviderOrFail",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 144,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 143,
+                  "mutability": "mutable",
+                  "name": "providerAddress",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 153,
+                  "src": "358:23:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 142,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "358:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "357:25:2"
+            },
+            "returnParameters": {
+              "id": 147,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 146,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 153,
+                  "src": "404:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                    "typeString": "contract ILendingProvider"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 145,
+                    "name": "ILendingProvider",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 216,
+                    "src": "404:16:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                      "typeString": "contract ILendingProvider"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "403:18:2"
+            },
+            "scope": 154,
+            "src": "331:217:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 155,
+        "src": "109:441:2"
+      }
+    ],
+    "src": "37:514:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/core/ProvidersManager.sol",
+    "exportedSymbols": {
+      "ProviderManager": [
+        154
+      ]
+    },
+    "id": 155,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 122,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:2"
+      },
+      {
+        "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol",
+        "file": "../interfaces/ILendingProvider.sol",
+        "id": 123,
+        "nodeType": "ImportDirective",
+        "scope": 155,
+        "sourceUnit": 217,
+        "src": "63:44:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 154,
+        "linearizedBaseContracts": [
+          154
+        ],
+        "name": "ProviderManager",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 127,
+            "mutability": "mutable",
+            "name": "providers",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 154,
+            "src": "140:46:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_ILendingProvider_$216_$",
+              "typeString": "mapping(address => contract ILendingProvider)"
+            },
+            "typeName": {
+              "id": 126,
+              "keyType": {
+                "id": 124,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "148:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "140:36:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_ILendingProvider_$216_$",
+                "typeString": "mapping(address => contract ILendingProvider)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 125,
+                "name": "ILendingProvider",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 216,
+                "src": "159:16:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                  "typeString": "contract ILendingProvider"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 140,
+              "nodeType": "Block",
+              "src": "246:79:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 138,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 132,
+                        "name": "providers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 127,
+                        "src": "256:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_ILendingProvider_$216_$",
+                          "typeString": "mapping(address => contract ILendingProvider)"
+                        }
+                      },
+                      "id": 134,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 133,
+                        "name": "provideContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 129,
+                        "src": "266:15:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "256:26:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                        "typeString": "contract ILendingProvider"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 136,
+                          "name": "provideContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 129,
+                          "src": "302:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 135,
+                        "name": "ILendingProvider",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 216,
+                        "src": "285:16:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_ILendingProvider_$216_$",
+                          "typeString": "type(contract ILendingProvider)"
+                        }
+                      },
+                      "id": 137,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "285:33:2",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                        "typeString": "contract ILendingProvider"
+                      }
+                    },
+                    "src": "256:62:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                      "typeString": "contract ILendingProvider"
+                    }
+                  },
+                  "id": 139,
+                  "nodeType": "ExpressionStatement",
+                  "src": "256:62:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "cfd8d6c0",
+            "id": 141,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setProvider",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 130,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 129,
+                  "mutability": "mutable",
+                  "name": "provideContract",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 141,
+                  "src": "214:23:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 128,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "214:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "213:25:2"
+            },
+            "returnParameters": {
+              "id": 131,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "246:0:2"
+            },
+            "scope": 154,
+            "src": "193:132:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 152,
+              "nodeType": "Block",
+              "src": "421:127:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 148,
+                      "name": "providers",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 127,
+                      "src": "515:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_contract$_ILendingProvider_$216_$",
+                        "typeString": "mapping(address => contract ILendingProvider)"
+                      }
+                    },
+                    "id": 150,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 149,
+                      "name": "providerAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 143,
+                      "src": "525:15:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "515:26:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                      "typeString": "contract ILendingProvider"
+                    }
+                  },
+                  "functionReturnParameters": 147,
+                  "id": 151,
+                  "nodeType": "Return",
+                  "src": "508:33:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "c49c7d8a",
+            "id": 153,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getProviderOrFail",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 144,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 143,
+                  "mutability": "mutable",
+                  "name": "providerAddress",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 153,
+                  "src": "358:23:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 142,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "358:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "357:25:2"
+            },
+            "returnParameters": {
+              "id": 147,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 146,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 153,
+                  "src": "404:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                    "typeString": "contract ILendingProvider"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 145,
+                    "name": "ILendingProvider",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 216,
+                    "src": "404:16:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ILendingProvider_$216",
+                      "typeString": "contract ILendingProvider"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "403:18:2"
+            },
+            "scope": 154,
+            "src": "331:217:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 155,
+        "src": "109:441:2"
+      }
+    ],
+    "src": "37:514:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.10+commit.00c0fcaf.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-10-07T21:06:40.135Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

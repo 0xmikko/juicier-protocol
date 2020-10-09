@@ -1,0 +1,880 @@
+{
+  "contractName": "AaveProvider",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_aaveContract",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "deposit",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_aaveContract\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/providers/AaveProvider.sol\":\"AaveProvider\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol\":{\"keccak256\":\"0x59ffe074eea80be7212e25a85613f45d80abfc324c2ffdc453115ff77d03e354\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://474b1831b338f1c8a05a29c9e52eae931dcf352e5434a0ac68a9f05d8d9fb9c2\",\"dweb:/ipfs/QmU1y5gbYRpBEXAGzPkRsF9BSfUekEJJZseZKSFaufNvgo\"]},\"/Users/mikhail/Coding/jucifi/contracts/providers/AaveProvider.sol\":{\"keccak256\":\"0x54449b397e360d28afd0265aae81769f7c191cf3a4171d70877e5e5e0f4d30c6\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://fc49d0044c226c363a4efccd1baf13d862d10a5efcbcb51270bf0bc7d66a7cee\",\"dweb:/ipfs/QmS9n8ajVqF3bsZLXH5kjvZfVhW7njHGhTJMaQX2bnc66C\"]},\"/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol\":{\"keccak256\":\"0x647717de09a554772807b38b20c4d17a08715820a8bdd2126cdf87e6cd2ad993\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://97f530d2cc768d07e03595da73cc956e4e0c64a650d76bf567a9368991f62134\",\"dweb:/ipfs/QmbWXH4RiBTC7deJ5y3x6j1cDemMCw9Cb7S78H6d7dWihx\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161026a38038061026a8339818101604052602081101561003357600080fd5b81019080805190602001909291905050506040518060400160405280600481526020017f416176650000000000000000000000000000000000000000000000000000000081525080600090805190602001906100909291906100d9565b505080600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505061017e565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061011a57805160ff1916838001178555610148565b82800160010185558215610148579182015b8281111561014757825182559160200191906001019061012c565b5b5090506101559190610159565b5090565b61017b91905b8082111561017757600081600090555060010161015f565b5090565b90565b60de8061018c6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80633ccfd60b14603757806347e7ef2414603f575b600080fd5b603d609e565b005b608860048036036040811015605357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505060a0565b6040518082815260200191505060405180910390f35b565b60009291505056fea2646970667358221220ec324145942a9dd2e509d774ac9df394ec6f473f37d9907bbd51255401963db264736f6c634300060a0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c80633ccfd60b14603757806347e7ef2414603f575b600080fd5b603d609e565b005b608860048036036040811015605357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505060a0565b6040518082815260200191505060405180910390f35b565b60009291505056fea2646970667358221220ec324145942a9dd2e509d774ac9df394ec6f473f37d9907bbd51255401963db264736f6c634300060a0033",
+  "immutableReferences": {},
+  "sourceMap": "95:322:6:-:0;;;186:87;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;198:68:7;;;;;;;;;;;;;;;;;255:4;247:5;:12;;;;;;;;;;;;:::i;:::-;;198:68;253:13:6;238:12;;:28;;;;;;;;;;;;;;;;;;186:87;95:322;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "95:322:6:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;375:40;;;:::i;:::-;;279:90;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;375:40;:::o;279:90::-;358:7;279:90;;;;:::o",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.6.10;\nimport \"./AbstractProvider.sol\";\n\ncontract AaveProvider is AbstractProvider(\"Aave\") {\n    address private aaveContract;\n\n    constructor(address _aaveContract) public {\n        aaveContract = _aaveContract;\n    }\n\n    function deposit(address _reserve, uint256 _amount) external override returns (uint256) {}\n\n    function withdraw() external override {}\n}\n",
+  "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/providers/AaveProvider.sol",
+  "ast": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/providers/AaveProvider.sol",
+    "exportedSymbols": {
+      "AaveProvider": [
+        251
+      ]
+    },
+    "id": 252,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 218,
+        "literals": [
+          "solidity",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:23:6"
+      },
+      {
+        "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol",
+        "file": "./AbstractProvider.sol",
+        "id": 219,
+        "nodeType": "ImportDirective",
+        "scope": 252,
+        "sourceUnit": 270,
+        "src": "61:32:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "arguments": [
+              {
+                "argumentTypes": null,
+                "hexValue": "41617665",
+                "id": 221,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": true,
+                "kind": "string",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "137:6:6",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": "t_stringliteral_4df73a21625dbc9a1035f7e0c7d348801a8d0e6804296052c379e2e8af5539b9",
+                  "typeString": "literal_string \"Aave\""
+                },
+                "value": "Aave"
+              }
+            ],
+            "baseName": {
+              "contractScope": null,
+              "id": 220,
+              "name": "AbstractProvider",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 269,
+              "src": "120:16:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AbstractProvider_$269",
+                "typeString": "contract AbstractProvider"
+              }
+            },
+            "id": 222,
+            "nodeType": "InheritanceSpecifier",
+            "src": "120:24:6"
+          }
+        ],
+        "contractDependencies": [
+          216,
+          269
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 251,
+        "linearizedBaseContracts": [
+          251,
+          269,
+          216
+        ],
+        "name": "AaveProvider",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 224,
+            "mutability": "mutable",
+            "name": "aaveContract",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 251,
+            "src": "151:28:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 223,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "151:7:6",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 233,
+              "nodeType": "Block",
+              "src": "228:45:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 231,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 229,
+                      "name": "aaveContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 224,
+                      "src": "238:12:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 230,
+                      "name": "_aaveContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 226,
+                      "src": "253:13:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "238:28:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 232,
+                  "nodeType": "ExpressionStatement",
+                  "src": "238:28:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 234,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 227,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 226,
+                  "mutability": "mutable",
+                  "name": "_aaveContract",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 234,
+                  "src": "198:21:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 225,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "198:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "197:23:6"
+            },
+            "returnParameters": {
+              "id": 228,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "228:0:6"
+            },
+            "scope": 251,
+            "src": "186:87:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "baseFunctions": [
+              212
+            ],
+            "body": {
+              "id": 244,
+              "nodeType": "Block",
+              "src": "367:2:6",
+              "statements": []
+            },
+            "documentation": null,
+            "functionSelector": "47e7ef24",
+            "id": 245,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deposit",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 240,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "340:8:6"
+            },
+            "parameters": {
+              "id": 239,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 236,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 245,
+                  "src": "296:16:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 235,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "296:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 238,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 245,
+                  "src": "314:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 237,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "314:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "295:35:6"
+            },
+            "returnParameters": {
+              "id": 243,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 242,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 245,
+                  "src": "358:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 241,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "358:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "357:9:6"
+            },
+            "scope": 251,
+            "src": "279:90:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "baseFunctions": [
+              215
+            ],
+            "body": {
+              "id": 249,
+              "nodeType": "Block",
+              "src": "413:2:6",
+              "statements": []
+            },
+            "documentation": null,
+            "functionSelector": "3ccfd60b",
+            "id": 250,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "withdraw",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 247,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "404:8:6"
+            },
+            "parameters": {
+              "id": 246,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "392:2:6"
+            },
+            "returnParameters": {
+              "id": 248,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "413:0:6"
+            },
+            "scope": 251,
+            "src": "375:40:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 252,
+        "src": "95:322:6"
+      }
+    ],
+    "src": "37:381:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/providers/AaveProvider.sol",
+    "exportedSymbols": {
+      "AaveProvider": [
+        251
+      ]
+    },
+    "id": 252,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 218,
+        "literals": [
+          "solidity",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:23:6"
+      },
+      {
+        "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol",
+        "file": "./AbstractProvider.sol",
+        "id": 219,
+        "nodeType": "ImportDirective",
+        "scope": 252,
+        "sourceUnit": 270,
+        "src": "61:32:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "arguments": [
+              {
+                "argumentTypes": null,
+                "hexValue": "41617665",
+                "id": 221,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": true,
+                "kind": "string",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "137:6:6",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": "t_stringliteral_4df73a21625dbc9a1035f7e0c7d348801a8d0e6804296052c379e2e8af5539b9",
+                  "typeString": "literal_string \"Aave\""
+                },
+                "value": "Aave"
+              }
+            ],
+            "baseName": {
+              "contractScope": null,
+              "id": 220,
+              "name": "AbstractProvider",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 269,
+              "src": "120:16:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AbstractProvider_$269",
+                "typeString": "contract AbstractProvider"
+              }
+            },
+            "id": 222,
+            "nodeType": "InheritanceSpecifier",
+            "src": "120:24:6"
+          }
+        ],
+        "contractDependencies": [
+          216,
+          269
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 251,
+        "linearizedBaseContracts": [
+          251,
+          269,
+          216
+        ],
+        "name": "AaveProvider",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 224,
+            "mutability": "mutable",
+            "name": "aaveContract",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 251,
+            "src": "151:28:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 223,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "151:7:6",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 233,
+              "nodeType": "Block",
+              "src": "228:45:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 231,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 229,
+                      "name": "aaveContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 224,
+                      "src": "238:12:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 230,
+                      "name": "_aaveContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 226,
+                      "src": "253:13:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "238:28:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 232,
+                  "nodeType": "ExpressionStatement",
+                  "src": "238:28:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 234,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 227,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 226,
+                  "mutability": "mutable",
+                  "name": "_aaveContract",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 234,
+                  "src": "198:21:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 225,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "198:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "197:23:6"
+            },
+            "returnParameters": {
+              "id": 228,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "228:0:6"
+            },
+            "scope": 251,
+            "src": "186:87:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "baseFunctions": [
+              212
+            ],
+            "body": {
+              "id": 244,
+              "nodeType": "Block",
+              "src": "367:2:6",
+              "statements": []
+            },
+            "documentation": null,
+            "functionSelector": "47e7ef24",
+            "id": 245,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deposit",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 240,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "340:8:6"
+            },
+            "parameters": {
+              "id": 239,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 236,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 245,
+                  "src": "296:16:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 235,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "296:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 238,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 245,
+                  "src": "314:15:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 237,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "314:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "295:35:6"
+            },
+            "returnParameters": {
+              "id": 243,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 242,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 245,
+                  "src": "358:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 241,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "358:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "357:9:6"
+            },
+            "scope": 251,
+            "src": "279:90:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "baseFunctions": [
+              215
+            ],
+            "body": {
+              "id": 249,
+              "nodeType": "Block",
+              "src": "413:2:6",
+              "statements": []
+            },
+            "documentation": null,
+            "functionSelector": "3ccfd60b",
+            "id": 250,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "withdraw",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 247,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "404:8:6"
+            },
+            "parameters": {
+              "id": 246,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "392:2:6"
+            },
+            "returnParameters": {
+              "id": 248,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "413:0:6"
+            },
+            "scope": 251,
+            "src": "375:40:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 252,
+        "src": "95:322:6"
+      }
+    ],
+    "src": "37:381:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.10+commit.00c0fcaf.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-10-07T21:06:40.137Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

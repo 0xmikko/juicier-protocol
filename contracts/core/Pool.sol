@@ -1,11 +1,15 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: agpl-3.0
+pragma solidity ^0.6.10;
 
-import "./core/AddressStorage.sol";
+import "../helpers/AddressStorage.sol";
+import "../interfaces/ILendingProvider.sol";
+import "./ProvidersManager.sol";
+
 
 contract Pool {
     address public owner = msg.sender;
+    ProviderManager internal providerManager;
 
-    AddressStorage reserves;
 
     /**
      * @dev functions affected by this modifier can only be invoked if the provided _amount input parameter
@@ -25,16 +29,24 @@ contract Pool {
         _;
     }
 
+    constructor(address _providersManager) public {
+        providerManager = ProviderManager(_providersManager);
+    }
+
     function deposit(
+        address _provider,
         address _reserve,
-        uint256 _amount,
-        uint16 _referralCode
+        uint256 _amount
     )
         external
         payable
         // onlyUnfreezedReserve(_reserve)
         onlyAmountGreaterThanZero(_amount)
-    {}
+    {
+        ILendingProvider lendingP = providerManager.getProviderOrFail(_provider);
+        lendingP.deposit(_reserve, _amount);
+
+    }
 
     /**
      * @notice internal function to save on code size for the onlyAmountGreaterThanZero modifier
