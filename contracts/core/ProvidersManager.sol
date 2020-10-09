@@ -15,6 +15,13 @@ contract ProvidersManager is Ownable {
     address[] providersList;
 
     /**
+     * @dev emitted on deposit
+     * @param _providerAddress the address of the new provider added
+     * @param _timestamp the timestamp of the action
+     **/
+    event NewProvider(address _providerAddress, uint256 _timestamp);
+
+    /**
      * @dev Adds new lending provider to the list
      * throw exception if provider is already exists in the list
      * @param _providerAddress - the address of the provider contract
@@ -22,7 +29,7 @@ contract ProvidersManager is Ownable {
     modifier providerHasExist(address _providerAddress) {
         require(
             providers[_providerAddress] != address(0),
-            "Provider is not in the list"
+            "ProvidersManager: Provider is not in the list"
         );
         _;
     }
@@ -35,10 +42,12 @@ contract ProvidersManager is Ownable {
     function setProvider(address _providerAddress) public onlyOwner {
         require(
             providers[_providerAddress] == address(0),
-            "Provider is already in the list"
+            "ProvidersManager: Provider is already in the list"
         );
         providers[_providerAddress] = _providerAddress;
         providersList.push(_providerAddress);
+
+        emit NewProvider(_providerAddress, block.timestamp);
     }
 
     /**
@@ -55,5 +64,9 @@ contract ProvidersManager is Ownable {
         returns (ILendingProvider)
     {
         return ILendingProvider(providers[_providerAddress]);
+    }
+
+    function getProvidesList() public view returns (address[] memory) {
+        return providersList;
     }
 }

@@ -7,12 +7,14 @@
   "author": "Mikhail Lazarev <mikael.lazarev@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "gen": "yarn postinstall",
     "generate-types": "typechain --target=truffle-v5 'build/contracts/*.json'",
     "postinstall": "truffle compile && yarn generate-types",
     "migrate": "tsc -p ./tsconfig.migrate.json --outDir ./migrations && truffle migrate",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@openzeppelin/test-helpers": "^0.5.6",
     "@typechain/truffle-v5": "^2.0.2",
     "@types/bn.js": "^4.11.6",
     "@types/chai": "^4.2.11",
