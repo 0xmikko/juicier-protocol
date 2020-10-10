@@ -6,6 +6,8 @@ import "../interfaces/ILendingProvider.sol";
 abstract contract AbstractProvider is ILendingProvider {
     string internal _name;
 
+
+
     constructor(string memory name) public {
         _name = name;
     }

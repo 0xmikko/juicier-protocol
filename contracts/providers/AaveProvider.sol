@@ -1,8 +1,12 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
-import "./AbstractProvider.sol";
+
 // Import interface for ERC20 standard
 import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
+
+import "../libraries/CoreLibrary.sol";
+
+import "./AbstractProvider.sol";
 import "./aave-protocol/ILendingPool.sol";
 import "./aave-protocol/ILendingPoolCore.sol";
 
@@ -21,13 +25,12 @@ contract AaveProvider is AbstractProvider("Aave") {
         external
         override
         payable
-        returns (uint256)
     {
         // Input variables
         address daiAddress = address(
             0x6B175474E89094C44Da98b954EedeAC495271d0F
         ); // mainnet DAI
-        // uint256 amount = 1000 * 1e18;
+        // reserveData.amount = 1000 * 1e18;
         uint16 referral = 0;
 
         // Approve LendingPool contract to move your DAI
@@ -39,6 +42,10 @@ contract AaveProvider is AbstractProvider("Aave") {
 
     function withdraw(address _reserve, uint256 _amount) external override {}
 
+    function getReserves() external returns (address[] memory) {
+        return getLendingPool().getReserves();
+    }
+
     function getLendingPool() internal returns (ILendingPool) {
         return ILendingPool(lendingPoolAddress);
     }
@@ -47,5 +54,25 @@ contract AaveProvider is AbstractProvider("Aave") {
         return ILendingPoolCore(lendingPoolCoreAddress);
     }
 
-    // function getReserveData)
+    function getReserveData(address _reserveAddress)
+        external
+        view
+        returns (
+            uint256 totalLiquidity,
+            uint256 availableLiquidity,
+            uint256 totalBorrowsStable,
+            uint256 totalBorrowsVariable,
+            uint256 liquidityRate,
+            uint256 variableBorrowRate,
+            uint256 stableBorrowRate,
+            uint256 averageStableBorrowRate,
+            uint256 utilizationRate,
+            uint256 liquidityIndex,
+            uint256 variableBorrowIndex,
+            address aTokenAddress,
+            uint40 lastUpdateTimestamp
+        )
+    {
+        return getLendingPool().getReserveData(_reserveAddress);
+    }
 }
