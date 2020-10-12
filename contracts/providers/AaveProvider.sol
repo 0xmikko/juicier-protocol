@@ -42,11 +42,11 @@ contract AaveProvider is AbstractProvider("Aave") {
 
     function withdraw(address _reserve, uint256 _amount) external override {}
 
-    function getReserves() external returns (address[] memory) {
+    function getReserves() external override returns (address[] memory) {
         return getLendingPool().getReserves();
     }
 
-    function getLendingPool() internal returns (ILendingPool) {
+    function getLendingPool() internal view returns (ILendingPool) {
         return ILendingPool(lendingPoolAddress);
     }
 
@@ -55,23 +55,24 @@ contract AaveProvider is AbstractProvider("Aave") {
     }
 
     function getReserveData(address _reserveAddress)
-        external
-        view
-        returns (
-            uint256 totalLiquidity,
-            uint256 availableLiquidity,
-            uint256 totalBorrowsStable,
-            uint256 totalBorrowsVariable,
-            uint256 liquidityRate,
-            uint256 variableBorrowRate,
-            uint256 stableBorrowRate,
-            uint256 averageStableBorrowRate,
-            uint256 utilizationRate,
-            uint256 liquidityIndex,
-            uint256 variableBorrowIndex,
-            address aTokenAddress,
-            uint40 lastUpdateTimestamp
-        )
+    external
+    override
+    view
+    returns (
+        uint256 totalLiquidity,
+        uint256 availableLiquidity,
+        uint256 totalBorrowsStable,
+        uint256 totalBorrowsVariable,
+        uint256 liquidityRate,
+        uint256 variableBorrowRate,
+        uint256 stableBorrowRate,
+        uint256 averageStableBorrowRate,
+        uint256 utilizationRate,
+        uint256 liquidityIndex,
+        uint256 variableBorrowIndex,
+        address aTokenAddress,
+        uint40 lastUpdateTimestamp
+    )
     {
         return getLendingPool().getReserveData(_reserveAddress);
     }

@@ -26,14 +26,100 @@
         }
       ],
       "name": "deposit",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserveAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getReserveData",
       "outputs": [
         {
           "internalType": "uint256",
-          "name": "",
+          "name": "totalLiquidity",
           "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "availableLiquidity",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalBorrowsStable",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalBorrowsVariable",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidityRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "variableBorrowRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "stableBorrowRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "averageStableBorrowRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "utilizationRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidityIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "variableBorrowIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "aTokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint40",
+          "name": "lastUpdateTimestamp",
+          "type": "uint40"
         }
       ],
-      "stateMutability": "payable",
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getReserves",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -55,27 +141,27 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"deposit(address,uint256)\":{\"details\":\"Deposit asset to selected lending provider\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol\":\"AbstractProvider\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol\":{\"keccak256\":\"0x1650cfad9010c852bab5b7d018e356e8cf00a6303079afa2de5de1bef381ad78\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://4280c2344739c9e24e268739796646a4925139b370a2eea49b8c0a649063444c\",\"dweb:/ipfs/QmWNrxfJdzWZD3PzXqctvkzSumFdNV6rChWHGnSfDBg6te\"]},\"/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol\":{\"keccak256\":\"0x647717de09a554772807b38b20c4d17a08715820a8bdd2126cdf87e6cd2ad993\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://97f530d2cc768d07e03595da73cc956e4e0c64a650d76bf567a9368991f62134\",\"dweb:/ipfs/QmbWXH4RiBTC7deJ5y3x6j1cDemMCw9Cb7S78H6d7dWihx\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserveAddress\",\"type\":\"address\"}],\"name\":\"getReserveData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalLiquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"availableLiquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalBorrowsStable\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalBorrowsVariable\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquidityRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"variableBorrowRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stableBorrowRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"averageStableBorrowRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"utilizationRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquidityIndex\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"variableBorrowIndex\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"aTokenAddress\",\"type\":\"address\"},{\"internalType\":\"uint40\",\"name\":\"lastUpdateTimestamp\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getReserves\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"deposit(address,uint256)\":{\"details\":\"Deposit asset to selected lending provider\"}}},\"userdoc\":{\"methods\":{\"getReserves()\":{\"notice\":\"Resereves methods\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol\":\"AbstractProvider\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol\":{\"keccak256\":\"0x22f76f61df60f1a2c571b4cfe87cfe9d64baab55823e5aa45b6017782aa43f12\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://1197f0f23969d0a4db2b0bd34922d06f8e5a4567a8df6152f4822c55b1d80d10\",\"dweb:/ipfs/QmNUV3ETiQHoQN5E3YMhH5Gk6opD6ZDs7NKfiha879R8Pd\"]},\"/Users/mikhail/Coding/jucifi/contracts/libraries/CoreLibrary.sol\":{\"keccak256\":\"0xa2c086d895fa34587ea97b06ee6e480d81efceab20c84670ef650bb648a21556\",\"urls\":[\"bzz-raw://7a0904c82ba737d000be2705c172109d0056ae5b7d6dda4b190d29b91d3a115b\",\"dweb:/ipfs/QmaYkGFSRmSazL38Ehi7T9h91HjgwWhNpskcPVQP5G7rkE\"]},\"/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol\":{\"keccak256\":\"0xe59bbe92678051e3594fc6a6abad12ab43f76d42353946f3d7d00e16d4e37812\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://25b14eed8b8da6fe4bed144aa5f826c83905e8ee28e16aab2ef8e179bf1467e6\",\"dweb:/ipfs/QmcMfyJgkLLyMk8ASVFB6QRU1SJBmPCtYgKZd6BP8Nickv\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\nimport \"../interfaces/ILendingProvider.sol\";\n\nabstract contract AbstractProvider is ILendingProvider {\n    string internal _name;\n\n    constructor(string memory name) public {\n        _name = name;\n    }\n}",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\nimport \"../interfaces/ILendingProvider.sol\";\n\nabstract contract AbstractProvider is ILendingProvider {\n    string internal _name;\n\n\n\n    constructor(string memory name) public {\n        _name = name;\n    }\n}\n",
   "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol",
   "ast": {
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol",
     "exportedSymbols": {
       "AbstractProvider": [
-        386
+        738
       ]
     },
-    "id": 387,
+    "id": 739,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 370,
+        "id": 722,
         "literals": [
           "solidity",
           "^",
@@ -83,16 +169,16 @@
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:24:7"
+        "src": "37:24:9"
       },
       {
         "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol",
         "file": "../interfaces/ILendingProvider.sol",
-        "id": 371,
+        "id": 723,
         "nodeType": "ImportDirective",
-        "scope": 387,
-        "sourceUnit": 272,
-        "src": "63:44:7",
+        "scope": 739,
+        "sourceUnit": 331,
+        "src": "63:44:9",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -103,44 +189,44 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 372,
+              "id": 724,
               "name": "ILendingProvider",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 271,
-              "src": "147:16:7",
+              "referencedDeclaration": 330,
+              "src": "147:16:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ILendingProvider_$271",
+                "typeIdentifier": "t_contract$_ILendingProvider_$330",
                 "typeString": "contract ILendingProvider"
               }
             },
-            "id": 373,
+            "id": 725,
             "nodeType": "InheritanceSpecifier",
-            "src": "147:16:7"
+            "src": "147:16:9"
           }
         ],
         "contractDependencies": [
-          271
+          330
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 386,
+        "id": 738,
         "linearizedBaseContracts": [
-          386,
-          271
+          738,
+          330
         ],
         "name": "AbstractProvider",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 375,
+            "id": 727,
             "mutability": "mutable",
             "name": "_name",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 386,
-            "src": "170:21:7",
+            "scope": 738,
+            "src": "170:21:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -148,10 +234,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 374,
+              "id": 726,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "170:6:7",
+              "src": "170:6:9",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -162,26 +248,26 @@
           },
           {
             "body": {
-              "id": 384,
+              "id": 736,
               "nodeType": "Block",
-              "src": "237:29:7",
+              "src": "239:29:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 382,
+                    "id": 734,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 380,
+                      "id": 732,
                       "name": "_name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 375,
-                      "src": "247:5:7",
+                      "referencedDeclaration": 727,
+                      "src": "249:5:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
                         "typeString": "string storage ref"
@@ -191,31 +277,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 381,
+                      "id": 733,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 377,
-                      "src": "255:4:7",
+                      "referencedDeclaration": 729,
+                      "src": "257:4:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
                         "typeString": "string memory"
                       }
                     },
-                    "src": "247:12:7",
+                    "src": "249:12:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 383,
+                  "id": 735,
                   "nodeType": "ExpressionStatement",
-                  "src": "247:12:7"
+                  "src": "249:12:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 385,
+            "id": 737,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -223,18 +309,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 378,
+              "id": 730,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 377,
+                  "id": 729,
                   "mutability": "mutable",
                   "name": "name",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 385,
-                  "src": "210:18:7",
+                  "scope": 737,
+                  "src": "212:18:9",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -242,10 +328,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 376,
+                    "id": 728,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "210:6:7",
+                    "src": "212:6:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -255,40 +341,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "209:20:7"
+              "src": "211:20:9"
             },
             "returnParameters": {
-              "id": 379,
+              "id": 731,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "237:0:7"
+              "src": "239:0:9"
             },
-            "scope": 386,
-            "src": "198:68:7",
+            "scope": 738,
+            "src": "200:68:9",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 387,
-        "src": "109:159:7"
+        "scope": 739,
+        "src": "109:161:9"
       }
     ],
-    "src": "37:231:7"
+    "src": "37:234:9"
   },
   "legacyAST": {
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/providers/AbstractProvider.sol",
     "exportedSymbols": {
       "AbstractProvider": [
-        386
+        738
       ]
     },
-    "id": 387,
+    "id": 739,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 370,
+        "id": 722,
         "literals": [
           "solidity",
           "^",
@@ -296,16 +382,16 @@
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:24:7"
+        "src": "37:24:9"
       },
       {
         "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/interfaces/ILendingProvider.sol",
         "file": "../interfaces/ILendingProvider.sol",
-        "id": 371,
+        "id": 723,
         "nodeType": "ImportDirective",
-        "scope": 387,
-        "sourceUnit": 272,
-        "src": "63:44:7",
+        "scope": 739,
+        "sourceUnit": 331,
+        "src": "63:44:9",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -316,44 +402,44 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 372,
+              "id": 724,
               "name": "ILendingProvider",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 271,
-              "src": "147:16:7",
+              "referencedDeclaration": 330,
+              "src": "147:16:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ILendingProvider_$271",
+                "typeIdentifier": "t_contract$_ILendingProvider_$330",
                 "typeString": "contract ILendingProvider"
               }
             },
-            "id": 373,
+            "id": 725,
             "nodeType": "InheritanceSpecifier",
-            "src": "147:16:7"
+            "src": "147:16:9"
           }
         ],
         "contractDependencies": [
-          271
+          330
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 386,
+        "id": 738,
         "linearizedBaseContracts": [
-          386,
-          271
+          738,
+          330
         ],
         "name": "AbstractProvider",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 375,
+            "id": 727,
             "mutability": "mutable",
             "name": "_name",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 386,
-            "src": "170:21:7",
+            "scope": 738,
+            "src": "170:21:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -361,10 +447,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 374,
+              "id": 726,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "170:6:7",
+              "src": "170:6:9",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -375,26 +461,26 @@
           },
           {
             "body": {
-              "id": 384,
+              "id": 736,
               "nodeType": "Block",
-              "src": "237:29:7",
+              "src": "239:29:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 382,
+                    "id": 734,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 380,
+                      "id": 732,
                       "name": "_name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 375,
-                      "src": "247:5:7",
+                      "referencedDeclaration": 727,
+                      "src": "249:5:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
                         "typeString": "string storage ref"
@@ -404,31 +490,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 381,
+                      "id": 733,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 377,
-                      "src": "255:4:7",
+                      "referencedDeclaration": 729,
+                      "src": "257:4:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
                         "typeString": "string memory"
                       }
                     },
-                    "src": "247:12:7",
+                    "src": "249:12:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 383,
+                  "id": 735,
                   "nodeType": "ExpressionStatement",
-                  "src": "247:12:7"
+                  "src": "249:12:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 385,
+            "id": 737,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -436,18 +522,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 378,
+              "id": 730,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 377,
+                  "id": 729,
                   "mutability": "mutable",
                   "name": "name",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 385,
-                  "src": "210:18:7",
+                  "scope": 737,
+                  "src": "212:18:9",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -455,10 +541,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 376,
+                    "id": 728,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "210:6:7",
+                    "src": "212:6:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -468,26 +554,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "209:20:7"
+              "src": "211:20:9"
             },
             "returnParameters": {
-              "id": 379,
+              "id": 731,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "237:0:7"
+              "src": "239:0:9"
             },
-            "scope": 386,
-            "src": "198:68:7",
+            "scope": 738,
+            "src": "200:68:9",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 387,
-        "src": "109:159:7"
+        "scope": 739,
+        "src": "109:161:9"
       }
     ],
-    "src": "37:231:7"
+    "src": "37:234:9"
   },
   "compiler": {
     "name": "solc",
@@ -495,7 +581,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-09T11:22:24.584Z",
+  "updatedAt": "2020-10-12T18:56:21.380Z",
   "devdoc": {
     "methods": {
       "deposit(address,uint256)": {
@@ -504,6 +590,10 @@
     }
   },
   "userdoc": {
-    "methods": {}
+    "methods": {
+      "getReserves()": {
+        "notice": "Resereves methods"
+      }
+    }
   }
 }

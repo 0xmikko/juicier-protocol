@@ -13,8 +13,7 @@ interface ILendingProvider {
 
     function deposit(address _reserve, uint256 _amount)
         external
-        payable
-        returns (uint256);
+        payable;
 
     function withdraw(address _reserve, uint256 _amount) external;
 
