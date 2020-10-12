@@ -28,7 +28,7 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
       _reserve: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
-    ): Promise<BN>;
+    ): Promise<void>;
     sendTransaction(
       _reserve: string,
       _amount: number | BN | string,
@@ -39,6 +39,23 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
+  };
+
+  getReserveData(
+    _reserveAddress: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+
+  /**
+   * Resereves methods
+   */
+  getReserves: {
+    (txDetails?: Truffle.TransactionDetails): Promise<
+      Truffle.TransactionResponse<AllEvents>
+    >;
+    call(txDetails?: Truffle.TransactionDetails): Promise<string[]>;
+    sendTransaction(txDetails?: Truffle.TransactionDetails): Promise<string>;
+    estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
 
   withdraw: {
@@ -78,7 +95,7 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
         _reserve: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
-      ): Promise<BN>;
+      ): Promise<void>;
       sendTransaction(
         _reserve: string,
         _amount: number | BN | string,
@@ -89,6 +106,23 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
+    };
+
+    getReserveData(
+      _reserveAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+
+    /**
+     * Resereves methods
+     */
+    getReserves: {
+      (txDetails?: Truffle.TransactionDetails): Promise<
+        Truffle.TransactionResponse<AllEvents>
+      >;
+      call(txDetails?: Truffle.TransactionDetails): Promise<string[]>;
+      sendTransaction(txDetails?: Truffle.TransactionDetails): Promise<string>;
+      estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
 
     withdraw: {

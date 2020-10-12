@@ -112,7 +112,6 @@ contract AaveLandingPoolMock is ILendingPool {
         reserve.liquidityIndex = _liquidityIndex;
         reserve.variableBorrowIndex = _variableBorrowIndex;
         reserve.aTokenAddress = _aTokenAddress;
-
         reserve.lastUpdateTimestamp = _lastUpdateTimestamp;
     }
 

@@ -67,5 +67,3 @@ contract("ProvidersManager", async ([deployer, ...users]) => {
     expect(provider.toUpperCase()).eq(PROVIDER_TEST_ADDR.toUpperCase());
   });
 });
-
-declare module "@openzeppelin/test-helpers" {}
