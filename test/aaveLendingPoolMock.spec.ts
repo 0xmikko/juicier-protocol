@@ -1,5 +1,5 @@
 import {AaveLendingPoolMockInstance} from "../types/truffle-contracts";
-import {aaveReserves} from "./core/reserve";
+import {aaveReserves, addReserveToAaveMock} from "./core/reserve";
 import BN from "bn.js";
 
 contract("AaveLendingPoolMock", async ([deployer, ...users]) => {
@@ -7,26 +7,11 @@ contract("AaveLendingPoolMock", async ([deployer, ...users]) => {
   const dai = aaveReserves["DAI"];
 
   beforeEach("Initializing Providers Manager", async () => {
-    _aaveLandingPoolMock = await artifacts.require("AaveLandingPoolMock").new({
+    _aaveLandingPoolMock = await artifacts.require("AaveLendingPoolMock").new({
       from: deployer,
     });
 
-    await _aaveLandingPoolMock.addReserve(
-      dai.address,
-      dai.totalLiquidity,
-      dai.availableLiquidity,
-      dai.totalBorrowsStable,
-      dai.totalBorrowsVariable,
-      dai.liquidityRate,
-      dai.variableBorrowRate,
-      dai.stableBorrowRate,
-      dai.averageStableBorrowRate,
-      dai.utilizationRate,
-      dai.liquidityIndex,
-      dai.variableBorrowIndex,
-      dai.aTokenAddress,
-      dai.lastUpdateTimestamp.toString()
-    );
+    await addReserveToAaveMock(_aaveLandingPoolMock, dai);
   });
 
   it("it correctly puts DAI reserve address into address array", async () => {
@@ -93,6 +78,4 @@ contract("AaveLendingPoolMock", async ([deployer, ...users]) => {
       " incorrect lastUpdateTimestamp"
     );
   });
-
-
 });

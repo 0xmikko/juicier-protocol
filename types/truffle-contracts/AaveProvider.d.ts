@@ -12,19 +12,14 @@ export interface AaveProviderContract
   ): Promise<AaveProviderInstance>;
 }
 
-export interface Deposit {
-  name: "Deposit";
-  args: {
-    _reserve: string;
-    _amount: BN;
-    0: string;
-    1: BN;
-  };
-}
-
-type AllEvents = Deposit;
+type AllEvents = never;
 
 export interface AaveProviderInstance extends Truffle.ContractInstance {
+  getAvaibleLiquidity(
+    _reserve: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
   deposit: {
     (
       _reserve: string,
@@ -48,24 +43,28 @@ export interface AaveProviderInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  withdraw: {
+  redeemUnderlying: {
     (
       _reserve: string,
+      _user: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
       _reserve: string,
+      _user: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
       _reserve: string,
+      _user: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
       _reserve: string,
+      _user: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
@@ -96,6 +95,11 @@ export interface AaveProviderInstance extends Truffle.ContractInstance {
   ): Promise<BN>;
 
   methods: {
+    getAvaibleLiquidity(
+      _reserve: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+
     deposit: {
       (
         _reserve: string,
@@ -119,24 +123,28 @@ export interface AaveProviderInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    withdraw: {
+    redeemUnderlying: {
       (
         _reserve: string,
+        _user: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
         _reserve: string,
+        _user: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
         _reserve: string,
+        _user: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
         _reserve: string,
+        _user: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;

@@ -1,3 +1,5 @@
+import {AaveLendingPoolMockInstance} from "../../types/truffle-contracts";
+
 export interface Reserve {
   name: string;
   address: string;
@@ -35,3 +37,25 @@ export const aaveReserves: Record<string, Reserve> = {
     lastUpdateTimestamp: Math.floor(Date.now() / 1000),
   },
 };
+
+export async function addReserveToAaveMock(
+  _aaveLandingPoolMock: AaveLendingPoolMockInstance,
+  _reserve: Reserve
+) {
+  await _aaveLandingPoolMock.setReserve(
+    _reserve.address,
+    _reserve.totalLiquidity,
+    _reserve.availableLiquidity,
+    _reserve.totalBorrowsStable,
+    _reserve.totalBorrowsVariable,
+    _reserve.liquidityRate,
+    _reserve.variableBorrowRate,
+    _reserve.stableBorrowRate,
+    _reserve.averageStableBorrowRate,
+    _reserve.utilizationRate,
+    _reserve.liquidityIndex,
+    _reserve.variableBorrowIndex,
+    _reserve.aTokenAddress,
+    _reserve.lastUpdateTimestamp.toString()
+  );
+}

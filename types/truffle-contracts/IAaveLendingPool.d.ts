@@ -226,6 +226,43 @@ export interface IAaveLendingPoolInstance extends Truffle.ContractInstance {
   };
 
   /**
+   * Redeems the underlying amount of assets requested by _user. This function is executed by the overlying aToken contract in response to a redeem action.
+   * @param _amount the underlying amount to be redeemed*
+   * @param _reserve the address of the reserve
+   * @param _user the address of the user performing the action
+   */
+  redeemUnderlying: {
+    (
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      _aTokenBalanceAfterRedeem: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      _aTokenBalanceAfterRedeem: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      _aTokenBalanceAfterRedeem: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      _aTokenBalanceAfterRedeem: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  /**
    * accessory functions to fetch data from the core contract*
    */
   getReserveData(
@@ -265,6 +302,43 @@ export interface IAaveLendingPoolInstance extends Truffle.ContractInstance {
         _reserve: string,
         _amount: number | BN | string,
         _referralCode: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    /**
+     * Redeems the underlying amount of assets requested by _user. This function is executed by the overlying aToken contract in response to a redeem action.
+     * @param _amount the underlying amount to be redeemed*
+     * @param _reserve the address of the reserve
+     * @param _user the address of the user performing the action
+     */
+    redeemUnderlying: {
+      (
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        _aTokenBalanceAfterRedeem: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        _aTokenBalanceAfterRedeem: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        _aTokenBalanceAfterRedeem: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        _aTokenBalanceAfterRedeem: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };

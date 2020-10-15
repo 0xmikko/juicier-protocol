@@ -2,7 +2,7 @@ import {
   AaveLendingPoolMockInstance,
   AaveProviderInstance,
 } from "../types/truffle-contracts";
-import {aaveReserves} from "./core/reserve";
+import {aaveReserves, addReserveToAaveMock} from "./core/reserve";
 import BN from "bn.js";
 
 contract("AaveProvider", async ([deployer, ...users]) => {
@@ -15,22 +15,7 @@ contract("AaveProvider", async ([deployer, ...users]) => {
       from: deployer,
     });
 
-    await _aaveLandingPoolMock.addReserve(
-      dai.address,
-      dai.totalLiquidity,
-      dai.availableLiquidity,
-      dai.totalBorrowsStable,
-      dai.totalBorrowsVariable,
-      dai.liquidityRate,
-      dai.variableBorrowRate,
-      dai.stableBorrowRate,
-      dai.averageStableBorrowRate,
-      dai.utilizationRate,
-      dai.liquidityIndex,
-      dai.variableBorrowIndex,
-      dai.aTokenAddress,
-      dai.lastUpdateTimestamp.toString()
-    );
+    await addReserveToAaveMock(_aaveLandingPoolMock, dai);
 
     _aaveProvider = await artifacts
       .require("AaveProvider")

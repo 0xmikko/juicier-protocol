@@ -78,7 +78,7 @@ contract ProvidersManager is Ownable {
         return providersList;
     }
 
-    function getProviderWithBestLiquidityRate(address _reserveAddress)
+    function getProviderWithHighestLiquidityRate(address _reserveAddress)
         external
         view
         providersListIsNotEmpy
@@ -99,5 +99,56 @@ contract ProvidersManager is Ownable {
             }
         }
         return result;
+    }
+
+    function getProviderWithLowestLiquidityRate(address _reserveAddress)
+        external
+        view
+        providersListIsNotEmpy
+        returns (address provider, uint256 availableLiquidity)
+    {
+        uint256 providerListLenght = providersList.length;
+        provider = providersList[0];
+        uint256 liquidityRate = uint256(-1);
+        availableLiquidity = 0;
+
+        for (uint256 i = 0; i < providerListLenght; i++) {
+            ILendingProvider curProvider = ILendingProvider(providersList[i]);
+            uint256 curLiquidityRate = curProvider.getReserveLiquidityRate(
+                _reserveAddress
+            );
+
+            // If we found lower rate
+            if (curLiquidityRate < liquidityRate) {
+                // check how much liquidity provider has
+                uint256 curAvaibleLiquidity = curProvider.getAvaibleLiquidity(
+                    _reserveAddress
+                );
+
+                // if liquidity > 0, set it as result provider till we do not find better one
+                if (curAvaibleLiquidity > 0) {
+                    provider = providersList[i];
+                    availableLiquidity = curAvaibleLiquidity;
+                    liquidityRate = curLiquidityRate;
+                }
+            }
+        }
+    }
+
+    function getAvaibleLiquidity(address _reserveAddress)
+        external
+        view
+        providersListIsNotEmpy
+        returns (uint256)
+    {
+        uint256 availableLiquidity = 0;
+        uint256 providerListLenght = providersList.length;
+        for (uint256 i = 0; i < providerListLenght; i++) {
+            ILendingProvider curProvider = ILendingProvider(providersList[i]);
+            availableLiquidity += curProvider.getAvaibleLiquidity(
+                _reserveAddress
+            );
+        }
+        return availableLiquidity;
     }
 }

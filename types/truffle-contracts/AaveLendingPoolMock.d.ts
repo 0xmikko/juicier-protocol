@@ -35,8 +35,24 @@ export interface Borrow {
   };
 }
 
-export interface Deposit_address_address_uint256_uint16_uint256_string {
+export interface Deposit {
   name: "Deposit";
+  args: {
+    _reserve: string;
+    _user: string;
+    _amount: BN;
+    _referral: BN;
+    _timestamp: BN;
+    0: string;
+    1: string;
+    2: BN;
+    3: BN;
+    4: BN;
+  };
+}
+
+export interface DepositMock {
+  name: "DepositMock";
   args: {
     _reserve: string;
     _user: string;
@@ -52,26 +68,6 @@ export interface Deposit_address_address_uint256_uint16_uint256_string {
     5: string;
   };
 }
-
-export interface Deposit_address_address_uint256_uint16_uint256 {
-  name: "Deposit";
-  args: {
-    _reserve: string;
-    _user: string;
-    _amount: BN;
-    _referral: BN;
-    _timestamp: BN;
-    0: string;
-    1: string;
-    2: BN;
-    3: BN;
-    4: BN;
-  };
-}
-
-type Deposit =
-  | Deposit_address_address_uint256_uint16_uint256_string
-  | Deposit_address_address_uint256_uint16_uint256;
 
 export interface LiquidationCall {
   name: "LiquidationCall";
@@ -128,6 +124,22 @@ export interface RebalanceStableBorrowRate {
     2: BN;
     3: BN;
     4: BN;
+  };
+}
+
+export interface RedeemMock {
+  name: "RedeemMock";
+  args: {
+    _reserve: string;
+    _user: string;
+    _amount: BN;
+    _timestamp: BN;
+    _mockId: string;
+    0: string;
+    1: string;
+    2: BN;
+    3: BN;
+    4: string;
   };
 }
 
@@ -206,9 +218,11 @@ export interface Swap {
 type AllEvents =
   | Borrow
   | Deposit
+  | DepositMock
   | LiquidationCall
   | OriginationFeeLiquidated
   | RebalanceStableBorrowRate
+  | RedeemMock
   | RedeemUnderlying
   | Repay
   | ReserveUsedAsCollateralDisabled
@@ -261,7 +275,38 @@ export interface AaveLendingPoolMockInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  addReserve: {
+  redeemUnderlying: {
+    (
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      _aTokenBalanceAfterRedeem: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      _aTokenBalanceAfterRedeem: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      _aTokenBalanceAfterRedeem: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      _aTokenBalanceAfterRedeem: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  setReserve: {
     (
       _reserveAddress: string,
       _totalLiquidity: number | BN | string,
@@ -385,7 +430,38 @@ export interface AaveLendingPoolMockInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    addReserve: {
+    redeemUnderlying: {
+      (
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        _aTokenBalanceAfterRedeem: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        _aTokenBalanceAfterRedeem: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        _aTokenBalanceAfterRedeem: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        _aTokenBalanceAfterRedeem: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    setReserve: {
       (
         _reserveAddress: string,
         _totalLiquidity: number | BN | string,

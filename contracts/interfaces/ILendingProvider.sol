@@ -13,7 +13,11 @@ interface ILendingProvider {
 
     function deposit(address _reserve, uint256 _amount) external payable;
 
-    function withdraw(address _reserve, uint256 _amount) external;
+    function redeemUnderlying(
+        address _reserve,
+        address payable _user,
+        uint256 _amount
+    ) external;
 
     /**
      * @notice Resereves methods
@@ -43,6 +47,11 @@ interface ILendingProvider {
         returns (uint256 liquidityRate);
 
     function getReserveBorrowRate(address _reserveAddress)
+        external
+        view
+        returns (uint256);
+
+    function getAvaibleLiquidity(address _reserve)
         external
         view
         returns (uint256);

@@ -17,11 +17,26 @@ contract AaveLendingPoolMock is IAaveLendingPool {
      * @param _referral the referral number of the action
      * @param _timestamp the timestamp of the action
      **/
-    event Deposit(
+    event DepositMock(
         address indexed _reserve,
         address indexed _user,
         uint256 _amount,
         uint16 indexed _referral,
+        uint256 _timestamp,
+        string _mockId
+    );
+
+    /**
+     * @dev Redeems the underlying amount of assets requested by _user.
+     * This function is executed by the overlying aToken contract in response to a redeem action.
+     * @param _reserve the address of the reserve
+     * @param _user the address of the user performing the action
+     * @param _amount the underlying amount to be redeemed
+     **/
+    event RedeemMock(
+        address indexed _reserve,
+        address indexed _user,
+        uint256 _amount,
         uint256 _timestamp,
         string _mockId
     );
@@ -63,8 +78,10 @@ contract AaveLendingPoolMock is IAaveLendingPool {
         //        //transfer to the core contract
         //        core.transferToReserve.value(msg.value)(_reserve, msg.sender, _amount);
 
+        reserveData[_reserve].totalLiquidity += _amount;
+        reserveData[_reserve].availableLiquidity += _amount;
         //solium-disable-next-line
-        emit Deposit(
+        emit DepositMock(
             _reserve,
             msg.sender,
             _amount,
@@ -74,7 +91,23 @@ contract AaveLendingPoolMock is IAaveLendingPool {
         );
     }
 
-    function addReserve(
+    function redeemUnderlying(
+        address _reserve,
+        address payable _user,
+        uint256 _amount,
+        uint256 _aTokenBalanceAfterRedeem
+    ) external override {
+        require(
+            reserveData[_reserve].availableLiquidity >= _amount,
+            "Not enough liquidity"
+        );
+        reserveData[_reserve].totalLiquidity -= _amount;
+        reserveData[_reserve].availableLiquidity -= _amount;
+        //solium-disable-next-line
+        emit RedeemMock(_reserve, _user, _amount, block.timestamp, mockId);
+    }
+
+    function setReserve(
         address _reserveAddress,
         // reserve total liquidity
         uint256 _totalLiquidity,
@@ -103,7 +136,8 @@ contract AaveLendingPoolMock is IAaveLendingPool {
         // timestamp of the last update of reserve data
         uint40 _lastUpdateTimestamp
     ) external {
-        reserves.push(_reserveAddress);
+        // Add reserve to list if doesn't exist
+        addToReserveIfNotExists(_reserveAddress);
         setReserveData(
             _reserveAddress,
             _totalLiquidity,
@@ -125,6 +159,15 @@ contract AaveLendingPoolMock is IAaveLendingPool {
             _aTokenAddress,
             _lastUpdateTimestamp
         );
+    }
+
+
+    // Check that reserve exists in reserve array 
+    // If no, it adds it
+    function addToReserveIfNotExists(address _reserve) internal {
+        if (reserveData[_reserve].lastUpdateTimestamp == 0) {
+            reserves.push(_reserve);
+        }
     }
 
     function setReserveData(

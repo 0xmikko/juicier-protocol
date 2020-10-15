@@ -6,41 +6,12 @@ import { EventData, PastEventOptions } from "web3-eth-contract";
 
 export interface AbstractProviderContract
   extends Truffle.Contract<AbstractProviderInstance> {
-  "new"(
-    name: string,
-    meta?: Truffle.TransactionDetails
-  ): Promise<AbstractProviderInstance>;
+  "new"(meta?: Truffle.TransactionDetails): Promise<AbstractProviderInstance>;
 }
 
 type AllEvents = never;
 
 export interface AbstractProviderInstance extends Truffle.ContractInstance {
-  /**
-   * Deposit asset to selected lending provider
-   */
-  deposit: {
-    (
-      _reserve: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<Truffle.TransactionResponse<AllEvents>>;
-    call(
-      _reserve: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<void>;
-    sendTransaction(
-      _reserve: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<string>;
-    estimateGas(
-      _reserve: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<number>;
-  };
-
   getReserveBorrowRate(
     _reserveAddress: string,
     txDetails?: Truffle.TransactionDetails
@@ -68,7 +39,7 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
     estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
 
-  withdraw: {
+  deposit: {
     (
       _reserve: string,
       _amount: number | BN | string,
@@ -91,33 +62,39 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  methods: {
-    /**
-     * Deposit asset to selected lending provider
-     */
-    deposit: {
-      (
-        _reserve: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<Truffle.TransactionResponse<AllEvents>>;
-      call(
-        _reserve: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<void>;
-      sendTransaction(
-        _reserve: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<string>;
-      estimateGas(
-        _reserve: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<number>;
-    };
+  redeemUnderlying: {
+    (
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
 
+  getAvaibleLiquidity(
+    _reserve: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
+  methods: {
     getReserveBorrowRate(
       _reserveAddress: string,
       txDetails?: Truffle.TransactionDetails
@@ -145,7 +122,7 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
       estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
 
-    withdraw: {
+    deposit: {
       (
         _reserve: string,
         _amount: number | BN | string,
@@ -167,6 +144,38 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
+
+    redeemUnderlying: {
+      (
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    getAvaibleLiquidity(
+      _reserve: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

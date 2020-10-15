@@ -374,15 +374,15 @@
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/token/VToken.sol",
     "exportedSymbols": {
       "VitaminToken": [
-        1921
+        1924
       ]
     },
-    "id": 1922,
+    "id": 1925,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1747,
+        "id": 1750,
         "literals": [
           "solidity",
           "^",
@@ -395,10 +395,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol",
         "file": "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol",
-        "id": 1748,
+        "id": 1751,
         "nodeType": "ImportDirective",
-        "scope": 1922,
-        "sourceUnit": 2757,
+        "scope": 1925,
+        "sourceUnit": 2760,
         "src": "62:63:13",
         "symbolAliases": [],
         "unitAlias": ""
@@ -410,51 +410,51 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1749,
+              "id": 1752,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2756,
+              "referencedDeclaration": 2759,
               "src": "152:5:13",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$2756",
+                "typeIdentifier": "t_contract$_ERC20_$2759",
                 "typeString": "contract ERC20"
               }
             },
-            "id": 1750,
+            "id": 1753,
             "nodeType": "InheritanceSpecifier",
             "src": "152:5:13"
           }
         ],
         "contractDependencies": [
-          1944,
-          2756,
-          2834
+          1947,
+          2759,
+          2837
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1921,
+        "id": 1924,
         "linearizedBaseContracts": [
-          1921,
-          2756,
-          2834,
-          1944
+          1924,
+          2759,
+          2837,
+          1947
         ],
         "name": "VitaminToken",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "VitaminToken.QueueItem",
-            "id": 1761,
+            "id": 1764,
             "members": [
               {
                 "constant": false,
-                "id": 1752,
+                "id": 1755,
                 "mutability": "mutable",
                 "name": "previous",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 1761,
+                "scope": 1764,
                 "src": "196:16:13",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -463,7 +463,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1751,
+                  "id": 1754,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "196:7:13",
@@ -478,12 +478,12 @@
               },
               {
                 "constant": false,
-                "id": 1754,
+                "id": 1757,
                 "mutability": "mutable",
                 "name": "next",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 1761,
+                "scope": 1764,
                 "src": "222:12:13",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -492,7 +492,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1753,
+                  "id": 1756,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "222:7:13",
@@ -507,12 +507,12 @@
               },
               {
                 "constant": false,
-                "id": 1756,
+                "id": 1759,
                 "mutability": "mutable",
                 "name": "balanceHolder",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 1761,
+                "scope": 1764,
                 "src": "244:21:13",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -521,7 +521,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1755,
+                  "id": 1758,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "244:7:13",
@@ -536,12 +536,12 @@
               },
               {
                 "constant": false,
-                "id": 1758,
+                "id": 1761,
                 "mutability": "mutable",
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 1761,
+                "scope": 1764,
                 "src": "275:14:13",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -550,7 +550,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1757,
+                  "id": 1760,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "275:7:13",
@@ -564,12 +564,12 @@
               },
               {
                 "constant": false,
-                "id": 1760,
+                "id": 1763,
                 "mutability": "mutable",
                 "name": "startingAssetUsage",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 1761,
+                "scope": 1764,
                 "src": "299:25:13",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -578,7 +578,7 @@
                   "typeString": "uint40"
                 },
                 "typeName": {
-                  "id": 1759,
+                  "id": 1762,
                   "name": "uint40",
                   "nodeType": "ElementaryTypeName",
                   "src": "299:6:13",
@@ -593,18 +593,18 @@
             ],
             "name": "QueueItem",
             "nodeType": "StructDefinition",
-            "scope": 1921,
+            "scope": 1924,
             "src": "169:162:13",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 1763,
+            "id": 1766,
             "mutability": "mutable",
             "name": "firstItem",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1921,
+            "scope": 1924,
             "src": "337:25:13",
             "stateVariable": true,
             "storageLocation": "default",
@@ -613,7 +613,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1762,
+              "id": 1765,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "337:7:13",
@@ -628,12 +628,12 @@
           },
           {
             "constant": false,
-            "id": 1765,
+            "id": 1768,
             "mutability": "mutable",
             "name": "lastItem",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1921,
+            "scope": 1924,
             "src": "368:24:13",
             "stateVariable": true,
             "storageLocation": "default",
@@ -642,7 +642,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1764,
+              "id": 1767,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "368:7:13",
@@ -657,12 +657,12 @@
           },
           {
             "constant": false,
-            "id": 1767,
+            "id": 1770,
             "mutability": "mutable",
             "name": "totalLiquidity",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1921,
+            "scope": 1924,
             "src": "398:22:13",
             "stateVariable": true,
             "storageLocation": "default",
@@ -671,7 +671,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1766,
+              "id": 1769,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "398:7:13",
@@ -685,12 +685,12 @@
           },
           {
             "constant": false,
-            "id": 1769,
+            "id": 1772,
             "mutability": "mutable",
             "name": "borrowedLiquidity",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1921,
+            "scope": 1924,
             "src": "426:25:13",
             "stateVariable": true,
             "storageLocation": "default",
@@ -699,7 +699,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1768,
+              "id": 1771,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "426:7:13",
@@ -713,23 +713,23 @@
           },
           {
             "constant": false,
-            "id": 1773,
+            "id": 1776,
             "mutability": "mutable",
             "name": "queue",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1921,
+            "scope": 1924,
             "src": "458:43:13",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1761_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1764_storage_$",
               "typeString": "mapping(address => struct VitaminToken.QueueItem)"
             },
             "typeName": {
-              "id": 1772,
+              "id": 1775,
               "keyType": {
-                "id": 1770,
+                "id": 1773,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "466:7:13",
@@ -741,18 +741,18 @@
               "nodeType": "Mapping",
               "src": "458:29:13",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1761_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1764_storage_$",
                 "typeString": "mapping(address => struct VitaminToken.QueueItem)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 1771,
+                "id": 1774,
                 "name": "QueueItem",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1761,
+                "referencedDeclaration": 1764,
                 "src": "477:9:13",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_QueueItem_$1761_storage_ptr",
+                  "typeIdentifier": "t_struct$_QueueItem_$1764_storage_ptr",
                   "typeString": "struct VitaminToken.QueueItem"
                 }
               }
@@ -762,13 +762,13 @@
           },
           {
             "body": {
-              "id": 1786,
+              "id": 1789,
               "nodeType": "Block",
               "src": "755:354:13",
               "statements": []
             },
             "documentation": null,
-            "id": 1787,
+            "id": 1790,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [
@@ -776,11 +776,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 1782,
+                    "id": 1785,
                     "name": "_name",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1777,
+                    "referencedDeclaration": 1780,
                     "src": "739:5:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_memory_ptr",
@@ -789,11 +789,11 @@
                   },
                   {
                     "argumentTypes": null,
-                    "id": 1783,
+                    "id": 1786,
                     "name": "_symbol",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1779,
+                    "referencedDeclaration": 1782,
                     "src": "746:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_memory_ptr",
@@ -801,17 +801,17 @@
                     }
                   }
                 ],
-                "id": 1784,
+                "id": 1787,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1781,
+                  "id": 1784,
                   "name": "ERC20",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 2756,
+                  "referencedDeclaration": 2759,
                   "src": "733:5:13",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_ERC20_$2756_$",
+                    "typeIdentifier": "t_type$_t_contract$_ERC20_$2759_$",
                     "typeString": "type(contract ERC20)"
                   }
                 },
@@ -823,17 +823,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1780,
+              "id": 1783,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1775,
+                  "id": 1778,
                   "mutability": "mutable",
                   "name": "_underlyingAssetDecimals",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1787,
+                  "scope": 1790,
                   "src": "629:30:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -842,7 +842,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 1774,
+                    "id": 1777,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "629:5:13",
@@ -856,12 +856,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1777,
+                  "id": 1780,
                   "mutability": "mutable",
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1787,
+                  "scope": 1790,
                   "src": "669:19:13",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -870,7 +870,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1776,
+                    "id": 1779,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "669:6:13",
@@ -884,12 +884,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1779,
+                  "id": 1782,
                   "mutability": "mutable",
                   "name": "_symbol",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1787,
+                  "scope": 1790,
                   "src": "698:21:13",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -898,7 +898,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1778,
+                    "id": 1781,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "698:6:13",
@@ -914,12 +914,12 @@
               "src": "522:203:13"
             },
             "returnParameters": {
-              "id": 1785,
+              "id": 1788,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "755:0:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "511:598:13",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -927,7 +927,7 @@
           },
           {
             "body": {
-              "id": 1804,
+              "id": 1807,
               "nodeType": "Block",
               "src": "1185:66:13",
               "statements": [
@@ -938,7 +938,7 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 1802,
+                    "id": 1805,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -949,25 +949,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 1794,
+                          "id": 1797,
                           "name": "queue",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1773,
+                          "referencedDeclaration": 1776,
                           "src": "1202:5:13",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1761_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1764_storage_$",
                             "typeString": "mapping(address => struct VitaminToken.QueueItem storage ref)"
                           }
                         },
-                        "id": 1796,
+                        "id": 1799,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 1795,
+                          "id": 1798,
                           "name": "_holder",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1789,
+                          "referencedDeclaration": 1792,
                           "src": "1208:7:13",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -981,18 +981,18 @@
                         "nodeType": "IndexAccess",
                         "src": "1202:14:13",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_QueueItem_$1761_storage",
+                          "typeIdentifier": "t_struct$_QueueItem_$1764_storage",
                           "typeString": "struct VitaminToken.QueueItem storage ref"
                         }
                       },
-                      "id": 1797,
+                      "id": 1800,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "balanceHolder",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1756,
+                      "referencedDeclaration": 1759,
                       "src": "1202:28:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1007,7 +1007,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "30",
-                          "id": 1800,
+                          "id": 1803,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1030,7 +1030,7 @@
                             "typeString": "int_const 0"
                           }
                         ],
-                        "id": 1799,
+                        "id": 1802,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1042,7 +1042,7 @@
                           "typeString": "type(address)"
                         },
                         "typeName": {
-                          "id": 1798,
+                          "id": 1801,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
                           "src": "1234:7:13",
@@ -1052,7 +1052,7 @@
                           }
                         }
                       },
-                      "id": 1801,
+                      "id": 1804,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1073,8 +1073,8 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 1793,
-                  "id": 1803,
+                  "functionReturnParameters": 1796,
+                  "id": 1806,
                   "nodeType": "Return",
                   "src": "1195:49:13"
                 }
@@ -1082,7 +1082,7 @@
             },
             "documentation": null,
             "functionSelector": "8ac0295b",
-            "id": 1805,
+            "id": 1808,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1090,17 +1090,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1790,
+              "id": 1793,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1789,
+                  "id": 1792,
                   "mutability": "mutable",
                   "name": "_holder",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1805,
+                  "scope": 1808,
                   "src": "1139:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1109,7 +1109,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1788,
+                    "id": 1791,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1139:7:13",
@@ -1126,17 +1126,17 @@
               "src": "1138:17:13"
             },
             "returnParameters": {
-              "id": 1793,
+              "id": 1796,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1792,
+                  "id": 1795,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1805,
+                  "scope": 1808,
                   "src": "1179:4:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1145,7 +1145,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1791,
+                    "id": 1794,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1179:4:13",
@@ -1160,7 +1160,7 @@
               ],
               "src": "1178:6:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "1115:136:13",
             "stateMutability": "view",
             "virtual": false,
@@ -1168,7 +1168,7 @@
           },
           {
             "body": {
-              "id": 1819,
+              "id": 1822,
               "nodeType": "Block",
               "src": "1301:116:13",
               "statements": [
@@ -1182,18 +1182,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 1814,
+                        "id": 1817,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 1810,
+                          "id": 1813,
                           "name": "totalLiquidity",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1767,
+                          "referencedDeclaration": 1770,
                           "src": "1319:14:13",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1208,18 +1208,18 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1813,
+                          "id": 1816,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 1811,
+                            "id": 1814,
                             "name": "borrowedLiquidity",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1769,
+                            "referencedDeclaration": 1772,
                             "src": "1337:17:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1230,11 +1230,11 @@
                           "operator": "+",
                           "rightExpression": {
                             "argumentTypes": null,
-                            "id": 1812,
+                            "id": 1815,
                             "name": "_amount",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1807,
+                            "referencedDeclaration": 1810,
                             "src": "1357:7:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1256,7 +1256,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "4e6f7420656e6f756768206c697175696469747920746f20626f72726f77",
-                        "id": 1815,
+                        "id": 1818,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1283,7 +1283,7 @@
                           "typeString": "literal_string \"Not enough liquidity to borrow\""
                         }
                       ],
-                      "id": 1809,
+                      "id": 1812,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -1297,7 +1297,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 1816,
+                    "id": 1819,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1312,34 +1312,34 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1817,
+                  "id": 1820,
                   "nodeType": "ExpressionStatement",
                   "src": "1311:88:13"
                 },
                 {
-                  "id": 1818,
+                  "id": 1821,
                   "nodeType": "PlaceholderStatement",
                   "src": "1409:1:13"
                 }
               ]
             },
             "documentation": null,
-            "id": 1820,
+            "id": 1823,
             "name": "hasEnoughToBorrow",
             "nodeType": "ModifierDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1808,
+              "id": 1811,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1807,
+                  "id": 1810,
                   "mutability": "mutable",
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1820,
+                  "scope": 1823,
                   "src": "1284:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1348,7 +1348,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1806,
+                    "id": 1809,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1284:7:13",
@@ -1369,39 +1369,39 @@
           },
           {
             "body": {
-              "id": 1882,
+              "id": 1885,
               "nodeType": "Block",
               "src": "1490:536:13",
               "statements": [
                 {
                   "assignments": [
-                    1828
+                    1831
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1828,
+                      "id": 1831,
                       "mutability": "mutable",
                       "name": "newItem",
                       "nodeType": "VariableDeclaration",
                       "overrides": null,
-                      "scope": 1882,
+                      "scope": 1885,
                       "src": "1500:24:13",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_QueueItem_$1761_memory_ptr",
+                        "typeIdentifier": "t_struct$_QueueItem_$1764_memory_ptr",
                         "typeString": "struct VitaminToken.QueueItem"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 1827,
+                        "id": 1830,
                         "name": "QueueItem",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 1761,
+                        "referencedDeclaration": 1764,
                         "src": "1500:9:13",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_QueueItem_$1761_storage_ptr",
+                          "typeIdentifier": "t_struct$_QueueItem_$1764_storage_ptr",
                           "typeString": "struct VitaminToken.QueueItem"
                         }
                       },
@@ -1409,7 +1409,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1842,
+                  "id": 1845,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -1419,7 +1419,7 @@
                           {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 1832,
+                            "id": 1835,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1442,7 +1442,7 @@
                               "typeString": "int_const 0"
                             }
                           ],
-                          "id": 1831,
+                          "id": 1834,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1454,7 +1454,7 @@
                             "typeString": "type(address)"
                           },
                           "typeName": {
-                            "id": 1830,
+                            "id": 1833,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
                             "src": "1561:7:13",
@@ -1464,7 +1464,7 @@
                             }
                           }
                         },
-                        "id": 1833,
+                        "id": 1836,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1485,7 +1485,7 @@
                           {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 1836,
+                            "id": 1839,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1508,7 +1508,7 @@
                               "typeString": "int_const 0"
                             }
                           ],
-                          "id": 1835,
+                          "id": 1838,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1520,7 +1520,7 @@
                             "typeString": "type(address)"
                           },
                           "typeName": {
-                            "id": 1834,
+                            "id": 1837,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
                             "src": "1591:7:13",
@@ -1530,7 +1530,7 @@
                             }
                           }
                         },
-                        "id": 1837,
+                        "id": 1840,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1547,11 +1547,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1838,
+                        "id": 1841,
                         "name": "_holder",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1822,
+                        "referencedDeclaration": 1825,
                         "src": "1630:7:13",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1560,11 +1560,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1839,
+                        "id": 1842,
                         "name": "_amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1824,
+                        "referencedDeclaration": 1827,
                         "src": "1659:7:13",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1574,7 +1574,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "30",
-                        "id": 1840,
+                        "id": 1843,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1613,18 +1613,18 @@
                           "typeString": "int_const 0"
                         }
                       ],
-                      "id": 1829,
+                      "id": 1832,
                       "name": "QueueItem",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1761,
+                      "referencedDeclaration": 1764,
                       "src": "1527:9:13",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_QueueItem_$1761_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_QueueItem_$1764_storage_ptr_$",
                         "typeString": "type(struct VitaminToken.QueueItem storage pointer)"
                       }
                     },
-                    "id": 1841,
+                    "id": 1844,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1641,7 +1641,7 @@
                     "src": "1527:185:13",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_QueueItem_$1761_memory_ptr",
+                      "typeIdentifier": "t_struct$_QueueItem_$1764_memory_ptr",
                       "typeString": "struct VitaminToken.QueueItem memory"
                     }
                   },
@@ -1655,18 +1655,18 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 1848,
+                    "id": 1851,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 1843,
+                      "id": 1846,
                       "name": "firstItem",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1763,
+                      "referencedDeclaration": 1766,
                       "src": "1727:9:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1681,7 +1681,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "30",
-                          "id": 1846,
+                          "id": 1849,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1704,7 +1704,7 @@
                             "typeString": "int_const 0"
                           }
                         ],
-                        "id": 1845,
+                        "id": 1848,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1716,7 +1716,7 @@
                           "typeString": "type(address)"
                         },
                         "typeName": {
-                          "id": 1844,
+                          "id": 1847,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
                           "src": "1740:7:13",
@@ -1726,7 +1726,7 @@
                           }
                         }
                       },
-                      "id": 1847,
+                      "id": 1850,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1748,25 +1748,25 @@
                     }
                   },
                   "falseBody": {
-                    "id": 1872,
+                    "id": 1875,
                     "nodeType": "Block",
                     "src": "1913:44:13",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1870,
+                          "id": 1873,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "argumentTypes": null,
-                            "id": 1868,
+                            "id": 1871,
                             "name": "firstItem",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1763,
+                            "referencedDeclaration": 1766,
                             "src": "1927:9:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1777,11 +1777,11 @@
                           "operator": "=",
                           "rightHandSide": {
                             "argumentTypes": null,
-                            "id": 1869,
+                            "id": 1872,
                             "name": "_holder",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1822,
+                            "referencedDeclaration": 1825,
                             "src": "1939:7:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1794,24 +1794,24 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 1871,
+                        "id": 1874,
                         "nodeType": "ExpressionStatement",
                         "src": "1927:19:13"
                       }
                     ]
                   },
-                  "id": 1873,
+                  "id": 1876,
                   "nodeType": "IfStatement",
                   "src": "1723:234:13",
                   "trueBody": {
-                    "id": 1867,
+                    "id": 1870,
                     "nodeType": "Block",
                     "src": "1752:155:13",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1853,
+                          "id": 1856,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1820,25 +1820,25 @@
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1849,
+                              "id": 1852,
                               "name": "newItem",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1828,
+                              "referencedDeclaration": 1831,
                               "src": "1766:7:13",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_QueueItem_$1761_memory_ptr",
+                                "typeIdentifier": "t_struct$_QueueItem_$1764_memory_ptr",
                                 "typeString": "struct VitaminToken.QueueItem memory"
                               }
                             },
-                            "id": 1851,
+                            "id": 1854,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": true,
                             "memberName": "previous",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 1752,
+                            "referencedDeclaration": 1755,
                             "src": "1766:16:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1849,11 +1849,11 @@
                           "operator": "=",
                           "rightHandSide": {
                             "argumentTypes": null,
-                            "id": 1852,
+                            "id": 1855,
                             "name": "lastItem",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1765,
+                            "referencedDeclaration": 1768,
                             "src": "1785:8:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1866,39 +1866,39 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 1854,
+                        "id": 1857,
                         "nodeType": "ExpressionStatement",
                         "src": "1766:27:13"
                       },
                       {
                         "assignments": [
-                          1856
+                          1859
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1856,
+                            "id": 1859,
                             "mutability": "mutable",
                             "name": "previousItem",
                             "nodeType": "VariableDeclaration",
                             "overrides": null,
-                            "scope": 1867,
+                            "scope": 1870,
                             "src": "1807:30:13",
                             "stateVariable": false,
                             "storageLocation": "storage",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_QueueItem_$1761_storage_ptr",
+                              "typeIdentifier": "t_struct$_QueueItem_$1764_storage_ptr",
                               "typeString": "struct VitaminToken.QueueItem"
                             },
                             "typeName": {
                               "contractScope": null,
-                              "id": 1855,
+                              "id": 1858,
                               "name": "QueueItem",
                               "nodeType": "UserDefinedTypeName",
-                              "referencedDeclaration": 1761,
+                              "referencedDeclaration": 1764,
                               "src": "1807:9:13",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_QueueItem_$1761_storage_ptr",
+                                "typeIdentifier": "t_struct$_QueueItem_$1764_storage_ptr",
                                 "typeString": "struct VitaminToken.QueueItem"
                               }
                             },
@@ -1906,30 +1906,30 @@
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1860,
+                        "id": 1863,
                         "initialValue": {
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1857,
+                            "id": 1860,
                             "name": "queue",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1773,
+                            "referencedDeclaration": 1776,
                             "src": "1840:5:13",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1761_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1764_storage_$",
                               "typeString": "mapping(address => struct VitaminToken.QueueItem storage ref)"
                             }
                           },
-                          "id": 1859,
+                          "id": 1862,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1858,
+                            "id": 1861,
                             "name": "lastItem",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1765,
+                            "referencedDeclaration": 1768,
                             "src": "1846:8:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1943,7 +1943,7 @@
                           "nodeType": "IndexAccess",
                           "src": "1840:15:13",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_QueueItem_$1761_storage",
+                            "typeIdentifier": "t_struct$_QueueItem_$1764_storage",
                             "typeString": "struct VitaminToken.QueueItem storage ref"
                           }
                         },
@@ -1953,7 +1953,7 @@
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1865,
+                          "id": 1868,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1962,25 +1962,25 @@
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1861,
+                              "id": 1864,
                               "name": "previousItem",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1856,
+                              "referencedDeclaration": 1859,
                               "src": "1869:12:13",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_QueueItem_$1761_storage_ptr",
+                                "typeIdentifier": "t_struct$_QueueItem_$1764_storage_ptr",
                                 "typeString": "struct VitaminToken.QueueItem storage pointer"
                               }
                             },
-                            "id": 1863,
+                            "id": 1866,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": true,
                             "memberName": "next",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 1754,
+                            "referencedDeclaration": 1757,
                             "src": "1869:17:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1991,11 +1991,11 @@
                           "operator": "=",
                           "rightHandSide": {
                             "argumentTypes": null,
-                            "id": 1864,
+                            "id": 1867,
                             "name": "_holder",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1822,
+                            "referencedDeclaration": 1825,
                             "src": "1889:7:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -2008,7 +2008,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 1866,
+                        "id": 1869,
                         "nodeType": "ExpressionStatement",
                         "src": "1869:27:13"
                       }
@@ -2018,18 +2018,18 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1876,
+                    "id": 1879,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1874,
+                      "id": 1877,
                       "name": "lastItem",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1765,
+                      "referencedDeclaration": 1768,
                       "src": "1966:8:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2040,11 +2040,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1875,
+                      "id": 1878,
                       "name": "_holder",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1822,
+                      "referencedDeclaration": 1825,
                       "src": "1977:7:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2057,25 +2057,25 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 1877,
+                  "id": 1880,
                   "nodeType": "ExpressionStatement",
                   "src": "1966:18:13"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1880,
+                    "id": 1883,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1878,
+                      "id": 1881,
                       "name": "totalLiquidity",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1767,
+                      "referencedDeclaration": 1770,
                       "src": "1994:14:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2086,11 +2086,11 @@
                     "operator": "+=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1879,
+                      "id": 1882,
                       "name": "_amount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1824,
+                      "referencedDeclaration": 1827,
                       "src": "2012:7:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2103,7 +2103,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1881,
+                  "id": 1884,
                   "nodeType": "ExpressionStatement",
                   "src": "1994:25:13"
                 }
@@ -2111,7 +2111,7 @@
             },
             "documentation": null,
             "functionSelector": "2ddac32f",
-            "id": 1883,
+            "id": 1886,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2119,17 +2119,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1825,
+              "id": 1828,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1822,
+                  "id": 1825,
                   "mutability": "mutable",
                   "name": "_holder",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1883,
+                  "scope": 1886,
                   "src": "1449:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2138,7 +2138,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1821,
+                    "id": 1824,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1449:7:13",
@@ -2153,12 +2153,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1824,
+                  "id": 1827,
                   "mutability": "mutable",
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1883,
+                  "scope": 1886,
                   "src": "1466:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2167,7 +2167,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1823,
+                    "id": 1826,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1466:7:13",
@@ -2183,12 +2183,12 @@
               "src": "1448:34:13"
             },
             "returnParameters": {
-              "id": 1826,
+              "id": 1829,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1490:0:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "1423:603:13",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2196,7 +2196,7 @@
           },
           {
             "body": {
-              "id": 1899,
+              "id": 1902,
               "nodeType": "Block",
               "src": "2104:96:13",
               "statements": [
@@ -2206,11 +2206,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1892,
+                        "id": 1895,
                         "name": "_amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1885,
+                        "referencedDeclaration": 1888,
                         "src": "2138:7:13",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2225,18 +2225,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1891,
+                      "id": 1894,
                       "name": "updateQueueAssetsUsage",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1906,
+                      "referencedDeclaration": 1909,
                       "src": "2115:22:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
-                    "id": 1893,
+                    "id": 1896,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2251,25 +2251,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1894,
+                  "id": 1897,
                   "nodeType": "ExpressionStatement",
                   "src": "2115:31:13"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1897,
+                    "id": 1900,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1895,
+                      "id": 1898,
                       "name": "borrowedLiquidity",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1769,
+                      "referencedDeclaration": 1772,
                       "src": "2156:17:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2280,11 +2280,11 @@
                     "operator": "+=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1896,
+                      "id": 1899,
                       "name": "_amount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1885,
+                      "referencedDeclaration": 1888,
                       "src": "2177:7:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2297,7 +2297,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1898,
+                  "id": 1901,
                   "nodeType": "ExpressionStatement",
                   "src": "2156:28:13"
                 }
@@ -2305,7 +2305,7 @@
             },
             "documentation": null,
             "functionSelector": "689f036b",
-            "id": 1900,
+            "id": 1903,
             "implemented": true,
             "kind": "function",
             "modifiers": [
@@ -2313,11 +2313,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 1888,
+                    "id": 1891,
                     "name": "_amount",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1885,
+                    "referencedDeclaration": 1888,
                     "src": "2095:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -2325,14 +2325,14 @@
                     }
                   }
                 ],
-                "id": 1889,
+                "id": 1892,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1887,
+                  "id": 1890,
                   "name": "hasEnoughToBorrow",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1820,
+                  "referencedDeclaration": 1823,
                   "src": "2077:17:13",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_uint256_$",
@@ -2347,17 +2347,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1886,
+              "id": 1889,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1885,
+                  "id": 1888,
                   "mutability": "mutable",
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1900,
+                  "scope": 1903,
                   "src": "2053:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2366,7 +2366,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1884,
+                    "id": 1887,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2053:7:13",
@@ -2382,12 +2382,12 @@
               "src": "2052:17:13"
             },
             "returnParameters": {
-              "id": 1890,
+              "id": 1893,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2104:0:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "2032:168:13",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2395,13 +2395,13 @@
           },
           {
             "body": {
-              "id": 1905,
+              "id": 1908,
               "nodeType": "Block",
               "src": "2265:7:13",
               "statements": []
             },
             "documentation": null,
-            "id": 1906,
+            "id": 1909,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2409,17 +2409,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1903,
+              "id": 1906,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1902,
+                  "id": 1905,
                   "mutability": "mutable",
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1906,
+                  "scope": 1909,
                   "src": "2239:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2428,7 +2428,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1901,
+                    "id": 1904,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2239:7:13",
@@ -2444,12 +2444,12 @@
               "src": "2238:17:13"
             },
             "returnParameters": {
-              "id": 1904,
+              "id": 1907,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2265:0:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "2206:66:13",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2457,7 +2457,7 @@
           },
           {
             "body": {
-              "id": 1919,
+              "id": 1922,
               "nodeType": "Block",
               "src": "3709:46:13",
               "statements": [
@@ -2467,11 +2467,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1916,
+                        "id": 1919,
                         "name": "_user",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1909,
+                        "referencedDeclaration": 1912,
                         "src": "3742:5:13",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2488,32 +2488,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1914,
+                        "id": 1917,
                         "name": "super",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": -25,
                         "src": "3726:5:13",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_super$_VitaminToken_$1921",
+                          "typeIdentifier": "t_super$_VitaminToken_$1924",
                           "typeString": "contract super VitaminToken"
                         }
                       },
-                      "id": 1915,
+                      "id": 1918,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "balanceOf",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2356,
+                      "referencedDeclaration": 2359,
                       "src": "3726:15:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_uint256_$",
                         "typeString": "function (address) view returns (uint256)"
                       }
                     },
-                    "id": 1917,
+                    "id": 1920,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2528,21 +2528,21 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 1913,
-                  "id": 1918,
+                  "functionReturnParameters": 1916,
+                  "id": 1921,
                   "nodeType": "Return",
                   "src": "3719:29:13"
                 }
               ]
             },
             "documentation": {
-              "id": 1907,
+              "id": 1910,
               "nodeType": "StructuredDocumentation",
               "src": "3351:279:13",
               "text": " @dev returns the principal balance of the user. The principal balance is the last\n updated stored balance, which does not consider the perpetually accruing interest.\n @param _user the address of the user\n @return the principal balance of the user*"
             },
             "functionSelector": "c634dfaa",
-            "id": 1920,
+            "id": 1923,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2550,17 +2550,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1910,
+              "id": 1913,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1909,
+                  "id": 1912,
                   "mutability": "mutable",
                   "name": "_user",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1920,
+                  "scope": 1923,
                   "src": "3663:13:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2569,7 +2569,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1908,
+                    "id": 1911,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3663:7:13",
@@ -2586,17 +2586,17 @@
               "src": "3662:15:13"
             },
             "returnParameters": {
-              "id": 1913,
+              "id": 1916,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1912,
+                  "id": 1915,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1920,
+                  "scope": 1923,
                   "src": "3700:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2605,7 +2605,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1911,
+                    "id": 1914,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "3700:7:13",
@@ -2620,14 +2620,14 @@
               ],
               "src": "3699:9:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "3635:120:13",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1922,
+        "scope": 1925,
         "src": "127:4293:13"
       }
     ],
@@ -2637,15 +2637,15 @@
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/token/VToken.sol",
     "exportedSymbols": {
       "VitaminToken": [
-        1921
+        1924
       ]
     },
-    "id": 1922,
+    "id": 1925,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1747,
+        "id": 1750,
         "literals": [
           "solidity",
           "^",
@@ -2658,10 +2658,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol",
         "file": "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol",
-        "id": 1748,
+        "id": 1751,
         "nodeType": "ImportDirective",
-        "scope": 1922,
-        "sourceUnit": 2757,
+        "scope": 1925,
+        "sourceUnit": 2760,
         "src": "62:63:13",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2673,51 +2673,51 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1749,
+              "id": 1752,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2756,
+              "referencedDeclaration": 2759,
               "src": "152:5:13",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$2756",
+                "typeIdentifier": "t_contract$_ERC20_$2759",
                 "typeString": "contract ERC20"
               }
             },
-            "id": 1750,
+            "id": 1753,
             "nodeType": "InheritanceSpecifier",
             "src": "152:5:13"
           }
         ],
         "contractDependencies": [
-          1944,
-          2756,
-          2834
+          1947,
+          2759,
+          2837
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1921,
+        "id": 1924,
         "linearizedBaseContracts": [
-          1921,
-          2756,
-          2834,
-          1944
+          1924,
+          2759,
+          2837,
+          1947
         ],
         "name": "VitaminToken",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "VitaminToken.QueueItem",
-            "id": 1761,
+            "id": 1764,
             "members": [
               {
                 "constant": false,
-                "id": 1752,
+                "id": 1755,
                 "mutability": "mutable",
                 "name": "previous",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 1761,
+                "scope": 1764,
                 "src": "196:16:13",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2726,7 +2726,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1751,
+                  "id": 1754,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "196:7:13",
@@ -2741,12 +2741,12 @@
               },
               {
                 "constant": false,
-                "id": 1754,
+                "id": 1757,
                 "mutability": "mutable",
                 "name": "next",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 1761,
+                "scope": 1764,
                 "src": "222:12:13",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2755,7 +2755,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1753,
+                  "id": 1756,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "222:7:13",
@@ -2770,12 +2770,12 @@
               },
               {
                 "constant": false,
-                "id": 1756,
+                "id": 1759,
                 "mutability": "mutable",
                 "name": "balanceHolder",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 1761,
+                "scope": 1764,
                 "src": "244:21:13",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2784,7 +2784,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1755,
+                  "id": 1758,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "244:7:13",
@@ -2799,12 +2799,12 @@
               },
               {
                 "constant": false,
-                "id": 1758,
+                "id": 1761,
                 "mutability": "mutable",
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 1761,
+                "scope": 1764,
                 "src": "275:14:13",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2813,7 +2813,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1757,
+                  "id": 1760,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "275:7:13",
@@ -2827,12 +2827,12 @@
               },
               {
                 "constant": false,
-                "id": 1760,
+                "id": 1763,
                 "mutability": "mutable",
                 "name": "startingAssetUsage",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 1761,
+                "scope": 1764,
                 "src": "299:25:13",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2841,7 +2841,7 @@
                   "typeString": "uint40"
                 },
                 "typeName": {
-                  "id": 1759,
+                  "id": 1762,
                   "name": "uint40",
                   "nodeType": "ElementaryTypeName",
                   "src": "299:6:13",
@@ -2856,18 +2856,18 @@
             ],
             "name": "QueueItem",
             "nodeType": "StructDefinition",
-            "scope": 1921,
+            "scope": 1924,
             "src": "169:162:13",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 1763,
+            "id": 1766,
             "mutability": "mutable",
             "name": "firstItem",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1921,
+            "scope": 1924,
             "src": "337:25:13",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2876,7 +2876,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1762,
+              "id": 1765,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "337:7:13",
@@ -2891,12 +2891,12 @@
           },
           {
             "constant": false,
-            "id": 1765,
+            "id": 1768,
             "mutability": "mutable",
             "name": "lastItem",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1921,
+            "scope": 1924,
             "src": "368:24:13",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2905,7 +2905,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1764,
+              "id": 1767,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "368:7:13",
@@ -2920,12 +2920,12 @@
           },
           {
             "constant": false,
-            "id": 1767,
+            "id": 1770,
             "mutability": "mutable",
             "name": "totalLiquidity",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1921,
+            "scope": 1924,
             "src": "398:22:13",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2934,7 +2934,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1766,
+              "id": 1769,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "398:7:13",
@@ -2948,12 +2948,12 @@
           },
           {
             "constant": false,
-            "id": 1769,
+            "id": 1772,
             "mutability": "mutable",
             "name": "borrowedLiquidity",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1921,
+            "scope": 1924,
             "src": "426:25:13",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2962,7 +2962,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1768,
+              "id": 1771,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "426:7:13",
@@ -2976,23 +2976,23 @@
           },
           {
             "constant": false,
-            "id": 1773,
+            "id": 1776,
             "mutability": "mutable",
             "name": "queue",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1921,
+            "scope": 1924,
             "src": "458:43:13",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1761_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1764_storage_$",
               "typeString": "mapping(address => struct VitaminToken.QueueItem)"
             },
             "typeName": {
-              "id": 1772,
+              "id": 1775,
               "keyType": {
-                "id": 1770,
+                "id": 1773,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "466:7:13",
@@ -3004,18 +3004,18 @@
               "nodeType": "Mapping",
               "src": "458:29:13",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1761_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1764_storage_$",
                 "typeString": "mapping(address => struct VitaminToken.QueueItem)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 1771,
+                "id": 1774,
                 "name": "QueueItem",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1761,
+                "referencedDeclaration": 1764,
                 "src": "477:9:13",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_QueueItem_$1761_storage_ptr",
+                  "typeIdentifier": "t_struct$_QueueItem_$1764_storage_ptr",
                   "typeString": "struct VitaminToken.QueueItem"
                 }
               }
@@ -3025,13 +3025,13 @@
           },
           {
             "body": {
-              "id": 1786,
+              "id": 1789,
               "nodeType": "Block",
               "src": "755:354:13",
               "statements": []
             },
             "documentation": null,
-            "id": 1787,
+            "id": 1790,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [
@@ -3039,11 +3039,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 1782,
+                    "id": 1785,
                     "name": "_name",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1777,
+                    "referencedDeclaration": 1780,
                     "src": "739:5:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_memory_ptr",
@@ -3052,11 +3052,11 @@
                   },
                   {
                     "argumentTypes": null,
-                    "id": 1783,
+                    "id": 1786,
                     "name": "_symbol",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1779,
+                    "referencedDeclaration": 1782,
                     "src": "746:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_memory_ptr",
@@ -3064,17 +3064,17 @@
                     }
                   }
                 ],
-                "id": 1784,
+                "id": 1787,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1781,
+                  "id": 1784,
                   "name": "ERC20",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 2756,
+                  "referencedDeclaration": 2759,
                   "src": "733:5:13",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_ERC20_$2756_$",
+                    "typeIdentifier": "t_type$_t_contract$_ERC20_$2759_$",
                     "typeString": "type(contract ERC20)"
                   }
                 },
@@ -3086,17 +3086,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1780,
+              "id": 1783,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1775,
+                  "id": 1778,
                   "mutability": "mutable",
                   "name": "_underlyingAssetDecimals",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1787,
+                  "scope": 1790,
                   "src": "629:30:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3105,7 +3105,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 1774,
+                    "id": 1777,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "629:5:13",
@@ -3119,12 +3119,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1777,
+                  "id": 1780,
                   "mutability": "mutable",
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1787,
+                  "scope": 1790,
                   "src": "669:19:13",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -3133,7 +3133,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1776,
+                    "id": 1779,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "669:6:13",
@@ -3147,12 +3147,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1779,
+                  "id": 1782,
                   "mutability": "mutable",
                   "name": "_symbol",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1787,
+                  "scope": 1790,
                   "src": "698:21:13",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -3161,7 +3161,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1778,
+                    "id": 1781,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "698:6:13",
@@ -3177,12 +3177,12 @@
               "src": "522:203:13"
             },
             "returnParameters": {
-              "id": 1785,
+              "id": 1788,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "755:0:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "511:598:13",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -3190,7 +3190,7 @@
           },
           {
             "body": {
-              "id": 1804,
+              "id": 1807,
               "nodeType": "Block",
               "src": "1185:66:13",
               "statements": [
@@ -3201,7 +3201,7 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 1802,
+                    "id": 1805,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3212,25 +3212,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 1794,
+                          "id": 1797,
                           "name": "queue",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1773,
+                          "referencedDeclaration": 1776,
                           "src": "1202:5:13",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1761_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1764_storage_$",
                             "typeString": "mapping(address => struct VitaminToken.QueueItem storage ref)"
                           }
                         },
-                        "id": 1796,
+                        "id": 1799,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 1795,
+                          "id": 1798,
                           "name": "_holder",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1789,
+                          "referencedDeclaration": 1792,
                           "src": "1208:7:13",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -3244,18 +3244,18 @@
                         "nodeType": "IndexAccess",
                         "src": "1202:14:13",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_QueueItem_$1761_storage",
+                          "typeIdentifier": "t_struct$_QueueItem_$1764_storage",
                           "typeString": "struct VitaminToken.QueueItem storage ref"
                         }
                       },
-                      "id": 1797,
+                      "id": 1800,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "balanceHolder",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1756,
+                      "referencedDeclaration": 1759,
                       "src": "1202:28:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -3270,7 +3270,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "30",
-                          "id": 1800,
+                          "id": 1803,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3293,7 +3293,7 @@
                             "typeString": "int_const 0"
                           }
                         ],
-                        "id": 1799,
+                        "id": 1802,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3305,7 +3305,7 @@
                           "typeString": "type(address)"
                         },
                         "typeName": {
-                          "id": 1798,
+                          "id": 1801,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
                           "src": "1234:7:13",
@@ -3315,7 +3315,7 @@
                           }
                         }
                       },
-                      "id": 1801,
+                      "id": 1804,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -3336,8 +3336,8 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 1793,
-                  "id": 1803,
+                  "functionReturnParameters": 1796,
+                  "id": 1806,
                   "nodeType": "Return",
                   "src": "1195:49:13"
                 }
@@ -3345,7 +3345,7 @@
             },
             "documentation": null,
             "functionSelector": "8ac0295b",
-            "id": 1805,
+            "id": 1808,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -3353,17 +3353,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1790,
+              "id": 1793,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1789,
+                  "id": 1792,
                   "mutability": "mutable",
                   "name": "_holder",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1805,
+                  "scope": 1808,
                   "src": "1139:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3372,7 +3372,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1788,
+                    "id": 1791,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1139:7:13",
@@ -3389,17 +3389,17 @@
               "src": "1138:17:13"
             },
             "returnParameters": {
-              "id": 1793,
+              "id": 1796,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1792,
+                  "id": 1795,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1805,
+                  "scope": 1808,
                   "src": "1179:4:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3408,7 +3408,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1791,
+                    "id": 1794,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1179:4:13",
@@ -3423,7 +3423,7 @@
               ],
               "src": "1178:6:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "1115:136:13",
             "stateMutability": "view",
             "virtual": false,
@@ -3431,7 +3431,7 @@
           },
           {
             "body": {
-              "id": 1819,
+              "id": 1822,
               "nodeType": "Block",
               "src": "1301:116:13",
               "statements": [
@@ -3445,18 +3445,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 1814,
+                        "id": 1817,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 1810,
+                          "id": 1813,
                           "name": "totalLiquidity",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1767,
+                          "referencedDeclaration": 1770,
                           "src": "1319:14:13",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -3471,18 +3471,18 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1813,
+                          "id": 1816,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 1811,
+                            "id": 1814,
                             "name": "borrowedLiquidity",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1769,
+                            "referencedDeclaration": 1772,
                             "src": "1337:17:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -3493,11 +3493,11 @@
                           "operator": "+",
                           "rightExpression": {
                             "argumentTypes": null,
-                            "id": 1812,
+                            "id": 1815,
                             "name": "_amount",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1807,
+                            "referencedDeclaration": 1810,
                             "src": "1357:7:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -3519,7 +3519,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "4e6f7420656e6f756768206c697175696469747920746f20626f72726f77",
-                        "id": 1815,
+                        "id": 1818,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3546,7 +3546,7 @@
                           "typeString": "literal_string \"Not enough liquidity to borrow\""
                         }
                       ],
-                      "id": 1809,
+                      "id": 1812,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -3560,7 +3560,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 1816,
+                    "id": 1819,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3575,34 +3575,34 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1817,
+                  "id": 1820,
                   "nodeType": "ExpressionStatement",
                   "src": "1311:88:13"
                 },
                 {
-                  "id": 1818,
+                  "id": 1821,
                   "nodeType": "PlaceholderStatement",
                   "src": "1409:1:13"
                 }
               ]
             },
             "documentation": null,
-            "id": 1820,
+            "id": 1823,
             "name": "hasEnoughToBorrow",
             "nodeType": "ModifierDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1808,
+              "id": 1811,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1807,
+                  "id": 1810,
                   "mutability": "mutable",
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1820,
+                  "scope": 1823,
                   "src": "1284:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3611,7 +3611,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1806,
+                    "id": 1809,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1284:7:13",
@@ -3632,39 +3632,39 @@
           },
           {
             "body": {
-              "id": 1882,
+              "id": 1885,
               "nodeType": "Block",
               "src": "1490:536:13",
               "statements": [
                 {
                   "assignments": [
-                    1828
+                    1831
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1828,
+                      "id": 1831,
                       "mutability": "mutable",
                       "name": "newItem",
                       "nodeType": "VariableDeclaration",
                       "overrides": null,
-                      "scope": 1882,
+                      "scope": 1885,
                       "src": "1500:24:13",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_QueueItem_$1761_memory_ptr",
+                        "typeIdentifier": "t_struct$_QueueItem_$1764_memory_ptr",
                         "typeString": "struct VitaminToken.QueueItem"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 1827,
+                        "id": 1830,
                         "name": "QueueItem",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 1761,
+                        "referencedDeclaration": 1764,
                         "src": "1500:9:13",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_QueueItem_$1761_storage_ptr",
+                          "typeIdentifier": "t_struct$_QueueItem_$1764_storage_ptr",
                           "typeString": "struct VitaminToken.QueueItem"
                         }
                       },
@@ -3672,7 +3672,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1842,
+                  "id": 1845,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -3682,7 +3682,7 @@
                           {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 1832,
+                            "id": 1835,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3705,7 +3705,7 @@
                               "typeString": "int_const 0"
                             }
                           ],
-                          "id": 1831,
+                          "id": 1834,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3717,7 +3717,7 @@
                             "typeString": "type(address)"
                           },
                           "typeName": {
-                            "id": 1830,
+                            "id": 1833,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
                             "src": "1561:7:13",
@@ -3727,7 +3727,7 @@
                             }
                           }
                         },
-                        "id": 1833,
+                        "id": 1836,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3748,7 +3748,7 @@
                           {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 1836,
+                            "id": 1839,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3771,7 +3771,7 @@
                               "typeString": "int_const 0"
                             }
                           ],
-                          "id": 1835,
+                          "id": 1838,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3783,7 +3783,7 @@
                             "typeString": "type(address)"
                           },
                           "typeName": {
-                            "id": 1834,
+                            "id": 1837,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
                             "src": "1591:7:13",
@@ -3793,7 +3793,7 @@
                             }
                           }
                         },
-                        "id": 1837,
+                        "id": 1840,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3810,11 +3810,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1838,
+                        "id": 1841,
                         "name": "_holder",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1822,
+                        "referencedDeclaration": 1825,
                         "src": "1630:7:13",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3823,11 +3823,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1839,
+                        "id": 1842,
                         "name": "_amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1824,
+                        "referencedDeclaration": 1827,
                         "src": "1659:7:13",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3837,7 +3837,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "30",
-                        "id": 1840,
+                        "id": 1843,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3876,18 +3876,18 @@
                           "typeString": "int_const 0"
                         }
                       ],
-                      "id": 1829,
+                      "id": 1832,
                       "name": "QueueItem",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1761,
+                      "referencedDeclaration": 1764,
                       "src": "1527:9:13",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_QueueItem_$1761_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_QueueItem_$1764_storage_ptr_$",
                         "typeString": "type(struct VitaminToken.QueueItem storage pointer)"
                       }
                     },
-                    "id": 1841,
+                    "id": 1844,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3904,7 +3904,7 @@
                     "src": "1527:185:13",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_QueueItem_$1761_memory_ptr",
+                      "typeIdentifier": "t_struct$_QueueItem_$1764_memory_ptr",
                       "typeString": "struct VitaminToken.QueueItem memory"
                     }
                   },
@@ -3918,18 +3918,18 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 1848,
+                    "id": 1851,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 1843,
+                      "id": 1846,
                       "name": "firstItem",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1763,
+                      "referencedDeclaration": 1766,
                       "src": "1727:9:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -3944,7 +3944,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "30",
-                          "id": 1846,
+                          "id": 1849,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3967,7 +3967,7 @@
                             "typeString": "int_const 0"
                           }
                         ],
-                        "id": 1845,
+                        "id": 1848,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3979,7 +3979,7 @@
                           "typeString": "type(address)"
                         },
                         "typeName": {
-                          "id": 1844,
+                          "id": 1847,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
                           "src": "1740:7:13",
@@ -3989,7 +3989,7 @@
                           }
                         }
                       },
-                      "id": 1847,
+                      "id": 1850,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -4011,25 +4011,25 @@
                     }
                   },
                   "falseBody": {
-                    "id": 1872,
+                    "id": 1875,
                     "nodeType": "Block",
                     "src": "1913:44:13",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1870,
+                          "id": 1873,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "argumentTypes": null,
-                            "id": 1868,
+                            "id": 1871,
                             "name": "firstItem",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1763,
+                            "referencedDeclaration": 1766,
                             "src": "1927:9:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -4040,11 +4040,11 @@
                           "operator": "=",
                           "rightHandSide": {
                             "argumentTypes": null,
-                            "id": 1869,
+                            "id": 1872,
                             "name": "_holder",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1822,
+                            "referencedDeclaration": 1825,
                             "src": "1939:7:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -4057,24 +4057,24 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 1871,
+                        "id": 1874,
                         "nodeType": "ExpressionStatement",
                         "src": "1927:19:13"
                       }
                     ]
                   },
-                  "id": 1873,
+                  "id": 1876,
                   "nodeType": "IfStatement",
                   "src": "1723:234:13",
                   "trueBody": {
-                    "id": 1867,
+                    "id": 1870,
                     "nodeType": "Block",
                     "src": "1752:155:13",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1853,
+                          "id": 1856,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -4083,25 +4083,25 @@
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1849,
+                              "id": 1852,
                               "name": "newItem",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1828,
+                              "referencedDeclaration": 1831,
                               "src": "1766:7:13",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_QueueItem_$1761_memory_ptr",
+                                "typeIdentifier": "t_struct$_QueueItem_$1764_memory_ptr",
                                 "typeString": "struct VitaminToken.QueueItem memory"
                               }
                             },
-                            "id": 1851,
+                            "id": 1854,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": true,
                             "memberName": "previous",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 1752,
+                            "referencedDeclaration": 1755,
                             "src": "1766:16:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -4112,11 +4112,11 @@
                           "operator": "=",
                           "rightHandSide": {
                             "argumentTypes": null,
-                            "id": 1852,
+                            "id": 1855,
                             "name": "lastItem",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1765,
+                            "referencedDeclaration": 1768,
                             "src": "1785:8:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -4129,39 +4129,39 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 1854,
+                        "id": 1857,
                         "nodeType": "ExpressionStatement",
                         "src": "1766:27:13"
                       },
                       {
                         "assignments": [
-                          1856
+                          1859
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1856,
+                            "id": 1859,
                             "mutability": "mutable",
                             "name": "previousItem",
                             "nodeType": "VariableDeclaration",
                             "overrides": null,
-                            "scope": 1867,
+                            "scope": 1870,
                             "src": "1807:30:13",
                             "stateVariable": false,
                             "storageLocation": "storage",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_QueueItem_$1761_storage_ptr",
+                              "typeIdentifier": "t_struct$_QueueItem_$1764_storage_ptr",
                               "typeString": "struct VitaminToken.QueueItem"
                             },
                             "typeName": {
                               "contractScope": null,
-                              "id": 1855,
+                              "id": 1858,
                               "name": "QueueItem",
                               "nodeType": "UserDefinedTypeName",
-                              "referencedDeclaration": 1761,
+                              "referencedDeclaration": 1764,
                               "src": "1807:9:13",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_QueueItem_$1761_storage_ptr",
+                                "typeIdentifier": "t_struct$_QueueItem_$1764_storage_ptr",
                                 "typeString": "struct VitaminToken.QueueItem"
                               }
                             },
@@ -4169,30 +4169,30 @@
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1860,
+                        "id": 1863,
                         "initialValue": {
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1857,
+                            "id": 1860,
                             "name": "queue",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1773,
+                            "referencedDeclaration": 1776,
                             "src": "1840:5:13",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1761_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_QueueItem_$1764_storage_$",
                               "typeString": "mapping(address => struct VitaminToken.QueueItem storage ref)"
                             }
                           },
-                          "id": 1859,
+                          "id": 1862,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1858,
+                            "id": 1861,
                             "name": "lastItem",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1765,
+                            "referencedDeclaration": 1768,
                             "src": "1846:8:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -4206,7 +4206,7 @@
                           "nodeType": "IndexAccess",
                           "src": "1840:15:13",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_QueueItem_$1761_storage",
+                            "typeIdentifier": "t_struct$_QueueItem_$1764_storage",
                             "typeString": "struct VitaminToken.QueueItem storage ref"
                           }
                         },
@@ -4216,7 +4216,7 @@
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1865,
+                          "id": 1868,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -4225,25 +4225,25 @@
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1861,
+                              "id": 1864,
                               "name": "previousItem",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1856,
+                              "referencedDeclaration": 1859,
                               "src": "1869:12:13",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_QueueItem_$1761_storage_ptr",
+                                "typeIdentifier": "t_struct$_QueueItem_$1764_storage_ptr",
                                 "typeString": "struct VitaminToken.QueueItem storage pointer"
                               }
                             },
-                            "id": 1863,
+                            "id": 1866,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": true,
                             "memberName": "next",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 1754,
+                            "referencedDeclaration": 1757,
                             "src": "1869:17:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -4254,11 +4254,11 @@
                           "operator": "=",
                           "rightHandSide": {
                             "argumentTypes": null,
-                            "id": 1864,
+                            "id": 1867,
                             "name": "_holder",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1822,
+                            "referencedDeclaration": 1825,
                             "src": "1889:7:13",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -4271,7 +4271,7 @@
                             "typeString": "address"
                           }
                         },
-                        "id": 1866,
+                        "id": 1869,
                         "nodeType": "ExpressionStatement",
                         "src": "1869:27:13"
                       }
@@ -4281,18 +4281,18 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1876,
+                    "id": 1879,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1874,
+                      "id": 1877,
                       "name": "lastItem",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1765,
+                      "referencedDeclaration": 1768,
                       "src": "1966:8:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -4303,11 +4303,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1875,
+                      "id": 1878,
                       "name": "_holder",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1822,
+                      "referencedDeclaration": 1825,
                       "src": "1977:7:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -4320,25 +4320,25 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 1877,
+                  "id": 1880,
                   "nodeType": "ExpressionStatement",
                   "src": "1966:18:13"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1880,
+                    "id": 1883,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1878,
+                      "id": 1881,
                       "name": "totalLiquidity",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1767,
+                      "referencedDeclaration": 1770,
                       "src": "1994:14:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4349,11 +4349,11 @@
                     "operator": "+=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1879,
+                      "id": 1882,
                       "name": "_amount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1824,
+                      "referencedDeclaration": 1827,
                       "src": "2012:7:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4366,7 +4366,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1881,
+                  "id": 1884,
                   "nodeType": "ExpressionStatement",
                   "src": "1994:25:13"
                 }
@@ -4374,7 +4374,7 @@
             },
             "documentation": null,
             "functionSelector": "2ddac32f",
-            "id": 1883,
+            "id": 1886,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4382,17 +4382,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1825,
+              "id": 1828,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1822,
+                  "id": 1825,
                   "mutability": "mutable",
                   "name": "_holder",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1883,
+                  "scope": 1886,
                   "src": "1449:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4401,7 +4401,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1821,
+                    "id": 1824,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1449:7:13",
@@ -4416,12 +4416,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1824,
+                  "id": 1827,
                   "mutability": "mutable",
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1883,
+                  "scope": 1886,
                   "src": "1466:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4430,7 +4430,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1823,
+                    "id": 1826,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1466:7:13",
@@ -4446,12 +4446,12 @@
               "src": "1448:34:13"
             },
             "returnParameters": {
-              "id": 1826,
+              "id": 1829,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1490:0:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "1423:603:13",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -4459,7 +4459,7 @@
           },
           {
             "body": {
-              "id": 1899,
+              "id": 1902,
               "nodeType": "Block",
               "src": "2104:96:13",
               "statements": [
@@ -4469,11 +4469,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1892,
+                        "id": 1895,
                         "name": "_amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1885,
+                        "referencedDeclaration": 1888,
                         "src": "2138:7:13",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -4488,18 +4488,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1891,
+                      "id": 1894,
                       "name": "updateQueueAssetsUsage",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1906,
+                      "referencedDeclaration": 1909,
                       "src": "2115:22:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
-                    "id": 1893,
+                    "id": 1896,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4514,25 +4514,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1894,
+                  "id": 1897,
                   "nodeType": "ExpressionStatement",
                   "src": "2115:31:13"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1897,
+                    "id": 1900,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1895,
+                      "id": 1898,
                       "name": "borrowedLiquidity",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1769,
+                      "referencedDeclaration": 1772,
                       "src": "2156:17:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4543,11 +4543,11 @@
                     "operator": "+=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1896,
+                      "id": 1899,
                       "name": "_amount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1885,
+                      "referencedDeclaration": 1888,
                       "src": "2177:7:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4560,7 +4560,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1898,
+                  "id": 1901,
                   "nodeType": "ExpressionStatement",
                   "src": "2156:28:13"
                 }
@@ -4568,7 +4568,7 @@
             },
             "documentation": null,
             "functionSelector": "689f036b",
-            "id": 1900,
+            "id": 1903,
             "implemented": true,
             "kind": "function",
             "modifiers": [
@@ -4576,11 +4576,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 1888,
+                    "id": 1891,
                     "name": "_amount",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1885,
+                    "referencedDeclaration": 1888,
                     "src": "2095:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -4588,14 +4588,14 @@
                     }
                   }
                 ],
-                "id": 1889,
+                "id": 1892,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1887,
+                  "id": 1890,
                   "name": "hasEnoughToBorrow",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1820,
+                  "referencedDeclaration": 1823,
                   "src": "2077:17:13",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_uint256_$",
@@ -4610,17 +4610,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1886,
+              "id": 1889,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1885,
+                  "id": 1888,
                   "mutability": "mutable",
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1900,
+                  "scope": 1903,
                   "src": "2053:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4629,7 +4629,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1884,
+                    "id": 1887,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2053:7:13",
@@ -4645,12 +4645,12 @@
               "src": "2052:17:13"
             },
             "returnParameters": {
-              "id": 1890,
+              "id": 1893,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2104:0:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "2032:168:13",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -4658,13 +4658,13 @@
           },
           {
             "body": {
-              "id": 1905,
+              "id": 1908,
               "nodeType": "Block",
               "src": "2265:7:13",
               "statements": []
             },
             "documentation": null,
-            "id": 1906,
+            "id": 1909,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4672,17 +4672,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1903,
+              "id": 1906,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1902,
+                  "id": 1905,
                   "mutability": "mutable",
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1906,
+                  "scope": 1909,
                   "src": "2239:15:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4691,7 +4691,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1901,
+                    "id": 1904,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2239:7:13",
@@ -4707,12 +4707,12 @@
               "src": "2238:17:13"
             },
             "returnParameters": {
-              "id": 1904,
+              "id": 1907,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2265:0:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "2206:66:13",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -4720,7 +4720,7 @@
           },
           {
             "body": {
-              "id": 1919,
+              "id": 1922,
               "nodeType": "Block",
               "src": "3709:46:13",
               "statements": [
@@ -4730,11 +4730,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1916,
+                        "id": 1919,
                         "name": "_user",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1909,
+                        "referencedDeclaration": 1912,
                         "src": "3742:5:13",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -4751,32 +4751,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1914,
+                        "id": 1917,
                         "name": "super",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": -25,
                         "src": "3726:5:13",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_super$_VitaminToken_$1921",
+                          "typeIdentifier": "t_super$_VitaminToken_$1924",
                           "typeString": "contract super VitaminToken"
                         }
                       },
-                      "id": 1915,
+                      "id": 1918,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "balanceOf",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2356,
+                      "referencedDeclaration": 2359,
                       "src": "3726:15:13",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_uint256_$",
                         "typeString": "function (address) view returns (uint256)"
                       }
                     },
-                    "id": 1917,
+                    "id": 1920,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4791,21 +4791,21 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 1913,
-                  "id": 1918,
+                  "functionReturnParameters": 1916,
+                  "id": 1921,
                   "nodeType": "Return",
                   "src": "3719:29:13"
                 }
               ]
             },
             "documentation": {
-              "id": 1907,
+              "id": 1910,
               "nodeType": "StructuredDocumentation",
               "src": "3351:279:13",
               "text": " @dev returns the principal balance of the user. The principal balance is the last\n updated stored balance, which does not consider the perpetually accruing interest.\n @param _user the address of the user\n @return the principal balance of the user*"
             },
             "functionSelector": "c634dfaa",
-            "id": 1920,
+            "id": 1923,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4813,17 +4813,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1910,
+              "id": 1913,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1909,
+                  "id": 1912,
                   "mutability": "mutable",
                   "name": "_user",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1920,
+                  "scope": 1923,
                   "src": "3663:13:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4832,7 +4832,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1908,
+                    "id": 1911,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3663:7:13",
@@ -4849,17 +4849,17 @@
               "src": "3662:15:13"
             },
             "returnParameters": {
-              "id": 1913,
+              "id": 1916,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1912,
+                  "id": 1915,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 1920,
+                  "scope": 1923,
                   "src": "3700:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4868,7 +4868,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1911,
+                    "id": 1914,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "3700:7:13",
@@ -4883,14 +4883,14 @@
               ],
               "src": "3699:9:13"
             },
-            "scope": 1921,
+            "scope": 1924,
             "src": "3635:120:13",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1922,
+        "scope": 1925,
         "src": "127:4293:13"
       }
     ],
@@ -4902,7 +4902,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-15T13:56:03.704Z",
+  "updatedAt": "2020-10-15T15:28:41.428Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {

@@ -103,10 +103,20 @@ export interface ProvidersManagerInstance extends Truffle.ContractInstance {
 
   getProvidesList(txDetails?: Truffle.TransactionDetails): Promise<string[]>;
 
-  getProviderWithBestLiquidityRate(
+  getProviderWithHighestLiquidityRate(
     _reserveAddress: string,
     txDetails?: Truffle.TransactionDetails
   ): Promise<string>;
+
+  getProviderWithLowestLiquidityRate(
+    _reserveAddress: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<[string, BN]>;
+
+  getAvaibleLiquidity(
+    _reserveAddress: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
 
   methods: {
     /**
@@ -181,10 +191,20 @@ export interface ProvidersManagerInstance extends Truffle.ContractInstance {
 
     getProvidesList(txDetails?: Truffle.TransactionDetails): Promise<string[]>;
 
-    getProviderWithBestLiquidityRate(
+    getProviderWithHighestLiquidityRate(
       _reserveAddress: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
+
+    getProviderWithLowestLiquidityRate(
+      _reserveAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<[string, BN]>;
+
+    getAvaibleLiquidity(
+      _reserveAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

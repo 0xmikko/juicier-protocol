@@ -5,14 +5,9 @@ import "../helpers/AddressStorage.sol";
 import "../interfaces/ILendingProvider.sol";
 import "./ProvidersManager.sol";
 
-
 contract Pool {
     address public owner = msg.sender;
-    ProvidersManager internal providerManager;
-
-
-
-
+    ProvidersManager internal providersManager;
 
     /**
      * @dev functions affected by this modifier can only be invoked if the provided _amount input parameter
@@ -33,24 +28,57 @@ contract Pool {
     }
 
     constructor(address _providersManager) public {
-        providerManager = ProvidersManager(_providersManager);
+        providersManager = ProvidersManager(_providersManager);
     }
 
-    function deposit(
-        address _reserve,
-        uint256 _amount
-    )
+    function deposit(address _reserve, uint256 _amount)
         external
         payable
         // onlyUnfreezedReserve(_reserve)
         onlyAmountGreaterThanZero(_amount)
     {
-        address provider = providerManager.getProviderWithBestLiquidityRate(_reserve);
-        ILendingProvider lendingP = providerManager.getProviderOrFail(provider);
+        address provider = providersManager.getProviderWithHighestLiquidityRate(
+            _reserve
+        );
+        ILendingProvider lendingP = providersManager.getProviderOrFail(
+            provider
+        );
         lendingP.deposit(_reserve, _amount);
     }
 
+    function redeem(address _reserve, uint256 _amount)
+        external
+        onlyAmountGreaterThanZero(_amount)
+    {
+        require(
+            providersManager.getAvaibleLiquidity(_reserve) > _amount,
+            "There is not enough liquidity available to redeem"
+        );
 
+        // ToDo: Add check that msg.sender has enough tokens!
+
+        uint256 _amountLeft = _amount;
+        while (_amountLeft > 0) {
+            (
+                address providerAddress,
+                uint256 avaibleLiquidity
+            ) = providersManager.getProviderWithLowestLiquidityRate(_reserve);
+
+            // Calculate max sum we could take from this provider
+            uint256 sumToRedeem = avaibleLiquidity > _amount
+                ? _amount
+                : avaibleLiquidity;
+            ILendingProvider provider = ILendingProvider(providerAddress);
+
+            // Redeem this sum
+            provider.redeemUnderlying(_reserve, msg.sender, _amount);
+
+            // ToDo: substract tokens(!)
+
+            // ToDo: provide normal math
+            _amountLeft -= sumToRedeem;
+        }
+    }
 
     /**
      * @notice internal function to save on code size for the onlyAmountGreaterThanZero modifier
