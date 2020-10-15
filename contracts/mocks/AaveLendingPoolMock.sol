@@ -6,6 +6,7 @@ import "../libraries/CoreLibrary.sol";
 contract AaveLandingPoolMock is ILendingPool {
     address[] private reserves;
     mapping(address => CoreLibrary.ProviderReserveData) reserveData;
+    LendingPoolCore public core;
 
     function addReserve(
         address _reserveAddress,
@@ -119,7 +120,23 @@ contract AaveLandingPoolMock is ILendingPool {
         address _reserve,
         uint256 _amount,
         uint16 _referralCode
-    ) external override payable {}
+    ) external override payable {
+        AToken aToken = AToken(core.getReserveATokenAddress(_reserve));
+
+        bool isFirstDeposit = aToken.balanceOf(msg.sender) == 0;
+
+        core.updateStateOnDeposit(_reserve, msg.sender, _amount, isFirstDeposit);
+
+        //minting AToken to user 1:1 with the specific exchange rate
+        aToken.mintOnDeposit(msg.sender, _amount);
+
+        //transfer to the core contract
+        core.transferToReserve.value(msg.value)(_reserve, msg.sender, _amount);
+
+        //solium-disable-next-line
+        emit Deposit(_reserve, msg.sender, _amount, _referralCode, block.timestamp);
+
+    }
 
     function getReserves() external override view returns (address[] memory) {
         return reserves;
