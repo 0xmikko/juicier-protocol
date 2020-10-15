@@ -24,7 +24,7 @@ export const aaveReserves: Record<string, Reserve> = {
     availableLiquidity: 1200,
     averageStableBorrowRate: 434,
     liquidityIndex: 1,
-    liquidityRate: 2,
+    liquidityRate: 20000,
     stableBorrowRate: 3,
     totalBorrowsStable: 4,
     totalBorrowsVariable: 5,

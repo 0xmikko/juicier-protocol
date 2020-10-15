@@ -41,10 +41,20 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
+  getReserveBorrowRate(
+    _reserveAddress: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
   getReserveData(
     _reserveAddress: string,
     txDetails?: Truffle.TransactionDetails
-  ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+  ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+
+  getReserveLiquidityRate(
+    _reserveAddress: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
 
   /**
    * Resereves methods
@@ -108,10 +118,20 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
+    getReserveBorrowRate(
+      _reserveAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+
     getReserveData(
       _reserveAddress: string,
       txDetails?: Truffle.TransactionDetails
-    ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+    ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+
+    getReserveLiquidityRate(
+      _reserveAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
 
     /**
      * Resereves methods

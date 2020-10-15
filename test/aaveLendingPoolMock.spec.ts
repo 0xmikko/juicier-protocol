@@ -1,9 +1,9 @@
-import {AaveLandingPoolMockInstance} from "../types/truffle-contracts";
+import {AaveLendingPoolMockInstance} from "../types/truffle-contracts";
 import {aaveReserves} from "./core/reserve";
 import BN from "bn.js";
 
-contract("AaveLandingPoolMock", async ([deployer, ...users]) => {
-  let _aaveLandingPoolMock: AaveLandingPoolMockInstance;
+contract("AaveLendingPoolMock", async ([deployer, ...users]) => {
+  let _aaveLandingPoolMock: AaveLendingPoolMockInstance;
   const dai = aaveReserves["DAI"];
 
   beforeEach("Initializing Providers Manager", async () => {
@@ -93,4 +93,6 @@ contract("AaveLandingPoolMock", async ([deployer, ...users]) => {
       " incorrect lastUpdateTimestamp"
     );
   });
+
+
 });

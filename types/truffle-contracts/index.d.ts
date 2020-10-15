@@ -2,9 +2,11 @@
 /* tslint:disable */
 
 import { AaveLandingPoolMockContract } from "./AaveLandingPoolMock";
+import { AaveLendingPoolMockContract } from "./AaveLendingPoolMock";
 import { AaveProviderContract } from "./AaveProvider";
 import { AbstractProviderContract } from "./AbstractProvider";
 import { AddressStorageContract } from "./AddressStorage";
+import { IAaveLendingPoolContract } from "./IAaveLendingPool";
 import { ICoreContract } from "./ICore";
 import { Ierc20Contract } from "./Ierc20";
 import { ILendingPoolContract } from "./ILendingPool";
@@ -14,14 +16,17 @@ import { MigrationsContract } from "./Migrations";
 import { OwnableContract } from "./Ownable";
 import { PoolContract } from "./Pool";
 import { ProvidersManagerContract } from "./ProvidersManager";
+import { VitaminTokenContract } from "./VitaminToken";
 
 declare global {
   namespace Truffle {
     interface Artifacts {
       require(name: "AaveLandingPoolMock"): AaveLandingPoolMockContract;
+      require(name: "AaveLendingPoolMock"): AaveLendingPoolMockContract;
       require(name: "AaveProvider"): AaveProviderContract;
       require(name: "AbstractProvider"): AbstractProviderContract;
       require(name: "AddressStorage"): AddressStorageContract;
+      require(name: "IAaveLendingPool"): IAaveLendingPoolContract;
       require(name: "ICore"): ICoreContract;
       require(name: "IERC20"): Ierc20Contract;
       require(name: "ILendingPool"): ILendingPoolContract;
@@ -31,6 +36,7 @@ declare global {
       require(name: "Ownable"): OwnableContract;
       require(name: "Pool"): PoolContract;
       require(name: "ProvidersManager"): ProvidersManagerContract;
+      require(name: "VitaminToken"): VitaminTokenContract;
     }
   }
 }
@@ -39,6 +45,10 @@ export {
   AaveLandingPoolMockContract,
   AaveLandingPoolMockInstance
 } from "./AaveLandingPoolMock";
+export {
+  AaveLendingPoolMockContract,
+  AaveLendingPoolMockInstance
+} from "./AaveLendingPoolMock";
 export { AaveProviderContract, AaveProviderInstance } from "./AaveProvider";
 export {
   AbstractProviderContract,
@@ -48,6 +58,10 @@ export {
   AddressStorageContract,
   AddressStorageInstance
 } from "./AddressStorage";
+export {
+  IAaveLendingPoolContract,
+  IAaveLendingPoolInstance
+} from "./IAaveLendingPool";
 export { ICoreContract, ICoreInstance } from "./ICore";
 export { Ierc20Contract, Ierc20Instance } from "./Ierc20";
 export { ILendingPoolContract, ILendingPoolInstance } from "./ILendingPool";
@@ -66,3 +80,4 @@ export {
   ProvidersManagerContract,
   ProvidersManagerInstance
 } from "./ProvidersManager";
+export { VitaminTokenContract, VitaminTokenInstance } from "./VitaminToken";

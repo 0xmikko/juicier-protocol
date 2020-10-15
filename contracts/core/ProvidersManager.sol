@@ -34,6 +34,14 @@ contract ProvidersManager is Ownable {
         _;
     }
 
+    modifier providersListIsNotEmpy() {
+        require(
+            providersList.length > 0,
+            "ProvidersManager: providers list is empty!"
+        );
+        _;
+    }
+
     /**
      * @dev Adds new lending provider to the list
      * throw exception if provider is already exists in the list
@@ -68,5 +76,28 @@ contract ProvidersManager is Ownable {
 
     function getProvidesList() public view returns (address[] memory) {
         return providersList;
+    }
+
+    function getProviderWithBestLiquidityRate(address _reserveAddress)
+        external
+        view
+        providersListIsNotEmpy
+        returns (address)
+    {
+        uint256 providerListLenght = providersList.length;
+        address result = providersList[0];
+        uint256 liquidityRate = 0;
+
+        for (uint256 i = 0; i < providerListLenght; i++) {
+            ILendingProvider curProvider = ILendingProvider(providersList[i]);
+            uint256 curLiquidityRate = curProvider.getReserveLiquidityRate(
+                _reserveAddress
+            );
+            if (curLiquidityRate > liquidityRate) {
+                result = providersList[i];
+                liquidityRate = curLiquidityRate;
+            }
+        }
+        return result;
     }
 }

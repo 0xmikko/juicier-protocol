@@ -76,7 +76,17 @@ export interface ILendingProviderInstance extends Truffle.ContractInstance {
   getReserveData(
     _reserveAddress: string,
     txDetails?: Truffle.TransactionDetails
-  ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+  ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+
+  getReserveLiquidityRate(
+    _reserveAddress: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
+  getReserveBorrowRate(
+    _reserveAddress: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
 
   methods: {
     /**
@@ -143,7 +153,17 @@ export interface ILendingProviderInstance extends Truffle.ContractInstance {
     getReserveData(
       _reserveAddress: string,
       txDetails?: Truffle.TransactionDetails
-    ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+    ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+
+    getReserveLiquidityRate(
+      _reserveAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+
+    getReserveBorrowRate(
+      _reserveAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

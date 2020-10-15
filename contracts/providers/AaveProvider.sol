@@ -7,37 +7,29 @@ import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
 import "../libraries/CoreLibrary.sol";
 
 import "./AbstractProvider.sol";
-import "./aave-protocol/ILendingPool.sol";
+import "./aave-protocol/IAaveLendingPool.sol";
 import "./aave-protocol/ILendingPoolCore.sol";
 
 contract AaveProvider is AbstractProvider("Aave") {
     address private lendingPoolAddress;
-    address private lendingPoolCoreAddress;
+    // address private lendingPoolCoreAddress;
 
-    constructor(address _lendingPoolAddress, address _lendingPoolCoreAddress)
+    event Deposit(address _reserve, uint256 _amount);
+
+    constructor(address _lendingPoolAddress)
         public
     {
         lendingPoolAddress = _lendingPoolAddress;
-        lendingPoolCoreAddress = _lendingPoolCoreAddress;
+        // lendingPoolCoreAddress = _lendingPoolCoreAddress;
     }
 
+    // Deposit money to provider pool
     function deposit(address _reserve, uint256 _amount)
         external
         override
         payable
     {
-        // Input variables
-        address daiAddress = address(
-            0x6B175474E89094C44Da98b954EedeAC495271d0F
-        ); // mainnet DAI
-        // reserveData.amount = 1000 * 1e18;
-        uint16 referral = 0;
-
-        // Approve LendingPool contract to move your DAI
-        IERC20(daiAddress).approve(lendingPoolCoreAddress, _amount);
-
-        // Deposit 1000 DAI
-        getLendingPool().deposit(_reserve, _amount, referral);
+        return getLendingPool().deposit(_reserve, _amount, 0);
     }
 
     function withdraw(address _reserve, uint256 _amount) external override {}
@@ -46,34 +38,65 @@ contract AaveProvider is AbstractProvider("Aave") {
         return getLendingPool().getReserves();
     }
 
-    function getLendingPool() internal view returns (ILendingPool) {
-        return ILendingPool(lendingPoolAddress);
+    function getLendingPool() internal view returns (IAaveLendingPool) {
+        return IAaveLendingPool(lendingPoolAddress);
     }
 
-    function getLendingPoolCore() internal returns (ILendingPoolCore) {
-        return ILendingPoolCore(lendingPoolCoreAddress);
-    }
+    // function getLendingPoolCore() internal view returns (ILendingPoolCore) {
+    //     return ILendingPoolCore(lendingPoolCoreAddress);
+    // }
 
     function getReserveData(address _reserveAddress)
-    external
-    override
-    view
-    returns (
-        uint256 totalLiquidity,
-        uint256 availableLiquidity,
-        uint256 totalBorrowsStable,
-        uint256 totalBorrowsVariable,
-        uint256 liquidityRate,
-        uint256 variableBorrowRate,
-        uint256 stableBorrowRate,
-        uint256 averageStableBorrowRate,
-        uint256 utilizationRate,
-        uint256 liquidityIndex,
-        uint256 variableBorrowIndex,
-        address aTokenAddress,
-        uint40 lastUpdateTimestamp
-    )
+        external
+        override
+        view
+        returns (
+            uint256 totalLiquidity,
+            uint256 availableLiquidity,
+            uint256 totalBorrowsVariable,
+            uint256 liquidityRate,
+            uint256 variableBorrowRate,
+            uint256 utilizationRate,
+            uint256 liquidityIndex,
+            uint256 variableBorrowIndex,
+            address aTokenAddress,
+            uint40 lastUpdateTimestamp
+        )
     {
-        return getLendingPool().getReserveData(_reserveAddress);
+        // (
+        //     totalLiquidity,
+        //     availableLiquidity,
+        //     ,
+        //     totalBorrowsVariable,
+        //     liquidityRate,
+        //     variableBorrowRate,
+        //     ,
+        //     ,
+        //     utilizationRate,
+        //     liquidityIndex,
+        //     variableBorrowIndex,
+        //     aTokenAddress,
+        //     lastUpdateTimestamp
+        // ) = getLendingPool().getReserveData(_reserveAddress);
+    }
+
+    function getReserveLiquidityRate(address _reserveAddress)
+        external
+        override
+        view
+        returns (uint256 liquidityRate)
+    {
+        (, , , , liquidityRate, , , , , , , , ) = getLendingPool()
+            .getReserveData(_reserveAddress);
+    }
+
+    function getReserveBorrowRate(address _reserveAddress)
+        external
+        override
+        view
+        returns (uint256 variableBorrowRate)
+    {
+        (, , , , , variableBorrowRate, , , , , , , ) = getLendingPool()
+            .getReserveData(_reserveAddress);
     }
 }

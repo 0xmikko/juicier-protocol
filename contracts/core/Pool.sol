@@ -11,6 +11,9 @@ contract Pool {
     ProvidersManager internal providerManager;
 
 
+
+
+
     /**
      * @dev functions affected by this modifier can only be invoked if the provided _amount input parameter
      * is not zero.
@@ -34,7 +37,6 @@ contract Pool {
     }
 
     function deposit(
-        address _provider,
         address _reserve,
         uint256 _amount
     )
@@ -43,10 +45,12 @@ contract Pool {
         // onlyUnfreezedReserve(_reserve)
         onlyAmountGreaterThanZero(_amount)
     {
-        ILendingProvider lendingP = providerManager.getProviderOrFail(_provider);
+        address provider = providerManager.getProviderWithBestLiquidityRate(_reserve);
+        ILendingProvider lendingP = providerManager.getProviderOrFail(provider);
         lendingP.deposit(_reserve, _amount);
-
     }
+
+
 
     /**
      * @notice internal function to save on code size for the onlyAmountGreaterThanZero modifier

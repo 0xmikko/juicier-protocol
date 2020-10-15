@@ -18,25 +18,21 @@ export interface PoolInstance extends Truffle.ContractInstance {
 
   deposit: {
     (
-      _provider: string,
       _reserve: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      _provider: string,
       _reserve: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
-      _provider: string,
       _reserve: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      _provider: string,
       _reserve: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
@@ -48,25 +44,21 @@ export interface PoolInstance extends Truffle.ContractInstance {
 
     deposit: {
       (
-        _provider: string,
         _reserve: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        _provider: string,
         _reserve: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
-        _provider: string,
         _reserve: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        _provider: string,
         _reserve: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails

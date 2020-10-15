@@ -11,9 +11,7 @@ interface ILendingProvider {
      * @dev Deposit asset to selected lending provider
      */
 
-    function deposit(address _reserve, uint256 _amount)
-        external
-        payable;
+    function deposit(address _reserve, uint256 _amount) external payable;
 
     function withdraw(address _reserve, uint256 _amount) external;
 
@@ -29,16 +27,23 @@ interface ILendingProvider {
         returns (
             uint256 totalLiquidity,
             uint256 availableLiquidity,
-            uint256 totalBorrowsStable,
             uint256 totalBorrowsVariable,
             uint256 liquidityRate,
             uint256 variableBorrowRate,
-            uint256 stableBorrowRate,
-            uint256 averageStableBorrowRate,
             uint256 utilizationRate,
             uint256 liquidityIndex,
             uint256 variableBorrowIndex,
             address aTokenAddress,
             uint40 lastUpdateTimestamp
         );
+
+    function getReserveLiquidityRate(address _reserveAddress)
+        external
+        view
+        returns (uint256 liquidityRate);
+
+    function getReserveBorrowRate(address _reserveAddress)
+        external
+        view
+        returns (uint256);
 }

@@ -8,12 +8,21 @@ export interface AaveProviderContract
   extends Truffle.Contract<AaveProviderInstance> {
   "new"(
     _lendingPoolAddress: string,
-    _lendingPoolCoreAddress: string,
     meta?: Truffle.TransactionDetails
   ): Promise<AaveProviderInstance>;
 }
 
-type AllEvents = never;
+export interface Deposit {
+  name: "Deposit";
+  args: {
+    _reserve: string;
+    _amount: BN;
+    0: string;
+    1: BN;
+  };
+}
+
+type AllEvents = Deposit;
 
 export interface AaveProviderInstance extends Truffle.ContractInstance {
   deposit: {
@@ -74,7 +83,17 @@ export interface AaveProviderInstance extends Truffle.ContractInstance {
   getReserveData(
     _reserveAddress: string,
     txDetails?: Truffle.TransactionDetails
-  ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+  ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+
+  getReserveLiquidityRate(
+    _reserveAddress: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
+  getReserveBorrowRate(
+    _reserveAddress: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
 
   methods: {
     deposit: {
@@ -135,7 +154,17 @@ export interface AaveProviderInstance extends Truffle.ContractInstance {
     getReserveData(
       _reserveAddress: string,
       txDetails?: Truffle.TransactionDetails
-    ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+    ): Promise<[BN, BN, BN, BN, BN, BN, BN, BN, string, BN]>;
+
+    getReserveLiquidityRate(
+      _reserveAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+
+    getReserveBorrowRate(
+      _reserveAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for mocks/AaveLandingPoolMock.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">mocks/</a> AaveLandingPoolMock.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>33/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>33/33</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">pragma solidity ^0.6.10;
+&nbsp;
+import "../providers/aave-protocol/ILendingPool.sol";
+import "../libraries/CoreLibrary.sol";
+&nbsp;
+contract AaveLandingPoolMock is ILendingPool {
+    address[] private reserves;
+    mapping(address =&gt; CoreLibrary.ProviderReserveData) reserveData;
+&nbsp;
+    function addReserve(
+        address _reserveAddress,
+        // reserve total liquidity
+        uint256 _totalLiquidity,
+        //reserve available liquidity for borrowing
+        uint256 _availableLiquidity,
+        //the total borrows of the reserve at a stable rate. Expressed in the currency decimals
+        uint256 _totalBorrowsStable,
+        //the total borrows of the reserve at a variable rate. Expressed in the currency decimals
+        uint256 _totalBorrowsVariable,
+        //the current supply rate. Expressed in ray
+        uint256 _liquidityRate,
+        //current variable rate APY of the reserve pool, in Ray units.
+        uint256 _variableBorrowRate,
+        //current stable rate APY of the reserve pool, in Ray units.
+        uint256 _stableBorrowRate,
+        //current average stable borrow rate
+        uint256 _averageStableBorrowRate,
+        // expressed as total borrows/total liquidity.
+        uint256 _utilizationRate,
+        // cumulative liquidity index
+        uint256 _liquidityIndex,
+        // cumulative variable borrow index
+        uint256 _variableBorrowIndex,
+        // aTokens contract address for the specific _reserve
+        address _aTokenAddress,
+        // timestamp of the last update of reserve data
+        uint40 _lastUpdateTimestamp
+    ) external {
+        reserves.push(_reserveAddress);
+        setReserveData(
+            _reserveAddress,
+            _totalLiquidity,
+            _availableLiquidity,
+            _totalBorrowsStable,
+            _totalBorrowsVariable,
+            _liquidityRate,
+            _variableBorrowRate,
+            _stableBorrowRate,
+            _averageStableBorrowRate,
+            _lastUpdateTimestamp
+        );
+&nbsp;
+        setReserveDataAdditional(
+            _reserveAddress,
+            _utilizationRate,
+            _liquidityIndex,
+            _variableBorrowIndex,
+            _aTokenAddress,
+            _lastUpdateTimestamp
+        );
+    }
+&nbsp;
+    function setReserveData(
+        address _reserveAddress,
+        uint256 _totalLiquidity,
+        //reserve available liquidity for borrowing
+        uint256 _availableLiquidity,
+        //the total borrows of the reserve at a stable rate. Expressed in the currency decimals
+        uint256 _totalBorrowsStable,
+        //the total borrows of the reserve at a variable rate. Expressed in the currency decimals
+        uint256 _totalBorrowsVariable,
+        //the current supply rate. Expressed in ray
+        uint256 _liquidityRate,
+        //current variable rate APY of the reserve pool, in Ray units.
+        uint256 _variableBorrowRate,
+        uint256 _stableBorrowRate,
+        //current average stable borrow rate
+        uint256 _averageStableBorrowRate,
+        uint40 _lastUpdateTimestamp
+    ) internal {
+&nbsp;
+            CoreLibrary.ProviderReserveData storage reserve
+         = reserveData[_reserveAddress];
+        reserve.totalLiquidity = _totalLiquidity;
+        reserve.availableLiquidity = _availableLiquidity;
+        reserve.totalBorrowsStable = _totalBorrowsStable;
+        reserve.totalBorrowsVariable = _totalBorrowsVariable;
+        reserve.liquidityRate = _liquidityRate;
+        reserve.variableBorrowRate = _variableBorrowRate;
+        reserve.stableBorrowRate = _stableBorrowRate;
+        reserve.averageStableBorrowRate = _averageStableBorrowRate;
+        reserve.lastUpdateTimestamp = _lastUpdateTimestamp;
+    }
+&nbsp;
+    function setReserveDataAdditional(
+        address _reserveAddress,
+        // expressed as total borrows/total liquidity.
+        uint256 _utilizationRate,
+        // cumulative liquidity index
+        uint256 _liquidityIndex,
+        // cumulative variable borrow index
+        uint256 _variableBorrowIndex,
+        // aTokens contract address for the specific _reserve
+        address _aTokenAddress,
+        // timestamp of the last update of reserve data
+        uint40 _lastUpdateTimestamp
+    ) internal {
+&nbsp;
+            CoreLibrary.ProviderReserveData storage reserve
+         = reserveData[_reserveAddress];
+        reserve.utilizationRate = _utilizationRate;
+        reserve.liquidityIndex = _liquidityIndex;
+        reserve.variableBorrowIndex = _variableBorrowIndex;
+        reserve.aTokenAddress = _aTokenAddress;
+        reserve.lastUpdateTimestamp = _lastUpdateTimestamp;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function deposit(</span>
+        address _reserve,
+        uint256 _amount,
+        uint16 _referralCode
+    ) external override payable {}
+&nbsp;
+    function getReserves() external override view returns (address[] memory) {
+        return reserves;
+    }
+&nbsp;
+    function getReserveData(address _reserveAddress)
+        external
+        override
+        view
+        returns (
+            uint256 totalLiquidity,
+            uint256 availableLiquidity,
+            uint256 totalBorrowsStable,
+            uint256 totalBorrowsVariable,
+            uint256 liquidityRate,
+            uint256 variableBorrowRate,
+            uint256 stableBorrowRate,
+            uint256 averageStableBorrowRate,
+            uint256 utilizationRate,
+            uint256 liquidityIndex,
+            uint256 variableBorrowIndex,
+            address aTokenAddress,
+            uint40 lastUpdateTimestamp
+        )
+    {
+        totalLiquidity = reserveData[_reserveAddress].totalLiquidity;
+        availableLiquidity = reserveData[_reserveAddress].availableLiquidity;
+        totalBorrowsStable = reserveData[_reserveAddress].totalBorrowsStable;
+        totalBorrowsVariable = reserveData[_reserveAddress]
+            .totalBorrowsVariable;
+        liquidityRate = reserveData[_reserveAddress].liquidityRate;
+        variableBorrowRate = reserveData[_reserveAddress].variableBorrowRate;
+        stableBorrowRate = reserveData[_reserveAddress].stableBorrowRate;
+        averageStableBorrowRate = reserveData[_reserveAddress]
+            .averageStableBorrowRate;
+        utilizationRate = reserveData[_reserveAddress].utilizationRate;
+        liquidityIndex = reserveData[_reserveAddress].liquidityIndex;
+        variableBorrowIndex = reserveData[_reserveAddress].variableBorrowIndex;
+        aTokenAddress = reserveData[_reserveAddress].aTokenAddress;
+        lastUpdateTimestamp = reserveData[_reserveAddress].lastUpdateTimestamp;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Oct 13 2020 00:24:01 GMT+0300 (Moscow Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

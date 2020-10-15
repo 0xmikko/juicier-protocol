@@ -1,12 +1,78 @@
+// SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
 
-import "../providers/aave-protocol/ILendingPool.sol";
-import "../libraries/CoreLibrary.sol";
+import "../providers/aave-protocol/IAaveLendingPool.sol";
 
-contract AaveLandingPoolMock is ILendingPool {
+contract AaveLendingPoolMock is IAaveLendingPool {
     address[] private reserves;
-    mapping(address => CoreLibrary.ProviderReserveData) reserveData;
-    LendingPoolCore public core;
+    mapping(address => ReserveData) reserveData;
+    string mockId;
+    //    LendingPoolCore public core;
+
+    /**
+     * @dev emitted on deposit
+     * @param _reserve the address of the reserve
+     * @param _user the address of the user
+     * @param _amount the amount to be deposited
+     * @param _referral the referral number of the action
+     * @param _timestamp the timestamp of the action
+     **/
+    event Deposit(
+        address indexed _reserve,
+        address indexed _user,
+        uint256 _amount,
+        uint16 indexed _referral,
+        uint256 _timestamp,
+        string _mockId
+    );
+
+    struct ReserveData {
+        uint256 totalLiquidity;
+        uint256 availableLiquidity;
+        uint256 totalBorrowsStable;
+        uint256 totalBorrowsVariable;
+        uint256 liquidityRate;
+        uint256 variableBorrowRate;
+        uint256 stableBorrowRate;
+        uint256 averageStableBorrowRate;
+        uint256 utilizationRate;
+        uint256 liquidityIndex;
+        uint256 variableBorrowIndex;
+        address aTokenAddress;
+        uint40 lastUpdateTimestamp;
+    }
+
+    function setMockId(string memory _mockId) external {
+        mockId = _mockId;
+    }
+
+    function deposit(
+        address _reserve,
+        uint256 _amount,
+        uint16 _referralCode
+    ) external override payable {
+        //        AToken aToken = AToken(core.getReserveATokenAddress(_reserve));
+        //
+        //        bool isFirstDeposit = aToken.balanceOf(msg.sender) == 0;
+        //
+        //        core.updateStateOnDeposit(_reserve, msg.sender, _amount, isFirstDeposit);
+        //
+        //        //minting AToken to user 1:1 with the specific exchange rate
+        //        aToken.mintOnDeposit(msg.sender, _amount);
+        //
+        //        //transfer to the core contract
+        //        core.transferToReserve.value(msg.value)(_reserve, msg.sender, _amount);
+
+        //solium-disable-next-line
+        emit Deposit(
+            _reserve,
+            msg.sender,
+            _amount,
+            _referralCode,
+            block.timestamp,
+            mockId
+        );
+    }
 
     function addReserve(
         address _reserveAddress,
@@ -79,9 +145,7 @@ contract AaveLandingPoolMock is ILendingPool {
         uint256 _averageStableBorrowRate,
         uint40 _lastUpdateTimestamp
     ) internal {
-
-            CoreLibrary.ProviderReserveData storage reserve
-         = reserveData[_reserveAddress];
+        ReserveData storage reserve = reserveData[_reserveAddress];
         reserve.totalLiquidity = _totalLiquidity;
         reserve.availableLiquidity = _availableLiquidity;
         reserve.totalBorrowsStable = _totalBorrowsStable;
@@ -106,36 +170,12 @@ contract AaveLandingPoolMock is ILendingPool {
         // timestamp of the last update of reserve data
         uint40 _lastUpdateTimestamp
     ) internal {
-
-            CoreLibrary.ProviderReserveData storage reserve
-         = reserveData[_reserveAddress];
+        ReserveData storage reserve = reserveData[_reserveAddress];
         reserve.utilizationRate = _utilizationRate;
         reserve.liquidityIndex = _liquidityIndex;
         reserve.variableBorrowIndex = _variableBorrowIndex;
         reserve.aTokenAddress = _aTokenAddress;
         reserve.lastUpdateTimestamp = _lastUpdateTimestamp;
-    }
-
-    function deposit(
-        address _reserve,
-        uint256 _amount,
-        uint16 _referralCode
-    ) external override payable {
-        AToken aToken = AToken(core.getReserveATokenAddress(_reserve));
-
-        bool isFirstDeposit = aToken.balanceOf(msg.sender) == 0;
-
-        core.updateStateOnDeposit(_reserve, msg.sender, _amount, isFirstDeposit);
-
-        //minting AToken to user 1:1 with the specific exchange rate
-        aToken.mintOnDeposit(msg.sender, _amount);
-
-        //transfer to the core contract
-        core.transferToReserve.value(msg.value)(_reserve, msg.sender, _amount);
-
-        //solium-disable-next-line
-        emit Deposit(_reserve, msg.sender, _amount, _referralCode, block.timestamp);
-
     }
 
     function getReserves() external override view returns (address[] memory) {
