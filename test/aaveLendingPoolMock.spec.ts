@@ -1,29 +1,33 @@
 import {AaveLendingPoolMockInstance} from "../types/truffle-contracts";
-import {aaveReserves, addReserveToAaveMock} from "./core/reserve";
+import {aaveReserves} from "./core/reserve";
 import BN from "bn.js";
+import {SmartDeployer} from "./core/deployer";
 
 contract("AaveLendingPoolMock", async ([deployer, ...users]) => {
-  let _aaveLandingPoolMock: AaveLendingPoolMockInstance;
+  let smartDeployer: SmartDeployer;
+  let _aaveLendingPoolMock: AaveLendingPoolMockInstance;
   const dai = aaveReserves["DAI"];
 
-  beforeEach("Initializing Providers Manager", async () => {
-    _aaveLandingPoolMock = await artifacts.require("AaveLendingPoolMock").new({
-      from: deployer,
-    });
+  beforeEach("Initial setup...", async () => {
 
-    await addReserveToAaveMock(_aaveLandingPoolMock, dai);
+    smartDeployer = new SmartDeployer(deployer);
+    // AAVE PROVIDER
+    _aaveLendingPoolMock = await smartDeployer.newAaveLendingPoolMock(
+      "MainLendingPool"
+    );
+    await smartDeployer.setReserveToAaveMock(_aaveLendingPoolMock, dai);
   });
 
   it("it correctly puts DAI reserve address into address array", async () => {
-    const reserves = await _aaveLandingPoolMock.getReserves();
+    const reserves = await _aaveLendingPoolMock.getReserves();
     expect(reserves.length).eq(1);
     expect(reserves[0]).eq(aaveReserves["DAI"].address);
   });
 
   it("it correctly puts all data", async () => {
-    const reserves = await _aaveLandingPoolMock.getReserves();
+    const reserves = await _aaveLendingPoolMock.getReserves();
     const daiAddress = reserves[0];
-    const reserveData = await _aaveLandingPoolMock.getReserveData(daiAddress);
+    const reserveData = await _aaveLendingPoolMock.getReserveData(daiAddress);
 
     expect(reserveData[0].eq(new BN(dai.totalLiquidity))).to.be.equal(
       true,
