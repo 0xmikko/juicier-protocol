@@ -7,6 +7,7 @@ import {
 import {aaveReserves, addReserveToAaveMock} from "./core/reserve";
 import BN from "bn.js";
 import {expectEvent} from "@openzeppelin/test-helpers";
+import { SmartDeployer } from "./core/deployer";
 
 contract("Pool", async ([deployer, ...users]) => {
   let _aaveLendingPoolMock: AaveLendingPoolMockInstance;
@@ -22,47 +23,22 @@ contract("Pool", async ([deployer, ...users]) => {
   beforeEach("Initializing Providers Manager", async () => {
 
     // Create 2 different Providers
+    const smartDeployer = new SmartDeployer(deployer);
+
+    _providersManager = await smartDeployer.getProvidersManager();
+    _pool = await smartDeployer.getPool();
 
     // AAVE PROVIDER
-    _aaveLendingPoolMock = await artifacts.require("AaveLendingPoolMock").new({
-      from: deployer,
-    });
-
+    _aaveLendingPoolMock = await smartDeployer.newAaveLendingPoolMock("MainLendingPool");
+    _aaveProvider = await smartDeployer.registerAaveProviderFromMock(_aaveLendingPoolMock);
     await addReserveToAaveMock(_aaveLendingPoolMock, dai);
-    await _aaveLendingPoolMock.setMockId("MainLendingPool");
 
-    _aaveProvider = await artifacts
-    .require("AaveProvider")
-    .new(_aaveLendingPoolMock.address, {from: deployer});
-
+    
     // ANOTHER PROVIDER
-
-    _anotherLendingPoolMock = await artifacts.require("AaveLendingPoolMock").new({
-      from: deployer,
-    });
-
+    _anotherLendingPoolMock = await smartDeployer.newAaveLendingPoolMock("AnotherLendingPool");
+    _anotherProvider = await smartDeployer.registerAaveProviderFromMock(_anotherLendingPoolMock);
     await addReserveToAaveMock(_anotherLendingPoolMock, dai);
-    await _anotherLendingPoolMock.setMockId("AnotherLendingPool");
 
-    _anotherProvider = await artifacts
-    .require("AaveProvider")
-    .new(_anotherLendingPoolMock.address, {from: deployer});
-
-
-    // SETTING UP PROVIDERS MANAGER
-
-    _providersManager = await artifacts
-      .require("ProvidersManager")
-      .new({from: deployer});
-
-    _providersManager.setProvider(_aaveProvider.address, {from: deployer});
-    _providersManager.setProvider(_anotherProvider.address, {from: deployer});
-
-    // SETTING UP POOL
-
-    _pool = await artifacts.require("Pool").new(_providersManager.address, {
-      from: deployer,
-    });
   });
 
   /// Another test for best rate
@@ -100,7 +76,7 @@ contract("Pool", async ([deployer, ...users]) => {
       _user: _anotherProvider.address,
       _amount: "100",
       _referral: "0",
-      _mockId: "AaveProvider",
+      _mockId: "AnotherLendingPool",
     });
   });
 });
