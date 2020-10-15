@@ -3,55 +3,58 @@ import {
   AaveProviderInstance,
   ProvidersManagerInstance,
 } from "../types/truffle-contracts";
-import {aaveReserves, addReserveToAaveMock} from "./core/reserve";
+import {aaveReserves} from "./core/reserve";
 import BN from "bn.js";
+import {SmartDeployer} from "./core/deployer";
 
-contract("Providers Manager", async ([deployer, ...users]) => {
-  let _aaveLandingPoolMock: AaveLendingPoolMockInstance;
+contract("Initial setup...", async ([deployer, ...users]) => {
+  let smartDeployer: SmartDeployer;
+
+  let _aaveLendingPoolMock: AaveLendingPoolMockInstance;
   let _aaveProvider: AaveProviderInstance;
+
+  let _anotherLendingPoolMock: AaveLendingPoolMockInstance;
+  let _anotherProvider: AaveProviderInstance;
+
   let _providersManager: ProvidersManagerInstance;
   const dai = aaveReserves["DAI"];
 
   beforeEach("Initializing Providers Manager", async () => {
-    _aaveLandingPoolMock = await artifacts.require("AaveLendingPoolMock").new({
-      from: deployer,
-    });
+    // Create 2 different Providers
+    smartDeployer = new SmartDeployer(deployer);
 
-    await addReserveToAaveMock(_aaveLandingPoolMock, dai);
+    _providersManager = await smartDeployer.getProvidersManager();
 
-    await _aaveLandingPoolMock.setMockId("BetterRate");
+    // AAVE PROVIDER
+    _aaveLendingPoolMock = await smartDeployer.newAaveLendingPoolMock(
+      "MainLendingPool"
+    );
+    _aaveProvider = await smartDeployer.registerAaveProviderFromMock(
+      _aaveLendingPoolMock
+    );
+    await smartDeployer.setReserveToAaveMock(_aaveLendingPoolMock, dai);
 
-    _aaveProvider = await artifacts
-      .require("AaveProvider")
-      .new(_aaveLandingPoolMock.address, {from: deployer});
-    _providersManager = await artifacts
-      .require("ProvidersManager")
-      .new({from: deployer});
-    _providersManager.setProvider(_aaveProvider.address, {from: deployer});
+    // ANOTHER PROVIDER
+    _anotherLendingPoolMock = await smartDeployer.newAaveLendingPoolMock(
+      "AnotherLendingPool"
+    );
+    _anotherProvider = await smartDeployer.registerAaveProviderFromMock(
+      _anotherLendingPoolMock
+    );
+    await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, dai);
   });
 
-  /// Another test for best rate
-
+  // Another test for best rate
   it("Provider manager should choose provider with better liquidity rate -1", async () => {
-    const anotherLandingPoolMock = await artifacts
-      .require("AaveLendingPoolMock")
-      .new({
-        from: deployer,
-      });
-
     const anotherDai = {...dai};
     anotherDai.liquidityRate -= 1;
 
-    await addReserveToAaveMock(anotherLandingPoolMock, anotherDai);
-    await anotherLandingPoolMock.setMockId("WorseRateProvider");
+    await smartDeployer.setReserveToAaveMock(
+      _anotherLendingPoolMock,
+      anotherDai
+    );
 
-    const anotherProvider = await artifacts
-      .require("AaveProvider")
-      .new(anotherLandingPoolMock.address, {from: deployer});
-
-    _providersManager.setProvider(anotherProvider.address, {from: deployer});
-
-    const betterProviderAddress = await _providersManager.getProviderWithBestLiquidityRate(
+    const betterProviderAddress = await _providersManager.getProviderWithHighestLiquidityRate(
       dai.address
     );
 
@@ -59,30 +62,20 @@ contract("Providers Manager", async ([deployer, ...users]) => {
     console.log("AaveProvider", _aaveProvider.address);
   });
 
-  /// Another test for best rate
-
+  // Another test for best rate
   it("Provider manager should choose provider with better liquidity rate +1", async () => {
-    const anotherLandingPoolMock = await artifacts
-      .require("AaveLendingPoolMock")
-      .new({
-        from: deployer,
-      });
-
     const anotherDai = {...dai};
     anotherDai.liquidityRate += 1;
 
-    await addReserveToAaveMock(anotherLandingPoolMock, anotherDai);
-    await anotherLandingPoolMock.setMockId("Better rate");
+    await smartDeployer.setReserveToAaveMock(
+      _anotherLendingPoolMock,
+      anotherDai
+    );
 
-    const anotherProvider = await artifacts
-      .require("AaveProvider")
-      .new(anotherLandingPoolMock.address, {from: deployer});
-    _providersManager.setProvider(anotherProvider.address, {from: deployer});
-
-    const betterProviderAddress = await _providersManager.getProviderWithBestLiquidityRate(
+    const betterProviderAddress = await _providersManager.getProviderWithHighestLiquidityRate(
       dai.address
     );
 
-    expect(betterProviderAddress).to.be.equal(anotherProvider.address);
+    expect(betterProviderAddress).to.be.equal(_anotherProvider.address);
   });
 });

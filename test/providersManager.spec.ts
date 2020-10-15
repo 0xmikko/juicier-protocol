@@ -1,15 +1,15 @@
 import {expectRevert, expectEvent} from "@openzeppelin/test-helpers";
 import {ProvidersManagerInstance} from "../types/truffle-contracts";
+import {SmartDeployer} from "./core/deployer";
 
 contract("ProvidersManager", async ([deployer, ...users]) => {
   let _providersManager: ProvidersManagerInstance;
   const PROVIDER_TEST_ADDR = "0x506B0B2CF20FAA8f38a4E2B524EE43e1f4458Cc5";
   const PROVIDER_TEST_ADDR_2 = "0x580D4Fdc4BF8f9b5ae2fb9225D584fED4AD5375c";
 
-  beforeEach("Initializing Providers Manager", async () => {
-    _providersManager = await artifacts.require("ProvidersManager").new({
-      from: deployer,
-    });
+  beforeEach("Initial setup...", async () => {
+    const smartDeployer = new SmartDeployer(deployer);
+    _providersManager = await smartDeployer.getProvidersManager();
   });
 
   it("setProvider reverts if call from no owner", async () => {

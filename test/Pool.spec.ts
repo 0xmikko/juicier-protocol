@@ -4,12 +4,14 @@ import {
   ProvidersManagerInstance,
   PoolInstance,
 } from "../types/truffle-contracts";
-import {aaveReserves, addReserveToAaveMock} from "./core/reserve";
+import {aaveReserves} from "./core/reserve";
 import BN from "bn.js";
 import {expectEvent} from "@openzeppelin/test-helpers";
-import { SmartDeployer } from "./core/deployer";
+import {SmartDeployer} from "./core/deployer";
 
 contract("Pool", async ([deployer, ...users]) => {
+  let smartDeployer: SmartDeployer;
+
   let _aaveLendingPoolMock: AaveLendingPoolMockInstance;
   let _aaveProvider: AaveProviderInstance;
 
@@ -20,37 +22,41 @@ contract("Pool", async ([deployer, ...users]) => {
   let _pool: PoolInstance;
   const dai = aaveReserves["DAI"];
 
-  beforeEach("Initializing Providers Manager", async () => {
-
+  beforeEach("Initial setup...", async () => {
     // Create 2 different Providers
-    const smartDeployer = new SmartDeployer(deployer);
+    smartDeployer = new SmartDeployer(deployer);
 
     _providersManager = await smartDeployer.getProvidersManager();
     _pool = await smartDeployer.getPool();
 
     // AAVE PROVIDER
-    _aaveLendingPoolMock = await smartDeployer.newAaveLendingPoolMock("MainLendingPool");
-    _aaveProvider = await smartDeployer.registerAaveProviderFromMock(_aaveLendingPoolMock);
-    await addReserveToAaveMock(_aaveLendingPoolMock, dai);
+    _aaveLendingPoolMock = await smartDeployer.newAaveLendingPoolMock(
+      "MainLendingPool"
+    );
+    _aaveProvider = await smartDeployer.registerAaveProviderFromMock(
+      _aaveLendingPoolMock
+    );
+    await smartDeployer.setReserveToAaveMock(_aaveLendingPoolMock, dai);
 
-    
     // ANOTHER PROVIDER
-    _anotherLendingPoolMock = await smartDeployer.newAaveLendingPoolMock("AnotherLendingPool");
-    _anotherProvider = await smartDeployer.registerAaveProviderFromMock(_anotherLendingPoolMock);
-    await addReserveToAaveMock(_anotherLendingPoolMock, dai);
-
+    _anotherLendingPoolMock = await smartDeployer.newAaveLendingPoolMock(
+      "AnotherLendingPool"
+    );
+    _anotherProvider = await smartDeployer.registerAaveProviderFromMock(
+      _anotherLendingPoolMock
+    );
+    await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, dai);
   });
 
-  /// Another test for best rate
-
+  // Another test for best rate
   it("Pool puts deposit to provider with better liquidity rate -1", async () => {
-
     const anotherDai = {...dai};
     anotherDai.liquidityRate -= 1;
 
-    await addReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
-
-   
+    await smartDeployer.setReserveToAaveMock(
+      _anotherLendingPoolMock,
+      anotherDai
+    );
 
     const receipt = await _pool.deposit(dai.address, 100, {from: users[0]});
     expectEvent.inTransaction(receipt.tx, _aaveLendingPoolMock, "DepositMock", {
@@ -62,13 +68,16 @@ contract("Pool", async ([deployer, ...users]) => {
     });
   });
 
-  /// Another test for best rate
 
+  // Another test for best rate
   it("Provider manager should choose provider with better liquidity rate +1", async () => {
     const anotherDai = {...dai};
     anotherDai.liquidityRate += 1;
 
-    await addReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
+    await smartDeployer.setReserveToAaveMock(
+      _anotherLendingPoolMock,
+      anotherDai
+    );
 
     const receipt = await _pool.deposit(dai.address, 100, {from: users[0]});
     expectEvent.inTransaction(receipt.tx, _aaveLendingPoolMock, "DepositMock", {

@@ -2,26 +2,29 @@ import {
   AaveLendingPoolMockInstance,
   AaveProviderInstance,
 } from "../types/truffle-contracts";
-import {aaveReserves, addReserveToAaveMock} from "./core/reserve";
+import {aaveReserves} from "./core/reserve";
 import BN from "bn.js";
+import {SmartDeployer} from "./core/deployer";
 
 contract("AaveProvider", async ([deployer, ...users]) => {
-  let _aaveLandingPoolMock: AaveLendingPoolMockInstance;
+  let smartDeployer: SmartDeployer;
+
+  let _aaveLendingPoolMock: AaveLendingPoolMockInstance;
   let _aaveProvider: AaveProviderInstance;
+
   const dai = aaveReserves["DAI"];
 
-  beforeEach("Initializing Providers Manager", async () => {
-    _aaveLandingPoolMock = await artifacts.require("AaveLendingPoolMock").new({
-      from: deployer,
-    });
+  beforeEach("Initial setup...", async () => {
+    smartDeployer = new SmartDeployer(deployer);
 
-    await addReserveToAaveMock(_aaveLandingPoolMock, dai);
-
-    _aaveProvider = await artifacts
-      .require("AaveProvider")
-      .new(_aaveLandingPoolMock.address, {
-        from: deployer,
-      });
+    // AAVE PROVIDER
+    _aaveLendingPoolMock = await smartDeployer.newAaveLendingPoolMock(
+      "MainLendingPool"
+    );
+    _aaveProvider = await smartDeployer.registerAaveProviderFromMock(
+      _aaveLendingPoolMock
+    );
+    await smartDeployer.setReserveToAaveMock(_aaveLendingPoolMock, dai);
   });
 
   it("it correctly returns liquidityRate", async () => {
