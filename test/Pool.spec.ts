@@ -126,4 +126,44 @@ it('Pool correctly reedeem money', async () => {
 });
 
 
+// Another test for best rate
+it('Pool reedeems money from provider with lowest rate', async () => {
+  const anotherDai = {...dai};
+  anotherDai.liquidityRate -= 1;
+
+  await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
+  await _pool.deposit(dai.address, 100, {from: users[0]});
+
+  anotherDai.liquidityRate += 10;
+  await _pool.deposit(dai.address, 100, {from: users[0]});
+
+  await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
+
+  const receipt = await _pool.redeem(dai.address, 150, {from: users[0]});
+
+  const avaibleLiquidityPM = await _providersManager.getAvaibleLiquidity(dai.address);
+  const availableLiquidityAaveProvider = await _aaveProvider.getAvaibleLiquidity(dai.address);
+  const availableLiquidityAnotherProvider = await _anotherProvider.getAvaibleLiquidity(
+    dai.address
+  );
+
+  expectEvent.inTransaction(receipt.tx, _aaveLendingPoolMock, 'RedeemMock', {
+    _reserve: dai.address,
+    _user: users[0],
+    _amount: '50',
+    _mockId: 'MainLendingPool',
+  });
+
+  expectEvent.inTransaction(receipt.tx, _anotherLendingPoolMock, 'RedeemMock', {
+    _reserve: dai.address,
+    _user: users[0],
+    _amount: '100',
+    _mockId: 'AnotherLendingPool',
+  });
+
+  expect(avaibleLiquidityPM.toString()).to.be.equal(new BigNumber(50).toFixed(0));
+  expect(availableLiquidityAaveProvider.toString()).to.be.equal(new BigNumber(50).toFixed(0));
+  expect(availableLiquidityAnotherProvider.toString()).to.be.equal(new BigNumber(0).toFixed(0));
+});
+
 });
