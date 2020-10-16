@@ -4,10 +4,11 @@ import {
   ProvidersManagerInstance,
   PoolInstance,
 } from '../types/truffle-contracts';
-import {aaveReserves} from './core/reserve';
-import BN from 'bn.js';
+import BigNumber from 'bignumber.js';
 import {expectEvent} from '@openzeppelin/test-helpers';
+
 import {SmartDeployer} from './core/deployer';
+import {aaveReserves} from './core/reserve';
 
 contract('Pool', async ([deployer, ...users]) => {
   let smartDeployer: SmartDeployer;
@@ -48,6 +49,13 @@ contract('Pool', async ([deployer, ...users]) => {
     await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
 
     const receipt = await _pool.deposit(dai.address, 100, {from: users[0]});
+
+    const avaibleLiquidityPM = await _providersManager.getAvaibleLiquidity(dai.address);
+    const availableLiquidityAaveProvider = await _aaveProvider.getAvaibleLiquidity(dai.address);
+    const availableLiquidityAnotherProvider = await _anotherProvider.getAvaibleLiquidity(
+      dai.address
+    );
+
     expectEvent.inTransaction(receipt.tx, _aaveLendingPoolMock, 'DepositMock', {
       _reserve: dai.address,
       _user: _aaveProvider.address,
@@ -55,16 +63,27 @@ contract('Pool', async ([deployer, ...users]) => {
       _referral: '0',
       _mockId: 'MainLendingPool',
     });
+
+    expect(avaibleLiquidityPM.toString()).to.be.equal(new BigNumber(100).toFixed(0));
+    expect(availableLiquidityAaveProvider.toString()).to.be.equal(new BigNumber(100).toFixed(0));
+    expect(availableLiquidityAnotherProvider.toString()).to.be.equal(new BigNumber(0).toFixed(0));
   });
 
   // Another test for best rate
-  it('Provider manager should choose provider with better liquidity rate +1', async () => {
+  it('Pool puts deposit to provider with better liquidity rate +1', async () => {
     const anotherDai = {...dai};
     anotherDai.liquidityRate += 1;
 
     await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
 
     const receipt = await _pool.deposit(dai.address, 100, {from: users[0]});
+
+    const avaibleLiquidityPM = await _providersManager.getAvaibleLiquidity(dai.address);
+    const availableLiquidityAaveProvider = await _aaveProvider.getAvaibleLiquidity(dai.address);
+    const availableLiquidityAnotherProvider = await _anotherProvider.getAvaibleLiquidity(
+      dai.address
+    );
+
     expectEvent.inTransaction(receipt.tx, _aaveLendingPoolMock, 'DepositMock', {
       _reserve: dai.address,
       _user: _anotherProvider.address,
@@ -72,5 +91,39 @@ contract('Pool', async ([deployer, ...users]) => {
       _referral: '0',
       _mockId: 'AnotherLendingPool',
     });
+
+    expect(avaibleLiquidityPM.toString()).to.be.equal(new BigNumber(100).toFixed(0));
+    expect(availableLiquidityAaveProvider.toString()).to.be.equal(new BigNumber(0).toFixed(0));
+    expect(availableLiquidityAnotherProvider.toString()).to.be.equal(new BigNumber(100).toFixed(0));
   });
+
+// Another test for best rate
+it('Pool correctly reedeem money', async () => {
+  const anotherDai = {...dai};
+  anotherDai.liquidityRate -= 1;
+
+  await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
+  await _pool.deposit(dai.address, 100, {from: users[0]});
+
+  const receipt = await _pool.redeem(dai.address, 50, {from: users[0]});
+
+  const avaibleLiquidityPM = await _providersManager.getAvaibleLiquidity(dai.address);
+  const availableLiquidityAaveProvider = await _aaveProvider.getAvaibleLiquidity(dai.address);
+  const availableLiquidityAnotherProvider = await _anotherProvider.getAvaibleLiquidity(
+    dai.address
+  );
+
+  expectEvent.inTransaction(receipt.tx, _aaveLendingPoolMock, 'RedeemMock', {
+    _reserve: dai.address,
+    _user: users[0],
+    _amount: '50',
+    _mockId: 'MainLendingPool',
+  });
+
+  expect(avaibleLiquidityPM.toString()).to.be.equal(new BigNumber(50).toFixed(0));
+  expect(availableLiquidityAaveProvider.toString()).to.be.equal(new BigNumber(50).toFixed(0));
+  expect(availableLiquidityAnotherProvider.toString()).to.be.equal(new BigNumber(0).toFixed(0));
+});
+
+
 });

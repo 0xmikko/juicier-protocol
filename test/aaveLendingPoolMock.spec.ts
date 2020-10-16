@@ -1,85 +1,79 @@
-import {AaveLendingPoolMockInstance} from "../types/truffle-contracts";
-import {aaveReserves} from "./core/reserve";
-import BN from "bn.js";
-import {SmartDeployer} from "./core/deployer";
+import {AaveLendingPoolMockInstance} from '../types/truffle-contracts';
+import {aaveReserves} from './core/reserve';
+import BigNumber from 'bignumber.js';
+import {SmartDeployer} from './core/deployer';
 
-contract("AaveLendingPoolMock", async ([deployer, ...users]) => {
+contract('AaveLendingPoolMock', async ([deployer, ...users]) => {
   let smartDeployer: SmartDeployer;
   let _aaveLendingPoolMock: AaveLendingPoolMockInstance;
-  const dai = aaveReserves["DAI"];
+  const dai = aaveReserves['DAI'];
 
-  beforeEach("Initial setup...", async () => {
-
+  beforeEach('Initial setup...', async () => {
     smartDeployer = new SmartDeployer(deployer);
     // AAVE PROVIDER
-    _aaveLendingPoolMock = await smartDeployer.newAaveLendingPoolMock(
-      "MainLendingPool"
-    );
+    _aaveLendingPoolMock = await smartDeployer.newAaveLendingPoolMock('MainLendingPool');
     await smartDeployer.setReserveToAaveMock(_aaveLendingPoolMock, dai);
   });
 
-  it("it correctly puts DAI reserve address into address array", async () => {
+  it('it correctly puts DAI reserve address into address array', async () => {
     const reserves = await _aaveLendingPoolMock.getReserves();
     expect(reserves.length).eq(1);
-    expect(reserves[0]).eq(aaveReserves["DAI"].address);
+    expect(reserves[0]).eq(aaveReserves['DAI'].address);
   });
 
-  it("it correctly puts all data", async () => {
+  it('it correctly puts all data', async () => {
     const reserves = await _aaveLendingPoolMock.getReserves();
     const daiAddress = reserves[0];
-    const reserveData = await _aaveLendingPoolMock.getReserveData(daiAddress);
+    const resData = await _aaveLendingPoolMock.getReserveData(daiAddress);
 
-    expect(reserveData[0].eq(new BN(dai.totalLiquidity))).to.be.equal(
-      true,
-      "incorrect total liquidity"
+    expect(resData[0].toString()).to.be.equal(
+      new BigNumber(dai.totalLiquidity).toFixed(0),
+      'incorrect totalLiquidity'
     );
-    expect(reserveData[1].eq(new BN(dai.availableLiquidity))).to.be.equal(
-      true,
-      "availableLiquidity"
+    expect(resData[1].toString()).to.be.equal(
+      new BigNumber(dai.availableLiquidity).toFixed(0),
+      'incorrect availableLiquidity'
     );
-    expect(reserveData[2].eq(new BN(dai.totalBorrowsStable))).to.be.equal(
-      true,
-      " incorrect totalBorrowsStable"
+    expect(resData[2].toString()).to.be.equal(
+      new BigNumber(dai.totalBorrowsStable).toFixed(0),
+      'incorrect totalBorrowsStable'
     );
-    expect(reserveData[3].eq(new BN(dai.totalBorrowsVariable))).to.be.equal(
-      true,
-      " incorrect totalBorrowsVariable"
+    expect(resData[3].toString()).to.be.equal(
+      new BigNumber(dai.totalBorrowsVariable).toFixed(0),
+      'incorrect totalBorrowsVariable'
     );
-    expect(reserveData[4].eq(new BN(dai.liquidityRate))).to.be.equal(
-      true,
-      " incorrect liquidityRate"
+    expect(resData[4].toString()).to.be.equal(
+      new BigNumber(dai.liquidityRate).toFixed(0),
+      'incorrect liquidityRate'
     );
-    expect(reserveData[5].eq(new BN(dai.variableBorrowRate))).to.be.equal(
-      true,
-      " incorrect variableBorrowRate"
+    expect(resData[5].toString()).to.be.equal(
+      new BigNumber(dai.variableBorrowRate).toFixed(0),
+      'incorrect variableBorrowRate'
     );
-    expect(reserveData[6].eq(new BN(dai.stableBorrowRate))).to.be.equal(
-      true,
-      " incorrect stableBorrowRate"
+    expect(resData[6].toString()).to.be.equal(
+      new BigNumber(dai.stableBorrowRate).toFixed(0),
+      'incorrect stableBorrowRate'
     );
-    expect(reserveData[7].eq(new BN(dai.averageStableBorrowRate))).to.be.equal(
-      true,
-      " incorrect averageStableBorrowRate"
+    expect(resData[7].toString()).to.be.equal(
+      new BigNumber(dai.averageStableBorrowRate).toFixed(0),
+      'incorrect averageStableBorrowRate'
     );
-    expect(reserveData[8].eq(new BN(dai.utilizationRate))).to.be.equal(
-      true,
-      " incorrect utilizationRate"
+    expect(resData[8].toString()).to.be.equal(
+      new BigNumber(dai.utilizationRate).toFixed(0),
+      'incorrect utilizationRate'
     );
-    expect(reserveData[9].eq(new BN(dai.liquidityIndex))).to.be.equal(
-      true,
-      " incorrect liquidityIndex"
+    expect(resData[9].toString()).to.be.equal(
+      new BigNumber(dai.liquidityIndex).toFixed(0),
+      'incorrect liquidityIndex'
     );
-    expect(reserveData[10].eq(new BN(dai.variableBorrowIndex))).to.be.equal(
-      true,
-      " incorrect variableBorrowIndex"
+    expect(resData[10].toString()).to.be.equal(
+      new BigNumber(dai.variableBorrowIndex).toFixed(0),
+      'incorrect variableBorrowIndex'
     );
-    expect(reserveData[11]).to.be.equal(
-      dai.aTokenAddress,
-      " incorrect aTokenAddress"
-    );
-    assert(
-      reserveData[12].eq(new BN(dai.lastUpdateTimestamp)),
-      " incorrect lastUpdateTimestamp"
+    expect(resData[11]).to.be.equal(dai.aTokenAddress, 'incorrect aTokenAddress');
+    expect(resData[12].toString()).to.be.equal(
+      new BigNumber(dai.lastUpdateTimestamp).toFixed(0),
+      'incorrect lastUpdateTimestamp'
     );
   });
 });

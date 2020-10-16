@@ -1,11 +1,11 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/lib/node_modules/yarn/bin/yarn.js add @types/bn-chai --dev
+  /usr/local/bin/node /Users/mikhail/.yarn/bin/yarn.js add bignumber @types/bignumber
 
 PATH: 
-  /Users/mikhail/google-cloud-sdk/bin:/Users/mikhail/.yarn/bin:/Users/mikhail/.config/yarn/global/node_modules/.bin:/opt/local/bin:/opt/local/sbin:/Users/mikhail/opt/anaconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/Users/mikhail/Library/Android/sdk/emulator:/Users/mikhail/Library/Android/sdk/tools:/Users/mikhail/Library/Android/sdk/tools/bin:/Users/mikhail/Library/Android/sdk/platform-tools:/Users/mikhail/anaconda3/bin:/Users/mikhail/go/bin:/Users/mikhail/flutter/bin
+  /Users/mikhail/.yarn/bin:/Users/mikhail/.config/yarn/global/node_modules/.bin:/opt/local/bin:/opt/local/sbin:/Users/mikhail/opt/anaconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/Users/mikhail/google-cloud-sdk/bin:/Users/mikhail/.yarn/bin:/Users/mikhail/.config/yarn/global/node_modules/.bin:/opt/local/bin:/opt/local/sbin:/Users/mikhail/opt/anaconda3/bin:/Users/mikhail/Library/Android/sdk/emulator:/Users/mikhail/Library/Android/sdk/tools:/Users/mikhail/Library/Android/sdk/tools/bin:/Users/mikhail/Library/Android/sdk/platform-tools:/Users/mikhail/anaconda3/bin:/Users/mikhail/go/bin:/Users/mikhail/flutter/bin:/Users/mikhail/Library/Android/sdk/emulator:/Users/mikhail/Library/Android/sdk/tools:/Users/mikhail/Library/Android/sdk/tools/bin:/Users/mikhail/Library/Android/sdk/platform-tools:/Users/mikhail/anaconda3/bin:/Users/mikhail/go/bin:/Users/mikhail/flutter/bin
 
 Yarn version: 
-  1.12.3
+  1.22.4
 
 Node version: 
   12.18.2
@@ -14,13 +14,13 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fbn-chai: Not found
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:65894:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:129018:22)
+  Error: https://registry.yarnpkg.com/@types%2fbignumber: Not found
+      at Request.params.callback [as _callback] (/Users/mikhail/.yarn/lib/cli.js:66987:18)
+      at Request.self.callback (/Users/mikhail/.yarn/lib/cli.js:140748:22)
       at Request.emit (events.js:315:20)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:129990:10)
+      at Request.<anonymous> (/Users/mikhail/.yarn/lib/cli.js:141720:10)
       at Request.emit (events.js:315:20)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:129912:12)
+      at IncomingMessage.<anonymous> (/Users/mikhail/.yarn/lib/cli.js:141642:12)
       at Object.onceWrapper (events.js:421:28)
       at IncomingMessage.emit (events.js:327:22)
       at endReadableNT (_stream_readable.js:1221:12)
@@ -49,6 +49,8 @@ npm manifest:
       "@types/chai": "^4.2.11",
       "@types/mocha": "^7.0.2",
       "bn-chai": "^1.0.1",
+      "chai-bignumber": "^3.0.0",
+      "chai-bn": "^0.2.1",
       "openzeppelin-solidity": "^3.2.0",
       "prettier": "^2.1.2",
       "prettier-plugin-solidity": "^1.0.0-alpha.58",
@@ -905,6 +907,11 @@ Lockfile:
     version "0.12.0"
     resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
     integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
+  
+  chai-bignumber@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/chai-bignumber/-/chai-bignumber-3.0.0.tgz#e90cf1f468355bbb11a9acd051222586cd2648a9"
+    integrity sha512-SubOtaSI2AILWTWe2j0c6i2yFT/f9J6UBjeVGDuwDiPLkF/U5+/eTWUE3sbCZ1KgcPF6UJsDVYbIxaYA097MQA==
   
   chai-bn@^0.2.1:
     version "0.2.1"
