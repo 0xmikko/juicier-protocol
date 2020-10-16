@@ -1,5 +1,5 @@
 import {AaveLendingPoolMockInstance} from '../types/truffle-contracts';
-import {aaveReserves} from './core/reserve';
+import {aaveReserves} from './core/aaveReserve';
 import BigNumber from 'bignumber.js';
 import {SmartDeployer} from './core/deployer';
 

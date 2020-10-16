@@ -15,7 +15,7 @@ declare module "@openzeppelin/test-helpers" {
       emitter: Truffle.ContractInstance,
       eventName: string,
       eventArgs?: unknown
-    ): void;
+    ): Promise<void>;
   }
 
   function expectRevert(

@@ -16,6 +16,29 @@ type AllEvents = never;
 export interface PoolInstance extends Truffle.ContractInstance {
   owner(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
+  addReserve: {
+    (
+      _reserve: string,
+      _vTokenAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _reserve: string,
+      _vTokenAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _reserve: string,
+      _vTokenAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _reserve: string,
+      _vTokenAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
   deposit: {
     (
       _reserve: string,
@@ -64,6 +87,29 @@ export interface PoolInstance extends Truffle.ContractInstance {
 
   methods: {
     owner(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
+    addReserve: {
+      (
+        _reserve: string,
+        _vTokenAddress: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _reserve: string,
+        _vTokenAddress: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _reserve: string,
+        _vTokenAddress: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _reserve: string,
+        _vTokenAddress: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
 
     deposit: {
       (

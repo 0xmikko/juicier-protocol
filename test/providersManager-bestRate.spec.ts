@@ -3,7 +3,7 @@ import {
   AaveProviderInstance,
   ProvidersManagerInstance,
 } from '../types/truffle-contracts';
-import {aaveReserves} from './core/reserve';
+import {aaveReserves} from './core/aaveReserve';
 import BN from 'bn.js';
 import {SmartDeployer} from './core/deployer';
 
@@ -48,7 +48,6 @@ contract('ProvidersManager - selecting liquidity providers', async ([deployer, .
     );
 
     expect(betterProviderAddress).to.be.equal(_aaveProvider.address);
-    console.log('AaveProvider', _aaveProvider.address);
   });
 
   // Another test for best rate

@@ -5,8 +5,10 @@ import {
   PoolInstance,
   AaveLendingPoolMockInstance,
   AaveProviderInstance,
+  VitaminTokenInstance,
+  VTokenInstance,
 } from "../../types/truffle-contracts";
-import {Reserve} from "./reserve";
+import {AaveReserve} from "./aaveReserve";
 
 export class SmartDeployer {
   private _deployer: string;
@@ -62,7 +64,7 @@ export class SmartDeployer {
 
   async setReserveToAaveMock(
     _aaveLandingPoolMock: AaveLendingPoolMockInstance,
-    _reserve: Reserve
+    _reserve: AaveReserve
   ) {
     await _aaveLandingPoolMock.setReserve(
       _reserve.address,
@@ -80,6 +82,15 @@ export class SmartDeployer {
       _reserve.aTokenAddress,
       _reserve.lastUpdateTimestamp.toString()
     );
+
+  }
+
+  async addReserveToPool(reserveAddress: string, name: string, symbol: string) : Promise<VTokenInstance> {
+    const pool = await this.getPool();
+    const token = await artifacts.require("VToken").new(pool.address, 18, name, symbol, {from: this._deployer});
+    await pool.addReserve(reserveAddress, token.address);
+    return token;
+
   }
 
 }

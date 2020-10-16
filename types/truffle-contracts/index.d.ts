@@ -6,6 +6,7 @@ import { AaveLendingPoolMockContract } from "./AaveLendingPoolMock";
 import { AaveProviderContract } from "./AaveProvider";
 import { AbstractProviderContract } from "./AbstractProvider";
 import { AddressStorageContract } from "./AddressStorage";
+import { Erc20Contract } from "./Erc20";
 import { IAaveLendingPoolContract } from "./IAaveLendingPool";
 import { ICoreContract } from "./ICore";
 import { Ierc20Contract } from "./Ierc20";
@@ -17,6 +18,7 @@ import { OwnableContract } from "./Ownable";
 import { PoolContract } from "./Pool";
 import { ProvidersManagerContract } from "./ProvidersManager";
 import { VitaminTokenContract } from "./VitaminToken";
+import { VTokenContract } from "./VToken";
 
 declare global {
   namespace Truffle {
@@ -26,6 +28,7 @@ declare global {
       require(name: "AaveProvider"): AaveProviderContract;
       require(name: "AbstractProvider"): AbstractProviderContract;
       require(name: "AddressStorage"): AddressStorageContract;
+      require(name: "ERC20"): Erc20Contract;
       require(name: "IAaveLendingPool"): IAaveLendingPoolContract;
       require(name: "ICore"): ICoreContract;
       require(name: "IERC20"): Ierc20Contract;
@@ -37,6 +40,7 @@ declare global {
       require(name: "Pool"): PoolContract;
       require(name: "ProvidersManager"): ProvidersManagerContract;
       require(name: "VitaminToken"): VitaminTokenContract;
+      require(name: "VToken"): VTokenContract;
     }
   }
 }
@@ -58,6 +62,7 @@ export {
   AddressStorageContract,
   AddressStorageInstance
 } from "./AddressStorage";
+export { Erc20Contract, Erc20Instance } from "./Erc20";
 export {
   IAaveLendingPoolContract,
   IAaveLendingPoolInstance
@@ -81,3 +86,4 @@ export {
   ProvidersManagerInstance
 } from "./ProvidersManager";
 export { VitaminTokenContract, VitaminTokenInstance } from "./VitaminToken";
+export { VTokenContract, VTokenInstance } from "./VToken";
