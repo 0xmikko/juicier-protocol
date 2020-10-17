@@ -123,6 +123,13 @@ contract VToken is ERC20 {
     //balanceIncrease, index);
   }
 
+  function burnOnRedeem(address _account, uint256 _amount)
+    public
+    poolOnly
+  {
+    _burn(_account, _amount);
+  }
+
   /**
    * @dev returns the principal balance of the user. The principal balance is the last
    * updated stored balance, which does not consider the perpetually accruing interest.

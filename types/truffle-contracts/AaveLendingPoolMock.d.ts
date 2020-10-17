@@ -306,6 +306,39 @@ export interface AaveLendingPoolMockInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
+  /**
+   * transfers an amount from a user to the destination reserve
+   * @param _amount the amount being transferred*
+   * @param _reserve the address of the reserve where the amount is being transferred
+   * @param _user the address of the user from where the transfer is happening
+   */
+  transferToReserve: {
+    (
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _reserve: string,
+      _user: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
   setReserve: {
     (
       _reserveAddress: string,
@@ -457,6 +490,39 @@ export interface AaveLendingPoolMockInstance extends Truffle.ContractInstance {
         _user: string,
         _amount: number | BN | string,
         _aTokenBalanceAfterRedeem: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    /**
+     * transfers an amount from a user to the destination reserve
+     * @param _amount the amount being transferred*
+     * @param _reserve the address of the reserve where the amount is being transferred
+     * @param _user the address of the user from where the transfer is happening
+     */
+    transferToReserve: {
+      (
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _reserve: string,
+        _user: string,
+        _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };

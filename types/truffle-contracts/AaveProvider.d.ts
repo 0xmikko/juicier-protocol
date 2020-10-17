@@ -8,6 +8,7 @@ export interface AaveProviderContract
   extends Truffle.Contract<AaveProviderInstance> {
   "new"(
     _lendingPoolAddress: string,
+    _aTokenAddress: string,
     meta?: Truffle.TransactionDetails
   ): Promise<AaveProviderInstance>;
 }

@@ -81,6 +81,11 @@ contract Pool {
     activeReserveOnly(_reserve)
     onlyAmountGreaterThanZero(_amount)
   {
+
+    VToken token = VToken(reserves[_reserve].vTokenContract);
+    uint256 userBalance = token.balanceOf(msg.sender);
+    require(_amount <= userBalance, "Pool: not enough money on user account");
+
     require(
       providersManager.getAvaibleLiquidity(_reserve) > _amount,
       "There is not enough liquidity available to redeem"
@@ -106,6 +111,8 @@ contract Pool {
 
       _amountLeft = _amountLeft.sub(sumToRedeem);
     }
+
+    token.burnOnRedeem(msg.sender, _amount);
   }
 
   /**

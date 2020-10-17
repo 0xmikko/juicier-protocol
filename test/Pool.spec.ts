@@ -136,6 +136,7 @@ contract('Pool', async ([deployer, ...users]) => {
     const availableLiquidityAnotherProvider = await _anotherProvider.getAvaibleLiquidity(
       dai.address
     );
+    const expectedUserBalance = await _vitaminDai.principalBalanceOf(users[0]);
 
     await expectEvent.inTransaction(receipt.tx, _aaveLendingPoolMock, 'RedeemMock', {
       _reserve: dai.address,
@@ -147,6 +148,7 @@ contract('Pool', async ([deployer, ...users]) => {
     expect(avaibleLiquidityPM.toString()).to.be.equal(new BigNumber(50).toFixed(0));
     expect(availableLiquidityAaveProvider.toString()).to.be.equal(new BigNumber(50).toFixed(0));
     expect(availableLiquidityAnotherProvider.toString()).to.be.equal(new BigNumber(0).toFixed(0));
+    expect(expectedUserBalance.toString()).to.be.equal(new BigNumber(50).toFixed(0));
   });
 
   // Another test for best rate
@@ -172,6 +174,7 @@ contract('Pool', async ([deployer, ...users]) => {
     const availableLiquidityAnotherProvider = await _anotherProvider.getAvaibleLiquidity(
       dai.address
     );
+    const expectedUserBalance = await _vitaminDai.principalBalanceOf(users[0]);
 
     // We expect that contract tool 100 from MainLendingPool case it has lower liquidity rate
     await expectEvent.inTransaction(receipt.tx, _aaveLendingPoolMock, 'RedeemMock', {
@@ -192,6 +195,7 @@ contract('Pool', async ([deployer, ...users]) => {
     expect(avaibleLiquidityPM.toString()).to.be.equal(new BigNumber(50).toFixed(0));
     expect(availableLiquidityAaveProvider.toString()).to.be.equal(new BigNumber(0).toFixed(0));
     expect(availableLiquidityAnotherProvider.toString()).to.be.equal(new BigNumber(50).toFixed(0));
+    expect(expectedUserBalance.toString()).to.be.equal(new BigNumber(50).toFixed(0));
   });
 
   it("Should wait", async() => {
