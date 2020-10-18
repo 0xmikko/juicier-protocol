@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for token/VToken.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">token/</a> VToken.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60.71% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">41.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.07% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>18/29</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: agpl-3.0
+pragma solidity ^0.6.10;
+import "../lib/ERC20.sol";
+import "../services/PoolService.sol";
+&nbsp;
+// Vitamin Token
+contract VToken is ERC20 {
+  // Balance holders queue
+&nbsp;
+  struct QueueItem {
+    address previous;
+    address next;
+    address balanceHolder;
+    uint256 amount;
+    uint40 startingAssetUsage;
+  }
+&nbsp;
+  AddressRepository addressRepository;
+  PoolService poolService;
+  address underlyingAssetAddress;
+&nbsp;
+&nbsp;
+  address private firstItem;
+  address private lastItem;
+  uint256 totalLiquidity;
+&nbsp;
+  mapping(address =&gt; QueueItem) private queue;
+&nbsp;
+  uint256 public constant UINT_MAX_VALUE = uint256(-1);
+&nbsp;
+  /**
+   * @dev emitted after the mint action
+   * @param _from the address performing the mint
+   * @param _value the amount to be minted
+   * @param _fromBalanceIncrease the cumulated balance since the last update of the user
+   * @param _fromIndex the last index of the user
+   **/
+&nbsp;
+  event MintOnDeposit(
+    address indexed _from,
+    uint256 _value,
+    uint256 _fromBalanceIncrease,
+    uint256 _fromIndex
+  );
+&nbsp;
+  modifier poolOnly {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(
+      msg.sender == address(poolService),
+      "Only providers could call this method"
+    );
+    _;
+  }
+&nbsp;
+  constructor(
+    // LendingPoolAddressesProvider _addressesProvider,
+    address _addressesRepositoryAddress,
+    address _underlyingAsset,
+    uint8 _underlyingAssetDecimals,
+    string memory _name,
+    string memory _symbol
+  ) public ERC20(_name, _symbol) {
+&nbsp;
+    addressRepository = AddressRepository(_addressesRepositoryAddress);
+    poolService = PoolService(addressRepository.getPoolService());
+    // addressesProvider = _addressesProvider;
+    // core = LendingPoolCore(addressesProvider.getLendingPoolCore());
+    // pool = LendingPool(addressesProvider.getLendingPool());
+    // dataProvider = LendingPoolDataProvider(addressesProvider.getLendingPoolDataProvider());
+    underlyingAssetAddress = _underlyingAsset;
+  }
+&nbsp;
+  function isInTheQueue(address _holder) internal view returns (bool) {
+    return queue[_holder].balanceHolder == address(0);
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function addBalanceHolder(address _holder, uint256 _amount) public {</span>
+<span class="cstat-no" title="statement not covered" >    QueueItem memory newItem = QueueItem({</span>
+      previous: address(0),
+      next: address(0),
+      balanceHolder: _holder,
+      amount: _amount,
+      startingAssetUsage: 0
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (firstItem != address(0)) {</span>
+<span class="cstat-no" title="statement not covered" >      newItem.previous = lastItem</span>;
+<span class="cstat-no" title="statement not covered" >      QueueItem storage previousItem = queue[lastItem];</span>
+<span class="cstat-no" title="statement not covered" >      previousItem.next = _holder</span>;
+    } else {
+<span class="cstat-no" title="statement not covered" >      firstItem = _holder</span>;
+    }
+<span class="cstat-no" title="statement not covered" >    lastItem = _holder</span>;
+<span class="cstat-no" title="statement not covered" >    totalLiquidity += _amount</span>;
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function updateQueueAssetsUsage(uint256 _amount) internal {}</span>
+&nbsp;
+  /**
+   * @dev mints token in the event of users depositing the underlying asset into the lending pool
+   * only lending pools can call this function
+   * @param _account the address receiving the minted tokens
+   * @param _amount the amount of tokens to mint
+   */
+&nbsp;
+  //   Provider only
+  function mintOnDeposit(address _account, uint256 _amount) public poolOnly {
+    //cumulates the balance of the user
+    //   (,
+    //   ,
+    //   uint256 balanceIncrease,
+    //   uint256 index) = cumulateBalanceInternal(_account);
+&nbsp;
+    //    //if the user is redirecting his interest towards someone else,
+    //   //we update the redirected balance of the redirection address by adding the accrued interest
+    //   //and the amount deposited
+    //   updateRedirectedBalanceOfRedirectionAddressInternal(_account, balanceIncrease.add(_amount), 0);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (isInTheQueue(_account) == false) {
+<span class="cstat-no" title="statement not covered" >      addBalanceHolder(_account, _amount)</span>;
+    }
+&nbsp;
+    //mint an equivalent amount of tokens to cover the new deposit
+    _mint(_account, _amount);
+&nbsp;
+    emit MintOnDeposit(_account, _amount, 0, 0);
+    //balanceIncrease, index);
+  }
+&nbsp;
+  function redeem(uint256 _amount) external {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(_amount &gt; 0, "VToken: Amount to redeem needs to be &gt; 0");
+    uint256 amountToRedeem = _amount;
+&nbsp;
+    uint256 currentBalance = balanceOf(msg.sender);
+    //if amount is equal to uint(-1), the user wants to redeem everything
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (_amount == UINT_MAX_VALUE) {
+<span class="cstat-no" title="statement not covered" >      amountToRedeem = currentBalance</span>;
+    }
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(
+      amountToRedeem &lt;= currentBalance,
+      "VToken: User cannot redeem more than the available balance"
+    );
+&nbsp;
+    // burns tokens equivalent to the amount requested
+    _burn(msg.sender, amountToRedeem);
+&nbsp;
+    // Remove from queue of balance equals zero
+    // executes redeem of the underlying asset
+    poolService.redeemUnderlying(
+      underlyingAssetAddress,
+      msg.sender,
+      amountToRedeem
+      // currentBalance.sub(amountToRedeem)
+    );
+&nbsp;
+    // emit Redeem(msg.sender, amountToRedeem, balanceIncrease, userIndexReset ? 0 : index);
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function burnOnRedeem(address _account, uint256 _amount) public poolOnly {</span>
+<span class="cstat-no" title="statement not covered" >    _burn(_account, _amount)</span>;
+  }
+&nbsp;
+  /**
+   * @dev returns the principal balance of the user. The principal balance is the last
+   * updated stored balance, which does not consider the perpetually accruing interest.
+   * @param _user the address of the user
+   * @return the principal balance of the user
+   **/
+  function principalBalanceOf(address _user) external view returns (uint256) {
+    return super.balanceOf(_user);
+  }
+&nbsp;
+  /**
+   * @dev calculates the balance of the user, which is the
+   * principal balance + interest generated by the principal balance + interest generated by the redirected balance
+   * @param _user the user for which the balance is being calculated
+   * @return the total balance of the user
+   **/
+  function balanceOf(address _user) public override view returns (uint256) {
+    return super.balanceOf(_user);
+  }
+&nbsp;
+  //  /**
+  //     * @dev calculates the total supply of the specific aToken
+  //     * since the balance of every single user increases over time, the total supply
+  //     * does that too.
+  //     * @return the current total supply
+  //     **/
+  //     function totalSupply() public override virtual view returns(uint256) {
+&nbsp;
+  //         uint256 currentSupplyPrincipal = super.totalSupply();
+&nbsp;
+  //         if(currentSupplyPrincipal == 0){
+  //             return 0;
+  //         }
+&nbsp;
+  //         return currentSupplyPrincipal;
+  //             // .wadToRay()
+  //             // .rayMul(core.getReserveNormalizedIncome(underlyingAssetAddress))
+  //             // .rayToWad();
+  //     }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Oct 18 2020 19:30:57 GMT+0300 (Moscow Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

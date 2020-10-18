@@ -1,0 +1,367 @@
+{
+  "contractName": "PriceRepository",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        }
+      ],
+      "name": "getReservePriceInETH",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"}],\"name\":\"getReservePriceInETH\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/repositories/PriceRepository.sol\":\"PriceRepository\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/repositories/PriceRepository.sol\":{\"keccak256\":\"0x43c11f994809dc1bdd0586a411f416917f44937c875b1bd073e3c160c1aa0599\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://03dc17f01d94a5adca17f412702629fe074ac6d5caa464bd984d82fe55aab3dc\",\"dweb:/ipfs/QmQjMEqMNWDqQ3ZLuytGxJyfeX6FfZBFSAhnsiL9xrs9S9\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060c38061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063b6d3a35d14602d575b600080fd5b606c60048036036020811015604157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506082565b6040518082815260200191505060405180910390f35b60006001905091905056fea2646970667358221220a775b678a34fdc0fffc710259817a0a9a01d3f937e5c784719a34ed40d964a2664736f6c634300060a0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c8063b6d3a35d14602d575b600080fd5b606c60048036036020811015604157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506082565b6040518082815260200191505060405180910390f35b60006001905091905056fea2646970667358221220a775b678a34fdc0fffc710259817a0a9a01d3f937e5c784719a34ed40d964a2664736f6c634300060a0033",
+  "immutableReferences": {},
+  "sourceMap": "63:149:17:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "63:149:17:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;97:113;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;180:7;204:1;197:8;;97:113;;;:::o",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\ncontract PriceRepository {\n    \n  function getReservePriceInETH(address _reserve)\n    external\n    view\n    returns (uint256)\n  {\n    return 1;\n  }\n}\n",
+  "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/repositories/PriceRepository.sol",
+  "ast": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/repositories/PriceRepository.sol",
+    "exportedSymbols": {
+      "PriceRepository": [
+        4150
+      ]
+    },
+    "id": 4151,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4139,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:17"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4150,
+        "linearizedBaseContracts": [
+          4150
+        ],
+        "name": "PriceRepository",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 4148,
+              "nodeType": "Block",
+              "src": "191:19:17",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "31",
+                    "id": 4146,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "204:1:17",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1_by_1",
+                      "typeString": "int_const 1"
+                    },
+                    "value": "1"
+                  },
+                  "functionReturnParameters": 4145,
+                  "id": 4147,
+                  "nodeType": "Return",
+                  "src": "197:8:17"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "b6d3a35d",
+            "id": 4149,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReservePriceInETH",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4141,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4149,
+                  "src": "127:16:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4140,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "127:7:17",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "126:18:17"
+            },
+            "returnParameters": {
+              "id": 4145,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4144,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4149,
+                  "src": "180:7:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4143,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "180:7:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "179:9:17"
+            },
+            "scope": 4150,
+            "src": "97:113:17",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4151,
+        "src": "63:149:17"
+      }
+    ],
+    "src": "37:176:17"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/repositories/PriceRepository.sol",
+    "exportedSymbols": {
+      "PriceRepository": [
+        4150
+      ]
+    },
+    "id": 4151,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4139,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:17"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4150,
+        "linearizedBaseContracts": [
+          4150
+        ],
+        "name": "PriceRepository",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 4148,
+              "nodeType": "Block",
+              "src": "191:19:17",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "31",
+                    "id": 4146,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "204:1:17",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1_by_1",
+                      "typeString": "int_const 1"
+                    },
+                    "value": "1"
+                  },
+                  "functionReturnParameters": 4145,
+                  "id": 4147,
+                  "nodeType": "Return",
+                  "src": "197:8:17"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "b6d3a35d",
+            "id": 4149,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReservePriceInETH",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4141,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4149,
+                  "src": "127:16:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4140,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "127:7:17",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "126:18:17"
+            },
+            "returnParameters": {
+              "id": 4145,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4144,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4149,
+                  "src": "180:7:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4143,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "180:7:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "179:9:17"
+            },
+            "scope": 4150,
+            "src": "97:113:17",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4151,
+        "src": "63:149:17"
+      }
+    ],
+    "src": "37:176:17"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.10+commit.00c0fcaf.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-10-18T20:08:25.395Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

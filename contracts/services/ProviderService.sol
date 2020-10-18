@@ -107,4 +107,28 @@ contract ProviderService is Ownable {
     }
     return availableLiquidity;
   }
+
+  function getBestRates(address _reserve) external view providersListIsNotEmpy returns (uint256, uint256)   {
+    uint256 providersListQty = providerRepository.getProvidersQty();
+    uint256 depositRate = 0;
+    uint256 borrowRate = uint256(-1);
+
+    for (uint256 i = 0; i < providersListQty; i++) {
+      ILendingProvider curProvider = providerRepository.getProviderByIndex(i);
+      uint256 curDepositRate = curProvider.getReserveLiquidityRate(
+        _reserve
+      );
+      uint256 curBorrowRate = curProvider.getReserveBorrowRate(_reserve);
+      if (curDepositRate > depositRate) {
+          depositRate = curDepositRate;
+      }
+      if (borrowRate < curBorrowRate) {
+          borrowRate = curBorrowRate;
+      }
+    }
+    return (depositRate, borrowRate);
+  }
+
+  
+
 }

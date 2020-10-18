@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>6/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>6/6</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -57,7 +57,37 @@
 12
 13
 14
-15</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -68,22 +98,82 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
 &nbsp;
-import "../interfaces/ILendingProvider.sol";
+import "../core/ILendingProvider.sol";
+import "openzeppelin-solidity/contracts/access/Ownable.sol";
 &nbsp;
-abstract contract AbstractProvider is ILendingProvider {
-    string internal _name;
+abstract contract AbstractProvider is ILendingProvider, Ownable {
+  mapping(address =&gt; uint256) totalLiquidity;
+  mapping(address =&gt; uint256) availableLiquidity;
+&nbsp;
+  function deposit(address _reserve, uint256 _amount)
+    public
+    virtual
+    override
+    payable
+  {
+    totalLiquidity[_reserve] += _amount;
+    availableLiquidity[_reserve] += _amount;
+  }
+&nbsp;
+  function redeemUnderlying(
+    address _reserve,
+    address payable _user,
+    uint256 _amount
+  ) public virtual override {
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(availableLiquidity[_reserve] &gt;= _amount, "AbstractProvider: Not enough liquidity");
+&nbsp;
+    totalLiquidity[_reserve] -= _amount;
+    availableLiquidity[_reserve] -= _amount;
+  }
+&nbsp;
+  function getAvaibleLiquidity(address _reserve)
+    public
+    override
+    view
+    returns (uint256)
+  {
+    return availableLiquidity[_reserve];
+  }
 &nbsp;
 &nbsp;
 &nbsp;
-<span class="fstat-no" title="function not covered" >    constructor(string memory name) public {</span>
-<span class="cstat-no" title="statement not covered" >        _name = name</span>;
-    }
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -91,7 +181,7 @@ abstract contract AbstractProvider is ILendingProvider {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Oct 13 2020 00:24:01 GMT+0300 (Moscow Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Oct 18 2020 19:30:57 GMT+0300 (Moscow Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

@@ -6,9 +6,12 @@ import "../lib/AddressStorage.sol";
 
 contract AddressRepository is Ownable, AddressStorage {
   bytes32 private constant POOL_SERVICE = "POOL_SERVICE";
+
   bytes32 private constant PROVIDER_REPOSITORY = "PROVIDER_REPOSITORY";
   bytes32 private constant PROVIDER_SERVICE = "PROVIDER_SERVICE";
+
   bytes32 private constant RESERVE_REPOSITORY = "RESERVE_REPOSITORY";
+  bytes32 private constant USER_BALANCE_REPOSITORY = "USER_BALANCE_REPOSITORY";
 
   /**
    * @dev returns the address of the LendingPool proxy
@@ -20,14 +23,6 @@ contract AddressRepository is Ownable, AddressStorage {
 
   function setPoolService(address _address) public onlyOwner {
     _setAddress(POOL_SERVICE, _address);
-  }
-
-  function getReserveRepository() public view returns (address) {
-    return getAddress(RESERVE_REPOSITORY);
-  }
-
-  function setReserveRepository(address _address) public onlyOwner {
-    _setAddress(RESERVE_REPOSITORY, _address);    
   }
 
   function getProviderRepository() public view returns (address) {
@@ -44,5 +39,21 @@ contract AddressRepository is Ownable, AddressStorage {
 
   function setProviderService(address _address) public onlyOwner {
     _setAddress(PROVIDER_SERVICE, _address);
+  }
+
+  function getReserveRepository() public view returns (address) {
+    return getAddress(RESERVE_REPOSITORY);
+  }
+
+  function setReserveRepository(address _address) public onlyOwner {
+    _setAddress(RESERVE_REPOSITORY, _address);
+  }
+
+  function getUserBalanceRepository() public view returns (address) {
+    return getAddress(USER_BALANCE_REPOSITORY);
+  }
+
+  function setUserBalanceRepository(address _address) public onlyOwner {
+    _setAddress(USER_BALANCE_REPOSITORY, _address);
   }
 }

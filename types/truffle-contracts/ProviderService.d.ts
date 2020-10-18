@@ -78,6 +78,11 @@ export interface ProviderServiceInstance extends Truffle.ContractInstance {
     txDetails?: Truffle.TransactionDetails
   ): Promise<BN>;
 
+  getBestRates(
+    _reserve: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<[BN, BN]>;
+
   methods: {
     /**
      * Returns the address of the current owner.
@@ -131,6 +136,11 @@ export interface ProviderServiceInstance extends Truffle.ContractInstance {
       _reserveAddress: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<BN>;
+
+    getBestRates(
+      _reserve: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<[BN, BN]>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

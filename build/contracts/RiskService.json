@@ -1,0 +1,109 @@
+{
+  "contractName": "RiskService",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/services/RiskService.sol\":\"RiskService\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/services/RiskService.sol\":{\"keccak256\":\"0x4e2c1ca4a748de73ee7de7de0414187a859edfb8d4c1085156bab317eef881af\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://ac2847034ee8f10171e09734af5e2c279a434032077d48797bfb4a99dbeaf78f\",\"dweb:/ipfs/QmPCrHTaeYDAAgx9kEQGSxor2FhAtEZhroHbc5qbnfJiaC\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122057268b114a634e83204e87bec58172135a283d1b1c229a33260dcaf143887f0064736f6c634300060a0033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122057268b114a634e83204e87bec58172135a283d1b1c229a33260dcaf143887f0064736f6c634300060a0033",
+  "immutableReferences": {},
+  "sourceMap": "63:29:24:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "63:29:24:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\ncontract RiskService {\n    \n}",
+  "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/services/RiskService.sol",
+  "ast": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/services/RiskService.sol",
+    "exportedSymbols": {
+      "RiskService": [
+        5746
+      ]
+    },
+    "id": 5747,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5745,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:24"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 5746,
+        "linearizedBaseContracts": [
+          5746
+        ],
+        "name": "RiskService",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 5747,
+        "src": "63:29:24"
+      }
+    ],
+    "src": "37:55:24"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/services/RiskService.sol",
+    "exportedSymbols": {
+      "RiskService": [
+        5746
+      ]
+    },
+    "id": 5747,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5745,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:24"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 5746,
+        "linearizedBaseContracts": [
+          5746
+        ],
+        "name": "RiskService",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 5747,
+        "src": "63:29:24"
+      }
+    ],
+    "src": "37:55:24"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.10+commit.00c0fcaf.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-10-18T20:08:25.421Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

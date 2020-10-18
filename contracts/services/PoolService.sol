@@ -11,6 +11,7 @@ import "../lib/ERC20.sol";
 import "../lib/EthAddressLib.sol";
 import "../lib/WadRayMath.sol";
 import "../repositories/ReserveRepository.sol";
+import "../repositories/UserBalanceRepository.sol";
 import "../services/ProviderService.sol";
 import "../token/VToken.sol";
 
@@ -23,6 +24,7 @@ contract PoolService is Ownable {
   ProviderService internal providerService;
   ProviderRepository internal providerRepository;
   ReserveRepository private reserveRepository;
+  UserBalanceRepository private userBalanceRepository;
 
   /**
    * @dev emitted during a redeem action.
@@ -38,14 +40,19 @@ contract PoolService is Ownable {
     uint256 _timestamp
   );
 
-
   constructor(address _addressRepository) public {
-
     addressRepository = AddressRepository(_addressRepository);
     providerService = ProviderService(addressRepository.getProviderService());
-    providerRepository = ProviderRepository(addressRepository.getProviderRepository());
-    reserveRepository = ReserveRepository(addressRepository.getReserveRepository());
+    providerRepository = ProviderRepository(
+      addressRepository.getProviderRepository()
+    );
+    reserveRepository = ReserveRepository(
+      addressRepository.getReserveRepository()
+    );
 
+    userBalanceRepository = UserBalanceRepository(
+      addressRepository.getUserBalanceRepository()
+    );
   }
 
   modifier activeReserveOnly(address _reserve) {
@@ -56,13 +63,7 @@ contract PoolService is Ownable {
     _;
   }
 
-  function addReserve(address _reserve, address _vTokenAddress)
-    public
-    onlyOwner
-  {
-    reserveRepository.setTokenContract(_reserve, _vTokenAddress);
-    reserveRepository.setActive(_reserve, true);
-  }
+
 
   /**
    * @dev functions affected by this modifier can only be invoked if the provided _amount input parameter
@@ -93,20 +94,26 @@ contract PoolService is Ownable {
     // Approve for provider
     provider.deposit(_reserve, _amount);
 
-    uint256 updatedTotalLiquidity = reserveRepository.getTotalLiquidity(_reserve).add(
-      _amount
-    );
+    uint256 updatedTotalLiquidity = reserveRepository
+      .getTotalLiquidity(_reserve)
+      .add(_amount);
     uint256 updatedAvailableLiquidity = reserveRepository
       .getAvailableLiquidity(_reserve)
       .add(_amount);
 
     reserveRepository.setTotalLiquidity(_reserve, updatedTotalLiquidity);
-    reserveRepository.setAvailableLiquidity(_reserve, updatedAvailableLiquidity);
+    reserveRepository.setAvailableLiquidity(
+      _reserve,
+      updatedAvailableLiquidity
+    );
+
+    userBalanceRepository.increaseUserDeposit(_reserve, msg.sender, _amount);
 
     VToken token = reserveRepository.getVTokenContract(_reserve);
     token.mintOnDeposit(msg.sender, _amount);
   }
 
+  // Add Secutiry modifirie for Vitamin tokens only
   function redeemUnderlying(
     address _reserve,
     address payable _user,
@@ -137,17 +144,33 @@ contract PoolService is Ownable {
       _amountLeft = _amountLeft.sub(sumToRedeem);
     }
 
-    uint256 updatedTotalLiquidity = reserveRepository.getTotalLiquidity(_reserve).sub(
-      _amount
-    );
+    uint256 updatedTotalLiquidity = reserveRepository
+      .getTotalLiquidity(_reserve)
+      .sub(_amount);
     uint256 updatedAvailableLiquidity = reserveRepository
       .getAvailableLiquidity(_reserve)
       .sub(_amount);
 
     reserveRepository.setTotalLiquidity(_reserve, updatedTotalLiquidity);
-    reserveRepository.setAvailableLiquidity(_reserve, updatedAvailableLiquidity);
+    reserveRepository.setAvailableLiquidity(
+      _reserve,
+      updatedAvailableLiquidity
+    );
+
+    userBalanceRepository.decreaseUserDeposit(_reserve, msg.sender, _amount);
 
     emit RedeemUnderlying(_reserve, _user, _amount, uint40(block.timestamp));
+  }
+
+  function borrow(address _reserve, uint256 _amount)
+    external
+    activeReserveOnly(_reserve)
+    onlyAmountGreaterThanZero(_amount)
+  {
+    require(
+      _amount <= providerService.getTotalAvaibleLiquidity(_reserve),
+      "PoolService: Not enough liquidity available"
+    );
   }
 
   /**

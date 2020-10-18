@@ -150,6 +150,29 @@ export interface PoolServiceInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
+  borrow: {
+    (
+      _reserve: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _reserve: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _reserve: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _reserve: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
   methods: {
     /**
      * Returns the address of the current owner.
@@ -257,6 +280,29 @@ export interface PoolServiceInstance extends Truffle.ContractInstance {
       estimateGas(
         _reserve: string,
         _user: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    borrow: {
+      (
+        _reserve: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _reserve: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _reserve: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _reserve: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;

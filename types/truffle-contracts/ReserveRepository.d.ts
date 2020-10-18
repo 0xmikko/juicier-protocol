@@ -12,6 +12,41 @@ export interface ReserveRepositoryContract
 type AllEvents = never;
 
 export interface ReserveRepositoryInstance extends Truffle.ContractInstance {
+  addReserve: {
+    (
+      _reserve: string,
+      _vTokenAddress: string,
+      _loanToValue: number | BN | string,
+      _liquidationThreshold: number | BN | string,
+      _liquidationBonus: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _reserve: string,
+      _vTokenAddress: string,
+      _loanToValue: number | BN | string,
+      _liquidationThreshold: number | BN | string,
+      _liquidationBonus: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _reserve: string,
+      _vTokenAddress: string,
+      _loanToValue: number | BN | string,
+      _liquidationThreshold: number | BN | string,
+      _liquidationBonus: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _reserve: string,
+      _vTokenAddress: string,
+      _loanToValue: number | BN | string,
+      _liquidationThreshold: number | BN | string,
+      _liquidationBonus: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
   isReserveActive(
     _reserve: string,
     txDetails?: Truffle.TransactionDetails
@@ -130,6 +165,41 @@ export interface ReserveRepositoryInstance extends Truffle.ContractInstance {
   };
 
   methods: {
+    addReserve: {
+      (
+        _reserve: string,
+        _vTokenAddress: string,
+        _loanToValue: number | BN | string,
+        _liquidationThreshold: number | BN | string,
+        _liquidationBonus: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _reserve: string,
+        _vTokenAddress: string,
+        _loanToValue: number | BN | string,
+        _liquidationThreshold: number | BN | string,
+        _liquidationBonus: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _reserve: string,
+        _vTokenAddress: string,
+        _loanToValue: number | BN | string,
+        _liquidationThreshold: number | BN | string,
+        _liquidationBonus: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _reserve: string,
+        _vTokenAddress: string,
+        _loanToValue: number | BN | string,
+        _liquidationThreshold: number | BN | string,
+        _liquidationBonus: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
     isReserveActive(
       _reserve: string,
       txDetails?: Truffle.TransactionDetails

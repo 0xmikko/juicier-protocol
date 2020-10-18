@@ -16,9 +16,12 @@ import { ILendingProviderContract } from "./ILendingProvider";
 import { MigrationsContract } from "./Migrations";
 import { OwnableContract } from "./Ownable";
 import { PoolServiceContract } from "./PoolService";
+import { PriceRepositoryContract } from "./PriceRepository";
 import { ProviderRepositoryContract } from "./ProviderRepository";
 import { ProviderServiceContract } from "./ProviderService";
+import { RateServiceContract } from "./RateService";
 import { ReserveRepositoryContract } from "./ReserveRepository";
+import { UserBalanceRepositoryContract } from "./UserBalanceRepository";
 import { VTokenContract } from "./VToken";
 
 declare global {
@@ -39,9 +42,12 @@ declare global {
       require(name: "Migrations"): MigrationsContract;
       require(name: "Ownable"): OwnableContract;
       require(name: "PoolService"): PoolServiceContract;
+      require(name: "PriceRepository"): PriceRepositoryContract;
       require(name: "ProviderRepository"): ProviderRepositoryContract;
       require(name: "ProviderService"): ProviderServiceContract;
+      require(name: "RateService"): RateServiceContract;
       require(name: "ReserveRepository"): ReserveRepositoryContract;
+      require(name: "UserBalanceRepository"): UserBalanceRepositoryContract;
       require(name: "VToken"): VTokenContract;
     }
   }
@@ -84,6 +90,10 @@ export { MigrationsContract, MigrationsInstance } from "./Migrations";
 export { OwnableContract, OwnableInstance } from "./Ownable";
 export { PoolServiceContract, PoolServiceInstance } from "./PoolService";
 export {
+  PriceRepositoryContract,
+  PriceRepositoryInstance
+} from "./PriceRepository";
+export {
   ProviderRepositoryContract,
   ProviderRepositoryInstance
 } from "./ProviderRepository";
@@ -91,8 +101,13 @@ export {
   ProviderServiceContract,
   ProviderServiceInstance
 } from "./ProviderService";
+export { RateServiceContract, RateServiceInstance } from "./RateService";
 export {
   ReserveRepositoryContract,
   ReserveRepositoryInstance
 } from "./ReserveRepository";
+export {
+  UserBalanceRepositoryContract,
+  UserBalanceRepositoryInstance
+} from "./UserBalanceRepository";
 export { VTokenContract, VTokenInstance } from "./VToken";

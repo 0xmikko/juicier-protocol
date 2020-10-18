@@ -49,4 +49,15 @@ library Core {
     // timestamp of the last update of reserve data
     uint40 lastUpdateTimestamp;
   }
+
+  struct UserReserveBalance {
+    address reserve;
+    uint256 deposited;
+    uint256 borrowed;
+  }
+
+  struct UserAssets {
+    // Map reserve to balance
+    UserReserveBalance[] reserveBalances;
+  }
 }

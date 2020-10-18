@@ -88,26 +88,6 @@ export interface AddressRepositoryInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  getReserveRepository(txDetails?: Truffle.TransactionDetails): Promise<string>;
-
-  setReserveRepository: {
-    (_address: string, txDetails?: Truffle.TransactionDetails): Promise<
-      Truffle.TransactionResponse<AllEvents>
-    >;
-    call(
-      _address: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<void>;
-    sendTransaction(
-      _address: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<string>;
-    estimateGas(
-      _address: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<number>;
-  };
-
   getProviderRepository(
     txDetails?: Truffle.TransactionDetails
   ): Promise<string>;
@@ -133,6 +113,48 @@ export interface AddressRepositoryInstance extends Truffle.ContractInstance {
   getProviderService(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
   setProviderService: {
+    (_address: string, txDetails?: Truffle.TransactionDetails): Promise<
+      Truffle.TransactionResponse<AllEvents>
+    >;
+    call(
+      _address: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _address: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _address: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  getReserveRepository(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
+  setReserveRepository: {
+    (_address: string, txDetails?: Truffle.TransactionDetails): Promise<
+      Truffle.TransactionResponse<AllEvents>
+    >;
+    call(
+      _address: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _address: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _address: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  getUserBalanceRepository(
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<string>;
+
+  setUserBalanceRepository: {
     (_address: string, txDetails?: Truffle.TransactionDetails): Promise<
       Truffle.TransactionResponse<AllEvents>
     >;
@@ -217,28 +239,6 @@ export interface AddressRepositoryInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    getReserveRepository(
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<string>;
-
-    setReserveRepository: {
-      (_address: string, txDetails?: Truffle.TransactionDetails): Promise<
-        Truffle.TransactionResponse<AllEvents>
-      >;
-      call(
-        _address: string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<void>;
-      sendTransaction(
-        _address: string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<string>;
-      estimateGas(
-        _address: string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<number>;
-    };
-
     getProviderRepository(
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
@@ -264,6 +264,50 @@ export interface AddressRepositoryInstance extends Truffle.ContractInstance {
     getProviderService(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
     setProviderService: {
+      (_address: string, txDetails?: Truffle.TransactionDetails): Promise<
+        Truffle.TransactionResponse<AllEvents>
+      >;
+      call(
+        _address: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _address: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _address: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    getReserveRepository(
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+
+    setReserveRepository: {
+      (_address: string, txDetails?: Truffle.TransactionDetails): Promise<
+        Truffle.TransactionResponse<AllEvents>
+      >;
+      call(
+        _address: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _address: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _address: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    getUserBalanceRepository(
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+
+    setUserBalanceRepository: {
       (_address: string, txDetails?: Truffle.TransactionDetails): Promise<
         Truffle.TransactionResponse<AllEvents>
       >;
