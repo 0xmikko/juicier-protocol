@@ -2,7 +2,6 @@
 pragma solidity ^0.6.10;
 
 import "../lib/SafeERC20.sol";
-import "../lib/CoreLibrary.sol";
 import "../lib/EthAddressLib.sol";
 import "./aave-protocol/ATokenMock.sol";
 import "./AbstractProvider.sol";

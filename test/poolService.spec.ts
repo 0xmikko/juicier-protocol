@@ -1,31 +1,37 @@
 import {
   AaveLendingPoolMockInstance,
   AaveProviderInstance,
-  ProvidersManagerInstance,
-  PoolInstance,
   VTokenInstance,
   DaiMockTokenInstance,
   ATokenInstance,
+  PoolServiceInstance,
+  ProviderRepositoryInstance,
+  ProviderServiceInstance,
 } from '../types/truffle-contracts';
 import BigNumber from 'bignumber.js';
 import {expectEvent} from '@openzeppelin/test-helpers';
 
-import {SmartDeployer} from './core/deployer';
+import {JucifiDeployer} from './core/jucifiDeployer';
 import {aaveReserves} from './core/aaveReserve';
+import {AaveDeployer} from './core/aaveDeployer';
 
-contract('Pool', async ([deployer, ...users]) => {
-  let smartDeployer: SmartDeployer;
+contract('PoolService', async ([deployer, aaveOwner, ...users]) => {
+  let jucifiDeployer: JucifiDeployer;
+  let aaveDeployer: AaveDeployer;
 
+  // JUCIFI Assets
+  let _providerRepository: ProviderRepositoryInstance;
+  let _providerService: ProviderServiceInstance;
+  let _poolService: PoolServiceInstance;
+  let _vitaminDai: VTokenInstance;
+
+  // AAve mocks
   let _aaveLendingPoolMock: AaveLendingPoolMockInstance;
   let _aaveProvider: AaveProviderInstance;
 
   let _anotherLendingPoolMock: AaveLendingPoolMockInstance;
   let _anotherProvider: AaveProviderInstance;
 
-  let _providersManager: ProvidersManagerInstance;
-  let _pool: PoolInstance;
-
-  let _vitaminDai: VTokenInstance;
   let _daiToken: DaiMockTokenInstance;
   let _aaveADaiToken: ATokenInstance;
   let _anotherADaiToken: ATokenInstance;
@@ -34,51 +40,54 @@ contract('Pool', async ([deployer, ...users]) => {
 
   beforeEach('Initial setup...', async () => {
     // Create 2 different Providers
-    smartDeployer = new SmartDeployer(deployer);
+    jucifiDeployer = new JucifiDeployer(deployer);
+    aaveDeployer = new AaveDeployer(aaveOwner);
 
     // Generetes Pool & ProvidersManager
-    _providersManager = await smartDeployer.getProvidersManager();
-    _pool = await smartDeployer.getPool();
+    _providerRepository = await jucifiDeployer.getProviderRepository();
+    _providerService = await jucifiDeployer.getProviderService();
+    _poolService = await jucifiDeployer.getPoolService();
 
     // Deploy Dai Mock Token for testibg
-    _daiToken = await smartDeployer.generateTokenContract();
+    _daiToken = await aaveDeployer.generateTokenContract();
     dai.address = _daiToken.address;
 
     // Provider "200" tokens to users[0]
-    await _daiToken.transfer(users[0], 200, {from: deployer});
+    await _daiToken.transfer(users[0], 200, {from: aaveOwner});
 
     // Allow Pool contract take 200 DAI
-    await _daiToken.approve(_pool.address, 200, {from: users[0]});
-
+    await _daiToken.approve(_poolService.address, 200, {from: users[0]});
+   
     // AAVE PROVIDER
-    _aaveLendingPoolMock = await smartDeployer.newAaveLendingPoolMock('MainLendingPool');
-    _aaveProvider = await smartDeployer.registerAaveProviderFromMock(_aaveLendingPoolMock);
-    await smartDeployer.setReserveToAaveMock(_aaveLendingPoolMock, dai);
-
+    _aaveLendingPoolMock = await aaveDeployer.newAaveLendingPoolMock('MainLendingPool');
+    await aaveDeployer.setReserveToAaveMock(_aaveLendingPoolMock, dai);
+    
     // Set underlying AToken
     _aaveADaiToken = await artifacts
       .require('AToken')
-      .new(_aaveLendingPoolMock.address, _daiToken.address, 18, 'aDai', 'aDai', {from: deployer});
-
+      .new(_aaveLendingPoolMock.address, _daiToken.address, 18, 'aDai', 'aDai', {from: aaveOwner});
     dai.aTokenAddress = _aaveADaiToken.address;
 
+    // ANOTHER PROVIDER
+    _anotherLendingPoolMock = await aaveDeployer.newAaveLendingPoolMock('AnotherLendingPool');
+    await aaveDeployer.setReserveToAaveMock(_anotherLendingPoolMock, dai);
+    
+    // Set underlying AToken
+    _anotherADaiToken = await artifacts
+      .require('AToken')
+      .new(_anotherLendingPoolMock.address, _daiToken.address, 18, 'aDai', 'aDai', {
+        from: aaveOwner,
+      });
+
+
+    
+    _aaveProvider = await jucifiDeployer.registerAaveProviderFromMock(_aaveLendingPoolMock);
     _aaveProvider.addReserve(dai.address, _aaveADaiToken.address);
 
-    // ANOTHER PROVIDER
-    _anotherLendingPoolMock = await smartDeployer.newAaveLendingPoolMock('AnotherLendingPool');
-    _anotherProvider = await smartDeployer.registerAaveProviderFromMock(_anotherLendingPoolMock);
-    await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, dai);
-
-       // Set underlying AToken
-       _anotherADaiToken = await artifacts
-       .require('AToken')
-       .new(_anotherLendingPoolMock.address, _daiToken.address, 18, 'aDai', 'aDai', {from: deployer});
- 
-     dai.aTokenAddress = _aaveADaiToken.address;
-
+    _anotherProvider = await jucifiDeployer.registerAaveProviderFromMock(_anotherLendingPoolMock);
     _anotherProvider.addReserve(dai.address, _anotherADaiToken.address);
 
-    _vitaminDai = await smartDeployer.addReserveToPool(dai.address, dai.name, dai.name);
+    _vitaminDai = await jucifiDeployer.addReserveToPool(dai.address, dai.name, dai.name);
   });
 
   // Another test for best rate
@@ -86,11 +95,11 @@ contract('Pool', async ([deployer, ...users]) => {
     const anotherDai = {...dai};
     anotherDai.liquidityRate -= 1;
 
-    await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
+    await aaveDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
 
-    const receipt = await _pool.deposit(dai.address, 100, {from: users[0]});
+    const receipt = await _poolService.deposit(dai.address, 100, {from: users[0]});
 
-    const avaibleLiquidityPM = await _providersManager.getAvaibleLiquidity(dai.address);
+    const avaibleLiquidityPM = await _providerService.getTotalAvaibleLiquidity(dai.address);
     const availableLiquidityAaveProvider = await _aaveProvider.getAvaibleLiquidity(dai.address);
     const availableLiquidityAnotherProvider = await _anotherProvider.getAvaibleLiquidity(
       dai.address
@@ -125,17 +134,16 @@ contract('Pool', async ([deployer, ...users]) => {
     const anotherDai = {...dai};
     anotherDai.liquidityRate += 1;
 
-    await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
+    await aaveDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
 
-    await _daiToken.transfer(users[0], 200, {from: deployer});
+    await _daiToken.transfer(users[0], 200, {from: aaveOwner});
 
     // Allow Pool contract take 200 DAI
-    await _daiToken.approve(_pool.address, 200, {from: users[0]});
+    await _daiToken.approve(_poolService.address, 200, {from: users[0]});
 
-    const receipt = await _pool.deposit(dai.address, 100, {from: users[0]});
+    const receipt = await _poolService.deposit(dai.address, 100, {from: users[0]});
 
-
-    const avaibleLiquidityPM = await _providersManager.getAvaibleLiquidity(dai.address);
+    const avaibleLiquidityPM = await _providerService.getTotalAvaibleLiquidity(dai.address);
     const availableLiquidityAaveProvider = await _aaveProvider.getAvaibleLiquidity(dai.address);
     const availableLiquidityAnotherProvider = await _anotherProvider.getAvaibleLiquidity(
       dai.address
@@ -163,25 +171,21 @@ contract('Pool', async ([deployer, ...users]) => {
     expect(expectedUserBalance.toString()).to.be.equal(new BigNumber(100).toFixed(0));
   });
 
-
-////   REDEEM!
-
-
+  ////   REDEEM!
 
   // Another test for best rate
   it('Pool correctly reedeem money', async () => {
     const anotherDai = {...dai};
     anotherDai.liquidityRate -= 1;
 
-    await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
-    await _pool.deposit(dai.address, 100, {from: users[0]});
+    await aaveDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
+    await _poolService.deposit(dai.address, 100, {from: users[0]});
 
     const expectedAaveUABalance = await _daiToken.balanceOf(_aaveLendingPoolMock.address);
-    console.log("BAA", expectedAaveUABalance);
 
     const receipt = await _vitaminDai.redeem(50, {from: users[0]});
 
-    const avaibleLiquidityPM = await _providersManager.getAvaibleLiquidity(dai.address);
+    const avaibleLiquidityPM = await _providerService.getTotalAvaibleLiquidity(dai.address);
     const availableLiquidityAaveProvider = await _aaveProvider.getAvaibleLiquidity(dai.address);
     const availableLiquidityAnotherProvider = await _anotherProvider.getAvaibleLiquidity(
       dai.address
@@ -208,20 +212,19 @@ contract('Pool', async ([deployer, ...users]) => {
     // Make anotherDai less attractive
     // Contract will put money into aaveMock
     anotherDai.liquidityRate -= 1;
-    await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
-    await _pool.deposit(dai.address, 100, {from: users[0]});
+    await aaveDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
+    await _poolService.deposit(dai.address, 100, {from: users[0]});
 
     // Make anotherDai more attractive
     // Contract will put money into anotherMock
     anotherDai.liquidityRate += 10;
-    await smartDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
-    await _pool.deposit(dai.address, 100, {from: users[0]});
+    await aaveDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
+    await _poolService.deposit(dai.address, 100, {from: users[0]});
 
-    console.log('Users[0] balance: ', await _vitaminDai.balanceOf(users[0]));
 
     const receipt = await _vitaminDai.redeem(150, {from: users[0]});
 
-    const avaibleLiquidityPM = await _providersManager.getAvaibleLiquidity(dai.address);
+    const avaibleLiquidityPM = await _providerService.getTotalAvaibleLiquidity(dai.address);
     const availableLiquidityAaveProvider = await _aaveProvider.getAvaibleLiquidity(dai.address);
     const availableLiquidityAnotherProvider = await _anotherProvider.getAvaibleLiquidity(
       dai.address

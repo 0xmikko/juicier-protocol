@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
 import "../lib/ERC20.sol";
-import "../core/Pool.sol";
+import "../services/PoolService.sol";
 
 // Vitamin Token
 contract VToken is ERC20 {
@@ -15,7 +15,8 @@ contract VToken is ERC20 {
     uint40 startingAssetUsage;
   }
 
-  Pool pool;
+  AddressRepository addressRepository;
+  PoolService poolService;
   address underlyingAssetAddress;
 
 
@@ -44,7 +45,7 @@ contract VToken is ERC20 {
 
   modifier poolOnly {
     require(
-      msg.sender == address(pool),
+      msg.sender == address(poolService),
       "Only providers could call this method"
     );
     _;
@@ -52,13 +53,15 @@ contract VToken is ERC20 {
 
   constructor(
     // LendingPoolAddressesProvider _addressesProvider,
-    address _pool,
+    address _addressesRepositoryAddress,
     address _underlyingAsset,
     uint8 _underlyingAssetDecimals,
     string memory _name,
     string memory _symbol
   ) public ERC20(_name, _symbol) {
-    pool = Pool(_pool);
+
+    addressRepository = AddressRepository(_addressesRepositoryAddress);
+    poolService = PoolService(addressRepository.getPoolService());
     // addressesProvider = _addressesProvider;
     // core = LendingPoolCore(addressesProvider.getLendingPoolCore());
     // pool = LendingPool(addressesProvider.getLendingPool());
@@ -142,7 +145,7 @@ contract VToken is ERC20 {
 
     // Remove from queue of balance equals zero
     // executes redeem of the underlying asset
-    pool.redeemUnderlying(
+    poolService.redeemUnderlying(
       underlyingAssetAddress,
       msg.sender,
       amountToRedeem

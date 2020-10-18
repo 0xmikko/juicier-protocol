@@ -1,6 +1,6 @@
 import {expectRevert, expectEvent} from '@openzeppelin/test-helpers';
 import {ProviderRepositoryInstance} from '../types/truffle-contracts';
-import {SmartDeployer} from './core/deployer';
+import {JucifiDeployer} from './core/jucifiDeployer';
 
 contract('ProviderRepository', async ([deployer, ...users]) => {
   let _providerRespository: ProviderRepositoryInstance;
@@ -8,8 +8,8 @@ contract('ProviderRepository', async ([deployer, ...users]) => {
   const PROVIDER_TEST_ADDR_2 = '0x580D4Fdc4BF8f9b5ae2fb9225D584fED4AD5375c';
 
   beforeEach('Initial setup...', async () => {
-    const smartDeployer = new SmartDeployer(deployer);
-    _providerRespository = await smartDeployer.getProvidersManager();
+    const smartDeployer = new JucifiDeployer(deployer);
+    _providerRespository = await smartDeployer.getProviderRepository();
   });
 
   it('setProvider reverts if call from no owner', async () => {

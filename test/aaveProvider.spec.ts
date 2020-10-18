@@ -1,10 +1,12 @@
 import {AaveLendingPoolMockInstance, AaveProviderInstance} from '../types/truffle-contracts';
 import {aaveReserves} from './core/aaveReserve';
 import BN from 'bn.js';
-import {SmartDeployer} from './core/deployer';
+import {JucifiDeployer} from './core/jucifiDeployer';
+import { AaveDeployer } from './core/aaveDeployer';
 
-contract('AaveProvider', async ([deployer, ...users]) => {
-  let smartDeployer: SmartDeployer;
+contract('AaveProvider', async ([deployer, aaveOwner, ...users]) => {
+  let jucifiDeployer: JucifiDeployer;
+  let aaveDeployer: AaveDeployer;
 
   let _aaveLendingPoolMock: AaveLendingPoolMockInstance;
   let _aaveProvider: AaveProviderInstance;
@@ -12,12 +14,13 @@ contract('AaveProvider', async ([deployer, ...users]) => {
   const dai = aaveReserves['DAI'];
 
   beforeEach('Initial setup...', async () => {
-    smartDeployer = new SmartDeployer(deployer);
+    jucifiDeployer = new JucifiDeployer(deployer);
+    aaveDeployer = new AaveDeployer(aaveOwner);
 
     // AAVE PROVIDER
-    _aaveLendingPoolMock = await smartDeployer.newAaveLendingPoolMock('MainLendingPool');
-    _aaveProvider = await smartDeployer.registerAaveProviderFromMock(_aaveLendingPoolMock);
-    await smartDeployer.setReserveToAaveMock(_aaveLendingPoolMock, dai);
+    _aaveLendingPoolMock = await aaveDeployer.newAaveLendingPoolMock('MainLendingPool');
+    _aaveProvider = await jucifiDeployer.registerAaveProviderFromMock(_aaveLendingPoolMock);
+    await aaveDeployer.setReserveToAaveMock(_aaveLendingPoolMock, dai);
   });
 
   it('it correctly returns liquidityRate', async () => {

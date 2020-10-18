@@ -1,0 +1,3743 @@
+{
+  "contractName": "ReserveRepository",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        }
+      ],
+      "name": "isReserveActive",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        }
+      ],
+      "name": "getTotalLiquidity",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_totalLiquidity",
+          "type": "uint256"
+        }
+      ],
+      "name": "setTotalLiquidity",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        }
+      ],
+      "name": "getAvailableLiquidity",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_availableLiquidity",
+          "type": "uint256"
+        }
+      ],
+      "name": "setAvailableLiquidity",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_contractAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setTokenContract",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        }
+      ],
+      "name": "getVTokenContract",
+      "outputs": [
+        {
+          "internalType": "contract VToken",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        }
+      ],
+      "name": "isActive",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "_active",
+          "type": "bool"
+        }
+      ],
+      "name": "setActive",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"}],\"name\":\"getAvailableLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"}],\"name\":\"getTotalLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"}],\"name\":\"getVTokenContract\",\"outputs\":[{\"internalType\":\"contract VToken\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"}],\"name\":\"isActive\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"}],\"name\":\"isReserveActive\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_active\",\"type\":\"bool\"}],\"name\":\"setActive\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_availableLiquidity\",\"type\":\"uint256\"}],\"name\":\"setAvailableLiquidity\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_contractAddress\",\"type\":\"address\"}],\"name\":\"setTokenContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_totalLiquidity\",\"type\":\"uint256\"}],\"name\":\"setTotalLiquidity\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/repositories/ReserveRepository.sol\":\"ReserveRepository\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/core/Core.sol\":{\"keccak256\":\"0xe51baf8ed18106f5980678e80872edfdbd02d6873ddbe38922ee8ef7ad90e83c\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://19d6f1d55400a85e601b5f40dd9408071cb92e9e28c75f6264cdf84536080511\",\"dweb:/ipfs/QmeVKA5DC5NLQQ4CH2DrtXD8MBFhA5Y6TFN7SEp79zQdPU\"]},\"/Users/mikhail/Coding/jucifi/contracts/core/ILendingProvider.sol\":{\"keccak256\":\"0x38c4cd5544d5cf0042a7ed37632e89144df8e4b80c0814b2903bc9cf540c8055\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://21e7be494d5e2fd8d9ae736b8fdcd211be4e1552765fe36443631d58e1bb9828\",\"dweb:/ipfs/QmVzgN8dQFPiEy6hP6iVXq5umCvCDbAsk61kHDprcuY4Qu\"]},\"/Users/mikhail/Coding/jucifi/contracts/lib/AddressStorage.sol\":{\"keccak256\":\"0x854e80ba37c81f2d4d7f4b782b7fb09052f913151ba28d3a35af3552798b8ebf\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://19abd071d3e910935373cb9e6586205cced14b55bf080a23b50771f3ae20175e\",\"dweb:/ipfs/QmTzAdw4w3qZ6tV7wakWewFnVDBnkY7E5UFxZ2yk63J58B\"]},\"/Users/mikhail/Coding/jucifi/contracts/lib/ERC20.sol\":{\"keccak256\":\"0xffdc792af18427cbad591c2325578d5ec2a52b9d53544f097923ad3e89f48ff6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3064a20db8d9121828e8c114909f5129c82ad2911b81af12b6650444f6846beb\",\"dweb:/ipfs/QmcsCaYxtj794bjUXsJnhPduqTD4RKLV1YmpHg72HwobEA\"]},\"/Users/mikhail/Coding/jucifi/contracts/lib/EthAddressLib.sol\":{\"keccak256\":\"0x01811f81235d0b076e0b9d96e5b1ef2918c7ca2c49a41482c51939e957d748ec\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://2a5daf6d75ea6ccbbc590480574ebb1d0fc1c5e5106ad25e00609312356be8f5\",\"dweb:/ipfs/QmXHe6r49Kb8fZ2epw2PrCnVNvf5AhQ62uehBSdsxRQCXy\"]},\"/Users/mikhail/Coding/jucifi/contracts/lib/IERC20.sol\":{\"keccak256\":\"0x5c26b39d26f7ed489e555d955dcd3e01872972e71fdd1528e93ec164e4f23385\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://efdc632af6960cf865dbc113665ea1f5b90eab75cc40ec062b2f6ae6da582017\",\"dweb:/ipfs/QmfAZFDuG62vxmAN9DnXApv7e7PMzPqi4RkqqZHLMSQiY5\"]},\"/Users/mikhail/Coding/jucifi/contracts/lib/SafeERC20.sol\":{\"keccak256\":\"0x91036016da50a57f77f2b714036b6b232a71d8217585a83177785ceed4760549\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9554c16d75b39cee905ab95bb835e0b0b9f83d4aaac386e5245156ab5a36a3fb\",\"dweb:/ipfs/QmbhzQYKXXWyZYWKWzYGQ3WWAMMKz8fD86XYxhdfJe6VuB\"]},\"/Users/mikhail/Coding/jucifi/contracts/lib/WadRayMath.sol\":{\"keccak256\":\"0x1b178b02e591dcf0527ff6258244bb6892e7439b8e4f4977730005afddb6312c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://956ff24a9d4f20d989ac204d2a524197eaeb14e02003ca0fd5eb4c61c97175fa\",\"dweb:/ipfs/QmTqVV3hN1tyJwEMXhyfC61yb1Bjh8WJr1kRLnwa28oFAd\"]},\"/Users/mikhail/Coding/jucifi/contracts/repositories/AddressRepository.sol\":{\"keccak256\":\"0xbfd5b0d7614ee69726e1e4f5e66784e350fa378540ff59532897e9e32ba12f3c\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://ca16f690eedb3003e8a5b9ea2032b1ab04004cbb280f45b364d5b47432a6a917\",\"dweb:/ipfs/QmWW5wSPYZBw57ae2XcjaybSjsiJfKf2EUWavCvtmdewVi\"]},\"/Users/mikhail/Coding/jucifi/contracts/repositories/ProviderRepository.sol\":{\"keccak256\":\"0xa8ca64b740ffaa5182394ee96a4ade6406c7aeb8a831fbc7e610098fad42403a\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://bdf170a23ab3f4d59df820a957cd0a100b829c7a27913579ea597fe41ffdbb46\",\"dweb:/ipfs/QmVfnAD1W1GGm625SeNJnLTzXhPFzbSGpuo86EPFyTo3EA\"]},\"/Users/mikhail/Coding/jucifi/contracts/repositories/ReserveRepository.sol\":{\"keccak256\":\"0x9599e6505eddad9a31c465335e433390dd5b9d8544a1539a847b3921ce5b47ee\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://6502d5c2c949ed2c1f73397fb18b4a65033544579c8e545f5e89f1e813fbfc0f\",\"dweb:/ipfs/QmawZHKFZYZaFeegZb6TeGnM356bko7aet9xqWsoU6ASRK\"]},\"/Users/mikhail/Coding/jucifi/contracts/services/PoolService.sol\":{\"keccak256\":\"0x3dd46e65bb88d6b140d1af86a13f3b9df6780e172c3c5cd83ec178ac2eebe6d4\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://d97de2945ecc17ea2f63204a3c1456485bb44a730a404c398f04b61ab7dc23fb\",\"dweb:/ipfs/Qmdqah2kUwbJ1sevgMaoy3F4MTKJax4BJ7NGR3WkfxsNho\"]},\"/Users/mikhail/Coding/jucifi/contracts/services/ProviderService.sol\":{\"keccak256\":\"0x5aab284f63448d387bb81d9cd8ac5d5cc046fa51aaefcc6357bb6d22b18b7b54\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://723432533c041fbe9331bdf7c8827dba3aad4237d54151664489067f01a6457b\",\"dweb:/ipfs/QmWeghRtgSu265Ehfmeana3YqKnSNeMzcdNP9skQWpup66\"]},\"/Users/mikhail/Coding/jucifi/contracts/token/VToken.sol\":{\"keccak256\":\"0x36504dc6ee5fe3fad2cd7603992a583d3a6cf9fc1d418493d6ff0e3ba94f56f6\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://029b53cdc918856dd91266e3909ff87f6a21fb1512c5de17dce5f9490d6c77b7\",\"dweb:/ipfs/QmT1tmpMyiFsF8s89tdZFtiXS8MkN2ZSDfy9Ngz4FEps1L\"]},\"openzeppelin-solidity/contracts/GSN/Context.sol\":{\"keccak256\":\"0xdb26cbf4d028490f49831a7865c2fe1b28db44b535ca8d343785a3b768aae183\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://840b14ce0315c47d49ba328f1f9fa7654ded1c9e1559e6c5e777a7b2dc28bf0a\",\"dweb:/ipfs/QmTLLabn4wcfGro9LEmUXUN2nwKqZSotXMvjDCLXEnLtZP\"]},\"openzeppelin-solidity/contracts/access/Ownable.sol\":{\"keccak256\":\"0x4bd6402ca6b3419008c2b482aff54e66836e8cb4eba2680e42ac5884ae6424fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8f9f711fb8d0d92aeea1c327e3845d13ca1fa8f142e47f8723cd5b3106fb29a3\",\"dweb:/ipfs/QmVQUReDW9f4zGqhizwHnyU8EntMs95tbASdqkGncnikba\"]},\"openzeppelin-solidity/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x9a9cf02622cd7a64261b10534fc3260449da25c98c9e96d1b4ae8110a20e5806\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2df142592d1dc267d9549049ee3317fa190d2f87eaa565f86ab05ec83f7ab8f5\",\"dweb:/ipfs/QmSkJtcfWo7c42KnL5hho6GFxK6HRNV91XABx1P7xDtfLV\"]},\"openzeppelin-solidity/contracts/utils/Address.sol\":{\"keccak256\":\"0xf5fa8cbdffa5ef8be49b246b5628facc30b71707e78a45d80d93b64eff3fe390\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://774e78a9ff32792cc95db4d2ceaf3a7965bb7f0bea5e6cb7cff182b450d44b37\",\"dweb:/ipfs/QmRRMC4uj7eAcLW7chynA3sNEYULMFazdLwQHKHQPyzAbA\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610730806100206000396000f3fe608060405234801561001057600080fd5b50600436106100935760003560e01c8063988d240811610066578063988d2408146102205780639de8ef791461026e5780639f8a13d7146102c6578063a4a9456714610322578063cd67c4f81461038657610093565b8063266e2bd8146100985780632ce962cf146100f057806372e06c0f14610140578063883c042b146101c4575b600080fd5b6100da600480360360208110156100ae57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103d4565b6040518082815260200191505060405180910390f35b61013e6004803603604081101561010657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080351515906020019092919050505061041f565b005b6101826004803603602081101561015657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061047c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610206600480360360208110156101da57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104e7565b604051808215151515815260200191505060405180910390f35b61026c6004803603604081101561023657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061053f565b005b6102b06004803603602081101561028457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610589565b6040518082815260200191505060405180910390f35b610308600480360360208110156102dc57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506105d4565b604051808215151515815260200191505060405180910390f35b6103846004803603604081101561033857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061062c565b005b6103d26004803603604081101561039c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506106b0565b005b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101549050919050565b806000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160146101000a81548160ff0219169083151502179055505050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160149054906101000a900460ff169050919050565b806000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055505050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001549050919050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160149054906101000a900460ff169050919050565b806000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b806000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010181905550505056fea26469706673582212203533f35f0f83f936411cbd14d00b38d38cc90f9fe833dfa605c8ae72bc85176964736f6c634300060a0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100935760003560e01c8063988d240811610066578063988d2408146102205780639de8ef791461026e5780639f8a13d7146102c6578063a4a9456714610322578063cd67c4f81461038657610093565b8063266e2bd8146100985780632ce962cf146100f057806372e06c0f14610140578063883c042b146101c4575b600080fd5b6100da600480360360208110156100ae57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103d4565b6040518082815260200191505060405180910390f35b61013e6004803603604081101561010657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080351515906020019092919050505061041f565b005b6101826004803603602081101561015657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061047c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610206600480360360208110156101da57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104e7565b604051808215151515815260200191505060405180910390f35b61026c6004803603604081101561023657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061053f565b005b6102b06004803603602081101561028457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610589565b6040518082815260200191505060405180910390f35b610308600480360360208110156102dc57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506105d4565b604051808215151515815260200191505060405180910390f35b6103846004803603604081101561033857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061062c565b005b6103d26004803603604081101561039c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506106b0565b005b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101549050919050565b806000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160146101000a81548160ff0219169083151502179055505050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160149054906101000a900460ff169050919050565b806000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055505050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001549050919050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160149054906101000a900460ff169050919050565b806000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b806000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010181905550505056fea26469706673582212203533f35f0f83f936411cbd14d00b38d38cc90f9fe833dfa605c8ae72bc85176964736f6c634300060a0033",
+  "immutableReferences": {},
+  "sourceMap": "94:1446:18:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "94:1446:18:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;704:150;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1428:110;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;1173:135;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;300:117;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;553:147;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;421:128;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1312:112;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1025:144;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;858:163;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;704:150;788:7;812:8;:18;821:8;812:18;;;;;;;;;;;;;;;:37;;;805:44;;704:150;;;:::o;1428:110::-;1526:7;1496:8;:18;1505:8;1496:18;;;;;;;;;;;;;;;:27;;;:37;;;;;;;;;;;;;;;;;;1428:110;;:::o;1173:135::-;1241:6;1269:8;:18;1278:8;1269:18;;;;;;;;;;;;;;;:33;;;;;;;;;;;;1255:48;;1173:135;;;:::o;300:117::-;366:4;385:8;:18;394:8;385:18;;;;;;;;;;;;;;;:27;;;;;;;;;;;;378:34;;300:117;;;:::o;553:147::-;680:15;644:8;:18;653:8;644:18;;;;;;;;;;;;;;;:33;;:51;;;;553:147;;:::o;421:128::-;489:7;511:8;:18;520:8;511:18;;;;;;;;;;;;;;;:33;;;504:40;;421:128;;;:::o;1312:112::-;1371:4;1392:8;:18;1401:8;1392:18;;;;;;;;;;;;;;;:27;;;;;;;;;;;;1385:34;;1312:112;;;:::o;1025:144::-;1148:16;1112:8;:18;1121:8;1112:18;;;;;;;;;;;;;;;:33;;;:52;;;;;;;;;;;;;;;;;;1025:144;;:::o;858:163::-;997:19;957:8;:18;966:8;957:18;;;;;;;;;;;;;;;:37;;:59;;;;858:163;;:::o",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\nimport \"../token/VToken.sol\";\n\ncontract ReserveRepository {\n  \n  struct Reserve {\n    uint256 totalLiquidity;\n    uint256 availableLiquidity;\n    address vTokenContract;\n    bool isActive;\n  }\n\n  mapping(address => Reserve) reserves;\n\n  function isReserveActive(address _reserve) external view returns (bool) {\n    return reserves[_reserve].isActive;\n  }\n\n  function getTotalLiquidity(address _reserve) external view returns (uint256) {\n    return reserves[_reserve].totalLiquidity;\n  }\n\n  function setTotalLiquidity(address _reserve, uint256 _totalLiquidity)\n    external\n  {\n    reserves[_reserve].totalLiquidity = _totalLiquidity;\n  }\n\n  function getAvailableLiquidity(address _reserve)\n    external\n    view\n    returns (uint256)\n  {\n    return reserves[_reserve].availableLiquidity;\n  }\n\n  function setAvailableLiquidity(address _reserve, uint256 _availableLiquidity)\n    external\n  {\n    reserves[_reserve].availableLiquidity = _availableLiquidity;\n  }\n\n  function setTokenContract(address _reserve, address _contractAddress) external {\n      reserves[_reserve].vTokenContract = _contractAddress;\n  }\n\n  function getVTokenContract(address _reserve) external view returns (VToken) {\n    return VToken(reserves[_reserve].vTokenContract);\n  }\n\n  function isActive(address _reserve) external view returns (bool) {\n      return reserves[_reserve].isActive;\n  }\n\n  function setActive(address _reserve, bool _active) external {\n      reserves[_reserve].isActive = _active;\n  }\n}\n",
+  "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/repositories/ReserveRepository.sol",
+  "ast": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/repositories/ReserveRepository.sol",
+    "exportedSymbols": {
+      "ReserveRepository": [
+        4385
+      ]
+    },
+    "id": 4386,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4243,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:18"
+      },
+      {
+        "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/token/VToken.sol",
+        "file": "../token/VToken.sol",
+        "id": 4244,
+        "nodeType": "ImportDirective",
+        "scope": 4386,
+        "sourceUnit": 5404,
+        "src": "63:29:18",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4385,
+        "linearizedBaseContracts": [
+          4385
+        ],
+        "name": "ReserveRepository",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ReserveRepository.Reserve",
+            "id": 4253,
+            "members": [
+              {
+                "constant": false,
+                "id": 4246,
+                "mutability": "mutable",
+                "name": "totalLiquidity",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 4253,
+                "src": "149:22:18",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 4245,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "149:7:18",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 4248,
+                "mutability": "mutable",
+                "name": "availableLiquidity",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 4253,
+                "src": "177:26:18",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 4247,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "177:7:18",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 4250,
+                "mutability": "mutable",
+                "name": "vTokenContract",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 4253,
+                "src": "209:22:18",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 4249,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "209:7:18",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 4252,
+                "mutability": "mutable",
+                "name": "isActive",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 4253,
+                "src": "237:13:18",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 4251,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "237:4:18",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Reserve",
+            "nodeType": "StructDefinition",
+            "scope": 4385,
+            "src": "128:127:18",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 4257,
+            "mutability": "mutable",
+            "name": "reserves",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 4385,
+            "src": "259:36:18",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+              "typeString": "mapping(address => struct ReserveRepository.Reserve)"
+            },
+            "typeName": {
+              "id": 4256,
+              "keyType": {
+                "id": 4254,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "267:7:18",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "259:27:18",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                "typeString": "mapping(address => struct ReserveRepository.Reserve)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 4255,
+                "name": "Reserve",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 4253,
+                "src": "278:7:18",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Reserve_$4253_storage_ptr",
+                  "typeString": "struct ReserveRepository.Reserve"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 4269,
+              "nodeType": "Block",
+              "src": "372:45:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 4264,
+                        "name": "reserves",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4257,
+                        "src": "385:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                          "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                        }
+                      },
+                      "id": 4266,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 4265,
+                        "name": "_reserve",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4259,
+                        "src": "394:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "385:18:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                        "typeString": "struct ReserveRepository.Reserve storage ref"
+                      }
+                    },
+                    "id": 4267,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "isActive",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 4252,
+                    "src": "385:27:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 4263,
+                  "id": 4268,
+                  "nodeType": "Return",
+                  "src": "378:34:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "883c042b",
+            "id": 4270,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isReserveActive",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4260,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4259,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4270,
+                  "src": "325:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4258,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "325:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "324:18:18"
+            },
+            "returnParameters": {
+              "id": 4263,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4262,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4270,
+                  "src": "366:4:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 4261,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "366:4:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "365:6:18"
+            },
+            "scope": 4385,
+            "src": "300:117:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4282,
+              "nodeType": "Block",
+              "src": "498:51:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 4277,
+                        "name": "reserves",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4257,
+                        "src": "511:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                          "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                        }
+                      },
+                      "id": 4279,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 4278,
+                        "name": "_reserve",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4272,
+                        "src": "520:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "511:18:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                        "typeString": "struct ReserveRepository.Reserve storage ref"
+                      }
+                    },
+                    "id": 4280,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "totalLiquidity",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 4246,
+                    "src": "511:33:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 4276,
+                  "id": 4281,
+                  "nodeType": "Return",
+                  "src": "504:40:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "9de8ef79",
+            "id": 4283,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTotalLiquidity",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4273,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4272,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4283,
+                  "src": "448:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4271,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "448:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "447:18:18"
+            },
+            "returnParameters": {
+              "id": 4276,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4275,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4283,
+                  "src": "489:7:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4274,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "489:7:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "488:9:18"
+            },
+            "scope": 4385,
+            "src": "421:128:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4297,
+              "nodeType": "Block",
+              "src": "638:62:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4295,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 4290,
+                          "name": "reserves",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4257,
+                          "src": "644:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                            "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                          }
+                        },
+                        "id": 4292,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 4291,
+                          "name": "_reserve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4285,
+                          "src": "653:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "644:18:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                          "typeString": "struct ReserveRepository.Reserve storage ref"
+                        }
+                      },
+                      "id": 4293,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "totalLiquidity",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4246,
+                      "src": "644:33:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 4294,
+                      "name": "_totalLiquidity",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4287,
+                      "src": "680:15:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "644:51:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 4296,
+                  "nodeType": "ExpressionStatement",
+                  "src": "644:51:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "988d2408",
+            "id": 4298,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTotalLiquidity",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4288,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4285,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4298,
+                  "src": "580:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4284,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "580:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4287,
+                  "mutability": "mutable",
+                  "name": "_totalLiquidity",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4298,
+                  "src": "598:23:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4286,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "598:7:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "579:43:18"
+            },
+            "returnParameters": {
+              "id": 4289,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "638:0:18"
+            },
+            "scope": 4385,
+            "src": "553:147:18",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4310,
+              "nodeType": "Block",
+              "src": "799:55:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 4305,
+                        "name": "reserves",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4257,
+                        "src": "812:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                          "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                        }
+                      },
+                      "id": 4307,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 4306,
+                        "name": "_reserve",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4300,
+                        "src": "821:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "812:18:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                        "typeString": "struct ReserveRepository.Reserve storage ref"
+                      }
+                    },
+                    "id": 4308,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "availableLiquidity",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 4248,
+                    "src": "812:37:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 4304,
+                  "id": 4309,
+                  "nodeType": "Return",
+                  "src": "805:44:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "266e2bd8",
+            "id": 4311,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAvailableLiquidity",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4301,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4300,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4311,
+                  "src": "735:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4299,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "735:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "734:18:18"
+            },
+            "returnParameters": {
+              "id": 4304,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4303,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4311,
+                  "src": "788:7:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4302,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "788:7:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "787:9:18"
+            },
+            "scope": 4385,
+            "src": "704:150:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4325,
+              "nodeType": "Block",
+              "src": "951:70:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4323,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 4318,
+                          "name": "reserves",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4257,
+                          "src": "957:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                            "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                          }
+                        },
+                        "id": 4320,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 4319,
+                          "name": "_reserve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4313,
+                          "src": "966:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "957:18:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                          "typeString": "struct ReserveRepository.Reserve storage ref"
+                        }
+                      },
+                      "id": 4321,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "availableLiquidity",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4248,
+                      "src": "957:37:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 4322,
+                      "name": "_availableLiquidity",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4315,
+                      "src": "997:19:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "957:59:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 4324,
+                  "nodeType": "ExpressionStatement",
+                  "src": "957:59:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "cd67c4f8",
+            "id": 4326,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setAvailableLiquidity",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4316,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4313,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4326,
+                  "src": "889:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4312,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "889:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4315,
+                  "mutability": "mutable",
+                  "name": "_availableLiquidity",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4326,
+                  "src": "907:27:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4314,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "907:7:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "888:47:18"
+            },
+            "returnParameters": {
+              "id": 4317,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "951:0:18"
+            },
+            "scope": 4385,
+            "src": "858:163:18",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4340,
+              "nodeType": "Block",
+              "src": "1104:65:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4338,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 4333,
+                          "name": "reserves",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4257,
+                          "src": "1112:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                            "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                          }
+                        },
+                        "id": 4335,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 4334,
+                          "name": "_reserve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4328,
+                          "src": "1121:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1112:18:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                          "typeString": "struct ReserveRepository.Reserve storage ref"
+                        }
+                      },
+                      "id": 4336,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "vTokenContract",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4250,
+                      "src": "1112:33:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 4337,
+                      "name": "_contractAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4330,
+                      "src": "1148:16:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1112:52:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 4339,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1112:52:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "a4a94567",
+            "id": 4341,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTokenContract",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4331,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4328,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4341,
+                  "src": "1051:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4327,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1051:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4330,
+                  "mutability": "mutable",
+                  "name": "_contractAddress",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4341,
+                  "src": "1069:24:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4329,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1069:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1050:44:18"
+            },
+            "returnParameters": {
+              "id": 4332,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1104:0:18"
+            },
+            "scope": 4385,
+            "src": "1025:144:18",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4355,
+              "nodeType": "Block",
+              "src": "1249:59:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 4349,
+                            "name": "reserves",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4257,
+                            "src": "1269:8:18",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                              "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                            }
+                          },
+                          "id": 4351,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 4350,
+                            "name": "_reserve",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4343,
+                            "src": "1278:8:18",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1269:18:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                            "typeString": "struct ReserveRepository.Reserve storage ref"
+                          }
+                        },
+                        "id": 4352,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "vTokenContract",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 4250,
+                        "src": "1269:33:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 4348,
+                      "name": "VToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5403,
+                      "src": "1262:6:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_VToken_$5403_$",
+                        "typeString": "type(contract VToken)"
+                      }
+                    },
+                    "id": 4353,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1262:41:18",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_VToken_$5403",
+                      "typeString": "contract VToken"
+                    }
+                  },
+                  "functionReturnParameters": 4347,
+                  "id": 4354,
+                  "nodeType": "Return",
+                  "src": "1255:48:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "72e06c0f",
+            "id": 4356,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVTokenContract",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4344,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4343,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4356,
+                  "src": "1200:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4342,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1200:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1199:18:18"
+            },
+            "returnParameters": {
+              "id": 4347,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4346,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4356,
+                  "src": "1241:6:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_VToken_$5403",
+                    "typeString": "contract VToken"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4345,
+                    "name": "VToken",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5403,
+                    "src": "1241:6:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_VToken_$5403",
+                      "typeString": "contract VToken"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1240:8:18"
+            },
+            "scope": 4385,
+            "src": "1173:135:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4368,
+              "nodeType": "Block",
+              "src": "1377:47:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 4363,
+                        "name": "reserves",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4257,
+                        "src": "1392:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                          "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                        }
+                      },
+                      "id": 4365,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 4364,
+                        "name": "_reserve",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4358,
+                        "src": "1401:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1392:18:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                        "typeString": "struct ReserveRepository.Reserve storage ref"
+                      }
+                    },
+                    "id": 4366,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "isActive",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 4252,
+                    "src": "1392:27:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 4362,
+                  "id": 4367,
+                  "nodeType": "Return",
+                  "src": "1385:34:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "9f8a13d7",
+            "id": 4369,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isActive",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4359,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4358,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4369,
+                  "src": "1330:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4357,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1330:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1329:18:18"
+            },
+            "returnParameters": {
+              "id": 4362,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4361,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4369,
+                  "src": "1371:4:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 4360,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1371:4:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1370:6:18"
+            },
+            "scope": 4385,
+            "src": "1312:112:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4383,
+              "nodeType": "Block",
+              "src": "1488:50:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4381,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 4376,
+                          "name": "reserves",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4257,
+                          "src": "1496:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                            "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                          }
+                        },
+                        "id": 4378,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 4377,
+                          "name": "_reserve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4371,
+                          "src": "1505:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1496:18:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                          "typeString": "struct ReserveRepository.Reserve storage ref"
+                        }
+                      },
+                      "id": 4379,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "isActive",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4252,
+                      "src": "1496:27:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 4380,
+                      "name": "_active",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4373,
+                      "src": "1526:7:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "src": "1496:37:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 4382,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1496:37:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "2ce962cf",
+            "id": 4384,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setActive",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4374,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4371,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4384,
+                  "src": "1447:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4370,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1447:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4373,
+                  "mutability": "mutable",
+                  "name": "_active",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4384,
+                  "src": "1465:12:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 4372,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1465:4:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1446:32:18"
+            },
+            "returnParameters": {
+              "id": 4375,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1488:0:18"
+            },
+            "scope": 4385,
+            "src": "1428:110:18",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4386,
+        "src": "94:1446:18"
+      }
+    ],
+    "src": "37:1504:18"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/repositories/ReserveRepository.sol",
+    "exportedSymbols": {
+      "ReserveRepository": [
+        4385
+      ]
+    },
+    "id": 4386,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4243,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:18"
+      },
+      {
+        "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/token/VToken.sol",
+        "file": "../token/VToken.sol",
+        "id": 4244,
+        "nodeType": "ImportDirective",
+        "scope": 4386,
+        "sourceUnit": 5404,
+        "src": "63:29:18",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4385,
+        "linearizedBaseContracts": [
+          4385
+        ],
+        "name": "ReserveRepository",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ReserveRepository.Reserve",
+            "id": 4253,
+            "members": [
+              {
+                "constant": false,
+                "id": 4246,
+                "mutability": "mutable",
+                "name": "totalLiquidity",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 4253,
+                "src": "149:22:18",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 4245,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "149:7:18",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 4248,
+                "mutability": "mutable",
+                "name": "availableLiquidity",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 4253,
+                "src": "177:26:18",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 4247,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "177:7:18",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 4250,
+                "mutability": "mutable",
+                "name": "vTokenContract",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 4253,
+                "src": "209:22:18",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 4249,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "209:7:18",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 4252,
+                "mutability": "mutable",
+                "name": "isActive",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 4253,
+                "src": "237:13:18",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 4251,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "237:4:18",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Reserve",
+            "nodeType": "StructDefinition",
+            "scope": 4385,
+            "src": "128:127:18",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 4257,
+            "mutability": "mutable",
+            "name": "reserves",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 4385,
+            "src": "259:36:18",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+              "typeString": "mapping(address => struct ReserveRepository.Reserve)"
+            },
+            "typeName": {
+              "id": 4256,
+              "keyType": {
+                "id": 4254,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "267:7:18",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "259:27:18",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                "typeString": "mapping(address => struct ReserveRepository.Reserve)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 4255,
+                "name": "Reserve",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 4253,
+                "src": "278:7:18",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Reserve_$4253_storage_ptr",
+                  "typeString": "struct ReserveRepository.Reserve"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 4269,
+              "nodeType": "Block",
+              "src": "372:45:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 4264,
+                        "name": "reserves",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4257,
+                        "src": "385:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                          "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                        }
+                      },
+                      "id": 4266,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 4265,
+                        "name": "_reserve",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4259,
+                        "src": "394:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "385:18:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                        "typeString": "struct ReserveRepository.Reserve storage ref"
+                      }
+                    },
+                    "id": 4267,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "isActive",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 4252,
+                    "src": "385:27:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 4263,
+                  "id": 4268,
+                  "nodeType": "Return",
+                  "src": "378:34:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "883c042b",
+            "id": 4270,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isReserveActive",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4260,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4259,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4270,
+                  "src": "325:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4258,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "325:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "324:18:18"
+            },
+            "returnParameters": {
+              "id": 4263,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4262,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4270,
+                  "src": "366:4:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 4261,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "366:4:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "365:6:18"
+            },
+            "scope": 4385,
+            "src": "300:117:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4282,
+              "nodeType": "Block",
+              "src": "498:51:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 4277,
+                        "name": "reserves",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4257,
+                        "src": "511:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                          "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                        }
+                      },
+                      "id": 4279,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 4278,
+                        "name": "_reserve",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4272,
+                        "src": "520:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "511:18:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                        "typeString": "struct ReserveRepository.Reserve storage ref"
+                      }
+                    },
+                    "id": 4280,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "totalLiquidity",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 4246,
+                    "src": "511:33:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 4276,
+                  "id": 4281,
+                  "nodeType": "Return",
+                  "src": "504:40:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "9de8ef79",
+            "id": 4283,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTotalLiquidity",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4273,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4272,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4283,
+                  "src": "448:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4271,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "448:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "447:18:18"
+            },
+            "returnParameters": {
+              "id": 4276,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4275,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4283,
+                  "src": "489:7:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4274,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "489:7:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "488:9:18"
+            },
+            "scope": 4385,
+            "src": "421:128:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4297,
+              "nodeType": "Block",
+              "src": "638:62:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4295,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 4290,
+                          "name": "reserves",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4257,
+                          "src": "644:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                            "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                          }
+                        },
+                        "id": 4292,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 4291,
+                          "name": "_reserve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4285,
+                          "src": "653:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "644:18:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                          "typeString": "struct ReserveRepository.Reserve storage ref"
+                        }
+                      },
+                      "id": 4293,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "totalLiquidity",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4246,
+                      "src": "644:33:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 4294,
+                      "name": "_totalLiquidity",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4287,
+                      "src": "680:15:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "644:51:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 4296,
+                  "nodeType": "ExpressionStatement",
+                  "src": "644:51:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "988d2408",
+            "id": 4298,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTotalLiquidity",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4288,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4285,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4298,
+                  "src": "580:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4284,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "580:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4287,
+                  "mutability": "mutable",
+                  "name": "_totalLiquidity",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4298,
+                  "src": "598:23:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4286,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "598:7:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "579:43:18"
+            },
+            "returnParameters": {
+              "id": 4289,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "638:0:18"
+            },
+            "scope": 4385,
+            "src": "553:147:18",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4310,
+              "nodeType": "Block",
+              "src": "799:55:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 4305,
+                        "name": "reserves",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4257,
+                        "src": "812:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                          "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                        }
+                      },
+                      "id": 4307,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 4306,
+                        "name": "_reserve",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4300,
+                        "src": "821:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "812:18:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                        "typeString": "struct ReserveRepository.Reserve storage ref"
+                      }
+                    },
+                    "id": 4308,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "availableLiquidity",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 4248,
+                    "src": "812:37:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 4304,
+                  "id": 4309,
+                  "nodeType": "Return",
+                  "src": "805:44:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "266e2bd8",
+            "id": 4311,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAvailableLiquidity",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4301,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4300,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4311,
+                  "src": "735:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4299,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "735:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "734:18:18"
+            },
+            "returnParameters": {
+              "id": 4304,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4303,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4311,
+                  "src": "788:7:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4302,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "788:7:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "787:9:18"
+            },
+            "scope": 4385,
+            "src": "704:150:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4325,
+              "nodeType": "Block",
+              "src": "951:70:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4323,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 4318,
+                          "name": "reserves",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4257,
+                          "src": "957:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                            "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                          }
+                        },
+                        "id": 4320,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 4319,
+                          "name": "_reserve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4313,
+                          "src": "966:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "957:18:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                          "typeString": "struct ReserveRepository.Reserve storage ref"
+                        }
+                      },
+                      "id": 4321,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "availableLiquidity",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4248,
+                      "src": "957:37:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 4322,
+                      "name": "_availableLiquidity",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4315,
+                      "src": "997:19:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "957:59:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 4324,
+                  "nodeType": "ExpressionStatement",
+                  "src": "957:59:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "cd67c4f8",
+            "id": 4326,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setAvailableLiquidity",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4316,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4313,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4326,
+                  "src": "889:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4312,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "889:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4315,
+                  "mutability": "mutable",
+                  "name": "_availableLiquidity",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4326,
+                  "src": "907:27:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4314,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "907:7:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "888:47:18"
+            },
+            "returnParameters": {
+              "id": 4317,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "951:0:18"
+            },
+            "scope": 4385,
+            "src": "858:163:18",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4340,
+              "nodeType": "Block",
+              "src": "1104:65:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4338,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 4333,
+                          "name": "reserves",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4257,
+                          "src": "1112:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                            "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                          }
+                        },
+                        "id": 4335,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 4334,
+                          "name": "_reserve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4328,
+                          "src": "1121:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1112:18:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                          "typeString": "struct ReserveRepository.Reserve storage ref"
+                        }
+                      },
+                      "id": 4336,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "vTokenContract",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4250,
+                      "src": "1112:33:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 4337,
+                      "name": "_contractAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4330,
+                      "src": "1148:16:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1112:52:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 4339,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1112:52:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "a4a94567",
+            "id": 4341,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTokenContract",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4331,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4328,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4341,
+                  "src": "1051:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4327,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1051:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4330,
+                  "mutability": "mutable",
+                  "name": "_contractAddress",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4341,
+                  "src": "1069:24:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4329,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1069:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1050:44:18"
+            },
+            "returnParameters": {
+              "id": 4332,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1104:0:18"
+            },
+            "scope": 4385,
+            "src": "1025:144:18",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4355,
+              "nodeType": "Block",
+              "src": "1249:59:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 4349,
+                            "name": "reserves",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4257,
+                            "src": "1269:8:18",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                              "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                            }
+                          },
+                          "id": 4351,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 4350,
+                            "name": "_reserve",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4343,
+                            "src": "1278:8:18",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1269:18:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                            "typeString": "struct ReserveRepository.Reserve storage ref"
+                          }
+                        },
+                        "id": 4352,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "vTokenContract",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 4250,
+                        "src": "1269:33:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 4348,
+                      "name": "VToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5403,
+                      "src": "1262:6:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_VToken_$5403_$",
+                        "typeString": "type(contract VToken)"
+                      }
+                    },
+                    "id": 4353,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1262:41:18",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_VToken_$5403",
+                      "typeString": "contract VToken"
+                    }
+                  },
+                  "functionReturnParameters": 4347,
+                  "id": 4354,
+                  "nodeType": "Return",
+                  "src": "1255:48:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "72e06c0f",
+            "id": 4356,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVTokenContract",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4344,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4343,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4356,
+                  "src": "1200:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4342,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1200:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1199:18:18"
+            },
+            "returnParameters": {
+              "id": 4347,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4346,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4356,
+                  "src": "1241:6:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_VToken_$5403",
+                    "typeString": "contract VToken"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4345,
+                    "name": "VToken",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5403,
+                    "src": "1241:6:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_VToken_$5403",
+                      "typeString": "contract VToken"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1240:8:18"
+            },
+            "scope": 4385,
+            "src": "1173:135:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4368,
+              "nodeType": "Block",
+              "src": "1377:47:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 4363,
+                        "name": "reserves",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4257,
+                        "src": "1392:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                          "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                        }
+                      },
+                      "id": 4365,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 4364,
+                        "name": "_reserve",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4358,
+                        "src": "1401:8:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1392:18:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                        "typeString": "struct ReserveRepository.Reserve storage ref"
+                      }
+                    },
+                    "id": 4366,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "isActive",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 4252,
+                    "src": "1392:27:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 4362,
+                  "id": 4367,
+                  "nodeType": "Return",
+                  "src": "1385:34:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "9f8a13d7",
+            "id": 4369,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isActive",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4359,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4358,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4369,
+                  "src": "1330:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4357,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1330:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1329:18:18"
+            },
+            "returnParameters": {
+              "id": 4362,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4361,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4369,
+                  "src": "1371:4:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 4360,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1371:4:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1370:6:18"
+            },
+            "scope": 4385,
+            "src": "1312:112:18",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 4383,
+              "nodeType": "Block",
+              "src": "1488:50:18",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4381,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 4376,
+                          "name": "reserves",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4257,
+                          "src": "1496:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Reserve_$4253_storage_$",
+                            "typeString": "mapping(address => struct ReserveRepository.Reserve storage ref)"
+                          }
+                        },
+                        "id": 4378,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 4377,
+                          "name": "_reserve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4371,
+                          "src": "1505:8:18",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1496:18:18",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Reserve_$4253_storage",
+                          "typeString": "struct ReserveRepository.Reserve storage ref"
+                        }
+                      },
+                      "id": 4379,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "isActive",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4252,
+                      "src": "1496:27:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 4380,
+                      "name": "_active",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4373,
+                      "src": "1526:7:18",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "src": "1496:37:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 4382,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1496:37:18"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "2ce962cf",
+            "id": 4384,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setActive",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4374,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4371,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4384,
+                  "src": "1447:16:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4370,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1447:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4373,
+                  "mutability": "mutable",
+                  "name": "_active",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4384,
+                  "src": "1465:12:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 4372,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1465:4:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1446:32:18"
+            },
+            "returnParameters": {
+              "id": 4375,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1488:0:18"
+            },
+            "scope": 4385,
+            "src": "1428:110:18",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4386,
+        "src": "94:1446:18"
+      }
+    ],
+    "src": "37:1504:18"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.10+commit.00c0fcaf.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-10-18T16:15:56.286Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

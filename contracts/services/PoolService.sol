@@ -2,22 +2,24 @@
 pragma solidity ^0.6.10;
 
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "openzeppelin-solidity/contracts/access/Ownable.sol";
 
 import "../core/ILendingProvider.sol";
 import "../lib/AddressStorage.sol";
 import "../lib/SafeERC20.sol";
+import "../lib/ERC20.sol";
 import "../lib/EthAddressLib.sol";
 import "../lib/WadRayMath.sol";
 import "../repositories/ReserveRepository.sol";
 import "../services/ProviderService.sol";
 import "../token/VToken.sol";
 
-contract Pool {
+contract PoolService is Ownable {
   using SafeMath for uint256;
   using SafeERC20 for ERC20;
   using WadRayMath for uint256;
 
-  address public owner = msg.sender;
+  AddressRepository private addressRepository;
   ProviderService internal providerService;
   ProviderRepository internal providerRepository;
   ReserveRepository private reserveRepository;
@@ -35,6 +37,16 @@ contract Pool {
     uint256 _amount,
     uint256 _timestamp
   );
+
+
+  constructor(address _addressRepository) public {
+
+    addressRepository = AddressRepository(_addressRepository);
+    providerService = ProviderService(addressRepository.getProviderService());
+    providerRepository = ProviderRepository(addressRepository.getProviderRepository());
+    reserveRepository = ReserveRepository(addressRepository.getReserveRepository());
+
+  }
 
   modifier activeReserveOnly(address _reserve) {
     require(
@@ -60,15 +72,6 @@ contract Pool {
   modifier onlyAmountGreaterThanZero(uint256 _amount) {
     requireAmountGreaterThanZeroInternal(_amount);
     _;
-  }
-
-  modifier onlyOwner {
-    require(msg.sender == owner, "This function could be called by owner only");
-    _;
-  }
-
-  constructor(address _providersManager) public {
-    providerService = ProviderService(_providersManager);
   }
 
   function deposit(address _reserve, uint256 _amount)

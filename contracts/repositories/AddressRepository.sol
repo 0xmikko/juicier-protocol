@@ -5,7 +5,7 @@ import "openzeppelin-solidity/contracts/access/Ownable.sol";
 import "../lib/AddressStorage.sol";
 
 contract AddressRepository is Ownable, AddressStorage {
-  bytes32 private constant POOL = "POOL";
+  bytes32 private constant POOL_SERVICE = "POOL_SERVICE";
   bytes32 private constant PROVIDER_REPOSITORY = "PROVIDER_REPOSITORY";
   bytes32 private constant PROVIDER_SERVICE = "PROVIDER_SERVICE";
   bytes32 private constant RESERVE_REPOSITORY = "RESERVE_REPOSITORY";
@@ -14,15 +14,35 @@ contract AddressRepository is Ownable, AddressStorage {
    * @dev returns the address of the LendingPool proxy
    * @return the lending pool proxy address
    **/
-  function getPool() public view returns (address) {
-    return getAddress(POOL);
+  function getPoolService() public view returns (address) {
+    return getAddress(POOL_SERVICE);
+  }
+
+  function setPoolService(address _address) public onlyOwner {
+    _setAddress(POOL_SERVICE, _address);
+  }
+
+  function getReserveRepository() public view returns (address) {
+    return getAddress(RESERVE_REPOSITORY);
+  }
+
+  function setReserveRepository(address _address) public onlyOwner {
+    _setAddress(RESERVE_REPOSITORY, _address);    
   }
 
   function getProviderRepository() public view returns (address) {
     return getAddress(PROVIDER_REPOSITORY);
   }
 
+  function setProviderRepository(address _address) public onlyOwner {
+    _setAddress(PROVIDER_REPOSITORY, _address);
+  }
+
   function getProviderService() public view returns (address) {
     return getAddress(PROVIDER_SERVICE);
+  }
+
+  function setProviderService(address _address) public onlyOwner {
+    _setAddress(PROVIDER_SERVICE, _address);
   }
 }

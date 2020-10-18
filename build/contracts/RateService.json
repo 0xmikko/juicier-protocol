@@ -1,0 +1,109 @@
+{
+  "contractName": "RateService",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/services/RateService.sol\":\"RateService\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/services/RateService.sol\":{\"keccak256\":\"0x816f44ef7e6d41a88835d89f109b3f17fa504e4164b65a171fecc7c1266f5602\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://80e5e54fd847ae1a4273c4e6b5a863f7d9b84f7ea370ca61ea04cdbcbc49d725\",\"dweb:/ipfs/QmZy992P5qbTCJbz3pzsWqvi6jNhrxdNy47MsNzqk213Nr\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212207efe39bdedcfd083a2152e1760c6d2f799d0a8dbe833b0823182977d2584062964736f6c634300060a0033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212207efe39bdedcfd083a2152e1760c6d2f799d0a8dbe833b0823182977d2584062964736f6c634300060a0033",
+  "immutableReferences": {},
+  "sourceMap": "63:29:21:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "63:29:21:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\ncontract RateService {\n    \n}",
+  "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/services/RateService.sol",
+  "ast": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/services/RateService.sol",
+    "exportedSymbols": {
+      "RateService": [
+        4990
+      ]
+    },
+    "id": 4991,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4989,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:21"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4990,
+        "linearizedBaseContracts": [
+          4990
+        ],
+        "name": "RateService",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 4991,
+        "src": "63:29:21"
+      }
+    ],
+    "src": "37:55:21"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/services/RateService.sol",
+    "exportedSymbols": {
+      "RateService": [
+        4990
+      ]
+    },
+    "id": 4991,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4989,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:21"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4990,
+        "linearizedBaseContracts": [
+          4990
+        ],
+        "name": "RateService",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 4991,
+        "src": "63:29:21"
+      }
+    ],
+    "src": "37:55:21"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.10+commit.00c0fcaf.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-10-18T11:21:14.898Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
