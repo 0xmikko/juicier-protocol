@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
 
-import "../libraries/CoreLibrary.sol";
+import "../lib/CoreLibrary.sol";
 
 /**
  * @dev Interface of the Lending Provider

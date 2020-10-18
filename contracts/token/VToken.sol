@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
-import "./ERC20.sol";
+import "../lib/ERC20.sol";
 import "../core/Pool.sol";
 
 // Vitamin Token

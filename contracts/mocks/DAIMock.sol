@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.6.10;
-import "./erc20.sol";
+import "../lib/ERC20.sol";
 
 contract DAIMockToken is ERC20 {
   constructor(string memory _name, string memory _symbol)

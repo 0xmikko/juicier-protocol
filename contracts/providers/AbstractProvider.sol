@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
 
-import "../interfaces/ILendingProvider.sol";
+import "../core/ILendingProvider.sol";
 import "openzeppelin-solidity/contracts/access/Ownable.sol";
 
 abstract contract AbstractProvider is ILendingProvider, Ownable {

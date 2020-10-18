@@ -2,46 +2,45 @@
 pragma solidity ^0.6.10;
 
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
-import "../libraries/EthAddressLib.sol";
-import "../helpers/AddressStorage.sol";
-import "../interfaces/ILendingProvider.sol";
-import "./ProvidersManager.sol";
+
+import "../core/ILendingProvider.sol";
+import "../lib/AddressStorage.sol";
+import "../lib/SafeERC20.sol";
+import "../lib/EthAddressLib.sol";
+import "../lib/WadRayMath.sol";
+import "../repositories/ReserveRepository.sol";
+import "../services/ProviderService.sol";
 import "../token/VToken.sol";
-import "../token/SafeERC20.sol";
 
 contract Pool {
   using SafeMath for uint256;
   using SafeERC20 for ERC20;
-  //   using WadRayMath for uint256;
+  using WadRayMath for uint256;
+
   address public owner = msg.sender;
-  ProvidersManager internal providersManager;
+  ProviderService internal providerService;
+  ProviderRepository internal providerRepository;
+  ReserveRepository private reserveRepository;
 
-  struct Reserve {
-    uint256 totalLiquidity;
-    uint256 availableLiquidity;
-    address vTokenContract;
-    bool isActive;
-  }
-
-  mapping(address => Reserve) reserves;
-
-      /**
-    * @dev emitted during a redeem action.
-    * @param _reserve the address of the reserve
-    * @param _user the address of the user
-    * @param _amount the amount to be deposited
-    * @param _timestamp the timestamp of the action
-    **/
-    event RedeemUnderlying(
-        address indexed _reserve,
-        address indexed _user,
-        uint256 _amount,
-        uint256 _timestamp
-    );
-
+  /**
+   * @dev emitted during a redeem action.
+   * @param _reserve the address of the reserve
+   * @param _user the address of the user
+   * @param _amount the amount to be deposited
+   * @param _timestamp the timestamp of the action
+   **/
+  event RedeemUnderlying(
+    address indexed _reserve,
+    address indexed _user,
+    uint256 _amount,
+    uint256 _timestamp
+  );
 
   modifier activeReserveOnly(address _reserve) {
-    require(reserves[_reserve].isActive, "Pool: Reserve is not active");
+    require(
+      reserveRepository.isReserveActive(_reserve),
+      "Pool: Reserve is not active"
+    );
     _;
   }
 
@@ -49,8 +48,8 @@ contract Pool {
     public
     onlyOwner
   {
-    reserves[_reserve].vTokenContract = _vTokenAddress;
-    reserves[_reserve].isActive = true;
+    reserveRepository.setTokenContract(_reserve, _vTokenAddress);
+    reserveRepository.setActive(_reserve, true);
   }
 
   /**
@@ -69,7 +68,7 @@ contract Pool {
   }
 
   constructor(address _providersManager) public {
-    providersManager = ProvidersManager(_providersManager);
+    providerService = ProviderService(_providersManager);
   }
 
   function deposit(address _reserve, uint256 _amount)
@@ -78,10 +77,10 @@ contract Pool {
     activeReserveOnly(_reserve)
     onlyAmountGreaterThanZero(_amount)
   {
-    address providerAddress = providersManager
+    address providerAddress = providerService
       .getProviderWithHighestLiquidityRate(_reserve);
 
-    ILendingProvider provider = providersManager.getProviderOrFail(
+    ILendingProvider provider = providerRepository.getProviderByAddressOrFail(
       providerAddress
     );
 
@@ -91,14 +90,17 @@ contract Pool {
     // Approve for provider
     provider.deposit(_reserve, _amount);
 
-    reserves[_reserve].totalLiquidity = reserves[_reserve].totalLiquidity.add(
+    uint256 updatedTotalLiquidity = reserveRepository.getTotalLiquidity(_reserve).add(
       _amount
     );
-    reserves[_reserve].totalLiquidity = reserves[_reserve].totalLiquidity.add(
-      _amount
-    );
+    uint256 updatedAvailableLiquidity = reserveRepository
+      .getAvailableLiquidity(_reserve)
+      .add(_amount);
 
-    VToken token = VToken(reserves[_reserve].vTokenContract);
+    reserveRepository.setTotalLiquidity(_reserve, updatedTotalLiquidity);
+    reserveRepository.setAvailableLiquidity(_reserve, updatedAvailableLiquidity);
+
+    VToken token = reserveRepository.getVTokenContract(_reserve);
     token.mintOnDeposit(msg.sender, _amount);
   }
 
@@ -108,7 +110,7 @@ contract Pool {
     uint256 _amount
   ) external activeReserveOnly(_reserve) onlyAmountGreaterThanZero(_amount) {
     require(
-      providersManager.getAvaibleLiquidity(_reserve) > _amount,
+      providerService.getTotalAvaibleLiquidity(_reserve) > _amount,
       "Pool: There is not enough liquidity available to redeem"
     );
 
@@ -116,7 +118,7 @@ contract Pool {
 
     uint256 _amountLeft = _amount;
     while (_amountLeft > 0) {
-      (address providerAddress, uint256 avaibleLiquidity) = providersManager
+      (address providerAddress, uint256 avaibleLiquidity) = providerService
         .getProviderWithLowestLiquidityRate(_reserve);
 
       // Calculate max sum we could take from this provider
@@ -132,9 +134,17 @@ contract Pool {
       _amountLeft = _amountLeft.sub(sumToRedeem);
     }
 
-  emit RedeemUnderlying(_reserve, _user, _amount, uint40(block.timestamp));
+    uint256 updatedTotalLiquidity = reserveRepository.getTotalLiquidity(_reserve).sub(
+      _amount
+    );
+    uint256 updatedAvailableLiquidity = reserveRepository
+      .getAvailableLiquidity(_reserve)
+      .sub(_amount);
 
+    reserveRepository.setTotalLiquidity(_reserve, updatedTotalLiquidity);
+    reserveRepository.setAvailableLiquidity(_reserve, updatedAvailableLiquidity);
 
+    emit RedeemUnderlying(_reserve, _user, _amount, uint40(block.timestamp));
   }
 
   /**

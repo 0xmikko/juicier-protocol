@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
 
-import "../token/SafeERC20.sol";
-import "../libraries/CoreLibrary.sol";
-import "../libraries/EthAddressLib.sol";
+import "../lib/SafeERC20.sol";
+import "../lib/CoreLibrary.sol";
+import "../lib/EthAddressLib.sol";
 import "./aave-protocol/ATokenMock.sol";
 import "./AbstractProvider.sol";
 import "./aave-protocol/IAaveLendingPool.sol";

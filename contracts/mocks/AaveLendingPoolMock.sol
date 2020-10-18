@@ -1,15 +1,16 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
 
-import "../token/ERC20.sol";
-import "../token/SafeERC20.sol";
+import "../lib/EthAddressLib.sol";
+import "../lib/ERC20.sol";
+import "../lib/SafeERC20.sol";
 import "../providers/aave-protocol/IAaveLendingPool.sol";
-import "../libraries/EthAddressLib.sol";
+
 
 contract AaveLendingPoolMock is IAaveLendingPool {
   using SafeERC20 for ERC20;
-
   using SafeMath for uint256;
+  
   address[] private reserves;
   mapping(address => ReserveData) reserveData;
   string mockId;
