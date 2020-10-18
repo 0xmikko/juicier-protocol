@@ -12,7 +12,9 @@ import "../lib/EthAddressLib.sol";
 import "../lib/WadRayMath.sol";
 import "../repositories/ReserveRepository.sol";
 import "../repositories/UserBalanceRepository.sol";
+import "../repositories/PriceRepository.sol";
 import "../services/ProviderService.sol";
+import "../services/RiskService.sol";
 import "../token/VToken.sol";
 
 contract PoolService is Ownable {
@@ -25,6 +27,8 @@ contract PoolService is Ownable {
   ProviderRepository internal providerRepository;
   ReserveRepository private reserveRepository;
   UserBalanceRepository private userBalanceRepository;
+  PriceRepository private priceRepository;
+  RiskService private riskService;
 
   /**
    * @dev emitted during a redeem action.
@@ -53,6 +57,9 @@ contract PoolService is Ownable {
     userBalanceRepository = UserBalanceRepository(
       addressRepository.getUserBalanceRepository()
     );
+
+    priceRepository = PriceRepository(addressRepository.getPriceRepository());
+    riskService = RiskService(addressRepository.getRiskService());
   }
 
   modifier activeReserveOnly(address _reserve) {
@@ -62,8 +69,6 @@ contract PoolService is Ownable {
     );
     _;
   }
-
-
 
   /**
    * @dev functions affected by this modifier can only be invoked if the provided _amount input parameter
@@ -119,6 +124,44 @@ contract PoolService is Ownable {
     address payable _user,
     uint256 _amount
   ) external activeReserveOnly(_reserve) onlyAmountGreaterThanZero(_amount) {
+    _transferValueToUser(_reserve, _user, _amount);
+    userBalanceRepository.decreaseUserDeposit(_reserve, msg.sender, _amount);
+
+    emit RedeemUnderlying(_reserve, _user, _amount, uint40(block.timestamp));
+  }
+
+  function borrow(address _reserve, uint256 _amount)
+    external
+    activeReserveOnly(_reserve)
+    onlyAmountGreaterThanZero(_amount)
+  {
+    require(
+      _amount <= providerService.getTotalAvaibleLiquidity(_reserve),
+      "PoolService: Not enough liquidity available"
+    );
+
+    uint256 reservePrice = priceRepository.getReservePriceInETH(_reserve);
+    uint256 maxAmount = riskService.getMaxAllowedLoanETH(msg.sender).div(
+      reservePrice
+    );
+
+    require(_amount < maxAmount, "Poolservice: you have not enough collateral");
+
+    _transferValueToUser(_reserve, msg.sender, _amount);
+    userBalanceRepository.increaseUserBorrow(_reserve, msg.sender, _amount);
+
+    // emit Borrow(_reserve, _user, _amount, uint40(block.timestamp));
+  }
+
+  function repay(address _reserve, uint256 _amount) external payable{
+
+  }
+
+  function _transferValueToUser(
+    address _reserve,
+    address payable _user,
+    uint256 _amount
+  ) internal {
     require(
       providerService.getTotalAvaibleLiquidity(_reserve) > _amount,
       "Pool: There is not enough liquidity available to redeem"
@@ -155,21 +198,6 @@ contract PoolService is Ownable {
     reserveRepository.setAvailableLiquidity(
       _reserve,
       updatedAvailableLiquidity
-    );
-
-    userBalanceRepository.decreaseUserDeposit(_reserve, msg.sender, _amount);
-
-    emit RedeemUnderlying(_reserve, _user, _amount, uint40(block.timestamp));
-  }
-
-  function borrow(address _reserve, uint256 _amount)
-    external
-    activeReserveOnly(_reserve)
-    onlyAmountGreaterThanZero(_amount)
-  {
-    require(
-      _amount <= providerService.getTotalAvaibleLiquidity(_reserve),
-      "PoolService: Not enough liquidity available"
     );
   }
 

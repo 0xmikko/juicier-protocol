@@ -21,6 +21,7 @@ import { ProviderRepositoryContract } from "./ProviderRepository";
 import { ProviderServiceContract } from "./ProviderService";
 import { RateServiceContract } from "./RateService";
 import { ReserveRepositoryContract } from "./ReserveRepository";
+import { RiskServiceContract } from "./RiskService";
 import { UserBalanceRepositoryContract } from "./UserBalanceRepository";
 import { VTokenContract } from "./VToken";
 
@@ -47,6 +48,7 @@ declare global {
       require(name: "ProviderService"): ProviderServiceContract;
       require(name: "RateService"): RateServiceContract;
       require(name: "ReserveRepository"): ReserveRepositoryContract;
+      require(name: "RiskService"): RiskServiceContract;
       require(name: "UserBalanceRepository"): UserBalanceRepositoryContract;
       require(name: "VToken"): VTokenContract;
     }
@@ -106,6 +108,7 @@ export {
   ReserveRepositoryContract,
   ReserveRepositoryInstance
 } from "./ReserveRepository";
+export { RiskServiceContract, RiskServiceInstance } from "./RiskService";
 export {
   UserBalanceRepositoryContract,
   UserBalanceRepositoryInstance

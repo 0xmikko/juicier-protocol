@@ -77,29 +77,6 @@ export interface PoolServiceInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  addReserve: {
-    (
-      _reserve: string,
-      _vTokenAddress: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<Truffle.TransactionResponse<AllEvents>>;
-    call(
-      _reserve: string,
-      _vTokenAddress: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<void>;
-    sendTransaction(
-      _reserve: string,
-      _vTokenAddress: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<string>;
-    estimateGas(
-      _reserve: string,
-      _vTokenAddress: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<number>;
-  };
-
   deposit: {
     (
       _reserve: string,
@@ -173,6 +150,29 @@ export interface PoolServiceInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
+  repay: {
+    (
+      _reserve: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _reserve: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _reserve: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _reserve: string,
+      _amount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
   methods: {
     /**
      * Returns the address of the current owner.
@@ -208,29 +208,6 @@ export interface PoolServiceInstance extends Truffle.ContractInstance {
       ): Promise<string>;
       estimateGas(
         newOwner: string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<number>;
-    };
-
-    addReserve: {
-      (
-        _reserve: string,
-        _vTokenAddress: string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<Truffle.TransactionResponse<AllEvents>>;
-      call(
-        _reserve: string,
-        _vTokenAddress: string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<void>;
-      sendTransaction(
-        _reserve: string,
-        _vTokenAddress: string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<string>;
-      estimateGas(
-        _reserve: string,
-        _vTokenAddress: string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
@@ -286,6 +263,29 @@ export interface PoolServiceInstance extends Truffle.ContractInstance {
     };
 
     borrow: {
+      (
+        _reserve: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _reserve: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _reserve: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _reserve: string,
+        _amount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    repay: {
       (
         _reserve: string,
         _amount: number | BN | string,

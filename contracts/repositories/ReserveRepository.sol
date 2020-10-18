@@ -77,4 +77,9 @@ contract ReserveRepository {
   function setActive(address _reserve, bool _active) external {
     reserves[_reserve].isActive = _active;
   }
+
+  function getLoanToValue(address _reserve) external view returns (uint256)
+  {
+    return reserves[_reserve].loanToValue;
+  }
 }

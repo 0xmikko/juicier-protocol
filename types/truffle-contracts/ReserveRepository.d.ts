@@ -164,6 +164,11 @@ export interface ReserveRepositoryInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
+  getLoanToValue(
+    _reserve: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
   methods: {
     addReserve: {
       (
@@ -316,6 +321,11 @@ export interface ReserveRepositoryInstance extends Truffle.ContractInstance {
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
+
+    getLoanToValue(
+      _reserve: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

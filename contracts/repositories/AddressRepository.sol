@@ -13,6 +13,9 @@ contract AddressRepository is Ownable, AddressStorage {
   bytes32 private constant RESERVE_REPOSITORY = "RESERVE_REPOSITORY";
   bytes32 private constant USER_BALANCE_REPOSITORY = "USER_BALANCE_REPOSITORY";
 
+  bytes32 private constant PRICE_REPOSITORY = "PRICE_REPOSITORY";
+
+  bytes32 private constant RISK_SERVICE = "RISK_SERVICE";
   /**
    * @dev returns the address of the LendingPool proxy
    * @return the lending pool proxy address
@@ -55,5 +58,22 @@ contract AddressRepository is Ownable, AddressStorage {
 
   function setUserBalanceRepository(address _address) public onlyOwner {
     _setAddress(USER_BALANCE_REPOSITORY, _address);
+  }
+
+  function getPriceRepository() public view returns (address) {
+    return getAddress(PRICE_REPOSITORY);
+  }
+
+  function setPriceRepository(address _address) public onlyOwner {
+    _setAddress(PRICE_REPOSITORY, _address);
+  }
+
+
+  function getRiskService() public view returns (address) {
+    return getAddress(RISK_SERVICE);
+  }
+
+  function setRiskService(address _address) public onlyOwner {
+    _setAddress(RISK_SERVICE, _address);
   }
 }
