@@ -37,6 +37,11 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
     txDetails?: Truffle.TransactionDetails
   ): Promise<BN>;
 
+  getReserveManagerForApprove(
+    _reserve: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<string>;
+
   /**
    * Resereves methods
    */
@@ -157,6 +162,11 @@ export interface AbstractProviderInstance extends Truffle.ContractInstance {
       _reserveAddress: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<BN>;
+
+    getReserveManagerForApprove(
+      _reserve: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
 
     /**
      * Resereves methods

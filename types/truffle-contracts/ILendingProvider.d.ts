@@ -97,6 +97,11 @@ export interface ILendingProviderInstance extends Truffle.ContractInstance {
     txDetails?: Truffle.TransactionDetails
   ): Promise<BN>;
 
+  getReserveManagerForApprove(
+    _reserve: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<string>;
+
   methods: {
     /**
      * Deposit asset to selected lending provider
@@ -182,6 +187,11 @@ export interface ILendingProviderInstance extends Truffle.ContractInstance {
       _reserve: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<BN>;
+
+    getReserveManagerForApprove(
+      _reserve: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

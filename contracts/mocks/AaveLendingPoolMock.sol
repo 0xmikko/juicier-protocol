@@ -84,6 +84,9 @@ contract AaveLendingPoolMock is IAaveLendingPool {
     //        //transfer to the core contract
     //        core.transferToReserve.value(msg.value)(_reserve, msg.sender, _amount);
 
+    // Move amount to 
+    ERC20(_reserve).safeTransferFrom(msg.sender, address(this), _amount);
+  
     reserveData[_reserve].totalLiquidity += _amount;
     reserveData[_reserve].availableLiquidity += _amount;
     //solium-disable-next-line
@@ -107,6 +110,11 @@ contract AaveLendingPoolMock is IAaveLendingPool {
       reserveData[_reserve].availableLiquidity >= _amount,
       "Not enough liquidity"
     );
+
+    
+
+    // Move amount to 
+    ERC20(_reserve).safeTransfer(_user, _amount);
     reserveData[_reserve].totalLiquidity -= _amount;
     reserveData[_reserve].availableLiquidity -= _amount;
     //solium-disable-next-line

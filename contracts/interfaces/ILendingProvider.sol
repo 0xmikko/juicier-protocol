@@ -7,52 +7,57 @@ import "../libraries/CoreLibrary.sol";
  * @dev Interface of the Lending Provider
  */
 interface ILendingProvider {
-    /**
-     * @dev Deposit asset to selected lending provider
-     */
+  /**
+   * @dev Deposit asset to selected lending provider
+   */
 
-    function deposit(address _reserve, uint256 _amount) external payable;
+  function deposit(address _reserve, uint256 _amount) external payable;
 
-    function redeemUnderlying(
-        address _reserve,
-        address payable _user,
-        uint256 _amount
-    ) external;
+  function redeemUnderlying(
+    address _reserve,
+    address payable _user,
+    uint256 _amount
+  ) external;
 
-    /**
-     * @notice Resereves methods
-     */
+  /**
+   * @notice Resereves methods
+   */
 
-    function getReserves() external returns (address[] memory);
+  function getReserves() external returns (address[] memory);
 
-    function getReserveData(address _reserveAddress)
-        external
-        view
-        returns (
-            uint256 totalLiquidity,
-            uint256 availableLiquidity,
-            uint256 totalBorrowsVariable,
-            uint256 liquidityRate,
-            uint256 variableBorrowRate,
-            uint256 utilizationRate,
-            uint256 liquidityIndex,
-            uint256 variableBorrowIndex,
-            address aTokenAddress,
-            uint40 lastUpdateTimestamp
-        );
+  function getReserveData(address _reserveAddress)
+    external
+    view
+    returns (
+      uint256 totalLiquidity,
+      uint256 availableLiquidity,
+      uint256 totalBorrowsVariable,
+      uint256 liquidityRate,
+      uint256 variableBorrowRate,
+      uint256 utilizationRate,
+      uint256 liquidityIndex,
+      uint256 variableBorrowIndex,
+      address aTokenAddress,
+      uint40 lastUpdateTimestamp
+    );
 
-    function getReserveLiquidityRate(address _reserveAddress)
-        external
-        view
-        returns (uint256 liquidityRate);
+  function getReserveLiquidityRate(address _reserveAddress)
+    external
+    view
+    returns (uint256 liquidityRate);
 
-    function getReserveBorrowRate(address _reserveAddress)
-        external
-        view
-        returns (uint256);
+  function getReserveBorrowRate(address _reserveAddress)
+    external
+    view
+    returns (uint256);
 
-    function getAvaibleLiquidity(address _reserve)
-        external
-        view
-        returns (uint256);
+  function getAvaibleLiquidity(address _reserve)
+    external
+    view
+    returns (uint256);
+
+  function getReserveManagerForApprove(address _reserve)
+    external
+    view
+    returns (address);
 }

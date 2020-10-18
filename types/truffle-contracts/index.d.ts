@@ -7,6 +7,7 @@ import { AaveProviderContract } from "./AaveProvider";
 import { AbstractProviderContract } from "./AbstractProvider";
 import { AddressStorageContract } from "./AddressStorage";
 import { ATokenContract } from "./AToken";
+import { DaiMockTokenContract } from "./DaiMockToken";
 import { Erc20Contract } from "./Erc20";
 import { IAaveLendingPoolContract } from "./IAaveLendingPool";
 import { ICoreContract } from "./ICore";
@@ -30,6 +31,7 @@ declare global {
       require(name: "AbstractProvider"): AbstractProviderContract;
       require(name: "AddressStorage"): AddressStorageContract;
       require(name: "AToken"): ATokenContract;
+      require(name: "DAIMockToken"): DaiMockTokenContract;
       require(name: "ERC20"): Erc20Contract;
       require(name: "IAaveLendingPool"): IAaveLendingPoolContract;
       require(name: "ICore"): ICoreContract;
@@ -65,6 +67,7 @@ export {
   AddressStorageInstance
 } from "./AddressStorage";
 export { ATokenContract, ATokenInstance } from "./AToken";
+export { DaiMockTokenContract, DaiMockTokenInstance } from "./DaiMockToken";
 export { Erc20Contract, Erc20Instance } from "./Erc20";
 export {
   IAaveLendingPoolContract,

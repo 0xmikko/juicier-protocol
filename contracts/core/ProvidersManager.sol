@@ -109,6 +109,7 @@ contract ProvidersManager is Ownable {
     {
         uint256 providerListLenght = providersList.length;
         provider = providersList[0];
+        
         uint256 liquidityRate = uint256(-1);
         availableLiquidity = 0;
 

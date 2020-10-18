@@ -62,24 +62,28 @@ export interface PoolInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  redeem: {
+  redeemUnderlying: {
     (
       _reserve: string,
+      _user: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
       _reserve: string,
+      _user: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
       _reserve: string,
+      _user: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
       _reserve: string,
+      _user: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
@@ -134,24 +138,28 @@ export interface PoolInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    redeem: {
+    redeemUnderlying: {
       (
         _reserve: string,
+        _user: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
         _reserve: string,
+        _user: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
         _reserve: string,
+        _user: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
         _reserve: string,
+        _user: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;

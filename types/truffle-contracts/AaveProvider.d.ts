@@ -8,7 +8,6 @@ export interface AaveProviderContract
   extends Truffle.Contract<AaveProviderInstance> {
   "new"(
     _lendingPoolAddress: string,
-    _aTokenAddress: string,
     meta?: Truffle.TransactionDetails
   ): Promise<AaveProviderInstance>;
 }
@@ -65,6 +64,29 @@ export interface AaveProviderInstance extends Truffle.ContractInstance {
     ): Promise<string>;
     estimateGas(
       newOwner: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  addReserve: {
+    (
+      _reserve: string,
+      _aTokenAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _reserve: string,
+      _aTokenAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _reserve: string,
+      _aTokenAddress: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _reserve: string,
+      _aTokenAddress: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
@@ -143,6 +165,11 @@ export interface AaveProviderInstance extends Truffle.ContractInstance {
     txDetails?: Truffle.TransactionDetails
   ): Promise<BN>;
 
+  getReserveManagerForApprove(
+    _: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<string>;
+
   methods: {
     getAvaibleLiquidity(
       _reserve: string,
@@ -183,6 +210,29 @@ export interface AaveProviderInstance extends Truffle.ContractInstance {
       ): Promise<string>;
       estimateGas(
         newOwner: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    addReserve: {
+      (
+        _reserve: string,
+        _aTokenAddress: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _reserve: string,
+        _aTokenAddress: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _reserve: string,
+        _aTokenAddress: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _reserve: string,
+        _aTokenAddress: string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
@@ -260,6 +310,11 @@ export interface AaveProviderInstance extends Truffle.ContractInstance {
       _reserveAddress: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<BN>;
+
+    getReserveManagerForApprove(
+      _: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

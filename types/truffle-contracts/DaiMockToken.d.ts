@@ -4,15 +4,13 @@
 import BN from "bn.js";
 import { EventData, PastEventOptions } from "web3-eth-contract";
 
-export interface VTokenContract extends Truffle.Contract<VTokenInstance> {
+export interface DaiMockTokenContract
+  extends Truffle.Contract<DaiMockTokenInstance> {
   "new"(
-    _pool: string,
-    _underlyingAsset: string,
-    _underlyingAssetDecimals: number | BN | string,
     _name: string,
     _symbol: string,
     meta?: Truffle.TransactionDetails
-  ): Promise<VTokenInstance>;
+  ): Promise<DaiMockTokenInstance>;
 }
 
 export interface Approval {
@@ -24,20 +22,6 @@ export interface Approval {
     0: string;
     1: string;
     2: BN;
-  };
-}
-
-export interface MintOnDeposit {
-  name: "MintOnDeposit";
-  args: {
-    _from: string;
-    _value: BN;
-    _fromBalanceIncrease: BN;
-    _fromIndex: BN;
-    0: string;
-    1: BN;
-    2: BN;
-    3: BN;
   };
 }
 
@@ -53,11 +37,9 @@ export interface Transfer {
   };
 }
 
-type AllEvents = Approval | MintOnDeposit | Transfer;
+type AllEvents = Approval | Transfer;
 
-export interface VTokenInstance extends Truffle.ContractInstance {
-  UINT_MAX_VALUE(txDetails?: Truffle.TransactionDetails): Promise<BN>;
-
+export interface DaiMockTokenInstance extends Truffle.ContractInstance {
   /**
    * See {IERC20-allowance}.
    */
@@ -92,6 +74,14 @@ export interface VTokenInstance extends Truffle.ContractInstance {
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
+
+  /**
+   * See {IERC20-balanceOf}.
+   */
+  balanceOf(
+    account: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
 
   /**
    * Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is called. NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}.
@@ -221,117 +211,30 @@ export interface VTokenInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  addBalanceHolder: {
+  mint: {
     (
-      _holder: string,
+      _to: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      _holder: string,
+      _to: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
-      _holder: string,
+      _to: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      _holder: string,
+      _to: string,
       _amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
-
-  /**
-   * mints token in the event of users depositing the underlying asset into the lending pool only lending pools can call this function
-   * @param _account the address receiving the minted tokens
-   * @param _amount the amount of tokens to mint
-   */
-  mintOnDeposit: {
-    (
-      _account: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<Truffle.TransactionResponse<AllEvents>>;
-    call(
-      _account: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<void>;
-    sendTransaction(
-      _account: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<string>;
-    estimateGas(
-      _account: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<number>;
-  };
-
-  redeem: {
-    (
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<Truffle.TransactionResponse<AllEvents>>;
-    call(
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<void>;
-    sendTransaction(
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<string>;
-    estimateGas(
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<number>;
-  };
-
-  burnOnRedeem: {
-    (
-      _account: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<Truffle.TransactionResponse<AllEvents>>;
-    call(
-      _account: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<void>;
-    sendTransaction(
-      _account: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<string>;
-    estimateGas(
-      _account: string,
-      _amount: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<number>;
-  };
-
-  /**
-   * returns the principal balance of the user. The principal balance is the last updated stored balance, which does not consider the perpetually accruing interest.
-   * @param _user the address of the user
-   */
-  principalBalanceOf(
-    _user: string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<BN>;
-
-  /**
-   * calculates the balance of the user, which is the principal balance + interest generated by the principal balance + interest generated by the redirected balance
-   * @param _user the user for which the balance is being calculated
-   */
-  balanceOf(_user: string, txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
   methods: {
-    UINT_MAX_VALUE(txDetails?: Truffle.TransactionDetails): Promise<BN>;
-
     /**
      * See {IERC20-allowance}.
      */
@@ -366,6 +269,14 @@ export interface VTokenInstance extends Truffle.ContractInstance {
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
+
+    /**
+     * See {IERC20-balanceOf}.
+     */
+    balanceOf(
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
 
     /**
      * Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is called. NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}.
@@ -495,116 +406,28 @@ export interface VTokenInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    addBalanceHolder: {
+    mint: {
       (
-        _holder: string,
+        _to: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        _holder: string,
+        _to: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
-        _holder: string,
+        _to: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        _holder: string,
+        _to: string,
         _amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
-
-    /**
-     * mints token in the event of users depositing the underlying asset into the lending pool only lending pools can call this function
-     * @param _account the address receiving the minted tokens
-     * @param _amount the amount of tokens to mint
-     */
-    mintOnDeposit: {
-      (
-        _account: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<Truffle.TransactionResponse<AllEvents>>;
-      call(
-        _account: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<void>;
-      sendTransaction(
-        _account: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<string>;
-      estimateGas(
-        _account: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<number>;
-    };
-
-    redeem: {
-      (
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<Truffle.TransactionResponse<AllEvents>>;
-      call(
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<void>;
-      sendTransaction(
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<string>;
-      estimateGas(
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<number>;
-    };
-
-    burnOnRedeem: {
-      (
-        _account: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<Truffle.TransactionResponse<AllEvents>>;
-      call(
-        _account: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<void>;
-      sendTransaction(
-        _account: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<string>;
-      estimateGas(
-        _account: string,
-        _amount: number | BN | string,
-        txDetails?: Truffle.TransactionDetails
-      ): Promise<number>;
-    };
-
-    /**
-     * returns the principal balance of the user. The principal balance is the last updated stored balance, which does not consider the perpetually accruing interest.
-     * @param _user the address of the user
-     */
-    principalBalanceOf(
-      _user: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<BN>;
-
-    /**
-     * calculates the balance of the user, which is the principal balance + interest generated by the principal balance + interest generated by the redirected balance
-     * @param _user the user for which the balance is being calculated
-     */
-    balanceOf(
-      _user: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<BN>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;
