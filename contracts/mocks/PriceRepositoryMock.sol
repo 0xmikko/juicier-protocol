@@ -1,10 +1,8 @@
-// SPDX-License-Identifier: agpl-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.6.10;
-
 import "../core/IPriceRepository.sol";
 
-contract PriceRepository is IPriceRepository {
-    
+contract PriceRepositoryMock is IPriceRepository {
   function getReservePriceInETH(address _reserve)
     external
     override

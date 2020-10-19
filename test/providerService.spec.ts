@@ -1,7 +1,7 @@
 import {
   AaveLendingPoolMockInstance,
   AaveProviderInstance,
-  ProvidersManagerInstance,
+  ProviderServiceInstance,
 } from '../types/truffle-contracts';
 import {aaveReserves} from './core/aaveReserve';
 import BN from 'bn.js';
@@ -18,7 +18,7 @@ contract('ProviderService', async ([deployer, aaveOwner, ...users]) => {
   let _anotherLendingPoolMock: AaveLendingPoolMockInstance;
   let _anotherProvider: AaveProviderInstance;
 
-  let _providerService: ProvidersManagerInstance;
+  let _providerService: ProviderServiceInstance;
   const dai = aaveReserves['DAI'];
 
   beforeEach('Initial setup...', async () => {

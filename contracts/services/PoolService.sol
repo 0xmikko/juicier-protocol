@@ -12,7 +12,7 @@ import "../lib/EthAddressLib.sol";
 import "../lib/WadRayMath.sol";
 import "../repositories/ReserveRepository.sol";
 import "../repositories/UserBalanceRepository.sol";
-import "../repositories/PriceRepository.sol";
+import "../core/IPriceRepository.sol";
 import "../services/ProviderService.sol";
 import "../services/RiskService.sol";
 import "../token/VToken.sol";
@@ -27,7 +27,7 @@ contract PoolService is Ownable {
   ProviderRepository internal providerRepository;
   ReserveRepository private reserveRepository;
   UserBalanceRepository private userBalanceRepository;
-  PriceRepository private priceRepository;
+  IPriceRepository private priceRepository;
   RiskService private riskService;
 
   /**
@@ -50,15 +50,18 @@ contract PoolService is Ownable {
     providerRepository = ProviderRepository(
       addressRepository.getProviderRepository()
     );
+
     reserveRepository = ReserveRepository(
       addressRepository.getReserveRepository()
     );
+
+   
 
     userBalanceRepository = UserBalanceRepository(
       addressRepository.getUserBalanceRepository()
     );
 
-    priceRepository = PriceRepository(addressRepository.getPriceRepository());
+    priceRepository = IPriceRepository(addressRepository.getPriceRepository());
     riskService = RiskService(addressRepository.getRiskService());
   }
 
@@ -125,7 +128,8 @@ contract PoolService is Ownable {
     uint256 _amount
   ) external activeReserveOnly(_reserve) onlyAmountGreaterThanZero(_amount) {
     _transferValueToUser(_reserve, _user, _amount);
-    userBalanceRepository.decreaseUserDeposit(_reserve, msg.sender, _amount);
+    
+    userBalanceRepository.decreaseUserDeposit(_reserve, _user, _amount);
 
     emit RedeemUnderlying(_reserve, _user, _amount, uint40(block.timestamp));
   }

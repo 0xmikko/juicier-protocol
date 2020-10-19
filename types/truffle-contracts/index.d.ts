@@ -13,10 +13,12 @@ import { IAaveLendingPoolContract } from "./IAaveLendingPool";
 import { Ierc20Contract } from "./Ierc20";
 import { ILendingPoolCoreContract } from "./ILendingPoolCore";
 import { ILendingProviderContract } from "./ILendingProvider";
+import { IPriceRepositoryContract } from "./IPriceRepository";
 import { MigrationsContract } from "./Migrations";
 import { OwnableContract } from "./Ownable";
 import { PoolServiceContract } from "./PoolService";
 import { PriceRepositoryContract } from "./PriceRepository";
+import { PriceRepositoryMockContract } from "./PriceRepositoryMock";
 import { ProviderRepositoryContract } from "./ProviderRepository";
 import { ProviderServiceContract } from "./ProviderService";
 import { RateServiceContract } from "./RateService";
@@ -40,10 +42,12 @@ declare global {
       require(name: "IERC20"): Ierc20Contract;
       require(name: "ILendingPoolCore"): ILendingPoolCoreContract;
       require(name: "ILendingProvider"): ILendingProviderContract;
+      require(name: "IPriceRepository"): IPriceRepositoryContract;
       require(name: "Migrations"): MigrationsContract;
       require(name: "Ownable"): OwnableContract;
       require(name: "PoolService"): PoolServiceContract;
       require(name: "PriceRepository"): PriceRepositoryContract;
+      require(name: "PriceRepositoryMock"): PriceRepositoryMockContract;
       require(name: "ProviderRepository"): ProviderRepositoryContract;
       require(name: "ProviderService"): ProviderServiceContract;
       require(name: "RateService"): RateServiceContract;
@@ -88,6 +92,10 @@ export {
   ILendingProviderContract,
   ILendingProviderInstance
 } from "./ILendingProvider";
+export {
+  IPriceRepositoryContract,
+  IPriceRepositoryInstance
+} from "./IPriceRepository";
 export { MigrationsContract, MigrationsInstance } from "./Migrations";
 export { OwnableContract, OwnableInstance } from "./Ownable";
 export { PoolServiceContract, PoolServiceInstance } from "./PoolService";
@@ -95,6 +103,10 @@ export {
   PriceRepositoryContract,
   PriceRepositoryInstance
 } from "./PriceRepository";
+export {
+  PriceRepositoryMockContract,
+  PriceRepositoryMockInstance
+} from "./PriceRepositoryMock";
 export {
   ProviderRepositoryContract,
   ProviderRepositoryInstance

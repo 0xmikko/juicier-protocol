@@ -9,17 +9,27 @@ import {
   AddressRepositoryInstance,
   ProviderServiceInstance,
   ReserveRepositoryInstance,
+  UserBalanceRepositoryInstance,
 } from '../../types/truffle-contracts';
+import {IPriceRepositoryInstance} from '../../types/truffle-contracts/IPriceRepository';
+import {PriceRepositoryInstance} from '../../types/truffle-contracts/PriceRepository';
+import {PriceRepositoryMockInstance} from '../../types/truffle-contracts/PriceRepositoryMock';
+import {RiskServiceInstance} from '../../types/truffle-contracts/RiskService';
 import {AaveReserve} from './aaveReserve';
 
 export class JucifiDeployer {
   private readonly _deployer: string;
+
+  // Repositories
   private _addressRepository: AddressRepositoryInstance | undefined;
-
   private _providerRepository: ProviderRepositoryInstance | undefined;
-  private _providerService: ProviderServiceInstance | undefined;
-
   private _reserveRepository: ReserveRepositoryInstance | undefined;
+  private _priceRepository: IPriceRepositoryInstance | undefined;
+  private _userBalanceRepository: UserBalanceRepositoryInstance | undefined;
+
+  // Services
+  private _providerService: ProviderServiceInstance | undefined;
+  private _riskService: RiskServiceInstance | undefined;
   private _poolService: PoolServiceInstance | undefined;
 
   constructor(deployer: string) {
@@ -50,8 +60,13 @@ export class JucifiDeployer {
     if (this._poolService === undefined) {
       const addressRepository = await this.getAddressRepository();
 
+      // Initialize repositories
       await this.getReserveRepository();
+      await this.getPriceRepositoryMock();
+      await this.getUserBalanceRepository();
+
       await this.getProviderService();
+      await this.getRiskService();
 
       this._poolService = await artifacts.require('PoolService').new(addressRepository.address, {
         from: this._deployer,
@@ -108,11 +123,52 @@ export class JucifiDeployer {
     symbol: string
   ): Promise<VTokenInstance> {
     const addressRepository = await this.getAddressRepository();
-    const pool = await this.getPoolService();
+    const reserveRepository = await this.getReserveRepository();
     const token = await artifacts
       .require('VToken')
       .new(addressRepository.address, reserveAddress, 18, name, symbol, {from: this._deployer});
-    await pool.addReserve(reserveAddress, token.address, {from: this._deployer});
+    await reserveRepository.addReserve(reserveAddress, token.address, 70, 80, 5, {
+      from: this._deployer,
+    });
     return token;
+  }
+
+  async getPriceRepositoryMock(): Promise<IPriceRepositoryInstance> {
+    if (this._priceRepository === undefined) {
+      const addressRepository = await this.getAddressRepository();
+      this._priceRepository = await artifacts
+        .require('PriceRepositoryMock')
+        .new({from: this._deployer});
+      addressRepository.setPriceRepository(this._priceRepository.address);
+    }
+    return this._priceRepository;
+  }
+
+  async getUserBalanceRepository(): Promise<UserBalanceRepositoryInstance> {
+    if (this._userBalanceRepository === undefined) {
+      const addressRepository = await this.getAddressRepository();
+      this._userBalanceRepository = await artifacts
+        .require('UserBalanceRepository')
+        .new({from: this._deployer});
+      addressRepository.setUserBalanceRepository(this._userBalanceRepository.address);
+    }
+    return this._userBalanceRepository;
+  }
+
+  async getRiskService(): Promise<RiskServiceInstance> {
+    if (this._riskService === undefined) {
+      const addressRepository = await this.getAddressRepository();
+
+      // Initialize repositories
+      await this.getReserveRepository();
+      await this.getPriceRepositoryMock();
+      await this.getUserBalanceRepository();
+
+      this._riskService = await artifacts
+        .require('RiskService')
+        .new(addressRepository.address, {from: this._deployer});
+      addressRepository.setRiskService(this._riskService.address);
+    }
+    return this._riskService;
   }
 }

@@ -2,7 +2,7 @@
 pragma solidity ^0.6.10;
 
 import "../repositories/AddressRepository.sol";
-import "../repositories/PriceRepository.sol";
+import "../core/IPriceRepository.sol";
 import "../repositories/ReserveRepository.sol";
 import "../repositories/UserBalanceRepository.sol";
 
@@ -10,13 +10,13 @@ contract RiskService {
     using SafeMath for uint256;
 
   AddressRepository private addressRepository;
-  PriceRepository private priceRepository;
+  IPriceRepository private priceRepository;
   ReserveRepository private reserveRepository;
   UserBalanceRepository private userBalanceRepository;
 
   constructor(address _addressRepositoryAddress) public {
     addressRepository = AddressRepository(_addressRepositoryAddress);
-    priceRepository = PriceRepository(addressRepository.getPriceRepository());
+    priceRepository = IPriceRepository(addressRepository.getPriceRepository());
     reserveRepository = ReserveRepository(
       addressRepository.getReserveRepository()
     );
