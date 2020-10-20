@@ -11,6 +11,7 @@ import {ReserveListWidget} from "../containers/Reserves/ReservesListWidget";
 import {useWeb3React, Web3ReactProvider} from "@web3-react/core";
 import {getWeb3} from "../components/Web3/getWeb3";
 import {AaveProviderContract} from "../../types/truffle-contracts/AaveProvider";
+import {SERVER_ADDR} from "../config";
 
 const { abi }  = require("../../build/contracts/AaveProvider.json");
 
@@ -64,7 +65,7 @@ export async function getServerSideProps(): Promise<{props: IndexPageProps}> {
     url: "/",
   };
 
-  const {data} = await axios.get("http://localhost:3000/api/reserves");
+  const {data} = await axios.get(`${SERVER_ADDR}/api/reserves`);
 
   return {
     props: {meta, reserves: data},
