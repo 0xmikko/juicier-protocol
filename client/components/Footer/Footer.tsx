@@ -34,7 +34,7 @@ export function Footer() {
         </span>
       </CookieConsent>
       <div className={"footer-content"}>
-        <Container className="container_block">
+        <Container className="container_block" style={{color: "white"}}>
           <Row>
             <Col
               lg={{span: 5, order: "first"}}
@@ -45,7 +45,7 @@ export function Footer() {
               <Link href="/">
                 <img
                   src={"/logo.png"}
-                  height={25}
+                  height={50}
                   alt={"Logo"}
                   style={{marginBottom: "15px"}}
                 />
@@ -56,7 +56,7 @@ export function Footer() {
                 All rights reserved
               </p>
             </Col>
-            <Col lg={2} md={4} sm={4} xs={12} style={{paddingBottom: "20px"}}>
+            <Col lg={4} md={8} sm={8} xs={12} style={{paddingBottom: "20px"}}>
               <h5> Company </h5>
               <ul>
                 <li>
@@ -66,38 +66,43 @@ export function Footer() {
                 </li>
                 <li>
                   <Link href={"/vitamins"}>
-                    <a>Vitamins</a>
+                    <a>Vitamin tokens</a>
                   </Link>
                 </li>
                 <li>
                   <Link href={"/documentation"}>
-                    <a>Documentaion</a>
+                    <a>Documentation</a>
                   </Link>
                 </li>
               </ul>
             </Col>
-            <Col lg={2} md={4} sm={4} xs={12} style={{paddingBottom: "20px"}}>
-              <h5> Legal </h5>
-              <ul>
-                <li>
-                  <Link href={"/privacy"}>
-                    <a>Privacy</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={"/terms"}>
-                    <a>Terms</a>
-                  </Link>
-                </li>
-              </ul>
-            </Col>
+            {/*<Col lg={2} md={4} sm={4} xs={12} style={{paddingBottom: "20px"}}>*/}
+            {/*  <h5> Legal </h5>*/}
+            {/*  <ul>*/}
+            {/*    <li>*/}
+            {/*      <Link href={"/privacy"}>*/}
+            {/*        <a>Privacy</a>*/}
+            {/*      </Link>*/}
+            {/*    </li>*/}
+            {/*    <li>*/}
+            {/*      <Link href={"/terms"}>*/}
+            {/*        <a>Terms</a>*/}
+            {/*      </Link>*/}
+            {/*    </li>*/}
+            {/*  </ul>*/}
+            {/*</Col>*/}
             <Col lg={3} md={4} sm={4} xs={12} style={{paddingBottom: "40px"}}>
               <h5> Follow Us </h5>
 
               <a
                 className="button-social facebook"
-                aria-label="StackDrive on Facebook"
+                aria-label="Juicer protocol on Facebook"
                 href="https://www.facebook.com/juicerProtocol/"
+              ></a>
+              <a
+                className="button-social github"
+                aria-label="Juicer protocol on Github"
+                href="https://github.com/MikaelLazarev/juicifi"
               ></a>
             </Col>
           </Row>

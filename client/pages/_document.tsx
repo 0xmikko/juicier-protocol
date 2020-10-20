@@ -20,10 +20,6 @@ export default class MyDocument extends Document {
           <meta name="twitter:site" content="@Juicifi" />
           <meta property="og:site_name" content="Juicifi protocol" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
           <Favicon />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script

@@ -155,6 +155,7 @@ button {
   box-shadow: none;
   display: block;
   padding: 0;
+
 }
 input,
 textarea {
@@ -268,9 +269,9 @@ img {
 .btn {
   font-size: 11px;
   line-height: 1.773;
-  background-color: #1f85ec;
-  border-color: #1f85ec;
-  color: #fff;
+  background-color: #dd2869;
+  border-color: #dd2869;
+  color: #dfe5b3;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -278,9 +279,9 @@ img {
 }
 
 .btn:hover {
-  background-color: #fff;
-  border-color: #1f85ec;
-  color: #1f85ec;
+  background-color: #dfe5b3;
+  border-color: #dfe5b3;
+  color: #dd2869;
   height: auto;
 }
 
@@ -314,13 +315,12 @@ form {
   padding-left: 30px;
   padding-right: 30px;
   font-size: 1rem;
+
 }
 
 .formButton:hover {
   height: 48px;
   margin-bottom: 24px;
-  background-color: #0d4d71;
-  color: white;
 }
 
 .form-control,
@@ -413,7 +413,7 @@ label {
 /* Footer */
 
 .button-social {
-  margin-right: 8px;
+  margin-right: 10px;
   width: 24px;
   height: 24px;
   opacity: 0.85;
@@ -438,9 +438,10 @@ label {
   background-image: url("/social/instagram.svg");
 }
 
-.stackSheet {
-  width: 100%;
+.github {
+  background-image: url("/social/github.svg");
 }
+
 
 .pricing-screen {
   min-height: 100vh;
@@ -677,7 +678,7 @@ label {
   }
 
   .navbar-image {
-    height: 25px;
+    height: 45px;
   }
 }
 
@@ -715,19 +716,24 @@ label {
 }
 
 .footer-container {
-  background-color: #eee;
+  margin-top: 10rem;
+  background-color: #2c3e50;
   position: relative;
   padding: 0px 0 40px;
-  color: #000;
+  color: white;
 }
 
 .footer-content a {
-  color: #333;
+  color: #aaa;
 }
 
 .footer-content h4 {
   font-size: 20px;
   margin-bottom: 35px;
+}
+
+.footer-content h5 {
+  color: #ddd;
 }
 
 @media screen and (max-width: 768px) {
