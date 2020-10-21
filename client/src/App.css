@@ -1,38 +1,276 @@
-.App {
+/*
+ * Stackdrive. Self-order apps for business
+ * Copyright (c) 2020. Mikhail Lazarev
+ */
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+body {
+  margin: 0;
+  /*font-family: "Roboto" !important;*/
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #001737;
+  text-align: left;
+  background-color: #fff;
+}
+
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.onescreen {
+  display:-webkit-flex;
+  display:-ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left:0;
+}
+
+.onescreen h1 {
+  font-size: 38px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.onescreen h2 {
+  font-size: 22px;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.onescreen h3 {
+  font-size: 18px;
+  text-align: center;
+  color: #737373;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.btn {
+  font-size: 12px;
+  line-height: 1.773;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+
+.outline {
+  font-size: 12px;
+  line-height: 1.773;
+  background-color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.outline:hover {
+  color: #fff;
+}
+
+.formik-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 14px;
+}
+
+.formik-form .form-control,
+input,
+textarea {
+  font-size: 14px;
+  height: 48px;
+  margin-bottom: 24px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 0;
+}
+
+.formik-form input:disabled,
+textarea:disabled{
+  background-color: rgba(205, 205, 205, 0.42);
+  color: #001471;
+
+}
+
+.formik-form label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.feedback {
+  color: red;
+  margin-top: -18px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.toolbar {
+  background-color: transparent;
+  border: 0;
+  color: #0c0e13;
+  margin-right: 15px;
+  height: 24px;
+}
+
+.toolbar:hover {
+  background-color: #ddd;
+  border: 0;
+  color: #0c0e13;
+  margin-right: 15px;
+  height: 24px;
+}
+
+.nav-tabs .nav-link {
+  background-color: rgba(0,0,0, .4);
+  color: #FFF;
+  /*opacity: 0.6;*/
+  border: 1px solid rgba(255,255,255, .4);
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 5px 25px 5px 25px;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #eee;
+  border: 0;
+  opacity: 1;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 5px 25px 5px 25px;
+}
+
+.dropdown-toggle-nocaret:after {
+  display: none;
+}
+
+.cell {
+  text-align: left;
+  height: 30px;
+  border: 0.5px solid #999;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.preview-row {
+  margin-top: -1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20px 10px 20px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+/*.nav-item {*/
+/*  margin: 10px 15px 10px 15px;*/
+/*  font-size: 1rem;*/
+/*  font-weight: 500;*/
+/*}*/
+
+/*.nav-item :hover {*/
+/*  text-underline: #9cc900;*/
+/*}*/
+
+.image-cropper {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.profile-pic {
+  display: inline;
+  margin: 0 auto;
+  margin-left: 0%;
+  height: auto;
+  width: 100%;
+}
+
+.circle-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
   color: white;
+  background-color: #4285f4;
+  border: 1px solid #4285f4;
 }
 
-.App-link {
-  color: #61dafb;
+.circle-btn:hover {
+  color: #4285f4;
+  background-color: white;
+  border: 1px solid #4285f4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.button-social {
+  display: flex;
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  opacity: 0.85;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
+
+.twitter {
+  background-image: url("/social/twitter.svg");
+}
+
+.facebook {
+  background-image: url("/social/facebook.svg");
+}
+
+.linkedin {
+  background-image: url("/social/linkedin.svg");
+}
+
+.instagram {
+  background-image: url("/social/instagram.svg");
+}
+
