@@ -1,16 +1,15 @@
-import Web3 from 'web3';
 import {RootState} from '../index';
+import {Reserve} from "../../core/reserve";
 
 
 export const reservesSelector = (state: RootState) => state.reserves;
 
-export type Web3Actions =
+export type ReserveActions =
   | {
-      type: 'WEB3_CONNECTED';
-      payload: {
-          web3: Web3,
-      }
+      type: 'RESERVES_LIST';
+      payload: Array<Reserve>;
+
     }
   | {
-      type: 'WEB3_FAILED';
+      type: 'RESERVES_FAILED';
     };

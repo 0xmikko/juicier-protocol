@@ -14,6 +14,7 @@ contract ReserveRepository {
     bool isActive;
   }
 
+  address[] private reservesList;
   mapping(address => Reserve) reserves;
 
   function addReserve(
@@ -22,7 +23,6 @@ contract ReserveRepository {
     uint256 _loanToValue,
     uint256 _liquidationThreshold,
     uint256 _liquidationBonus
-
   ) public {
     reserves[_reserve].loanToValue = _loanToValue;
     reserves[_reserve].liquidationThreshold = _liquidationThreshold;
@@ -30,6 +30,8 @@ contract ReserveRepository {
 
     reserves[_reserve].vTokenContract = _vTokenAddress;
     reserves[_reserve].isActive = true;
+
+    reservesList.push(_reserve);
   }
 
   function isReserveActive(address _reserve) external view returns (bool) {
@@ -66,7 +68,7 @@ contract ReserveRepository {
     reserves[_reserve].vTokenContract = _contractAddress;
   }
 
-  function getVTokenContract(address _reserve) external view returns (VToken) {
+  function getVTokenContract(address _reserve) public view returns (VToken) {
     return VToken(reserves[_reserve].vTokenContract);
   }
 
@@ -78,8 +80,39 @@ contract ReserveRepository {
     reserves[_reserve].isActive = _active;
   }
 
-  function getLoanToValue(address _reserve) external view returns (uint256)
-  {
+  function getLoanToValue(address _reserve) external view returns (uint256) {
     return reserves[_reserve].loanToValue;
+  }
+
+  function getLiquidationThreshold(address _reserve)
+    external
+    view
+    returns (uint256)
+  {
+    return reserves[_reserve].liquidationThreshold;
+  }
+
+  function getLiquidationBonus(address _reserve)
+    external
+    view
+    returns (uint256)
+  {
+    return reserves[_reserve].liquidationBonus;
+  }
+
+  function getReserveSymbol(address _reserve)
+    external
+    view
+    returns (string memory)
+  {
+    return getVTokenContract(_reserve).symbol();
+  }
+
+  function getReservesQty() external view returns (uint256) {
+    return reservesList.length;
+  }
+
+  function getReserveByIndex(uint256 _index) external view returns (address) {
+    return reservesList[_index];
   }
 }

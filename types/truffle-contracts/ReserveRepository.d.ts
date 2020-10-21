@@ -169,6 +169,28 @@ export interface ReserveRepositoryInstance extends Truffle.ContractInstance {
     txDetails?: Truffle.TransactionDetails
   ): Promise<BN>;
 
+  getLiquidationThreshold(
+    _reserve: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
+  getLiquidationBonus(
+    _reserve: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
+  getReserveSymbol(
+    _reserve: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<string>;
+
+  getReservesQty(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+
+  getReserveByIndex(
+    _index: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<string>;
+
   methods: {
     addReserve: {
       (
@@ -326,6 +348,28 @@ export interface ReserveRepositoryInstance extends Truffle.ContractInstance {
       _reserve: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<BN>;
+
+    getLiquidationThreshold(
+      _reserve: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+
+    getLiquidationBonus(
+      _reserve: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+
+    getReserveSymbol(
+      _reserve: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+
+    getReservesQty(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+
+    getReserveByIndex(
+      _index: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

@@ -8,7 +8,7 @@ import actions from "../store/actions"
 
 export const AuthSwitcher: React.FC = () => {
   const dispatch = useDispatch();
-  const {status} = useSelector(web3Selector);
+  const {status, error} = useSelector(web3Selector);
 
 
   useEffect(() => {
@@ -31,6 +31,13 @@ export const AuthSwitcher: React.FC = () => {
     case "WEB3_CONNECTED":
       return <Router />;
     case "NO_WEB3":
-      return <FailureView error={"Please, connect your metamask"} />;
+      switch (error) {
+        default:
+        case "CONNECTION_ERROR":
+          return <FailureView error={"Please, connect your metamask"} />;
+        case "WRONG_NETWORK_ERROR":
+          return <FailureView error={"Please,choose another network"} />;
+      }
+
   }
 };

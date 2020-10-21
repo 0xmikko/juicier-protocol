@@ -173,6 +173,11 @@ export interface PoolServiceInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
+  getReserveInfo(
+    _reserve: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<[string, BN, BN, BN, BN, BN, string, BN, BN, boolean]>;
+
   methods: {
     /**
      * Returns the address of the current owner.
@@ -307,6 +312,11 @@ export interface PoolServiceInstance extends Truffle.ContractInstance {
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
+
+    getReserveInfo(
+      _reserve: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<[string, BN, BN, BN, BN, BN, string, BN, BN, boolean]>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

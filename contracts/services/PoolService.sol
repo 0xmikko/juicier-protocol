@@ -55,8 +55,6 @@ contract PoolService is Ownable {
       addressRepository.getReserveRepository()
     );
 
-   
-
     userBalanceRepository = UserBalanceRepository(
       addressRepository.getUserBalanceRepository()
     );
@@ -128,7 +126,7 @@ contract PoolService is Ownable {
     uint256 _amount
   ) external activeReserveOnly(_reserve) onlyAmountGreaterThanZero(_amount) {
     _transferValueToUser(_reserve, _user, _amount);
-    
+
     userBalanceRepository.decreaseUserDeposit(_reserve, _user, _amount);
 
     emit RedeemUnderlying(_reserve, _user, _amount, uint40(block.timestamp));
@@ -157,9 +155,7 @@ contract PoolService is Ownable {
     // emit Borrow(_reserve, _user, _amount, uint40(block.timestamp));
   }
 
-  function repay(address _reserve, uint256 _amount) external payable{
-
-  }
+  function repay(address _reserve, uint256 _amount) external payable {}
 
   function _transferValueToUser(
     address _reserve,
@@ -245,5 +241,32 @@ contract PoolService is Ownable {
         require(result, "Pool: Transfer of ETH failed");
       }
     }
+  }
+
+  function getReserveInfo(address _reserve)
+    external
+    view
+    returns (
+      string memory symbol,
+      uint256 totalLiquidity,
+      uint256 availableLiquidity,
+      uint256 loanToValue,
+      uint256 liquidationThreshold,
+      uint256 liquidationBonus,
+      address vTokenContract,
+      uint256 borrowRate,
+      uint256 lendingRate,
+      bool isActive
+    )
+  {
+    symbol = reserveRepository.getReserveSymbol(_reserve);
+    totalLiquidity = reserveRepository.getTotalLiquidity(_reserve);
+    availableLiquidity = reserveRepository.getAvailableLiquidity(_reserve);
+    loanToValue = reserveRepository.getLoanToValue(_reserve);
+    liquidationThreshold = reserveRepository.getLiquidationThreshold(_reserve);
+    liquidationBonus = reserveRepository.getLiquidationBonus(_reserve);
+    vTokenContract = address(reserveRepository.getVTokenContract(_reserve));
+    (borrowRate, lendingRate) = providerService.getBestRates(_reserve);
+    isActive = reserveRepository.isActive(_reserve);
   }
 }

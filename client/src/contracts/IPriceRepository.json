@@ -1,0 +1,307 @@
+{
+  "contractName": "IPriceRepository",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        }
+      ],
+      "name": "getReservePriceInETH",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"}],\"name\":\"getReservePriceInETH\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mikhail/Coding/jucifi/contracts/core/IPriceRepository.sol\":\"IPriceRepository\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mikhail/Coding/jucifi/contracts/core/IPriceRepository.sol\":{\"keccak256\":\"0xf05934721971ad5f9873b32bfe1ac5b666d8a74ae38b3bbe984104ce36efd9ec\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://59acb68a29e05845ad2baea070ad24b1562bc95ae767c9fe5205db6799526eb3\",\"dweb:/ipfs/Qmac4ArGMhaNe56aKAnYGtGCXMNgm1XU612EpwWWpyUKUN\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\ninterface IPriceRepository {\n  function getReservePriceInETH(address _reserve)\n    external\n    view\n    returns (uint256);\n}\n",
+  "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/core/IPriceRepository.sol",
+  "ast": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/core/IPriceRepository.sol",
+    "exportedSymbols": {
+      "IPriceRepository": [
+        182
+      ]
+    },
+    "id": 183,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 174,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:3"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 182,
+        "linearizedBaseContracts": [
+          182
+        ],
+        "name": "IPriceRepository",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "b6d3a35d",
+            "id": 181,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReservePriceInETH",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 177,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 176,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 181,
+                  "src": "124:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 175,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "124:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "123:18:3"
+            },
+            "returnParameters": {
+              "id": 180,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 179,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 181,
+                  "src": "177:7:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 178,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "177:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "176:9:3"
+            },
+            "scope": 182,
+            "src": "94:92:3",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 183,
+        "src": "63:125:3"
+      }
+    ],
+    "src": "37:152:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/core/IPriceRepository.sol",
+    "exportedSymbols": {
+      "IPriceRepository": [
+        182
+      ]
+    },
+    "id": 183,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 174,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:24:3"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 182,
+        "linearizedBaseContracts": [
+          182
+        ],
+        "name": "IPriceRepository",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "b6d3a35d",
+            "id": 181,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReservePriceInETH",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 177,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 176,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 181,
+                  "src": "124:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 175,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "124:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "123:18:3"
+            },
+            "returnParameters": {
+              "id": 180,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 179,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 181,
+                  "src": "177:7:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 178,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "177:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "176:9:3"
+            },
+            "scope": 182,
+            "src": "94:92:3",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 183,
+        "src": "63:125:3"
+      }
+    ],
+    "src": "37:152:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.10+commit.00c0fcaf.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-10-19T09:04:15.818Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

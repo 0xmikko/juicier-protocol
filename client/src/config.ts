@@ -1,5 +1,8 @@
 export const isDev = process.env.NODE_ENV === 'development';
 
+export const KOVAN_NETWORK_ID = 5777;
+export const REQUIRED_NETWORK = KOVAN_NETWORK_ID;
+
 export const BACKEND_ADDR = isDev
   ? 'http://localhost:8000'
   : 'https://juicer.finance';
