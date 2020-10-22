@@ -7,14 +7,13 @@ Juicer Protocol is a lending protocol which offers guaranteed better rates for b
 
 ## How it works
 
-The lender wants to invest 100 USD coins. The protocol automatically chooses the offer with the highest rate. 
+1. The lender wants to invest 100 USD coins. The protocol automatically chooses the offer with the highest rate. 
 ![jp1](https://user-images.githubusercontent.com/26343374/96941248-9af36300-14da-11eb-8832-a714b81638fb.jpeg)
 
-Juicer Protocol uses best rate strategy and found that Aave provides the best one which is 3.47.
-So  it takes lender’s money and put them into Aave protocol
+2. Juicer Protocol uses best rate strategy and found that Aave provides the best one which is 3.47. So  it takes lender’s money and put them into Aave protocol
 ![jp2](https://user-images.githubusercontent.com/26343374/96941255-9dee5380-14da-11eb-82d8-a9c6ede0d79c.jpeg)
 
-When borrower comes, the protocol takes money from lending provider with the lowest interest rate and credit them to borrower, taking a collateral.
+3. When borrower comes, the protocol takes money from lending provider with the lowest interest rate and credit them to borrower, taking a collateral.
 
 ![jp3](https://user-images.githubusercontent.com/26343374/96941257-9e86ea00-14da-11eb-9d73-f244cc4a8073.jpeg)
 
