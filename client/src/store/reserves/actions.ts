@@ -29,20 +29,20 @@ export const getReserves = (): ThunkAction<void, RootState, unknown, ReserveActi
 
   console.log('WWW', qty);
 
-  // const aaveReserves = await aaveProvider?.methods.getReserves().call();
-  // if (aaveReserves === undefined) throw new Error('No Aave reserves');
-  // if (aaveReserves === undefined) throw new Error('No Aave reserves');
-  // for (let res of aaveReserves) {
-  //   console.log('RESERVE ADDRESS', res);
-  //   if (res != '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE') {
-  //     const tContract = await getTokenContract(web3, res);
-  //     console.log(await tContract.methods.name().call())
-  //     console.log(await tContract.methods.symbol().call())
-  //   }
-  //   const resData = await aaveLendingPool.methods.getReserveData(res).call()
-  //   console.log(resData.aTokenAddress);
-  //   console.log(await aaveProvider?.methods.getReserveData(res).call());
-  // }
+  const aaveReserves = await aaveProvider?.methods.getReserves().call();
+  if (aaveReserves === undefined) throw new Error('No Aave reserves');
+  if (aaveReserves === undefined) throw new Error('No Aave reserves');
+  for (let res of aaveReserves) {
+    console.log('RESERVE ADDRESS', res);
+    if (res != '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE') {
+      const tContract = await getTokenContract(web3, res);
+      console.log(await tContract.methods.name().call())
+      console.log(await tContract.methods.symbol().call())
+    }
+    const resData = await aaveLendingPool.methods.getReserveData(res).call()
+    console.log(resData.aTokenAddress);
+    console.log(await aaveProvider?.methods.getReserveData(res).call());
+  }
 
   for (let i = 0; i < qty; i++) {
     const reserve = await reserveRepository.methods.getReserveByIndex(i).call();

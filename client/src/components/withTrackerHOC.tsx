@@ -34,7 +34,7 @@ export const withTracker = <P extends RouteComponentProps>(
                 previousUrl = props.location.pathname;
                 trackPageGA(props.location.pathname);
                 ReactPixel.pageView();
-                // Analytics.sendEvent("PAGE_OPEN", "CLIENT:" + props.location.pathname)
+                Analytics.sendEvent("PAGE_OPEN", "CLIENT:" + props.location.pathname)
             }
         }, [history]);
 

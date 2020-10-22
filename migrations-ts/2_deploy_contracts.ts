@@ -32,6 +32,48 @@ const tokens: Array<tokenData> = [
     token: '0xe22da380ee6B445bb8273C81944ADEB6E8450422',
     aToken: '0x02F626c6ccb6D2ebC071c068DC1f02Bf5693416a',
   },
+  {
+    name: 'TrueUSD',
+    symbol: 'TUSD',
+    token: '0x1c4a937d171752e1313D70fb16Ae2ea02f86303e',
+    aToken: '0xA79383e0d2925527ba5Ec1c1bcaA13c28EE00314',
+  },
+  {
+    name: 'USDT Coin',
+    symbol: 'USDT',
+    token: '0x13512979ADE267AB5100878E2e0f485B568328a4',
+    aToken: '0xA01bA9fB493b851F4Ac5093A324CB081A909C34B',
+  },
+  {
+    name: 'Synthetix USD',
+    symbol: 'SUSD',
+    token: '0xD868790F57B39C9B2B51b12de046975f986675f9',
+    aToken: '0xb9c1434aB6d5811D1D0E92E8266A37Ae8328e901',
+  },
+  {
+    name: 'Basic Attention Token',
+    symbol: 'BAT',
+    token: '0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738',
+    aToken: '0x5ad67de6Fb697e92a7dE99d991F7CdB77EdF5F74',
+  },
+  {
+    name: 'ChainLink',
+    symbol: 'LINK',
+    token: '0xAD5ce863aE3E4E9394Ab43d4ba0D80f419F61789',
+    aToken: '0xEC23855Ff01012E1823807CE19a790CeBc4A64dA',
+  },
+  {
+    name: 'WBTC Coin',
+    symbol: 'WBTC',
+    token: '0x3b92f58feD223E2cB1bCe4c286BD97e42f2A12EA',
+    aToken: '0xCD5C52C7B30468D16771193C47eAFF43EFc47f5C',
+  },
+  {
+    name: 'yearn.finance',
+    symbol: 'YFI',
+    token: '0x28a8cdD5f533aaC3053d4E97980A7f1e174Db902',
+    aToken: '0x6fcA32fB852e875944BE06B2955469494f7fb5A0',
+  },
 ];
 
 const DAIMockToken = artifacts.require('DAIMockToken');
@@ -49,9 +91,8 @@ async function generateMockTokens(
     token.token = DAIMockToken.address;
     const tokenContract = await DAIMockToken.deployed();
     const tx = await tokenContract.mint(deployerAddress, new BigNumber('1e22').toFixed(0));
-    const balance = await tokenContract.balanceOf(deployerAddress)
+    const balance = await tokenContract.balanceOf(deployerAddress);
     console.log('mint TX', deployerAddress, balance);
-
 
     // AToken creation
     await deployer.deploy(
@@ -118,95 +159,96 @@ module.exports = async function (
 
   const mockIsNeedeed = network.indexOf(KOVAN_NETWORK_ID) === -1;
 
-  console.log(`Detected a network ${network}. Mock flag is ${mockIsNeedeed}! Type 'yes' to continue.`)
+  console.log(
+    `Detected a network ${network}. Mock flag is ${mockIsNeedeed}! Type 'yes' to continue.`
+  );
   // const cont = prompt(`> `);
   // if (cont.toString().toLowerCase() !== 'yes') {
   //   process.exit(1);
   // }
 
   try {
+    await deployer.deploy(AddressRepository);
+    const _addressRepository = await AddressRepository.deployed();
 
-  await deployer.deploy(AddressRepository);
-  const _addressRepository = await AddressRepository.deployed();
+    console.log('ADDRESS REPOSITORY DEPOLYED AT: ', _addressRepository.address);
 
-  console.log("ADDRESS REPOSITORY DEPOLYED AT: ", _addressRepository.address);
+    await deployer.deploy(ProviderRepository);
+    await _addressRepository.setProviderRepository(ProviderRepository.address);
+    const _providerRepository = await ProviderRepository.deployed();
 
-  await deployer.deploy(ProviderRepository);
-  await _addressRepository.setProviderRepository(ProviderRepository.address);
-  const _providerRepository = await ProviderRepository.deployed();
+    console.log('ADDRESS REPOSITORY DEPOLYED AT: ', _providerRepository.address);
 
-  console.log("ADDRESS REPOSITORY DEPOLYED AT: ", _providerRepository.address);
+    await deployer.deploy(ReserveRepository);
+    await _addressRepository.setReserveRepository(ReserveRepository.address);
+    const _reserveRepository = await ReserveRepository.deployed();
 
-  await deployer.deploy(ReserveRepository);
-  await _addressRepository.setReserveRepository(ReserveRepository.address);
-  const _reserveRepository = await ReserveRepository.deployed();
+    console.log('RESERVE REPOSITORY DEPOLYED AT: ', _providerRepository.address);
 
-  console.log("RESERVE REPOSITORY DEPOLYED AT: ", _providerRepository.address);
+    await deployer.deploy(PriceRepository);
+    await _addressRepository.setPriceRepository(PriceRepository.address);
 
-  await deployer.deploy(PriceRepository);
-  await _addressRepository.setPriceRepository(PriceRepository.address);
+    await deployer.deploy(UserBalanceRepository);
+    await _addressRepository.setUserBalanceRepository(UserBalanceRepository.address);
 
-  await deployer.deploy(UserBalanceRepository);
-  await _addressRepository.setUserBalanceRepository(UserBalanceRepository.address);
+    await deployer.deploy(ProviderService, AddressRepository.address);
+    await _addressRepository.setProviderService(ProviderService.address);
 
-  await deployer.deploy(ProviderService, AddressRepository.address);
-  await _addressRepository.setProviderService(ProviderService.address);
+    await deployer.deploy(RiskService, AddressRepository.address);
+    await _addressRepository.setRiskService(RiskService.address);
 
-  await deployer.deploy(RiskService, AddressRepository.address);
-  await _addressRepository.setRiskService(RiskService.address);
+    await deployer.deploy(PoolService, AddressRepository.address);
+    await _addressRepository.setPoolService(PoolService.address);
 
-  await deployer.deploy(PoolService, AddressRepository.address);
-  await _addressRepository.setPoolService(PoolService.address);
+    let aaveLendingPoolAddress: string = AaveContracts.LendingPool;
+    let aavePoolCoreAddressaaveLending: string = AaveContracts.LendingPoolCore;
 
-  let aaveLendingPoolAddress: string = AaveContracts.LendingPool;
-  let aavePoolCoreAddressaaveLending: string = AaveContracts.LendingPoolCore;
+    let _aaveLendingPoolMock: AaveLendingPoolMockInstance | undefined;
 
-  let _aaveLendingPoolMock: AaveLendingPoolMockInstance | undefined;
+    // Aave Lending Pool
+    if (mockIsNeedeed) {
+      await deployer.deploy(AaveLendingPoolMock);
+      aaveLendingPoolAddress = AaveLendingPoolMock.address;
+      aavePoolCoreAddressaaveLending = AaveLendingPoolMock.address;
+      _aaveLendingPoolMock = await AaveLendingPoolMock.deployed();
+    }
 
-  // Aave Lending Pool
-  if (mockIsNeedeed) {
-    await deployer.deploy(AaveLendingPoolMock);
-    aaveLendingPoolAddress = AaveLendingPoolMock.address;
-    aavePoolCoreAddressaaveLending = AaveLendingPoolMock.address;
-    _aaveLendingPoolMock = await AaveLendingPoolMock.deployed();
-  }
+    await deployer.deploy(AaveProvider, aaveLendingPoolAddress, aavePoolCoreAddressaaveLending);
+    await _providerRepository.addProvider(AaveProvider.address);
+    const _aaveProvider = await AaveProvider.deployed();
 
-  await deployer.deploy(AaveProvider, aaveLendingPoolAddress, aavePoolCoreAddressaaveLending);
-  await _providerRepository.addProvider(AaveProvider.address);
-  const _aaveProvider = await AaveProvider.deployed();
+    let tokensToConnect = tokens;
+    if (mockIsNeedeed) {
+      tokensToConnect = await generateMockTokens(deployer, accounts[0], aaveLendingPoolAddress);
+    }
 
-  let tokensToConnect = tokens;
-  if (mockIsNeedeed) {
-    tokensToConnect = await generateMockTokens(deployer, accounts[0], aaveLendingPoolAddress);
-  }
+    for (let t of tokensToConnect) {
+      await _aaveProvider.addReserve(t.token, t.aToken);
+      if (mockIsNeedeed)
+        await _aaveLendingPoolMock?.setReserve(
+          t.token,
+          10000000,
+          232323,
+          34,
+          54,
+          33,
+          75,
+          39,
+          23,
+          15,
+          5,
+          45,
+          t.aToken,
+          Math.floor(Date.now() / 1000).toString()
+        );
 
-  for (let t of tokensToConnect) {
-    await _aaveProvider.addReserve(t.token, t.aToken);
-    if (mockIsNeedeed)
-      await _aaveLendingPoolMock?.setReserve(
-        t.token,
-        10000000,
-        232323,
-        34,
-        54,
-        33,
-        75,
-        39,
-        23,
-        15,
-        5,
-        45,
-        t.aToken,
-        Math.floor(Date.now() / 1000).toString()
-      );
+      await deployer.deploy(VToken, _addressRepository.address, t.token, 18, t.name, t.symbol);
+      const vToken = await VToken.deployed();
 
-    await deployer.deploy(VToken, _addressRepository.address, t.token, 18, t.name, t.symbol);
-    const vToken = await VToken.deployed();
-
-    await _reserveRepository.addReserve(t.token, vToken.address, 70, 80, 5);
-  }
+      await _reserveRepository.addReserve(t.token, vToken.address, 70, 80, 5);
+    }
   } catch (err) {
-    console.log("ERROR HAPPENED DURING DEPLOY", err);
+    console.log('ERROR HAPPENED DURING DEPLOY', err);
   }
   // DEPLOY VITAMIN TOKENS
 };

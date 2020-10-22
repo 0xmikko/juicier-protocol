@@ -22,6 +22,48 @@ const tokens = [
         token: '0xe22da380ee6B445bb8273C81944ADEB6E8450422',
         aToken: '0x02F626c6ccb6D2ebC071c068DC1f02Bf5693416a',
     },
+    {
+        name: 'TrueUSD',
+        symbol: 'TUSD',
+        token: '0x1c4a937d171752e1313D70fb16Ae2ea02f86303e',
+        aToken: '0xA79383e0d2925527ba5Ec1c1bcaA13c28EE00314',
+    },
+    {
+        name: 'USDT Coin',
+        symbol: 'USDT',
+        token: '0x13512979ADE267AB5100878E2e0f485B568328a4',
+        aToken: '0xA01bA9fB493b851F4Ac5093A324CB081A909C34B',
+    },
+    {
+        name: 'Synthetix USD',
+        symbol: 'SUSD',
+        token: '0xD868790F57B39C9B2B51b12de046975f986675f9',
+        aToken: '0xb9c1434aB6d5811D1D0E92E8266A37Ae8328e901',
+    },
+    {
+        name: 'Basic Attention Token',
+        symbol: 'BAT',
+        token: '0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738',
+        aToken: '0x5ad67de6Fb697e92a7dE99d991F7CdB77EdF5F74',
+    },
+    {
+        name: 'ChainLink',
+        symbol: 'LINK',
+        token: '0xAD5ce863aE3E4E9394Ab43d4ba0D80f419F61789',
+        aToken: '0xEC23855Ff01012E1823807CE19a790CeBc4A64dA',
+    },
+    {
+        name: 'WBTC Coin',
+        symbol: 'WBTC',
+        token: '0x3b92f58feD223E2cB1bCe4c286BD97e42f2A12EA',
+        aToken: '0xCD5C52C7B30468D16771193C47eAFF43EFc47f5C',
+    },
+    {
+        name: 'yearn.finance',
+        symbol: 'YFI',
+        token: '0x28a8cdD5f533aaC3053d4E97980A7f1e174Db902',
+        aToken: '0x6fcA32fB852e875944BE06B2955469494f7fb5A0',
+    },
 ];
 const DAIMockToken = artifacts.require('DAIMockToken');
 const AToken = artifacts.require('AToken');
@@ -87,15 +129,15 @@ module.exports = async function (deployer, network, accounts) {
     try {
         await deployer.deploy(AddressRepository);
         const _addressRepository = await AddressRepository.deployed();
-        console.log("ADDRESS REPOSITORY DEPOLYED AT: ", _addressRepository.address);
+        console.log('ADDRESS REPOSITORY DEPOLYED AT: ', _addressRepository.address);
         await deployer.deploy(ProviderRepository);
         await _addressRepository.setProviderRepository(ProviderRepository.address);
         const _providerRepository = await ProviderRepository.deployed();
-        console.log("ADDRESS REPOSITORY DEPOLYED AT: ", _providerRepository.address);
+        console.log('ADDRESS REPOSITORY DEPOLYED AT: ', _providerRepository.address);
         await deployer.deploy(ReserveRepository);
         await _addressRepository.setReserveRepository(ReserveRepository.address);
         const _reserveRepository = await ReserveRepository.deployed();
-        console.log("RESERVE REPOSITORY DEPOLYED AT: ", _providerRepository.address);
+        console.log('RESERVE REPOSITORY DEPOLYED AT: ', _providerRepository.address);
         await deployer.deploy(PriceRepository);
         await _addressRepository.setPriceRepository(PriceRepository.address);
         await deployer.deploy(UserBalanceRepository);
@@ -133,7 +175,7 @@ module.exports = async function (deployer, network, accounts) {
         }
     }
     catch (err) {
-        console.log("ERROR HAPPENED DURING DEPLOY", err);
+        console.log('ERROR HAPPENED DURING DEPLOY', err);
     }
     // DEPLOY VITAMIN TOKENS
 };
