@@ -13,37 +13,37 @@ export function MetaTag({ data }: MetaTagProps): React.ReactElement {
   useEffect(() => {
     if (process.browser) {
       if (document !== undefined) {
-        const domain = isDev ? ".juicier.finance" : "localhost";
-        Analytics.init(MARKETING_ADDR, domain).then(async () => {
-          const queryString = document.location.search;
-          const query =
-            queryString[0] === "?" ? queryString.substr(1) : queryString;
-          const values = (parse(query) as unknown) as Record<string, string>;
-          const utms: string[] = [
-            "utm_source",
-            "utm_medium",
-            "utm_campaign",
-            "utm_content",
-          ];
-          const found = utms.filter((u) => values.hasOwnProperty(u)).length;
-          if (found > 0) {
-            console.log("UTM FOUNDS!");
-            const utm: Utm = {
-              source: values["utm_source"] || "",
-              medium: values["utm_medium"] || "",
-              campaign: values["utm_campaign"] || "",
-              content: values["utm_content"] || "",
-            };
-
-            await Analytics.sendUtm(utm);
-          }
-
-          // Send page event
-          await Analytics.sendEvent(
-            "PAGE_OPEN",
-            `LANDING: ${document.location.pathname}`
-          );
-        });
+        const domain = isDev ? "juicier.finance" : "localhost";
+        // Analytics.init(MARKETING_ADDR, domain).then(async () => {
+        //   const queryString = document.location.search;
+        //   const query =
+        //     queryString[0] === "?" ? queryString.substr(1) : queryString;
+        //   const values = (parse(query) as unknown) as Record<string, string>;
+        //   const utms: string[] = [
+        //     "utm_source",
+        //     "utm_medium",
+        //     "utm_campaign",
+        //     "utm_content",
+        //   ];
+        //   const found = utms.filter((u) => values.hasOwnProperty(u)).length;
+        //   if (found > 0) {
+        //     console.log("UTM FOUNDS!");
+        //     const utm: Utm = {
+        //       source: values["utm_source"] || "",
+        //       medium: values["utm_medium"] || "",
+        //       campaign: values["utm_campaign"] || "",
+        //       content: values["utm_content"] || "",
+        //     };
+        //
+        //     await Analytics.sendUtm(utm);
+        //   }
+        //
+        //   // Send page event
+        //   await Analytics.sendEvent(
+        //     "PAGE_OPEN",
+        //     `LANDING: ${document.location.pathname}`
+        //   );
+        // });
       }
     }
   }, [process.browser]);
