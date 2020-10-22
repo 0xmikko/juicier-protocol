@@ -6,6 +6,7 @@ import AppBar from "../../components/AppBar/AppBar";
 import {Footer} from "../../components/Footer/Footer";
 import {DepositListWidget} from "../../containers/Deposits/DepositsListWidget";
 import {Layout} from "../Layout";
+import {Helmet} from "react-helmet";
 
 export function DepositListScreen(): React.ReactElement {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export function DepositListScreen(): React.ReactElement {
 
   return (
     <Layout>
+      <Helmet title={"Deposits | Juicer Protocol"} />
       <DepositListWidget data={reserves.data} />
     </Layout>
   );

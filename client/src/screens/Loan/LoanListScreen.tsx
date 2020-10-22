@@ -1,20 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useEffect} from "react";
 import actions from "../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {reservesSelector} from "../../store/reserves";
 import {Layout} from "../Layout";
 import {LoansListWidget} from "../../containers/Loans/LoansListWidget";
+import {Helmet} from "react-helmet";
 
-export function LoanListScreen() : React.ReactElement {
-    const dispatch = useDispatch();
+export function LoanListScreen(): React.ReactElement {
+  const dispatch = useDispatch();
 
-    const reserves = useSelector(reservesSelector);
+  const reserves = useSelector(reservesSelector);
 
-    useEffect(() => {
-        dispatch(actions.reserves.getReserves());
-    }, [])
+  useEffect(() => {
+    dispatch(actions.reserves.getReserves());
+  }, []);
 
-    return    <Layout>
-        <LoansListWidget data={reserves.data} />
+  return (
+    <Layout>
+      <Helmet title={"Loans | Juicer Protocol"} />
+      <LoansListWidget data={reserves.data} />
     </Layout>
+  );
 }

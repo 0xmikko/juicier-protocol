@@ -5,6 +5,7 @@ import {reservesSelector} from "../../store/reserves";
 import {Layout} from "../Layout";
 import {LoansListWidget} from "../../containers/Loans/LoansListWidget";
 import {VitaminListWidget} from "../../containers/Vitamins/VitaminsListWidget";
+import {Helmet} from "react-helmet";
 
 export function VitaminListScreen(): React.ReactElement {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export function VitaminListScreen(): React.ReactElement {
 
   return (
     <Layout>
+      <Helmet title={"Vitamins token | Juicer Protocol"} />
       <VitaminListWidget data={reserves.data} />
     </Layout>
   );

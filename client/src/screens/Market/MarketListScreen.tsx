@@ -6,6 +6,7 @@ import {ReserveListWidget} from "../../containers/Reserves/ReservesListWidget";
 import AppBar from "../../components/AppBar/AppBar";
 import {Footer} from "../../components/Footer/Footer";
 import {Layout} from "../Layout";
+import {Helmet} from "react-helmet";
 
 export function MarketListScreen(): React.ReactElement {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export function MarketListScreen(): React.ReactElement {
 
   return (
     <Layout>
+      <Helmet title={"Markets | Juicer Protocol"} />
       <ReserveListWidget data={reserves.data} />
     </Layout>
   );

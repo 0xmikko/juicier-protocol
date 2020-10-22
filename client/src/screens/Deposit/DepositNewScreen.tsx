@@ -11,6 +11,7 @@ import {RouteComponentProps} from "react-router";
 import {ApproveToPool} from "../../containers/Deposits/ApproveToPool";
 import {tokenSelector} from "../../store/tokens";
 import {DepositAction} from "../../containers/Deposits/DepositAction";
+import {Helmet} from "react-helmet";
 
 interface MatchParams {
   id: string;
@@ -40,6 +41,7 @@ export function DepositNewScreen({
 
   return (
     <Layout>
+      <Helmet title={"New deposits | Juicer Protocol"} />
       <Container style={{textAlign: "center", marginTop: "3.5rem"}}>
         <Row
           style={{
