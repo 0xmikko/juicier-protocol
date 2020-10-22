@@ -5,6 +5,8 @@ Juicifi. Decentralized Lending Broker
 
 Juicer Protocol is a lending protocol which offers guaranteed better rates for both borrowers. It connects with all known DeFi lending protocols to provide the best interests rates.
 
+Video: https://youtu.be/CJe8jZrymBw
+
 ## How it works
 
 1. The lender wants to invest 100 USD coins. The protocol automatically chooses the offer with the highest rate. 
