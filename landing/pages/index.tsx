@@ -26,8 +26,8 @@ export default function IndexPage({meta, reserves}: IndexPageProps) {
       {/*<MetaTag data={meta} />*/}
       {/*<AppBar backgroundColor={"rgb(0, 157, 128)"} />*/}
       <HeroBlock />
-      {/*<ReserveListWidget data={reserves} />*/}
-      {/*<Footer />*/}
+      <ReserveListWidget data={reserves} />
+      <Footer />
     </>
   );
 }
