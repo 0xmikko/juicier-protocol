@@ -8,12 +8,21 @@ import {Nav, Navbar, Button, Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 import {AppBarElement} from "./AppBarElement";
+import {useSelector} from "react-redux";
+import {web3Selector} from "../../store/web3";
+import * as blockies from 'blockies-ts';
+
 
 export interface AppBarProps {
   backgroundColor?: string;
 }
 
 export const AppBar = ({backgroundColor}: AppBarProps) => {
+
+  const accounts = useSelector(web3Selector).accounts;
+  const address = accounts.length >0 ? accounts[0] : "";
+  const imgSrc = blockies.create({ seed: address }).toDataURL();
+
   return (
     <Navbar
       bg="light"
@@ -36,9 +45,10 @@ export const AppBar = ({backgroundColor}: AppBarProps) => {
           id="basic-navbar-nav"
           style={{justifyContent: "center"}}
         >
-          <AppBarElement title="About" to="/about" key="about" />
-          <AppBarElement title="Vitamin token" to="/vitamins" key="cases" />
-          <AppBarElement title="Github" to="/github" key="github" />
+          <AppBarElement title="Markets" to="/markets" key="markets" />
+          <AppBarElement title="Deposits" to="/deposits" key="deposits" />
+          <AppBarElement title="Loans" to="/loans" key="loans" />
+          <AppBarElement title="Vitamins" to="/vitamins" key="vitamins" />
         </Navbar.Collapse>
         <Navbar style={{justifyContent: "right"}}>
           <a
@@ -46,7 +56,9 @@ export const AppBar = ({backgroundColor}: AppBarProps) => {
             style={{color: "black"}}
             className={"appbar-login"}
           >
-            <Nav className="nav-item">Connect wallet</Nav>
+            <Nav className="nav-item">
+              <img src={imgSrc} style={{ borderRadius: "50%"}}/>
+            </Nav>
           </a>
         </Navbar>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

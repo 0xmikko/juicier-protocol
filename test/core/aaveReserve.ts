@@ -33,7 +33,7 @@ export const aaveReserves: Record<string, AaveReserve> = {
     totalLiquidity: 6,
     utilizationRate: 7,
     variableBorrowIndex: 8,
-    variableBorrowRate: 9,
+    variableBorrowRate: 900,
     lastUpdateTimestamp: Math.floor(Date.now() / 1000),
   },
 };

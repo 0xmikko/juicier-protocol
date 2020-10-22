@@ -2,12 +2,12 @@ import React, {useEffect} from "react";
 import actions from "../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {reservesSelector} from "../../store/reserves";
+import {ReserveListWidget} from "../../containers/Reserves/ReservesListWidget";
 import AppBar from "../../components/AppBar/AppBar";
 import {Footer} from "../../components/Footer/Footer";
-import {DepositListWidget} from "../../containers/Deposits/DepositsListWidget";
 import {Layout} from "../Layout";
 
-export function DepositListScreen(): React.ReactElement {
+export function MarketListScreen(): React.ReactElement {
   const dispatch = useDispatch();
 
   const reserves = useSelector(reservesSelector);
@@ -18,7 +18,7 @@ export function DepositListScreen(): React.ReactElement {
 
   return (
     <Layout>
-      <DepositListWidget data={reserves.data} />
+      <ReserveListWidget data={reserves.data} />
     </Layout>
   );
 }

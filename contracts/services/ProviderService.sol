@@ -122,13 +122,13 @@ contract ProviderService is Ownable {
       if (curDepositRate > depositRate) {
           depositRate = curDepositRate;
       }
-      if (borrowRate < curBorrowRate) {
+      if (curBorrowRate < borrowRate) {
           borrowRate = curBorrowRate;
       }
     }
     return (depositRate, borrowRate);
   }
 
-  
+
 
 }

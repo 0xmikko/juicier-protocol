@@ -7730,12 +7730,12 @@
         }
       },
       "links": {},
-      "address": "0xD841e68856FA3D6514D29DC9Feb8E57602FA3305",
-      "transactionHash": "0x9691fc8cc1339ebca87b03f628a29e3c3cbe7c65735102977c3ea530077ab2ff"
+      "address": "0xc73437eE6913c02c5Ae0CaC99Ece563e8AcB6098",
+      "transactionHash": "0x605e82ea5a10313036b09e89ff32104556ac6763f24fa500045345507679e02e"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-21T23:02:28.119Z",
+  "updatedAt": "2020-10-22T00:01:15.130Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {

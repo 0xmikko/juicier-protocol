@@ -28381,12 +28381,12 @@
         }
       },
       "links": {},
-      "address": "0xB3C2DA3AC4cF690B90a6F730A6FD8eE5D4D46135",
-      "transactionHash": "0x7f7c7b7e969cb20be81123c389a4d3a99310b1489bbbcf3ce8fc267b97e2caca"
+      "address": "0x71bE9c6bf35ea1B38b016E35e6fda965A5d5C722",
+      "transactionHash": "0x667fd644f26bd7fa4729720d528fc7b1e705b9a95cdc3ab48344d4838584901e"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-21T23:02:28.022Z",
+  "updatedAt": "2020-10-22T00:01:15.068Z",
   "networkType": "ethereum",
   "devdoc": {
     "author": "Aave",

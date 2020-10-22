@@ -253,9 +253,9 @@ contract PoolService is Ownable {
       uint256 loanToValue,
       uint256 liquidationThreshold,
       uint256 liquidationBonus,
-      address vTokenContract,
       uint256 borrowRate,
       uint256 lendingRate,
+      address vTokenContract,
       bool isActive
     )
   {
@@ -266,7 +266,7 @@ contract PoolService is Ownable {
     liquidationThreshold = reserveRepository.getLiquidationThreshold(_reserve);
     liquidationBonus = reserveRepository.getLiquidationBonus(_reserve);
     vTokenContract = address(reserveRepository.getVTokenContract(_reserve));
-    (borrowRate, lendingRate) = providerService.getBestRates(_reserve);
+    (lendingRate, borrowRate) = providerService.getBestRates(_reserve);
     isActive = reserveRepository.isActive(_reserve);
   }
 }

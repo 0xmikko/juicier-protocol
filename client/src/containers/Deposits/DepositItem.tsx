@@ -1,18 +1,21 @@
 import React from "react";
 import {Reserve} from "../../core/reserve";
-import {Col, Row} from "react-bootstrap";
-import { BigNumber } from "bignumber.js";
+import {Button, Col, Row} from "react-bootstrap";
+import {BigNumber} from "bignumber.js";
+import {useHistory} from "react-router";
 
 export interface ReserveItemProps {
   data: Reserve;
   backgroundColor?: string;
 }
 
-export function ReserveItem({data, backgroundColor}: ReserveItemProps) {
+export function DepositItem({data, backgroundColor}: ReserveItemProps) {
+  const history = useHistory();
 
-    const vitamin = data.borrowRate.minus(data.lendingRate).multipliedBy(new BigNumber("0.4"))
-    const lendingVitamin = data.lendingRate.plus(vitamin);
-    const borrowVitamin = data.borrowRate.minus(vitamin);
+  const vitamin = data.borrowRate
+    .minus(data.lendingRate)
+    .multipliedBy(new BigNumber("0.4"));
+  const lendingVitamin = data.lendingRate.plus(vitamin);
 
   return (
     <Row
@@ -38,14 +41,16 @@ export function ReserveItem({data, backgroundColor}: ReserveItemProps) {
       <Col xl={2} lg={2} md={2} xs={2}>
         {data.lendingRate.toFixed(2)}%
       </Col>
-        <Col xl={2} lg={2} md={2} xs={2}>
-            {lendingVitamin.toFixed(2)}%
-        </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        {data.borrowRate.toFixed(2)}%
+        {lendingVitamin.toFixed(2)}%
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        {borrowVitamin.toFixed(2)}%
+        10,000
+      </Col>
+      <Col xl={2} lg={2} md={2} xs={2}>
+        <Button onClick={() => history.push(`/deposits/${data.reserve}`)}>
+          Deposit
+        </Button>
       </Col>
     </Row>
   );

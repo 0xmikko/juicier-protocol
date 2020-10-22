@@ -9,19 +9,23 @@ export const getReserves = (): ThunkAction<void, RootState, unknown, ReserveActi
   getState
 ) => {
   const result: Array<Reserve> = [];
-  const {poolService, reserveRepository} = getState().web3;
+  const {poolService, reserveRepository, providerRepository} = getState().web3;
   if (poolService === undefined || reserveRepository === undefined) {
     return;
   }
 
+  // console.log(await providerRepository?.methods.)
+
   const qty = parseInt(await reserveRepository.methods.getReservesQty().call());
 
-  console.log("WWW", qty);
+  console.log('WWW', qty);
 
   for (let i = 0; i < qty; i++) {
     const reserve = await reserveRepository.methods.getReserveByIndex(i).call();
     const data = await poolService.methods.getReserveInfo(reserve).call();
+    console.log('DA', data);
     result.push({
+      reserve,
       symbol: data[0],
       totalLiquidity: new BigNumber(data[1]),
       availableLiquidity: new BigNumber(data[2]),

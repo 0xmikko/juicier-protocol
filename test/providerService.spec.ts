@@ -30,7 +30,7 @@ contract('ProviderService', async ([deployer, aaveOwner, ...users]) => {
     // AAVE PROVIDER
     _aaveLendingPoolMock = await aaveDeployer.newAaveLendingPoolMock('MainLendingPool');
     await aaveDeployer.setReserveToAaveMock(_aaveLendingPoolMock, dai);
-    
+
     // ANOTHER PROVIDER
     _anotherLendingPoolMock = await aaveDeployer.newAaveLendingPoolMock('AnotherLendingPool');
     await aaveDeployer.setReserveToAaveMock(_anotherLendingPoolMock, dai);
@@ -42,7 +42,7 @@ contract('ProviderService', async ([deployer, aaveOwner, ...users]) => {
 
   });
 
-  
+
   // Another test for best rate
   it('Provider manager should choose provider with better liquidity rate -1', async () => {
     const anotherDai = {...dai};
@@ -69,5 +69,21 @@ contract('ProviderService', async ([deployer, aaveOwner, ...users]) => {
     );
 
     expect(betterProviderAddress).to.be.equal(_anotherProvider.address);
+  });
+
+  // Another test for best rate
+  it('Provider manager should choose correct best rates', async () => {
+    const anotherDai = {...dai};
+    anotherDai.liquidityRate += 2;
+    anotherDai.variableBorrowRate -= 10;
+
+    await aaveDeployer.setReserveToAaveMock(_anotherLendingPoolMock, anotherDai);
+
+    const bestRates = await _providerService.getBestRates(
+        dai.address
+    );
+
+    console.log(bestRates[0].toString(), bestRates[1].toString());
+    // expect(betterProviderAddress).to.be.equal(_anotherProvider.address);
   });
 });
