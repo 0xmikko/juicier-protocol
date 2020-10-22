@@ -4,6 +4,8 @@ import {getContract} from '../../utils/getContract';
 import {PoolService} from '../../../../types/web3-v1-contracts/PoolService';
 import {ReserveRepository} from '../../../../types/web3-v1-contracts/ReserveRepository';
 import {ProviderRepository} from '../../../../types/web3-v1-contracts/ProviderRepository';
+import {AaveProvider} from '../../../../types/web3-v1-contracts/AaveProvider';
+import {IAaveLendingPool} from '../../../../types/web3-v1-contracts/IAaveLendingPool';
 
 export const web3Selector = (state: RootState) => state.web3;
 
@@ -17,8 +19,11 @@ export type Web3Actions =
         networkId: number;
         accounts: Array<string>;
         poolService: PoolService;
+        poolServiceAddress: string;
         reserveRepository: ReserveRepository;
         providerRepository: ProviderRepository;
+        aaveProvider: AaveProvider;
+        aaveLendingPool: IAaveLendingPool;
       };
     }
   | {

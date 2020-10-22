@@ -5,23 +5,23 @@
   "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220ff782f7a9c65ca1aef6da00ca9c4fb85e5fd1d89914469c4c1db81dc555394d864736f6c634300060a0033",
   "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220ff782f7a9c65ca1aef6da00ca9c4fb85e5fd1d89914469c4c1db81dc555394d864736f6c634300060a0033",
   "immutableReferences": {},
-  "sourceMap": "63:280:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "63:280:5:-:0;;;;;;;;",
+  "sourceMap": "63:280:6:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "63:280:6:-:0;;;;;;;;",
   "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.6.10;\n\nlibrary EthAddressLib {\n\n    /**\n    * @dev returns the address used within the protocol to identify ETH\n    * @return the address assigned to ETH\n     */\n    function ethAddress() internal pure returns(address) {\n        return 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;\n    }\n}",
   "sourcePath": "/Users/mikhail/Coding/jucifi/contracts/lib/EthAddressLib.sol",
   "ast": {
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/lib/EthAddressLib.sol",
     "exportedSymbols": {
       "EthAddressLib": [
-        713
+        748
       ]
     },
-    "id": 714,
+    "id": 749,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 703,
+        "id": 738,
         "literals": [
           "solidity",
           "^",
@@ -29,7 +29,7 @@
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:24:5"
+        "src": "37:24:6"
       },
       {
         "abstract": false,
@@ -38,31 +38,31 @@
         "contractKind": "library",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 713,
+        "id": 748,
         "linearizedBaseContracts": [
-          713
+          748
         ],
         "name": "EthAddressLib",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 711,
+              "id": 746,
               "nodeType": "Block",
-              "src": "275:66:5",
+              "src": "275:66:6",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "307845656565654565656545654565654565456545656545454565656565456565656565656545456545",
-                    "id": 709,
+                    "id": 744,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "number",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "292:42:5",
+                    "src": "292:42:6",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
@@ -70,20 +70,20 @@
                     },
                     "value": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
                   },
-                  "functionReturnParameters": 708,
-                  "id": 710,
+                  "functionReturnParameters": 743,
+                  "id": 745,
                   "nodeType": "Return",
-                  "src": "285:49:5"
+                  "src": "285:49:6"
                 }
               ]
             },
             "documentation": {
-              "id": 704,
+              "id": 739,
               "nodeType": "StructuredDocumentation",
-              "src": "92:125:5",
+              "src": "92:125:6",
               "text": " @dev returns the address used within the protocol to identify ETH\n @return the address assigned to ETH"
             },
-            "id": 712,
+            "id": 747,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -91,24 +91,24 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 705,
+              "id": 740,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "241:2:5"
+              "src": "241:2:6"
             },
             "returnParameters": {
-              "id": 708,
+              "id": 743,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 707,
+                  "id": 742,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 712,
-                  "src": "266:7:5",
+                  "scope": 747,
+                  "src": "266:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -116,10 +116,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 706,
+                    "id": 741,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "266:7:5",
+                    "src": "266:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -130,34 +130,34 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "265:9:5"
+              "src": "265:9:6"
             },
-            "scope": 713,
-            "src": "222:119:5",
+            "scope": 748,
+            "src": "222:119:6",
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 714,
-        "src": "63:280:5"
+        "scope": 749,
+        "src": "63:280:6"
       }
     ],
-    "src": "37:306:5"
+    "src": "37:306:6"
   },
   "legacyAST": {
     "absolutePath": "/Users/mikhail/Coding/jucifi/contracts/lib/EthAddressLib.sol",
     "exportedSymbols": {
       "EthAddressLib": [
-        713
+        748
       ]
     },
-    "id": 714,
+    "id": 749,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 703,
+        "id": 738,
         "literals": [
           "solidity",
           "^",
@@ -165,7 +165,7 @@
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:24:5"
+        "src": "37:24:6"
       },
       {
         "abstract": false,
@@ -174,31 +174,31 @@
         "contractKind": "library",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 713,
+        "id": 748,
         "linearizedBaseContracts": [
-          713
+          748
         ],
         "name": "EthAddressLib",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 711,
+              "id": 746,
               "nodeType": "Block",
-              "src": "275:66:5",
+              "src": "275:66:6",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "307845656565654565656545654565654565456545656545454565656565456565656565656545456545",
-                    "id": 709,
+                    "id": 744,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "number",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "292:42:5",
+                    "src": "292:42:6",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
@@ -206,20 +206,20 @@
                     },
                     "value": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
                   },
-                  "functionReturnParameters": 708,
-                  "id": 710,
+                  "functionReturnParameters": 743,
+                  "id": 745,
                   "nodeType": "Return",
-                  "src": "285:49:5"
+                  "src": "285:49:6"
                 }
               ]
             },
             "documentation": {
-              "id": 704,
+              "id": 739,
               "nodeType": "StructuredDocumentation",
-              "src": "92:125:5",
+              "src": "92:125:6",
               "text": " @dev returns the address used within the protocol to identify ETH\n @return the address assigned to ETH"
             },
-            "id": 712,
+            "id": 747,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -227,24 +227,24 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 705,
+              "id": 740,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "241:2:5"
+              "src": "241:2:6"
             },
             "returnParameters": {
-              "id": 708,
+              "id": 743,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 707,
+                  "id": 742,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 712,
-                  "src": "266:7:5",
+                  "scope": 747,
+                  "src": "266:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -252,10 +252,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 706,
+                    "id": 741,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "266:7:5",
+                    "src": "266:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -266,20 +266,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "265:9:5"
+              "src": "265:9:6"
             },
-            "scope": 713,
-            "src": "222:119:5",
+            "scope": 748,
+            "src": "222:119:6",
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 714,
-        "src": "63:280:5"
+        "scope": 749,
+        "src": "63:280:6"
       }
     ],
-    "src": "37:306:5"
+    "src": "37:306:6"
   },
   "compiler": {
     "name": "solc",
@@ -287,7 +287,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-18T11:21:14.830Z",
+  "updatedAt": "2020-10-22T08:45:10.112Z",
   "devdoc": {
     "methods": {}
   },

@@ -6,7 +6,7 @@ export interface TokenState {
 }
 
 const initialState: TokenState = {
-  data: {}
+  data: {},
 };
 
 export default function createReducer(
@@ -15,10 +15,11 @@ export default function createReducer(
 ): TokenState {
   switch (action.type) {
     case 'TOKEN_DETAILS':
-      return state
+      const {address} = action.payload;
+      return {...state, data: {[address]: action.payload}};
     case 'TOKEN_FAILED':
       return {
-        data: {}
+        data: {},
       };
   }
 

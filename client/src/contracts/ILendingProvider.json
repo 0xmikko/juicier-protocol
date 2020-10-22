@@ -2280,7 +2280,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-18T20:08:25.383Z",
+  "updatedAt": "2020-10-22T08:45:10.104Z",
   "devdoc": {
     "details": "Interface of the Lending Provider",
     "methods": {

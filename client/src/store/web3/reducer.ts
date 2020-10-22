@@ -3,13 +3,18 @@ import {Web3Actions, Web3Error} from './index';
 import {PoolService} from '../../../../types/web3-v1-contracts/PoolService';
 import {ReserveRepository} from '../../../../types/web3-v1-contracts/ReserveRepository';
 import {ProviderRepository} from '../../../../types/web3-v1-contracts/ProviderRepository';
+import {AaveProvider} from "../../../../types/web3-v1-contracts/AaveProvider";
+import {IAaveLendingPool} from "../../../../types/web3-v1-contracts/IAaveLendingPool";
 
 export interface Web3State {
   web3: Web3 | null;
   accounts: Array<string>;
   poolService?: PoolService;
+  poolServiceAddress? :string;
   reserveRepository?: ReserveRepository;
   providerRepository?: ProviderRepository;
+  aaveProvider?: AaveProvider;
+  aaveLendingPool?: IAaveLendingPool;
   status: 'WEB3_STARTUP' | 'WEB3_CONNECTED' | 'NO_WEB3';
   error?: Web3Error;
 }

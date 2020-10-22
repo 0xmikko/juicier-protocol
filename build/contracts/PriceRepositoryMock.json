@@ -442,18 +442,12 @@
     "42": {
       "events": {},
       "links": {},
-      "address": "0x376843eEE0fA2686A54a2541B14F1d3cB4836D1E",
-      "transactionHash": "0xe4631d18c2c53764bb4174417cb4e13b9a170ab002a570bfbb5b05a2bf8b1e8d"
-    },
-    "5777": {
-      "events": {},
-      "links": {},
-      "address": "0x58291155Bf04b512d4b071562f29e358F6fdc464",
-      "transactionHash": "0x0e9fcf0e0a285e18f64da695940f465283ddec5a4ec1fdd8fcab1abb1d86dacd"
+      "address": "0x33b46c8d63597C9dcF44328dE0e050e50b96d1a6",
+      "transactionHash": "0x4b806697e79f2c61ac8e74d99215cef7f0ff80022a6ed95b17cc78fa4bb9b764"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-22T00:01:15.096Z",
+  "updatedAt": "2020-10-22T10:02:13.089Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

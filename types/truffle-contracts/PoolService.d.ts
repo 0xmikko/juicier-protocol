@@ -176,7 +176,7 @@ export interface PoolServiceInstance extends Truffle.ContractInstance {
   getReserveInfo(
     _reserve: string,
     txDetails?: Truffle.TransactionDetails
-  ): Promise<[string, BN, BN, BN, BN, BN, string, BN, BN, boolean]>;
+  ): Promise<[string, BN, BN, BN, BN, BN, BN, BN, string, boolean]>;
 
   methods: {
     /**
@@ -316,7 +316,7 @@ export interface PoolServiceInstance extends Truffle.ContractInstance {
     getReserveInfo(
       _reserve: string,
       txDetails?: Truffle.TransactionDetails
-    ): Promise<[string, BN, BN, BN, BN, BN, string, BN, BN, boolean]>;
+    ): Promise<[string, BN, BN, BN, BN, BN, BN, BN, string, boolean]>;
   };
 
   getPastEvents(event: string): Promise<EventData[]>;

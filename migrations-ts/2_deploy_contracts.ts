@@ -22,13 +22,13 @@ const tokens: Array<tokenData> = [
   {
     name: 'Dai',
     symbol: 'DAI',
-    token: '0xc4375b7de8af5a38a93548eb8453a498222c4ff2',
+    token: '0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD',
     aToken: '0x58AD4cB396411B691A9AAb6F74545b2C5217FE6a',
   },
   {
     name: 'USD Coin',
     symbol: 'USDC',
-    token: '0xdcfab8057d08634279f8201b55d311c2a67897d2',
+    token: '0xe22da380ee6B445bb8273C81944ADEB6E8450422',
     aToken: '0x02F626c6ccb6D2ebC071c068DC1f02Bf5693416a',
   },
 ];
@@ -115,23 +115,30 @@ module.exports = async function (
 
   const mockIsNeedeed = network.indexOf(KOVAN_NETWORK_ID) === -1;
 
-  const cont = prompt(`Detected a network ${network}. Mock flag is ${mockIsNeedeed}! 
-Type 'yes' to continue.
->`);
+  console.log(`Detected a network ${network}. Mock flag is ${mockIsNeedeed}! Type 'yes' to continue.`)
+  const cont = prompt(`> `);
   if (cont.toString().toLowerCase() !== 'yes') {
     process.exit(1);
   }
 
+  try {
+
   await deployer.deploy(AddressRepository);
   const _addressRepository = await AddressRepository.deployed();
+
+  console.log("ADDRESS REPOSITORY DEPOLYED AT: ", _addressRepository.address);
 
   await deployer.deploy(ProviderRepository);
   await _addressRepository.setProviderRepository(ProviderRepository.address);
   const _providerRepository = await ProviderRepository.deployed();
 
+  console.log("ADDRESS REPOSITORY DEPOLYED AT: ", _providerRepository.address);
+
   await deployer.deploy(ReserveRepository);
   await _addressRepository.setReserveRepository(ReserveRepository.address);
   const _reserveRepository = await ReserveRepository.deployed();
+
+  console.log("RESERVE REPOSITORY DEPOLYED AT: ", _providerRepository.address);
 
   await deployer.deploy(PriceRepository);
   await _addressRepository.setPriceRepository(PriceRepository.address);
@@ -192,7 +199,9 @@ Type 'yes' to continue.
 
     await _reserveRepository.addReserve(t.token, vToken.address, 70, 80, 5);
   }
-
+  } catch (err) {
+    console.log("ERROR HAPPENED DURING DEPLOY", err);
+  }
   // DEPLOY VITAMIN TOKENS
 };
 

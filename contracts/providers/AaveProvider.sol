@@ -27,7 +27,6 @@ contract AaveProvider is AbstractProvider {
 
   // Deposit money to provider pool
   function deposit(address _reserve, uint256 _amount) public override payable {
-    
     ERC20(_reserve).approve(lendingPoolAddress, _amount);
     getLendingPool().deposit(_reserve, _amount, 0);
     super.deposit(_reserve, _amount);
@@ -48,7 +47,7 @@ contract AaveProvider is AbstractProvider {
 
     // Transfer tokens to user
     ERC20(_reserve).safeTransfer(_user, _amount);
-    
+
     // getLendingPool().redeemUnderlying(_reserve, _user, _amount, 0);
     super.redeemUnderlying(_reserve, _user, _amount);
   }
@@ -102,21 +101,78 @@ contract AaveProvider is AbstractProvider {
       uint40 lastUpdateTimestamp
     )
   {
-    // (
-    //     totalLiquidity,
-    //     availableLiquidity,
-    //     ,
-    //     totalBorrowsVariable,
-    //     liquidityRate,
-    //     variableBorrowRate,
-    //     ,
-    //     ,
-    //     utilizationRate,
-    //     liquidityIndex,
-    //     variableBorrowIndex,
-    //     aTokenAddress,
-    //     lastUpdateTimestamp
-    // ) = getLendingPool().getReserveData(_reserveAddress);
+    (
+      totalLiquidity,
+      availableLiquidity,
+      totalBorrowsVariable,
+      liquidityRate,
+      variableBorrowRate
+
+    ) = getReserveLiquidityAndRates(_reserveAddress);
+
+    (
+      utilizationRate,
+      liquidityIndex,
+      variableBorrowIndex,
+      aTokenAddress,
+      lastUpdateTimestamp
+    ) = getReserveIndexes(_reserveAddress);
+  }
+
+  function getReserveLiquidityAndRates(address _reserve)
+    internal
+    view
+    returns (
+      uint256 totalLiquidity,
+      uint256 availableLiquidity,
+      uint256 totalBorrowsVariable,
+      uint256 liquidityRate,
+      uint256 variableBorrowRate
+    )
+  {
+    (
+      totalLiquidity,
+      availableLiquidity,
+      ,
+      totalBorrowsVariable,
+      liquidityRate,
+      variableBorrowRate,
+      ,
+      ,
+      ,
+      ,
+      ,
+      ,
+
+    ) = getLendingPool().getReserveData(_reserve);
+  }
+
+  function getReserveIndexes(address _reserve)
+    internal
+    view
+    returns (
+      uint256 utilizationRate,
+      uint256 liquidityIndex,
+      uint256 variableBorrowIndex,
+      address aTokenAddress,
+      uint40 lastUpdateTimestamp
+    )
+  {
+    (
+      ,
+      ,
+      ,
+      ,
+      ,
+      ,
+      ,
+      ,
+      utilizationRate,
+      liquidityIndex,
+      variableBorrowIndex,
+      aTokenAddress,
+      lastUpdateTimestamp
+    ) = getLendingPool().getReserveData(_reserve);
   }
 
   function getReserveLiquidityRate(address _reserveAddress)

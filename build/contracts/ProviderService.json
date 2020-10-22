@@ -9302,38 +9302,12 @@
         }
       },
       "links": {},
-      "address": "0x7e6d70a66e51fE3dDed175EfAE0EE7D8072e99f4",
-      "transactionHash": "0xdff8151f477adba3d4351d7c6601db26464260b92929fc5d2774e500055dfceb"
-    },
-    "5777": {
-      "events": {
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0x9C25f6287bAf1710D338dfeDe6fA9a62EA8724Fc",
-      "transactionHash": "0x3e98965e7679ef29605dbf84c498b8db3367e5aff612bf55ed0662eccf0e11cd"
+      "address": "0x06A2745f6CAF80e80F059864807d70BB215E1012",
+      "transactionHash": "0x83cd65c7dc53c27678bbe4d387eb05bbef5a6ae0b6b3e89cca3150d676bc7957"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-22T00:01:15.105Z",
+  "updatedAt": "2020-10-22T10:02:13.096Z",
   "networkType": "ethereum",
   "devdoc": {
     "author": "Mikhail Lazarev, github.com/MikaelLazarev",

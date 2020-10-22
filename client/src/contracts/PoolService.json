@@ -18086,69 +18086,12 @@
         }
       },
       "links": {},
-      "address": "0x1dad4166D00046acf643ce19ab94b644C3B07c9D",
-      "transactionHash": "0xa1134bb48015b3743db250aa592af75a552cc37df12afc1a0dfff5b370afab32"
-    },
-    "5777": {
-      "events": {
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        },
-        "0x9c4ed599cd8555b9c1e8cd7643240d7d71eb76b792948c49fcb4d411f7b6b3c6": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "_reserve",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "_user",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "_amount",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "_timestamp",
-              "type": "uint256"
-            }
-          ],
-          "name": "RedeemUnderlying",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0x87bf1e87770995a1154A8C3a31DAFed813cCFC0a",
-      "transactionHash": "0x8df27aef2273e989ffa7e7af22c13928a2b2a69c328be340e85ff9572a65e752"
+      "address": "0xd77D266be29E3591dcEf75165E1eA0E13da827e7",
+      "transactionHash": "0x082309b011eb4a80cb1e0da93e0362c61c2d4540cc7f5eb8fd43949adc3de820"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-22T00:01:15.121Z",
+  "updatedAt": "2020-10-22T10:02:13.107Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {

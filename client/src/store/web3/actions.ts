@@ -7,6 +7,8 @@ import {getContract} from '../../utils/getContract';
 import {PoolService} from '../../../../types/web3-v1-contracts/PoolService';
 import {ReserveRepository} from '../../../../types/web3-v1-contracts/ReserveRepository';
 import {ProviderRepository} from '../../../../types/web3-v1-contracts/ProviderRepository';
+import {AaveProvider} from '../../../../types/web3-v1-contracts/AaveProvider';
+import {IAaveLendingPool} from "../../../../types/web3-v1-contracts/IAaveLendingPool";
 
 declare global {
   interface Window {
@@ -19,6 +21,8 @@ const poolServiceJson = require('../../contracts/PoolService.json');
 const reserveRepositoryJson = require('../../contracts/ReserveRepository.json');
 const providerRepositoryJson = require('../../contracts/ProviderRepository.json');
 const providerInterface = require('../../contracts/ILendingProvider.json');
+const aaveProviderJson = require('../../contracts/AaveProvider.json');
+const aaveLendingPoolJson = require("../../contracts/IAaveLendingPool.json");
 
 export const connectWeb3 = (): ThunkAction<void, RootState, unknown, Web3Actions> => async (
   dispatch
@@ -36,6 +40,7 @@ export const connectWeb3 = (): ThunkAction<void, RootState, unknown, Web3Actions
     }
 
     const poolService = ((await getContract(web3, poolServiceJson)) as unknown) as PoolService;
+    const poolServiceAddress = poolServiceJson.networks[networkId]?.address;
     const reserveRepository = ((await getContract(
       web3,
       reserveRepositoryJson
@@ -45,9 +50,27 @@ export const connectWeb3 = (): ThunkAction<void, RootState, unknown, Web3Actions
       providerRepositoryJson
     )) as unknown) as ProviderRepository;
 
+    const aaveLendingPool = ((await getContract(
+        web3,
+        aaveLendingPoolJson,
+        '0x580D4Fdc4BF8f9b5ae2fb9225D584fED4AD5375c'
+    )) as unknown) as IAaveLendingPool;
+
+    const aaveProvider = ((await getContract(web3, aaveProviderJson)) as unknown) as AaveProvider;
+
     dispatch({
       type: 'WEB3_CONNECTED',
-      payload: {web3, accounts, networkId, poolService, reserveRepository, providerRepository},
+      payload: {
+        web3,
+        accounts,
+        networkId,
+        poolService,
+        poolServiceAddress,
+        reserveRepository,
+        providerRepository,
+        aaveProvider,
+        aaveLendingPool,
+      },
     });
   } else {
     dispatch({type: 'WEB3_FAILED', payload: {error: 'WRONG_NETWORK_ERROR'}});

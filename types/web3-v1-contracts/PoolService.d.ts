@@ -90,9 +90,9 @@ export interface PoolService extends BaseContract {
       loanToValue: string;
       liquidationThreshold: string;
       liquidationBonus: string;
-      vTokenContract: string;
       borrowRate: string;
       lendingRate: string;
+      vTokenContract: string;
       isActive: boolean;
       0: string;
       1: string;
