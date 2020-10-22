@@ -10,8 +10,6 @@ import {Meta} from "../core/meta";
 import {ReserveListWidget} from "../containers/Reserves/ReservesListWidget";
 import {SERVER_ADDR} from "../config";
 
-const { abi }  = require("../../build/contracts/AaveProvider.json");
-
 interface IndexPageProps {
   meta: Meta | null;
   reserves: Array<Reserve>;

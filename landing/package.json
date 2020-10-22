@@ -8,9 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-regular-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@types/axios": "^0.14.0",
     "@types/dotenv": "^8.2.0",
     "@types/react-bootstrap": "^0.32.24",
