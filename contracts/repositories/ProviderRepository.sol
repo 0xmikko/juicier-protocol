@@ -54,21 +54,21 @@ contract ProviderRepository is Ownable {
     public
     view
     providerHasExist(_address)
-    returns (ILendingProvider)
+    returns (address)
   {
-    return ILendingProvider(providersMap[_address]);
+    return providersMap[_address];
   }
 
   function getProviderByIndex(uint256 _index)
     public
     view
-    returns (ILendingProvider)
+    returns (address)
   {
     require(
       _index >= 0 && _index < providersList.length,
       "ProviderRepository: index is out of range"
     );
-    return ILendingProvider(providersList[_index]);
+    return providersList[_index];
   }
 
   function getProvidersQty() external view returns (uint256) {

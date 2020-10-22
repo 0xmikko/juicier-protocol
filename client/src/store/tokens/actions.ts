@@ -19,7 +19,7 @@ export const getTokenDetails = (
 ): ThunkAction<void, RootState, unknown, TokenActions> => async (dispatch, getState) => {
 
   if (id === undefined || id =="") return;
-  const {web3, accounts, poolServiceAddress} = getState().web3;
+  const {web3, accounts,poolServiceAddress} = getState().web3;
   const currentAccount = accounts[0];
   if (web3 === null ||  poolServiceAddress === undefined) throw new Error('No Web3 instance');
   if (currentAccount === undefined) throw new Error("No current account were selected")

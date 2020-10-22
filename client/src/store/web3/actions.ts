@@ -9,6 +9,7 @@ import {ReserveRepository} from '../../../../types/web3-v1-contracts/ReserveRepo
 import {ProviderRepository} from '../../../../types/web3-v1-contracts/ProviderRepository';
 import {AaveProvider} from '../../../../types/web3-v1-contracts/AaveProvider';
 import {IAaveLendingPool} from "../../../../types/web3-v1-contracts/IAaveLendingPool";
+import {ProviderService} from "../../../../types/web3-v1-contracts/ProviderService";
 
 declare global {
   interface Window {
@@ -20,6 +21,7 @@ declare global {
 const poolServiceJson = require('../../contracts/PoolService.json');
 const reserveRepositoryJson = require('../../contracts/ReserveRepository.json');
 const providerRepositoryJson = require('../../contracts/ProviderRepository.json');
+const providerServiceJson = require('../../contracts/ProviderService.json');
 const providerInterface = require('../../contracts/ILendingProvider.json');
 const aaveProviderJson = require('../../contracts/AaveProvider.json');
 const aaveLendingPoolJson = require("../../contracts/IAaveLendingPool.json");
@@ -50,6 +52,11 @@ export const connectWeb3 = (): ThunkAction<void, RootState, unknown, Web3Actions
       providerRepositoryJson
     )) as unknown) as ProviderRepository;
 
+    const providerService = ((await getContract(
+        web3,
+        providerServiceJson
+    )) as unknown) as ProviderService;
+
     const aaveLendingPool = ((await getContract(
         web3,
         aaveLendingPoolJson,
@@ -68,11 +75,12 @@ export const connectWeb3 = (): ThunkAction<void, RootState, unknown, Web3Actions
         poolServiceAddress,
         reserveRepository,
         providerRepository,
+        providerService,
         aaveProvider,
         aaveLendingPool,
       },
     });
   } else {
-    dispatch({type: 'WEB3_FAILED', payload: {error: 'WRONG_NETWORK_ERROR'}});
+    dispatch({type: 'WEB3_FAILED', payload: {error: 'CONNECTION_ERROR'}});
   }
 };

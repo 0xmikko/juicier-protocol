@@ -42,7 +42,7 @@ export function DepositItem({data, backgroundColor}: ReserveItemProps) {
       <Col xl={2} lg={2} md={2} xs={2}>
         {rayRate(data.lendingRate)}%
       </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
+      <Col xl={2} lg={2} md={2} xs={2} style={{color: '#017901', fontWeight: 'bold'}}>
         {rayRate(lendingVitamin)}%
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>

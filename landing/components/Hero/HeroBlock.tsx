@@ -1,13 +1,12 @@
 import React from "react";
 import {Button, Col, Container, Row} from "react-bootstrap";
 import styles from "./Hero.module.css";
-import {MARKETING_ADDR} from "../../config";
 import {Analytics} from "rc-analytics";
 
 export function HeroBlock() {
   const onRegister = async () => {
     await Analytics.sendEvent("ENTER", "REGISTER PRESSED");
-    window.location.href = MARKETING_ADDR + "/signup";
+    window.location.href = 'https://app.juicer.finance';
   };
 
   return (

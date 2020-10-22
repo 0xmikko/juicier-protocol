@@ -5,6 +5,7 @@ import {ReserveRepository} from '../../../../types/web3-v1-contracts/ReserveRepo
 import {ProviderRepository} from '../../../../types/web3-v1-contracts/ProviderRepository';
 import {AaveProvider} from "../../../../types/web3-v1-contracts/AaveProvider";
 import {IAaveLendingPool} from "../../../../types/web3-v1-contracts/IAaveLendingPool";
+import {ProviderService} from "../../../../types/web3-v1-contracts/ProviderService";
 
 export interface Web3State {
   web3: Web3 | null;
@@ -13,6 +14,7 @@ export interface Web3State {
   poolServiceAddress? :string;
   reserveRepository?: ReserveRepository;
   providerRepository?: ProviderRepository;
+  providerService?: ProviderService;
   aaveProvider?: AaveProvider;
   aaveLendingPool?: IAaveLendingPool;
   status: 'WEB3_STARTUP' | 'WEB3_CONNECTED' | 'NO_WEB3';

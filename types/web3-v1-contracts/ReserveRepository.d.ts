@@ -54,6 +54,11 @@ export interface ReserveRepository extends BaseContract {
       _availableLiquidity: number | string
     ): NonPayableTransactionObject<void>;
 
+    addLiquidity(
+      _reserve: string,
+      _liquidity: number | string
+    ): NonPayableTransactionObject<void>;
+
     setTokenContract(
       _reserve: string,
       _contractAddress: string

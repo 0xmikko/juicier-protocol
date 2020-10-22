@@ -20,12 +20,14 @@ export function ReserveListWidget({data}: ReservesListWidgetProps) {
         <h2 style={{margin: "auto", color: "#333"}}>All markets</h2>
       </Row>
       <Row style={{minHeight: "40px", fontWeight: "bold"}}>
-        <Col style={{textAlign: "left"}}>Assets</Col>
-        <Col>Market size</Col>
-        <Col>Deposit APY</Col>
-        <Col>Deposit Queue</Col>
-        <Col>Vitamin</Col>
-        <Col>Borrow APY</Col>
+        <Col style={{textAlign: "left"}}   xl={4}
+             lg={4}
+             md={4}
+             xs={4}>Assets</Col>
+        <Col xl={2} lg={2} md={2} xs={2}>Deposit APY</Col>
+        <Col xl={2} lg={2} md={2} xs={2}>Deposit APY + Vitamin</Col>
+        <Col xl={2} lg={2} md={2} xs={2}>Borrow APY</Col>
+        <Col xl={2} lg={2} md={2} xs={2}>Borrow APY - Vitamin</Col>
       </Row>
       {reservesRendered}
     </Container>

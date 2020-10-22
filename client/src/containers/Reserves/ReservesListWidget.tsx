@@ -23,9 +23,9 @@ export function ReserveListWidget({data}: ReservesListWidgetProps) {
         <Col style={{textAlign: "left"}}>Assets</Col>
         <Col>Market size</Col>
         <Col>Deposit APY</Col>
-        <Col>Deposit Queue</Col>
-        <Col>Vitamin</Col>
+        <Col>Deposit APY + V</Col>
         <Col>Borrow APY</Col>
+        <Col>Borrow APY - V</Col>
       </Row>
       {reservesRendered}
     </Container>

@@ -16,7 +16,7 @@ export function LoanItem({data, backgroundColor}: ReserveItemProps) {
   const vitamin = data.borrowRate
     .minus(data.lendingRate)
     .multipliedBy(new BigNumber("0.4"));
-  const borrowVitamin = data.borrowRate.plus(vitamin);
+  const borrowVitamin = data.borrowRate.minus(vitamin);
 
   return (
     <Row
@@ -45,7 +45,7 @@ export function LoanItem({data, backgroundColor}: ReserveItemProps) {
       <Col xl={2} lg={2} md={2} xs={2}>
         {rayRate(data.borrowRate)}%
       </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
+      <Col xl={2} lg={2} md={2} xs={2} style={{color: '#017901', fontWeight: 'bold'}}>
         {rayRate(borrowVitamin)}%
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>

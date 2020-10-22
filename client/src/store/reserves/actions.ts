@@ -3,7 +3,7 @@ import {RootState} from '../index';
 import {ReserveActions} from './index';
 import {Reserve} from '../../core/reserve';
 import {BigNumber} from 'bignumber.js';
-import {getTokenContract} from "../tokens/actions";
+import {getTokenContract, getTokenDetails} from "../tokens/actions";
 
 export const getReserves = (): ThunkAction<void, RootState, unknown, ReserveActions> => async (
   dispatch,
@@ -77,15 +77,19 @@ export const deposit = (reserve: string, sum: number, decimals: number): ThunkAc
   const result: Array<Reserve> = [];
   const {
     poolService,
-    accounts
+    accounts,
+      providerService,
+      aaveLendingPool
+
   } = getState().web3;
   if (poolService === undefined) {
     return;
   }
-
+console.log(providerService)
   const currentAccount = accounts[0];
   if (currentAccount === undefined) throw new Error("No current account were selected")
-
+  console.log(await providerService?.methods.getProviderWithHighestLiquidityRate(reserve).call())
   const bigNumberSum = (new BigNumber(sum).multipliedBy(`1e${decimals}`))
-  await poolService.methods.deposit(reserve, bigNumberSum.toFixed(0)).send({from: currentAccount})
+  await poolService.methods.deposit(reserve, bigNumberSum.toFixed(0)).send({from: currentAccount});
+  dispatch(getTokenDetails(reserve));
 }

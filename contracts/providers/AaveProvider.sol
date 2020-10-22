@@ -11,14 +11,16 @@ import "./aave-protocol/ILendingPoolCore.sol";
 contract AaveProvider is AbstractProvider {
   using SafeERC20 for ERC20;
   address private lendingPoolAddress;
+  address private lendingPoolCoreAddress;
   AToken private aToken;
 
   mapping(address => AToken) aTokens;
 
-  // address private lendingPoolCoreAddress;
-
-  constructor(address _lendingPoolAddress) public {
+  constructor(address _lendingPoolAddress, address _lendingPoolCoreAddress)
+    public
+  {
     lendingPoolAddress = _lendingPoolAddress;
+    lendingPoolCoreAddress = _lendingPoolCoreAddress;
   }
 
   function addReserve(address _reserve, address _aTokenAddress) external {
@@ -27,7 +29,7 @@ contract AaveProvider is AbstractProvider {
 
   // Deposit money to provider pool
   function deposit(address _reserve, uint256 _amount) public override payable {
-    ERC20(_reserve).approve(lendingPoolAddress, _amount);
+    ERC20(_reserve).approve(lendingPoolCoreAddress, _amount);
     getLendingPool().deposit(_reserve, _amount, 0);
     super.deposit(_reserve, _amount);
   }
@@ -107,7 +109,6 @@ contract AaveProvider is AbstractProvider {
       totalBorrowsVariable,
       liquidityRate,
       variableBorrowRate
-
     ) = getReserveLiquidityAndRates(_reserveAddress);
 
     (

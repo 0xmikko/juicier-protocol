@@ -1,8 +1,8 @@
 import React from "react";
 import {Reserve} from "../../core/reserve";
 import {Col, Row} from "react-bootstrap";
-import { BigNumber } from "bignumber.js";
-import {rayRate} from "../../utils/formaters";
+import {BigNumber} from "bignumber.js";
+import {rayRate, tokenDecimals} from "../../utils/formaters";
 
 export interface ReserveItemProps {
   data: Reserve;
@@ -10,10 +10,11 @@ export interface ReserveItemProps {
 }
 
 export function ReserveItem({data, backgroundColor}: ReserveItemProps) {
-
-    const vitamin = data.borrowRate.minus(data.lendingRate).multipliedBy(new BigNumber("0.4"))
-    const lendingVitamin = data.lendingRate.plus(vitamin);
-    const borrowVitamin = data.borrowRate.minus(vitamin);
+  const vitamin = data.borrowRate
+    .minus(data.lendingRate)
+    .multipliedBy(new BigNumber("0.4"));
+  const lendingVitamin = data.lendingRate.plus(vitamin);
+  const borrowVitamin = data.borrowRate.minus(vitamin);
 
   return (
     <Row
@@ -34,18 +35,18 @@ export function ReserveItem({data, backgroundColor}: ReserveItemProps) {
         {data.symbol}
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        {data.totalLiquidity.toString()}
+        {tokenDecimals(data.totalLiquidity.toFixed(2), 18)}
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-          {rayRate(data.lendingRate)}%
+        {rayRate(data.lendingRate)}%
       </Col>
-        <Col xl={2} lg={2} md={2} xs={2}>
-            {rayRate(lendingVitamin)}%
-        </Col>
+      <Col xl={2} lg={2} md={2} xs={2} style={{color: '#017901', fontWeight: 'bold'}}>
+        {rayRate(lendingVitamin)}%
+      </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
         {rayRate(data.borrowRate)}%
       </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
+      <Col xl={2} lg={2} md={2} xs={2} style={{color: '#017901', fontWeight: 'bold'}}>
         {rayRate(borrowVitamin)}%
       </Col>
     </Row>

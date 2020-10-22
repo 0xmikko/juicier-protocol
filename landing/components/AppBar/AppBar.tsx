@@ -33,17 +33,17 @@ export const AppBar = ({ backgroundColor }: AppBarProps) => {
         >
           <AppBarElement title="About" to="/about" key="about" />
           <AppBarElement title="Vitamin token" to="/vitamins" key="cases" />
-          <AppBarElement title="Github" to="/github" key="github" />
+          <AppBarElement title="Github" to="https://github.com/MikaelLazarev/juicifi" key="github" />
         </Navbar.Collapse>
         <Navbar style={{ justifyContent: "right" }}>
           <a
-            href={"/login"}
+            href={"https://app.juicer.finance"}
             style={{ color: "black" }}
             className={"appbar-login"}
           >
-            <Nav className="nav-item">Connect wallet</Nav>
+            <Nav className="nav-item">Enter market</Nav>
           </a>
-         
+
         </Navbar>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
       </Container>

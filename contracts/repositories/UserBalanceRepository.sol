@@ -32,8 +32,8 @@ contract UserBalanceRepository {
     Core.UserReserveBalance[] storage userBalances = userAssets[_user]
       .reserveBalances;
     uint256 index = findReserveIndexOrCreate(_user, _reserve);
-    Core.UserReserveBalance storage userReserveBalace = userBalances[index];
-    userReserveBalace.deposited = userReserveBalace.deposited.add(_amount);
+    Core.UserReserveBalance storage userReserveBalance = userBalances[index];
+    userReserveBalance.deposited = userReserveBalance.deposited.add(_amount);
   }
 
   function decreaseUserDeposit(

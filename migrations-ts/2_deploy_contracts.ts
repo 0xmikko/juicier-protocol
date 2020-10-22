@@ -1,7 +1,7 @@
 import Deployer = Truffle.Deployer;
-import {AaveLendingPoolMock} from '../types/web3-v1-contracts/AaveLendingPoolMock';
 import {AaveLendingPoolMockInstance} from '../types/truffle-contracts';
-import { BigNumber } from 'bignumber.js';
+import {BigNumber} from 'bignumber.js';
+
 const prompt = require('prompt-sync')();
 
 export const KOVAN_NETWORK_ID = 'kovan';
@@ -119,10 +119,10 @@ module.exports = async function (
   const mockIsNeedeed = network.indexOf(KOVAN_NETWORK_ID) === -1;
 
   console.log(`Detected a network ${network}. Mock flag is ${mockIsNeedeed}! Type 'yes' to continue.`)
-  const cont = prompt(`> `);
-  if (cont.toString().toLowerCase() !== 'yes') {
-    process.exit(1);
-  }
+  // const cont = prompt(`> `);
+  // if (cont.toString().toLowerCase() !== 'yes') {
+  //   process.exit(1);
+  // }
 
   try {
 
@@ -159,16 +159,19 @@ module.exports = async function (
   await _addressRepository.setPoolService(PoolService.address);
 
   let aaveLendingPoolAddress: string = AaveContracts.LendingPool;
+  let aavePoolCoreAddressaaveLending: string = AaveContracts.LendingPoolCore;
+
   let _aaveLendingPoolMock: AaveLendingPoolMockInstance | undefined;
 
   // Aave Lending Pool
   if (mockIsNeedeed) {
     await deployer.deploy(AaveLendingPoolMock);
     aaveLendingPoolAddress = AaveLendingPoolMock.address;
+    aavePoolCoreAddressaaveLending = AaveLendingPoolMock.address;
     _aaveLendingPoolMock = await AaveLendingPoolMock.deployed();
   }
 
-  await deployer.deploy(AaveProvider, aaveLendingPoolAddress);
+  await deployer.deploy(AaveProvider, aaveLendingPoolAddress, aavePoolCoreAddressaaveLending);
   await _providerRepository.addProvider(AaveProvider.address);
   const _aaveProvider = await AaveProvider.deployed();
 

@@ -6,6 +6,7 @@ import {ReserveRepository} from '../../../../types/web3-v1-contracts/ReserveRepo
 import {ProviderRepository} from '../../../../types/web3-v1-contracts/ProviderRepository';
 import {AaveProvider} from '../../../../types/web3-v1-contracts/AaveProvider';
 import {IAaveLendingPool} from '../../../../types/web3-v1-contracts/IAaveLendingPool';
+import {ProviderService} from "../../../../types/web3-v1-contracts/ProviderService";
 
 export const web3Selector = (state: RootState) => state.web3;
 
@@ -22,6 +23,7 @@ export type Web3Actions =
         poolServiceAddress: string;
         reserveRepository: ReserveRepository;
         providerRepository: ProviderRepository;
+          providerService: ProviderService;
         aaveProvider: AaveProvider;
         aaveLendingPool: IAaveLendingPool;
       };

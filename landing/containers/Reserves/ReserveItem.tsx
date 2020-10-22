@@ -8,34 +8,37 @@ export interface ReserveItemProps {
 }
 
 export function ReserveItem({data, backgroundColor}: ReserveItemProps) {
+  const vitamin = (data.borrowRate - data.depositRate) * 0.4;
+
   return (
     <Row
-      style={{paddingTop: "10px", paddingBottom: "10px", backgroundColor: backgroundColor || "white"}}
+      style={{
+        paddingTop: "10px",
+        paddingBottom: "10px",
+        backgroundColor: backgroundColor || "white",
+      }}
     >
       <Col
-        xl={2}
-        lg={2}
-        md={2}
-        xs={2}
+        xl={4}
+        lg={4}
+        md={4}
+        xs={4}
         style={{textAlign: "left", display: "flex", flexDirection: "row"}}
       >
         <img src={data.iconUrl} style={{height: "30px", marginRight: "10px"}} />
         {data.name}
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        {data.marketSize}
+        {data.depositRate.toFixed(2)}%
+      </Col>
+      <Col xl={2} lg={2} md={2} xs={2} style={{color: '#017901', fontWeight: 'bold'}}>
+        {(data.depositRate+vitamin).toFixed(2)}%
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        {data.depositAPY.toFixed(2)}%
+        {data.borrowRate.toFixed(2)}%
       </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
-        {data.depositVitamin.toFixed(2)}%
-      </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
-        {data.borrowAPY.toFixed(2)}%
-      </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
-        {data.borrowVitamin.toFixed(2)}%
+      <Col xl={2} lg={2} md={2} xs={2} style={{color: '#017901', fontWeight: 'bold'}}>
+        {(data.borrowRate-vitamin).toFixed(2)}%
       </Col>
     </Row>
   );

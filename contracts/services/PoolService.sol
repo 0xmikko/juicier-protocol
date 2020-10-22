@@ -90,32 +90,17 @@ contract PoolService is Ownable {
     address providerAddress = providerService
       .getProviderWithHighestLiquidityRate(_reserve);
 
-    ILendingProvider provider = providerRepository.getProviderByAddressOrFail(
-      providerAddress
-    );
+    ILendingProvider provider = ILendingProvider(providerAddress);
 
     // Transfer tokens to Pool contract and provide allowance
     transferToReserve(_reserve, msg.sender, providerAddress, _amount);
 
     // Approve for provider
     provider.deposit(_reserve, _amount);
-
-    uint256 updatedTotalLiquidity = reserveRepository
-      .getTotalLiquidity(_reserve)
-      .add(_amount);
-    uint256 updatedAvailableLiquidity = reserveRepository
-      .getAvailableLiquidity(_reserve)
-      .add(_amount);
-
-    reserveRepository.setTotalLiquidity(_reserve, updatedTotalLiquidity);
-    reserveRepository.setAvailableLiquidity(
-      _reserve,
-      updatedAvailableLiquidity
-    );
-
+    reserveRepository.addLiquidity(_reserve, _amount);
     userBalanceRepository.increaseUserDeposit(_reserve, msg.sender, _amount);
 
-    VToken token = reserveRepository.getVTokenContract(_reserve);
+    VToken token = VToken(reserveRepository.getVTokenContract(_reserve));
     token.mintOnDeposit(msg.sender, _amount);
   }
 
@@ -220,27 +205,27 @@ contract PoolService is Ownable {
     address _to,
     uint256 _amount
   ) internal {
-    if (_reserve != EthAddressLib.ethAddress()) {
-      require(
-        msg.value == 0,
-        "Pool: User is sending ETH along with the ERC20 transfer."
-      );
+//    if (_reserve != EthAddressLib.ethAddress()) {
+//      require(
+//        msg.value == 0,
+//        "Pool: User is sending ETH along with the ERC20 transfer."
+//      );
 
       ERC20(_reserve).safeTransferFrom(_user, _to, _amount);
-    } else {
-      require(
-        msg.value >= _amount,
-        "Pool: The amount and the value sent to deposit do not match"
-      );
-
-      if (msg.value > _amount) {
-        //send back excess ETH
-        uint256 excessAmount = msg.value.sub(_amount);
-        //solium-disable-next-line
-        (bool result, ) = _user.call.value(excessAmount).gas(50000)("");
-        require(result, "Pool: Transfer of ETH failed");
-      }
-    }
+//    } else {
+//      require(
+//        msg.value >= _amount,
+//        "Pool: The amount and the value sent to deposit do not match"
+//      );
+//
+//      if (msg.value > _amount) {
+//        //send back excess ETH
+//        uint256 excessAmount = msg.value.sub(_amount);
+//        //solium-disable-next-line
+//        (bool result, ) = _user.call.value(excessAmount).gas(50000)("");
+//        require(result, "Pool: Transfer of ETH failed");
+//      }
+//    }
   }
 
   function getReserveInfo(address _reserve)

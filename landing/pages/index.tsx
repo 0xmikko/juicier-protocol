@@ -67,6 +67,7 @@ export async function getServerSideProps(): Promise<{props: IndexPageProps}> {
 
   const {data} = await axios.get(`${SERVER_ADDR}/api/reserves`);
 
+  console.log(data)
   return {
     props: {meta, reserves: data},
   };

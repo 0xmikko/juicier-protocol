@@ -80,10 +80,10 @@ module.exports = async function (deployer, network, accounts) {
     console.log('Deploy at: ', network);
     const mockIsNeedeed = network.indexOf(exports.KOVAN_NETWORK_ID) === -1;
     console.log(`Detected a network ${network}. Mock flag is ${mockIsNeedeed}! Type 'yes' to continue.`);
-    const cont = prompt(`> `);
-    if (cont.toString().toLowerCase() !== 'yes') {
-        process.exit(1);
-    }
+    // const cont = prompt(`> `);
+    // if (cont.toString().toLowerCase() !== 'yes') {
+    //   process.exit(1);
+    // }
     try {
         await deployer.deploy(AddressRepository);
         const _addressRepository = await AddressRepository.deployed();
@@ -107,14 +107,16 @@ module.exports = async function (deployer, network, accounts) {
         await deployer.deploy(PoolService, AddressRepository.address);
         await _addressRepository.setPoolService(PoolService.address);
         let aaveLendingPoolAddress = AaveContracts.LendingPool;
+        let aavePoolCoreAddressaaveLending = AaveContracts.LendingPoolCore;
         let _aaveLendingPoolMock;
         // Aave Lending Pool
         if (mockIsNeedeed) {
             await deployer.deploy(AaveLendingPoolMock);
             aaveLendingPoolAddress = AaveLendingPoolMock.address;
+            aavePoolCoreAddressaaveLending = AaveLendingPoolMock.address;
             _aaveLendingPoolMock = await AaveLendingPoolMock.deployed();
         }
-        await deployer.deploy(AaveProvider, aaveLendingPoolAddress);
+        await deployer.deploy(AaveProvider, aaveLendingPoolAddress, aavePoolCoreAddressaaveLending);
         await _providerRepository.addProvider(AaveProvider.address);
         const _aaveProvider = await AaveProvider.deployed();
         let tokensToConnect = tokens;

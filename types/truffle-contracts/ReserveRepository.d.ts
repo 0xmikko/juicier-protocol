@@ -108,6 +108,29 @@ export interface ReserveRepositoryInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
+  addLiquidity: {
+    (
+      _reserve: string,
+      _liquidity: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _reserve: string,
+      _liquidity: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _reserve: string,
+      _liquidity: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _reserve: string,
+      _liquidity: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
   setTokenContract: {
     (
       _reserve: string,
@@ -284,6 +307,29 @@ export interface ReserveRepositoryInstance extends Truffle.ContractInstance {
       estimateGas(
         _reserve: string,
         _availableLiquidity: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    addLiquidity: {
+      (
+        _reserve: string,
+        _liquidity: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _reserve: string,
+        _liquidity: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _reserve: string,
+        _liquidity: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _reserve: string,
+        _liquidity: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };

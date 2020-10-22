@@ -62,14 +62,21 @@ contract ReserveRepository {
     reserves[_reserve].availableLiquidity = _availableLiquidity;
   }
 
+  function addLiquidity(address _reserve, uint256 _liquidity)
+  external
+  {
+    reserves[_reserve].totalLiquidity += _liquidity;
+    reserves[_reserve].availableLiquidity += _liquidity;
+  }
+
   function setTokenContract(address _reserve, address _contractAddress)
     external
   {
     reserves[_reserve].vTokenContract = _contractAddress;
   }
 
-  function getVTokenContract(address _reserve) public view returns (VToken) {
-    return VToken(reserves[_reserve].vTokenContract);
+  function getVTokenContract(address _reserve) public view returns (address) {
+    return reserves[_reserve].vTokenContract;
   }
 
   function isActive(address _reserve) external view returns (bool) {
@@ -105,7 +112,7 @@ contract ReserveRepository {
     view
     returns (string memory)
   {
-    return getVTokenContract(_reserve).symbol();
+    return VToken(getVTokenContract(_reserve)).symbol();
   }
 
   function getReservesQty() external view returns (uint256) {

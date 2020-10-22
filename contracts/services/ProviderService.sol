@@ -39,11 +39,11 @@ contract ProviderService is Ownable {
     returns (address)
   {
     uint256 providersListQty = providerRepository.getProvidersQty();
-    ILendingProvider result = providerRepository.getProviderByIndex(0);
+    ILendingProvider result = ILendingProvider(providerRepository.getProviderByIndex(0));
     uint256 liquidityRate = 0;
 
     for (uint256 i = 0; i < providersListQty; i++) {
-      ILendingProvider curProvider = providerRepository.getProviderByIndex(i);
+      ILendingProvider curProvider = ILendingProvider(providerRepository.getProviderByIndex(i));
       uint256 curLiquidityRate = curProvider.getReserveLiquidityRate(
         _reserveAddress
       );
@@ -62,13 +62,13 @@ contract ProviderService is Ownable {
     returns (address providerAddress, uint256 availableLiquidity)
   {
     uint256 providersListQty = providerRepository.getProvidersQty();
-    ILendingProvider provider = providerRepository.getProviderByIndex(0);
+    ILendingProvider provider = ILendingProvider(providerRepository.getProviderByIndex(0));
 
     uint256 liquidityRate = uint256(-1);
     availableLiquidity = 0;
 
     for (uint256 i = 0; i < providersListQty; i++) {
-      ILendingProvider curProvider = providerRepository.getProviderByIndex(i);
+      ILendingProvider curProvider = ILendingProvider(providerRepository.getProviderByIndex(i));
       uint256 curLiquidityRate = curProvider.getReserveLiquidityRate(
         _reserveAddress
       );
@@ -101,8 +101,8 @@ contract ProviderService is Ownable {
     uint256 availableLiquidity = 0;
     uint256 providerListLenght = providerRepository.getProvidersQty();
     for (uint256 i = 0; i < providerListLenght; i++) {
-      availableLiquidity += providerRepository
-        .getProviderByIndex(i)
+      availableLiquidity += ILendingProvider(providerRepository
+        .getProviderByIndex(i))
         .getAvaibleLiquidity(_reserveAddress);
     }
     return availableLiquidity;
@@ -114,7 +114,7 @@ contract ProviderService is Ownable {
     uint256 borrowRate = uint256(-1);
 
     for (uint256 i = 0; i < providersListQty; i++) {
-      ILendingProvider curProvider = providerRepository.getProviderByIndex(i);
+      ILendingProvider curProvider = ILendingProvider(providerRepository.getProviderByIndex(i));
       uint256 curDepositRate = curProvider.getReserveLiquidityRate(
         _reserve
       );
