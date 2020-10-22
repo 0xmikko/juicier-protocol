@@ -30,6 +30,8 @@ export const getTokenDetails = (
   const decimals = parseInt(await tContract.methods.decimals().call());
   const allowance = await tContract.methods.allowance(currentAccount, poolServiceAddress).call();
   const balance = await tContract.methods.balanceOf(currentAccount).call();
+  const totalSupply = await tContract.methods.totalSupply().call();
+
 
   const tokenData: Token = {
     name,
@@ -37,8 +39,9 @@ export const getTokenDetails = (
     address: id,
     allowance: tokenDecimals(allowance, decimals),
     balance: tokenDecimals(balance, decimals),
+    totalSupply: tokenDecimals(totalSupply, decimals),
   };
-
+  console.log(tokenData);
   dispatch({
     type: 'TOKEN_DETAILS',
     payload: tokenData,
@@ -64,7 +67,6 @@ export const approve = (id: string, sum: number): ThunkAction<void, RootState, u
   const tContract = await getTokenContract(web3, id);
   const decimals = parseInt(await tContract.methods.decimals().call());
   const bigNumberSum = (new BigNumber(sum).multipliedBy(`1e${decimals}`))
-  // @ts-ignore
   await tContract.methods.approve(poolServiceAddress, bigNumberSum.toFixed(0)).send({from: currentAccount});
   dispatch(getTokenDetails(id));
 };

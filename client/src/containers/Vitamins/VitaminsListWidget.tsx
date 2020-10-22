@@ -21,11 +21,9 @@ export function VitaminListWidget({data}: ReservesListWidgetProps) {
       </Row>
       <Row style={{minHeight: "40px", fontWeight: "bold"}}>
         <Col style={{textAlign: "left"}}>Assets</Col>
-        <Col>Market size</Col>
-        <Col>Deposit APY</Col>
-        <Col>Deposit Queue</Col>
-        <Col>Vitamin</Col>
-        <Col>Borrow APY</Col>
+        <Col>You own</Col>
+        <Col>APY</Col>
+        <Col>Total supply</Col>
       </Row>
       {reservesRendered}
     </Container>

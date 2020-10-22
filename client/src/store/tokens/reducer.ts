@@ -16,7 +16,7 @@ export default function createReducer(
   switch (action.type) {
     case 'TOKEN_DETAILS':
       const {address} = action.payload;
-      return {...state, data: {[address]: action.payload}};
+      return {...state, data: { ...state.data, [address]: action.payload}};
     case 'TOKEN_FAILED':
       return {
         data: {},

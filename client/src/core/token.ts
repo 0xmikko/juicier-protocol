@@ -4,4 +4,5 @@ export interface Token {
     symbol: string,
     balance: number,
     allowance: number,
+    totalSupply: number,
 }

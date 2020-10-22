@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Reserve} from "../../core/reserve";
 import {Col, Row} from "react-bootstrap";
-import { BigNumber } from "bignumber.js";
+import {BigNumber} from "bignumber.js";
 import {rayRate} from "../../utils/formaters";
+import {useDispatch, useSelector} from "react-redux";
+import actions from "../../store/actions";
+import {tokenSelector} from "../../store/tokens";
 
 export interface ReserveItemProps {
   data: Reserve;
@@ -10,10 +13,21 @@ export interface ReserveItemProps {
 }
 
 export function VitaminItem({data, backgroundColor}: ReserveItemProps) {
+  const dispatch = useDispatch();
+  const vTokenId = data.vTokenContract;
+  useEffect(() => {
+    if (data.vTokenContract !== undefined) {
+        console.log(data.vTokenContract, data.symbol)
+      dispatch(actions.tokens.getTokenDetails(data.vTokenContract));}
 
-    const vitamin = data.borrowRate.minus(data.lendingRate).multipliedBy(new BigNumber("0.4"))
-    const lendingVitamin = data.lendingRate.plus(vitamin);
-    const borrowVitamin = data.borrowRate.minus(vitamin);
+  }, [data.vTokenContract]);
+  const vTokenData = useSelector(tokenSelector(data.vTokenContract));
+
+  const vitamin = data.borrowRate
+    .minus(data.lendingRate)
+    .multipliedBy(new BigNumber("0.4"));
+  const lendingVitamin = data.lendingRate.plus(vitamin);
+  const borrowVitamin = data.borrowRate.minus(vitamin);
 
   return (
     <Row
@@ -24,29 +38,19 @@ export function VitaminItem({data, backgroundColor}: ReserveItemProps) {
       }}
     >
       <Col
-        xl={2}
-        lg={2}
-        md={2}
-        xs={2}
         style={{textAlign: "left", display: "flex", flexDirection: "row"}}
       >
         {/*<img src={""} style={{height: "30px", marginRight: "10px"}} />*/}
         {data.symbol}
       </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
-        {data.totalLiquidity.toString()}
+      <Col>
+        {vTokenData?.balance}
       </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
-          {rayRate(data.lendingRate)}%
+      <Col>
+        {rayRate(vitamin)}%
       </Col>
-        <Col xl={2} lg={2} md={2} xs={2}>
-            {rayRate(lendingVitamin)}%
-        </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
-        {rayRate(data.borrowRate)}%
-      </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
-        {rayRate(borrowVitamin)}%
+      <Col>
+        {vTokenData?.totalSupply}
       </Col>
     </Row>
   );

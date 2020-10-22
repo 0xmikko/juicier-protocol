@@ -1,5 +1,5 @@
 import React from "react";
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Media, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import CookieConsent from "react-cookie-consent";
 
@@ -33,15 +33,9 @@ export function Footer() {
           Our Privacy Policy.
         </span>
       </CookieConsent>
-      <div className={"footer-content"}>
-        <Container className="container_block" style={{color: "white"}}>
-          <Row>
-            <Col
-              lg={{span: 5, order: "first"}}
-              md={{span: 12, order: "last"}}
-              sm={{span: 12, order: "last"}}
-              xs={{span: 12, order: "last"}}
-            >
+      <div className={"footer-content"} style={{color: "white"}}>
+        <Container style={{paddingTop: '30px', paddingBottom: "30px"}}>
+            <Media>
               <Link to="/">
                 <img
                   src={"/logo.png"}
@@ -50,62 +44,14 @@ export function Footer() {
                   style={{marginBottom: "15px"}}
                 />
               </Link>
+              <Media.Body style={{marginLeft: "30px"}}>
               <p>
                 &copy; Copyright 2020 Juicer Protocol
                 <br />
                 All rights reserved
               </p>
-            </Col>
-            <Col lg={4} md={8} sm={8} xs={12} style={{paddingBottom: "20px"}}>
-              <h5> Company </h5>
-              <ul>
-                <li>
-                  <Link to={"/about"}>
-                    <a>About</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/vitamins"}>
-                    <a>Vitamin tokens</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/documentation"}>
-                    <a>Documentation</a>
-                  </Link>
-                </li>
-              </ul>
-            </Col>
-            {/*<Col lg={2} md={4} sm={4} xs={12} style={{paddingBottom: "20px"}}>*/}
-            {/*  <h5> Legal </h5>*/}
-            {/*  <ul>*/}
-            {/*    <li>*/}
-            {/*      <Link to={"/privacy"}>*/}
-            {/*        <a>Privacy</a>*/}
-            {/*      </Link>*/}
-            {/*    </li>*/}
-            {/*    <li>*/}
-            {/*      <Link to={"/terms"}>*/}
-            {/*        <a>Terms</a>*/}
-            {/*      </Link>*/}
-            {/*    </li>*/}
-            {/*  </ul>*/}
-            {/*</Col>*/}
-            <Col lg={3} md={4} sm={4} xs={12} style={{paddingBottom: "40px"}}>
-              <h5> Follow Us </h5>
-
-              <a
-                className="button-social facebook"
-                aria-label="Juicer protocol on Facebook"
-                href="https://www.facebook.com/juicerProtocol/"
-              ></a>
-              <a
-                className="button-social github"
-                aria-label="Juicer protocol on Github"
-                href="https://github.com/MikaelLazarev/juicifi"
-              ></a>
-            </Col>
-          </Row>
+              </Media.Body>
+            </Media>
         </Container>
       </div>
     </footer>
