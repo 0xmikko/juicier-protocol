@@ -1,22 +1,19 @@
 import React from "react";
 import {Reserve} from "../../core/reserve";
-import {Button, Col, Row} from "react-bootstrap";
-import {BigNumber} from "bignumber.js";
-import {useHistory} from "react-router";
-import {rayRate, tokenDecimals} from "../../utils/formaters";
+import {Col, Row} from "react-bootstrap";
+import { BigNumber } from "bignumber.js";
+import {rayRate} from "../../utils/formaters";
 
 export interface ReserveItemProps {
   data: Reserve;
   backgroundColor?: string;
 }
 
-export function DepositItem({data, backgroundColor}: ReserveItemProps) {
-  const history = useHistory();
+export function VitaminItem({data, backgroundColor}: ReserveItemProps) {
 
-  const vitamin = data.borrowRate
-    .minus(data.lendingRate)
-    .multipliedBy(new BigNumber("0.4"));
-  const lendingVitamin = data.lendingRate.plus(vitamin);
+    const vitamin = data.borrowRate.minus(data.lendingRate).multipliedBy(new BigNumber("0.4"))
+    const lendingVitamin = data.lendingRate.plus(vitamin);
+    const borrowVitamin = data.borrowRate.minus(vitamin);
 
   return (
     <Row
@@ -37,21 +34,19 @@ export function DepositItem({data, backgroundColor}: ReserveItemProps) {
         {data.symbol}
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        {tokenDecimals(data.totalLiquidity.toFixed(0), 18)}
+        {data.totalLiquidity.toString()}
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        {rayRate(data.lendingRate)}%
+          {rayRate(data.lendingRate)}%
+      </Col>
+        <Col xl={2} lg={2} md={2} xs={2}>
+            {rayRate(lendingVitamin)}%
+        </Col>
+      <Col xl={2} lg={2} md={2} xs={2}>
+        {rayRate(data.borrowRate)}%
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        {rayRate(lendingVitamin)}%
-      </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
-        10,000
-      </Col>
-      <Col xl={2} lg={2} md={2} xs={2}>
-        <Button onClick={() => history.push(`/deposits/${data.reserve}`)}>
-          Deposit
-        </Button>
+        {rayRate(borrowVitamin)}%
       </Col>
     </Row>
   );

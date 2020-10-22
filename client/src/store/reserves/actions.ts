@@ -69,3 +69,23 @@ export const getReserves = (): ThunkAction<void, RootState, unknown, ReserveActi
     payload: result,
   });
 };
+
+export const deposit = (reserve: string, sum: number, decimals: number): ThunkAction<void, RootState, unknown, ReserveActions> => async (
+    dispatch,
+    getState
+) => {
+  const result: Array<Reserve> = [];
+  const {
+    poolService,
+    accounts
+  } = getState().web3;
+  if (poolService === undefined) {
+    return;
+  }
+
+  const currentAccount = accounts[0];
+  if (currentAccount === undefined) throw new Error("No current account were selected")
+
+  const bigNumberSum = (new BigNumber(sum).multipliedBy(`1e${decimals}`))
+  await poolService.methods.deposit(reserve, bigNumberSum.toFixed(0)).send({from: currentAccount})
+}

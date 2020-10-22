@@ -1,6 +1,7 @@
 import Deployer = Truffle.Deployer;
 import {AaveLendingPoolMock} from '../types/web3-v1-contracts/AaveLendingPoolMock';
 import {AaveLendingPoolMockInstance} from '../types/truffle-contracts';
+import { BigNumber } from 'bignumber.js';
 const prompt = require('prompt-sync')();
 
 export const KOVAN_NETWORK_ID = 'kovan';
@@ -47,8 +48,10 @@ async function generateMockTokens(
     await deployer.deploy(DAIMockToken, token.name, token.symbol);
     token.token = DAIMockToken.address;
     const tokenContract = await DAIMockToken.deployed();
-    const tx = await tokenContract.mint(deployerAddress, '10000000000');
-    console.log('mint TX', tx);
+    const tx = await tokenContract.mint(deployerAddress, new BigNumber('1e22').toFixed(0));
+    const balance = await tokenContract.balanceOf(deployerAddress)
+    console.log('mint TX', deployerAddress, balance);
+
 
     // AToken creation
     await deployer.deploy(

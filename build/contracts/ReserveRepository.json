@@ -7315,10 +7315,16 @@
       "links": {},
       "address": "0x5C3916aaFED86FE98Cc7Bd2067D5137996E36F3F",
       "transactionHash": "0xff46e33481d691e28ca7bf587eec495b3d2b0f2f1e77e05d11998c876f89cf92"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xA595AF4dC54b8744dD6E1c918b0416ccb85546D3",
+      "transactionHash": "0xc1d2ffa62b7d0ccdfd6d9ded5b085085ad579b00c26070e80a471a420732d19c"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-22T10:02:13.086Z",
+  "updatedAt": "2020-10-22T12:43:17.509Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

@@ -10,13 +10,13 @@ export interface ReserveItemProps {
   backgroundColor?: string;
 }
 
-export function DepositItem({data, backgroundColor}: ReserveItemProps) {
+export function LoanItem({data, backgroundColor}: ReserveItemProps) {
   const history = useHistory();
 
   const vitamin = data.borrowRate
     .minus(data.lendingRate)
     .multipliedBy(new BigNumber("0.4"));
-  const lendingVitamin = data.lendingRate.plus(vitamin);
+  const borrowVitamin = data.borrowRate.plus(vitamin);
 
   return (
     <Row
@@ -40,17 +40,17 @@ export function DepositItem({data, backgroundColor}: ReserveItemProps) {
         {tokenDecimals(data.totalLiquidity.toFixed(0), 18)}
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        {rayRate(data.lendingRate)}%
+        {tokenDecimals(data.availableLiquidity.toFixed(0), 18)}
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        {rayRate(lendingVitamin)}%
+        {rayRate(data.borrowRate)}%
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        10,000
+        {rayRate(borrowVitamin)}%
       </Col>
       <Col xl={2} lg={2} md={2} xs={2}>
-        <Button onClick={() => history.push(`/deposits/${data.reserve}`)}>
-          Deposit
+        <Button onClick={() => history.push(`/loans/${data.reserve}`)}>
+          Borrow
         </Button>
       </Col>
     </Row>

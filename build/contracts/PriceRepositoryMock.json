@@ -444,10 +444,16 @@
       "links": {},
       "address": "0x33b46c8d63597C9dcF44328dE0e050e50b96d1a6",
       "transactionHash": "0x4b806697e79f2c61ac8e74d99215cef7f0ff80022a6ed95b17cc78fa4bb9b764"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x78cF89B4fd41eBA56e882D8d5352B467Db5DF37F",
+      "transactionHash": "0x8c8ad2ef34e0617e456444a4a751464c588d316c16925e816ae9e61e9ed23216"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-22T10:02:13.089Z",
+  "updatedAt": "2020-10-22T12:43:17.513Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

@@ -18088,10 +18088,67 @@
       "links": {},
       "address": "0xd77D266be29E3591dcEf75165E1eA0E13da827e7",
       "transactionHash": "0x082309b011eb4a80cb1e0da93e0362c61c2d4540cc7f5eb8fd43949adc3de820"
+    },
+    "5777": {
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x9c4ed599cd8555b9c1e8cd7643240d7d71eb76b792948c49fcb4d411f7b6b3c6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "_reserve",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "_user",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "RedeemUnderlying",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x88F8F768c53D6bEe34D9846e17a4F6971750cDBB",
+      "transactionHash": "0x10320947e804e798ea05eb06835b2f7f6f38f654a03e4b9308010194dc9fd8f3"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-22T10:02:13.107Z",
+  "updatedAt": "2020-10-22T12:43:17.543Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {

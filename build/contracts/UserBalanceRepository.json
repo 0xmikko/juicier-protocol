@@ -7897,10 +7897,16 @@
       "links": {},
       "address": "0xa7D21C25182646562faBDea30AaD7D3D9bB25552",
       "transactionHash": "0x981252317c701c9c69dc5644c129a8d2eff592e1ecaaa875aefd9fe6c3a6f35d"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xcf275842705d8f1E96802afE90e4E65252EB7A97",
+      "transactionHash": "0xe5a7f94feb172ace36ce88402feba4e7db0341a15db15bab4a1ce43e3c65e313"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-22T10:02:13.091Z",
+  "updatedAt": "2020-10-22T12:43:17.515Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

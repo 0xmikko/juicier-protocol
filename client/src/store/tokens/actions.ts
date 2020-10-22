@@ -65,6 +65,6 @@ export const approve = (id: string, sum: number): ThunkAction<void, RootState, u
   const decimals = parseInt(await tContract.methods.decimals().call());
   const bigNumberSum = (new BigNumber(sum).multipliedBy(`1e${decimals}`))
   // @ts-ignore
-  await tContract.methods.approve(poolServiceAddress, bigNumberSum.toString()).send({from: currentAccount});
+  await tContract.methods.approve(poolServiceAddress, bigNumberSum.toFixed(0)).send({from: currentAccount});
   dispatch(getTokenDetails(id));
 };

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.KOVAN_NETWORK_ID = void 0;
+const bignumber_js_1 = require("bignumber.js");
 const prompt = require('prompt-sync')();
 exports.KOVAN_NETWORK_ID = 'kovan';
 const AaveContracts = {
@@ -31,8 +32,9 @@ async function generateMockTokens(deployer, deployerAddress, aaveLandingPoolAddr
         await deployer.deploy(DAIMockToken, token.name, token.symbol);
         token.token = DAIMockToken.address;
         const tokenContract = await DAIMockToken.deployed();
-        const tx = await tokenContract.mint(deployerAddress, '10000000000');
-        console.log('mint TX', tx);
+        const tx = await tokenContract.mint(deployerAddress, new bignumber_js_1.BigNumber('1e22').toFixed(0));
+        const balance = await tokenContract.balanceOf(deployerAddress);
+        console.log('mint TX', deployerAddress, balance);
         // AToken creation
         await deployer.deploy(AToken, aaveLandingPoolAddress, DAIMockToken.address, 18, `A${token.name}`, `a${token.symbol}`);
         token.aToken = AToken.address;

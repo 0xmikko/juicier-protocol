@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Button, Card, Form} from "react-bootstrap";
 import {Token} from "../../core/token";
 import {LoadingView} from "rn-web-components";
@@ -8,7 +8,7 @@ import actions from "../../store/actions";
 export interface ApproveToPoolProps {
   data?: Token;
 }
-export function DepositAction({data}: ApproveToPoolProps): React.ReactElement {
+export function ApproveToPool({data}: ApproveToPoolProps): React.ReactElement {
   const dispatch = useDispatch();
   const [numValue, setNumValue] = useState(0);
 
@@ -17,19 +17,17 @@ export function DepositAction({data}: ApproveToPoolProps): React.ReactElement {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {value} = e.target;
     setNumValue(parseInt(value));
-  };
+  }
   const onSubmit = () => {
     console.log("Submitted");
-    dispatch(actions.reserves.deposit(data.address, numValue, 18));
+    dispatch(actions.tokens.approve(data.address, numValue));
+
   };
   return (
     <Card>
-      <Card.Header>Deposit</Card.Header>
+      <Card.Header>Allowance</Card.Header>
       <Card.Body>
-        <p>
-          Your balance: {data.balance}
-          <br />
-        </p>
+        <p>Your current allowance: {data.allowance}<br/></p>
         <Form>
           <Form.Control
             type={"numerical"}
@@ -37,7 +35,7 @@ export function DepositAction({data}: ApproveToPoolProps): React.ReactElement {
             style={{textAlign: "right"}}
             onChange={onChange}
           ></Form.Control>
-          <Button onClick={onSubmit}>Deposit</Button>
+          <Button onClick={onSubmit}>Approve</Button>
         </Form>
       </Card.Body>
     </Card>
