@@ -110,7 +110,7 @@ export class JucifiDeployer {
   ): Promise<AaveProviderInstance> {
     const provider = await artifacts
       .require('AaveProvider')
-      .new(aaveMock.address, {from: this._deployer});
+      .new(aaveMock.address, aaveMock.address, {from: this._deployer});
 
     const providerRepository = await this.getProviderRepository();
     await providerRepository.addProvider(provider.address, {from: this._deployer});
