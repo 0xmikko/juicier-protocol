@@ -17,23 +17,17 @@ Juicer Protocol is a lending protocol which offers guaranteed better rates for b
 
 ![jp3](https://user-images.githubusercontent.com/26343374/96941257-9e86ea00-14da-11eb-9d73-f244cc4a8073.jpeg)
 
-You can see that lender got the best market rate. Then the borrower comes to scene. We also use best market strategy and offer 4.85 for borrower
+4. You can see that lender got the best market rate. Then the borrower comes to scene. We also use best market strategy and offer 4.85 for borrower. To provide 100 USDCoins we take money from Aave and provide them to Borrower.
 ![jp4](https://user-images.githubusercontent.com/26343374/96941259-9f1f8080-14da-11eb-97ea-d255b2d5cbea.jpeg)
 
-To provide 100 USDCoins we take money from Aave and provide them to Borrower.
+5. Let’s consider that step by step. At the first, we took 100 USD Coins from Lender for 3.47, then we provide them to Borrower for 4.85. As you could see, there is 1.38 extra which would be distributed between 3 parts by issuing vitamin tokes.
+40% would be delivers for lenders and borrowers. The last 20% would be invested for further protocol development.
 
-Let’s consider that step by step.
-At the first, we took 100 USD Coins from Lender for 3.47
-Next, we provide them to Borrower for 4.85.
-As you could see, there is 1.38 extra which would be distributed between 3 parts by issuing vitamin tokes.
-40% would be delivers for lenders and borrowers.
-The last 20% would be invested for further protocol development,
 ![jp5](https://user-images.githubusercontent.com/26343374/96941261-9fb81700-14da-11eb-980b-5efb828a9d3a.jpeg)
 
-## Vitamin tokens
-The difference between borrowing and deposit rates is distributed between lenders, borrowers & protocol governance.
-
 ## Queue mining
+What happens when the utilisation would be not optimal and Juicer Protocol would have less borrowers than lenders?
+The first point is that both Lenders & Borrowers has the best market rates. Furthermore, borrowers gets vitamins tokens, which dramatically reduces their rate. Lenders, who’s assets were used for loans, also get vitamins, other lenders stays in the queue.
 ![jp6](https://user-images.githubusercontent.com/26343374/96941262-a181da80-14da-11eb-852e-f2a05d3c14ed.jpeg)
 
 ## Technical stack
