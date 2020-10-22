@@ -9,8 +9,13 @@ import {rayRate, tokenDecimals} from './formaters';
 export const reservesIcons: Record<string, string> = {
   DAI: 'https://aave.com/static/media/dai.59d423e0.svg',
   USDC: 'https://aave.com/static/media/usdc.8dd9681c.svg',
-  TrueUSD: 'https://aave.com/static/media/tusd.a9e1a2e9.svg',
-  'USDT Coin': 'https://aave.com/static/media/usdt.49e25172.svg',
+  TUSD: 'https://aave.com/static/media/tusd.a9e1a2e9.svg',
+  USDT: 'https://aave.com/static/media/usdt.49e25172.svg',
+  SUSD: "https://aave.com/static/media/susd.f14c0307.svg",
+  BAT: "https://testnet.aave.com/static/media/bat.b277f0a1.svg",
+  LINK: "https://testnet.aave.com/static/media/link.83c397b4.svg",
+  WBTC: "https://testnet.aave.com/static/media/wbtc.f524516c.svg",
+  YFI: "https://testnet.aave.com/static/media/yfi.1c24d18a.svg"
 };
 
 export async function getContract(web3: Web3, artifact: any, address?: string) {
