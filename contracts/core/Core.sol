@@ -1,6 +1,12 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
 
+/**
+ * @title Core
+ * @notice Keeps data structures
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
+ */
+
 library Core {
   struct PoolReserveData {
     // reserve total liquidity

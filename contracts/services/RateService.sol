@@ -3,6 +3,13 @@ pragma solidity ^0.6.10;
 import "./ProviderService.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
+
+/**
+ * @title Rate service
+ * @notice Computes rates
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
+ */
+
 contract RateService {
   using SafeMath for uint256;
   uint256 constant SHARE = 20;

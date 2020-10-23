@@ -17,6 +17,12 @@ import "../services/ProviderService.sol";
 import "../services/RiskService.sol";
 import "../token/VToken.sol";
 
+/**
+ * @title PoolService
+ * @notice Core service
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
+ */
+
 contract PoolService is Ownable {
   using SafeMath for uint256;
   using SafeERC20 for ERC20;

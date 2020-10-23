@@ -4,7 +4,9 @@ pragma solidity ^0.6.10;
 import "./Core.sol";
 
 /**
- * @dev Interface of the Lending Provider
+ * @title ILendingProvider
+ * @notice Lending provider interface
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
  */
 interface ILendingProvider {
   /**
@@ -13,6 +15,10 @@ interface ILendingProvider {
 
   function deposit(address _reserve, uint256 _amount) external payable;
 
+  /**
+   * @dev Redeem asset to selected lending provider
+   */
+
   function redeemUnderlying(
     address _reserve,
     address payable _user,
@@ -20,7 +26,7 @@ interface ILendingProvider {
   ) external;
 
   /**
-   * @notice Resereves methods
+   * @notice Reserves methods
    */
 
   function getReserves() external returns (address[] memory);

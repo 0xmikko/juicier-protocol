@@ -4,6 +4,11 @@ pragma solidity ^0.6.10;
 import "openzeppelin-solidity/contracts/access/Ownable.sol";
 import "../lib/AddressStorage.sol";
 
+/**
+ * @title AddressRepository
+ * @notice Stores addresses of deployed contracts
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
+ */
 contract AddressRepository is Ownable, AddressStorage {
   bytes32 private constant POOL_SERVICE = "POOL_SERVICE";
 

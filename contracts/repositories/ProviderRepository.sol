@@ -3,6 +3,11 @@ pragma solidity ^0.6.10;
 import "openzeppelin-solidity/contracts/access/Ownable.sol";
 import "../core/ILendingProvider.sol";
 
+/**
+ * @title ProviderRepository
+ * @notice Stores providers data
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
+ */
 contract ProviderRepository is Ownable {
   mapping(address => address) providersMap;
   address[] providersList;

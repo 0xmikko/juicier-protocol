@@ -1,9 +1,14 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.6.10;
 
-import "../core/Core.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "../core/Core.sol";
 
+/**
+ * @title UserBalanceRepository
+ * @notice Stores user balances
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
+ */
 contract UserBalanceRepository {
   using SafeMath for uint256;
   mapping(address => Core.UserAssets) private userAssets;

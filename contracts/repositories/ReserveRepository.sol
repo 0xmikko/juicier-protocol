@@ -3,6 +3,11 @@ pragma solidity ^0.6.10;
 
 import "../token/VToken.sol";
 
+/**
+ * @title ReserveRepository
+ * @notice Stores reserves data
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
+ */
 contract ReserveRepository {
   struct Reserve {
     uint256 totalLiquidity;

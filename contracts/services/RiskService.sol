@@ -6,6 +6,12 @@ import "../core/IPriceRepository.sol";
 import "../repositories/ReserveRepository.sol";
 import "../repositories/UserBalanceRepository.sol";
 
+/**
+ * @title Risk service
+ * @notice Computes risks for borrowers
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
+ */
+
 contract RiskService {
     using SafeMath for uint256;
 

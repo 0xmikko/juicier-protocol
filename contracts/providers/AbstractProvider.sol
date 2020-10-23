@@ -4,6 +4,11 @@ pragma solidity ^0.6.10;
 import "../core/ILendingProvider.sol";
 import "openzeppelin-solidity/contracts/access/Ownable.sol";
 
+/**
+ * @title  AbstractProvider
+ * @notice Provides common business logic for providers
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
+ */
 abstract contract AbstractProvider is ILendingProvider, Ownable {
   mapping(address => uint256) totalLiquidity;
   mapping(address => uint256) availableLiquidity;

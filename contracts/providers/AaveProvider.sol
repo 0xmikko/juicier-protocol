@@ -4,10 +4,15 @@ pragma solidity ^0.6.10;
 import "../lib/SafeERC20.sol";
 import "../lib/EthAddressLib.sol";
 import "./aave-protocol/ATokenMock.sol";
-import "./AbstractProvider.sol";
 import "./aave-protocol/IAaveLendingPool.sol";
 import "./aave-protocol/ILendingPoolCore.sol";
+import "./AbstractProvider.sol";
 
+/**
+ * @title AaveProvider
+ * @notice Lending provider implementation for Aave protocol
+ * @author Mikhail Lazarev, github.com/MikaelLazarev
+ */
 contract AaveProvider is AbstractProvider {
   using SafeERC20 for ERC20;
   address private lendingPoolAddress;
